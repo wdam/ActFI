@@ -243,36 +243,36 @@ namespace DAL.DAO
 
         private ESubgrupo mapearSubgrupo(MySqlDataReader fila)
         {
-            ESubgrupo objSub = new ESubgrupo();
-            objSub.codigo = fila.GetString("codigo");
-            objSub.descripcion = fila.GetString("descripcion");
-            objSub.consecutivo = fila.GetInt32("consecutivo");
-            objSub.estado = fila.GetString("estado");
-            objSub.grupo = fila.GetString("grupo");
+            ESubgrupo objSub = new ESubgrupo { 
+                codigo = fila.GetString("codigo"),
+                descripcion = fila.GetString("descripcion"),
+                consecutivo = fila.GetInt32("consecutivo"),
+                estado = fila.GetString("estado"),
+                grupo = fila.GetString("grupo")
+            };            
             return objSub;
         }
 
-
-
         protected EGrupo mapearObjeto(MySqlDataReader fila)
         {
-            EGrupo objG = new EGrupo();
-            objG.sigla = fila.GetString("sigla");
-            objG.consecutivo = fila.GetInt32("consecutivo");
-            objG.ctaActivo = fila.GetString("ctaActivo");
-            objG.ctaCorreccion = fila.GetString("ctaCorreccion");
-            objG.ctaDepreciacion = fila.GetString("ctaDepreciacion");
-            objG.ctaGanancia = fila.GetString("ctaGanancia");
-            objG.ctaGastos = fila.GetString("ctaGastos");
-            objG.ctaMantenimiento = fila.GetString("ctaMantenimiento");
-            objG.ctaPerdida = fila.GetString("ctaPerdida");
-            objG.ctaRevalorizar = fila.GetString("ctaRevalorizar");
-            objG.descripcion = fila.GetString("descripcion");
-            objG.estado = fila.GetString("estado");
-            objG.metodoDep = fila.GetString("metodoDep");
-            objG.valSalvamento = fila.GetInt16("valSalvamento");
-            objG.vidaUtil = fila.GetInt32("vidaUtil");
-
+            EGrupo objG = new EGrupo { 
+                sigla = fila.GetString("sigla"),
+                consecutivo = fila.GetInt32("consecutivo"),
+                ctaActivo = fila.GetString("ctaActivo"),
+                ctaCorreccion = fila.GetString("ctaCorreccion"),
+                ctaDepreciacion = fila.GetString("ctaDepreciacion"),
+                ctaGanancia = fila.GetString("ctaGanancia"),
+                ctaGastos = fila.GetString("ctaGastos"),
+                ctaMantenimiento = fila.GetString("ctaMantenimiento"),
+                ctaPerdida = fila.GetString("ctaPerdida"),
+                ctaRevalorizar = fila.GetString("ctaRevalorizar"),
+                descripcion = fila.GetString("descripcion"),
+                estado = fila.GetString("estado"),
+                metodoDep = fila.GetString("metodoDep"),
+                valSalvamento = fila.GetInt16("valSalvamento"),
+                vidaUtil = fila.GetInt32("vidaUtil"),
+            };
+            
             return objG;
         }
     }

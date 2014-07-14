@@ -68,13 +68,14 @@ namespace DAL.DAO
         }
         
         protected EUsuario mapearObjeto(MySqlDataReader fila) {
-            EUsuario user = new EUsuario();
-            user.nombre = fila.GetString("nombres");
-            user.apellidos = fila.GetString("Apellidos");
-            user.login = fila.GetString("login");
-            user.clave = fila.GetString("passw");
-            user.rol = fila.GetString("rol");
-            user.estado = fila.GetString("estado");
+            EUsuario user = new EUsuario{
+                nombre = fila.GetString("nombres"),
+                apellidos = fila.GetString("Apellidos"),
+                login = fila.GetString("login"),
+                clave = fila.GetString("passw"),
+                rol = fila.GetString("rol"),
+                estado = fila.GetString("estado")
+            };           
             return user;
         }
     }

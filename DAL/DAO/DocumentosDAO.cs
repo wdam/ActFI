@@ -229,35 +229,39 @@ namespace DAL.DAO
 
         protected EDocumentos mapearObjeto(MySqlDataReader fila)
         {
-            EDocumentos doc = new EDocumentos();
-            doc.baseD = fila.GetDouble("base");
-            doc.centro = (fila.GetString("centro") != "0") ? fila.GetString("centro") : "";
-            doc.cheque = fila.GetString("cheque");
-            doc.codigo = fila.GetString("codigo");
-            doc.credito = fila.GetDouble("credito");
-            doc.debito = fila.GetDouble("debito");
-            doc.descripcion = fila.GetString("descri");
-            doc.dia = fila.GetString("dia");
-            doc.diasv = fila.GetInt16("diasv");
-            doc.documento = fila.GetInt32("doc");
-            doc.fecha = fila.GetString("fechaven");
-            doc.item = fila.GetInt16("item");
-            doc.modulo = fila.GetString("modulo");
-            doc.nit = fila.GetString("nit");
-            doc.periodo = fila.GetString("periodo");
-            doc.tipo = fila.GetString("tipodoc");
+            EDocumentos doc = new EDocumentos { 
+                baseD = fila.GetDouble("base"),
+                centro = (fila.GetString("centro") != "0") ? fila.GetString("centro") : "",
+                cheque = fila.GetString("cheque"),
+                codigo = fila.GetString("codigo"),
+                credito = fila.GetDouble("credito"),
+                debito = fila.GetDouble("debito"),
+                descripcion = fila.GetString("descri"),
+                dia = fila.GetString("dia"),
+                diasv = fila.GetInt16("diasv"),
+                documento = fila.GetInt32("doc"),
+                fecha = fila.GetString("fechaven"),
+                item = fila.GetInt16("item"),
+                modulo = fila.GetString("modulo"),
+                nit = fila.GetString("nit"),
+                periodo = fila.GetString("periodo"),
+                tipo = fila.GetString("tipodoc")
+            };
+            
             return doc;
         }
 
         protected EDocumentos mapearObj(MySqlDataReader fila)
         {
-            EDocumentos doc = new EDocumentos();
-            doc.debito = fila.GetDouble("debito");
-            doc.fecha = fila.GetString("fecha");
-            doc.documento = fila.GetInt32("doc");
-            doc.nit = fila.GetString("nit");
-            doc.modulo = fila.GetString("nombre");
-            doc.tipo = fila.GetString("tipodoc");
+            EDocumentos doc = new EDocumentos { 
+                debito = fila.GetDouble("debito"),
+                fecha = fila.GetString("fecha"),
+                documento = fila.GetInt32("doc"),
+                nit = fila.GetString("nit"),
+                modulo = fila.GetString("nombre"),
+                tipo = fila.GetString("tipodoc")            
+            };
+            
             return doc;
         }
 

@@ -70,12 +70,14 @@ namespace DAL.DAO
         }
 
         protected ECuentas mapearObjeto(MySqlDataReader fila) {
-            ECuentas cuenta = new ECuentas();
-            cuenta.codigo = fila.GetString("codigo");
-            cuenta.descripcion = fila.GetString("descripcion");
-            cuenta.naturaleza= fila.GetString("naturaleza");
-            cuenta.nivel = fila.GetString("nivel");
-            cuenta.tipo = fila.GetString("tipo");
+            ECuentas cuenta = new ECuentas { 
+                codigo = fila.GetString("codigo"),
+                descripcion = fila.GetString("descripcion"),
+                naturaleza= fila.GetString("naturaleza"),
+                nivel = fila.GetString("nivel"),
+                tipo = fila.GetString("tipo")                 
+            };
+            
             return cuenta;
         }
 

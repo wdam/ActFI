@@ -67,11 +67,13 @@ namespace DAL.DAO
         }
 
         protected ECentroCosto mapearObjeto(MySqlDataReader fila) {
-            ECentroCosto centro = new ECentroCosto();
-            centro.Codigo = fila.GetString("centro");
-            centro.Nombre = fila.GetString("nombre");
-            centro.Presupuesto = fila.GetDouble("pres");
-            centro.Nivel = fila.GetString("nivel");
+            ECentroCosto centro = new ECentroCosto { 
+                Codigo = fila.GetString("centro"),
+                Nombre = fila.GetString("nombre"),
+                Presupuesto = fila.GetDouble("pres"),
+                Nivel = fila.GetString("nivel"),       
+            };
+            
             return centro;
         }
     }

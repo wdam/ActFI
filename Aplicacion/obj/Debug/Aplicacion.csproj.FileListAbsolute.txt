@@ -61,6 +61,7 @@ D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Inventario.FrmSelCuentas.resour
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Inventario.FrmSelDocumentos.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Inventario.FrmSelTercero.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Inventario.FrmSelTipoDocumento.resources
+D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Procesos.FrmTransaccion.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Procesos.FrmTraslados.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Principal.FrmGrupos.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Principal.FrmSubgrupo.resources
@@ -76,4 +77,3 @@ D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Properties.Resources.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.csproj.GenerateResource.Cache
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.exe
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.pdb
-D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Procesos.FrmTransaccion.resources

@@ -69,16 +69,18 @@ namespace DAL.DAO
         }
 
         public EParametros mapearObjeto(MySqlDataReader fila) {
-            EParametros objPar = new EParametros();
-            objPar.Codigo = fila.GetString("codigo");
-            objPar.ctaCaja = fila.GetString("ctaCaja");
-            objPar.ctaIVA = fila.GetString("ctaIVA");
-            objPar.ctaBanco = fila.GetString("ctaBanco");
-            objPar.ctaProveedor = fila.GetString("ctaProveedor");
-            objPar.ctaDepMonetaria = fila.GetString("ctadepreMon");
-            objPar.compras = fila.GetString("compras");
-            objPar.ventas = fila.GetString("ventas");
-            objPar.depreciacion = fila.GetString("depreciacion");
+            EParametros objPar = new EParametros { 
+                Codigo = fila.GetString("codigo"),
+                ctaCaja = fila.GetString("ctaCaja"),
+                ctaIVA = fila.GetString("ctaIVA"),
+                ctaBanco = fila.GetString("ctaBanco"),
+                ctaProveedor = fila.GetString("ctaProveedor"),
+                ctaDepMonetaria = fila.GetString("ctadepreMon"),
+                compras = fila.GetString("compras"),
+                ventas = fila.GetString("ventas"),
+                depreciacion = fila.GetString("depreciacion")
+            };
+
             return objPar;
         }
     }

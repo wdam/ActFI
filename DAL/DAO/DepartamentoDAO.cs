@@ -26,10 +26,11 @@ namespace DAL.DAO
                     {
                         MySql.Data.MySqlClient.MySqlDataReader dr = cmd.ExecuteReader();
                         while (dr.Read())
-                        {                            
-                            objDepart = new EDepartamentos();
-                            objDepart.codigo = dr.GetString("codigo");
-                            objDepart.descripcion = dr.GetString("descripcion");                            
+                        {
+                            objDepart = new EDepartamentos { 
+                                codigo = dr.GetString("codigo"),
+                                descripcion = dr.GetString("descripcion")
+                            };                                            
                             lista.Add(objDepart);
                         }
                         cnx.cerrarConexion();
@@ -58,9 +59,10 @@ namespace DAL.DAO
                         MySql.Data.MySqlClient.MySqlDataReader dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
-                            objMun = new EDepartamentos();
-                            objMun.codigo = dr.GetString("codmun");
-                            objMun.descripcion = dr.GetString("descripcion");
+                            objMun = new EDepartamentos { 
+                                 codigo = dr.GetString("codmun"),
+                                 descripcion = dr.GetString("descripcion")
+                            };                           
                             lista.Add(objMun);
                         }
                         cnx.cerrarConexion();

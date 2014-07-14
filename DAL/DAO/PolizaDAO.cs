@@ -72,17 +72,18 @@ namespace DAL.DAO
 
         protected EPolizas mapearObjeto(MySqlDataReader fila)
         {
-            EPolizas poliza = new EPolizas();
-            poliza.idPoliza = fila.GetInt32("idPoliza");
-            poliza.codActivo = fila.GetString("codActivo");
-            poliza.nPoliza = fila.GetString("nPoliza");
-            poliza.empresa = fila.GetString("empresa");
-            poliza.fechaInicio = fila.GetString("fechaInicio");
-            poliza.fechaVence = fila.GetString("fechaVence");
-            poliza.responsable = fila.GetString("responsable");
-            poliza.telefono = fila.GetString("telefono");
-            poliza.deducible = fila.GetDouble("deducible");
-            poliza.valor = fila.GetDouble("valor");
+            EPolizas poliza = new EPolizas { 
+                idPoliza = fila.GetInt32("idPoliza"),
+                codActivo = fila.GetString("codActivo"),
+                nPoliza = fila.GetString("nPoliza"),
+                empresa = fila.GetString("empresa"),
+                fechaInicio = fila.GetString("fechaInicio"),
+                fechaVence = fila.GetString("fechaVence"),
+                responsable = fila.GetString("responsable"),
+                telefono = fila.GetString("telefono"),
+                deducible = fila.GetDouble("deducible"),
+                valor = fila.GetDouble("valor")
+            };           
             return poliza;
         }
     }

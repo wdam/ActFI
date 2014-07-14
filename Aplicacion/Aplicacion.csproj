@@ -503,9 +503,6 @@
     <None Include="Resources\control.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fondo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\FondoPrincipal.jpg" />
   </ItemGroup>
   <ItemGroup>

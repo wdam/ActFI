@@ -112,10 +112,12 @@ namespace DAL.DAO
 
         protected EArea mapearObjeto(MySqlDataReader fila)
         {
-            EArea area = new EArea();
-            area.codigo = fila.GetString("codigo");
-            area.nombre = fila.GetString("nombre");
-            area.responsable = fila.GetString("responsable");
+            EArea area = new EArea { 
+                codigo = fila.GetString("codigo"),
+                nombre = fila.GetString("nombre"),
+                responsable = fila.GetString("responsable")
+            };
+         
             return area;
         }
         

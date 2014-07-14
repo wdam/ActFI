@@ -107,15 +107,17 @@ namespace DAL.DAO
         }
 
         public ECompany mapearObjeto(MySqlDataReader fila) {
-            ECompany obj = new ECompany();
-            obj.codigo = fila.GetInt16("codigo");
-            obj.departamento = fila.GetString("dpto");
-            obj.descripcion = fila.GetString("descripcion");
-            obj.direccion = fila.GetString("direccion");
-            obj.login = fila.GetString("login");
-            obj.municipio = fila.GetString("mun");
-            obj.nit = fila.GetString("nit");
-            obj.tipo = fila.GetString("tipo");
+            ECompany obj = new ECompany { 
+                codigo = fila.GetInt16("codigo"),
+                departamento = fila.GetString("dpto"),
+                descripcion = fila.GetString("descripcion"),
+                direccion = fila.GetString("direccion"),
+                login = fila.GetString("login"),
+                municipio = fila.GetString("mun"),
+                nit = fila.GetString("nit"),
+                tipo = fila.GetString("tipo")
+            };
+            
             return obj;
         }
 

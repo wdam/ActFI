@@ -56,5 +56,13 @@ namespace Aplicacion.Procesos
             frmT.ShowDialog();
             this.Show();
         }
+
+        private void lblMantenimiento_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var frmT = new FrmTransaccion();
+            frmT.ShowDialog();
+            Show();
+        }
     }
 }
