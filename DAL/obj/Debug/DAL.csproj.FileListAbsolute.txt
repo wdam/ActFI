@@ -1,0 +1,14 @@
+C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\DAL\bin\Debug\DAL.dll
+C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\DAL\bin\Debug\DAL.pdb
+C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\DAL\bin\Debug\Entidades.dll
+C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\DAL\bin\Debug\Entidades.pdb
+C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\DAL\obj\Debug\DAL.dll
+C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\DAL\obj\Debug\DAL.pdb
+D:\Wendell\ActFI\DAL\bin\Debug\DAL.dll
+D:\Wendell\ActFI\DAL\bin\Debug\DAL.pdb
+D:\Wendell\ActFI\DAL\bin\Debug\Entidades.dll
+D:\Wendell\ActFI\DAL\bin\Debug\Entidades.pdb
+D:\Wendell\ActFI\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Wendell\ActFI\DAL\obj\Debug\DAL.dll
+D:\Wendell\ActFI\DAL\obj\Debug\DAL.pdb
