@@ -48,6 +48,53 @@ namespace Aplicacion.Inventario
         }
         #endregion  
 
+        #region Proceso para mover formulario
+
+        private bool mover;
+        private int pX;
+        private int pY;
+
+        private void lblTituloPrinc_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                mover = true;
+                pX = e.X;
+                pY = e.Y;
+                this.Cursor = Cursors.NoMove2D;
+            }
+        }
+
+        private void lblTituloPrinc_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mover)
+            {
+                this.Location = new Point((this.Left + e.X - pX), (this.Top + e.Y - pY));
+            }
+        }
+
+        private void lblTituloPrinc_MouseUp(object sender, MouseEventArgs e)
+        {
+            mover = false;
+            this.Cursor = Cursors.Default;
+        }
+
+        #endregion
+
+        #region Cambiar Colores de Fondo de los label
+        private void ColocarColorFondo(object sender, MouseEventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(26,35,40);
+        }
+
+        private void QuitarColorFondo(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(10, 130, 80);
+        }
+        #endregion  
+
         private void lblNuevo_Click(object sender, EventArgs e)
         {
             smsError.Dispose();

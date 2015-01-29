@@ -178,6 +178,12 @@
     <Compile Include="Inventario\FrmTraslados.Designer.cs">
       <DependentUpon>FrmTraslados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procesos\FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModeloBD.cs">
       <DependentUpon>ModeloBD.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmTraslados.resx">
       <DependentUpon>FrmTraslados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

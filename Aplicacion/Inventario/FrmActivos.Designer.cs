@@ -143,7 +143,7 @@
             // 
             this.lblTituloPrinc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.lblTituloPrinc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTituloPrinc.Font = new System.Drawing.Font("Open Sans", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloPrinc.Font = new System.Drawing.Font("Open Sans", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
             this.lblTituloPrinc.Location = new System.Drawing.Point(2, 2);
             this.lblTituloPrinc.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
@@ -152,6 +152,9 @@
             this.lblTituloPrinc.TabIndex = 163;
             this.lblTituloPrinc.Text = " SAE  >> Activos Fijos";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
+            this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);
+            this.lblTituloPrinc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseUp);
             // 
             // lblMargenIzq
             // 
@@ -410,7 +413,7 @@
             this.btnTab2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
             this.btnTab2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.btnTab2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTab2.Font = new System.Drawing.Font("Open Sans Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTab2.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTab2.Location = new System.Drawing.Point(197, 58);
             this.btnTab2.Name = "btnTab2";
             this.btnTab2.Size = new System.Drawing.Size(170, 36);
@@ -426,7 +429,7 @@
             this.btnTab1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
             this.btnTab1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.btnTab1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTab1.Font = new System.Drawing.Font("Open Sans Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTab1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTab1.Location = new System.Drawing.Point(34, 58);
             this.btnTab1.Name = "btnTab1";
             this.btnTab1.Size = new System.Drawing.Size(160, 36);

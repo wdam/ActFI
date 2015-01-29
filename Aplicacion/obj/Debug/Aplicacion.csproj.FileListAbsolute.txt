@@ -66,3 +66,4 @@ D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Principal.MDIPrincipal.resource
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Procesos.FrmProcesos.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Properties.Resources.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.csproj.GenerateResource.Cache
+D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Procesos.FrmVentas.resources

@@ -178,6 +178,9 @@
             this.lblTituloPrinc.TabIndex = 215;
             this.lblTituloPrinc.Text = " SAE >> Seleccionar  Cuenta Contable";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
+            this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);
+            this.lblTituloPrinc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseUp);
             // 
             // lblMargenInf
             // 

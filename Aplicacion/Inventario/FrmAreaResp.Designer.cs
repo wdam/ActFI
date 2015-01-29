@@ -69,7 +69,7 @@
             // 
             // FlowLayoutPanel1
             // 
-            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(130)))), ((int)(((byte)(60)))));
+            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(130)))), ((int)(((byte)(80)))));
             this.FlowLayoutPanel1.Controls.Add(this.lblNuevo);
             this.FlowLayoutPanel1.Controls.Add(this.lblGuardar);
             this.FlowLayoutPanel1.Controls.Add(this.lblCancelar);
@@ -99,6 +99,8 @@
             this.lblNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblNuevo, "Nuevo Registro");
             this.lblNuevo.Click += new System.EventHandler(this.lblNuevo_Click);
+            this.lblNuevo.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblNuevo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblGuardar
             // 
@@ -117,6 +119,8 @@
             this.lblGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblGuardar, "Guardar Registro");
             this.lblGuardar.Click += new System.EventHandler(this.lblGuardar_Click);
+            this.lblGuardar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblCancelar
             // 
@@ -135,6 +139,8 @@
             this.lblCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblCancelar, "Cancelar Operacion");
             this.lblCancelar.Click += new System.EventHandler(this.lblCancelar_Click);
+            this.lblCancelar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblCancelar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblEditar
             // 
@@ -152,6 +158,8 @@
             this.lblEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblEditar, "Modificar Registro");
             this.lblEditar.Click += new System.EventHandler(this.lblEditar_Click);
+            this.lblEditar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblEditar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblBuscar
             // 
@@ -168,6 +176,8 @@
             this.lblBuscar.Text = "&Buscar";
             this.lblBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblBuscar, "Buscar Registro");
+            this.lblBuscar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblBuscar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblSalir
             // 
@@ -185,6 +195,8 @@
             this.lblSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblSalir, "Salir");
             this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
+            this.lblSalir.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblEstado
             // 
@@ -221,7 +233,7 @@
             this.lblTituloPrinc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.lblTituloPrinc.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTituloPrinc.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(80)))));
+            this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(80)))));
             this.lblTituloPrinc.Location = new System.Drawing.Point(2, 2);
             this.lblTituloPrinc.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.lblTituloPrinc.Name = "lblTituloPrinc";
@@ -229,6 +241,9 @@
             this.lblTituloPrinc.TabIndex = 183;
             this.lblTituloPrinc.Text = " SAE  >> Area Responsable";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
+            this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);
+            this.lblTituloPrinc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseUp);
             // 
             // lblMargenIzq
             // 

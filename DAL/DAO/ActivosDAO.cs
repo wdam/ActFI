@@ -123,7 +123,7 @@ namespace DAL.DAO
 
         public int trasladar(string codigo, string area, string responsable) { 
             int reg = 0;
-            string sql = "UPDATE afactivos SET area=?area, responsable=?responsable WHERE codigo=?codigo";
+            string sql = "UPDATE afactivos SET AreaLoc=?area, responsable=?responsable WHERE codigo=?codigo";
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
                 using (MySqlCommand cmd = new MySqlCommand()) {

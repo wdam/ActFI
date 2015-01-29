@@ -10,22 +10,26 @@ using System.Windows.Forms;
 
 namespace Aplicacion.Procesos
 {
-    public partial class FrmProcesos : Form
+    public partial class FrmVentas : Form
     {
-        public FrmProcesos()
+        public FrmVentas()
         {
             InitializeComponent();
         }
 
-        private void lblCerrar_Click(object sender, EventArgs e)
+        private void FrmVentas_Load(object sender, EventArgs e)
         {
-            this.Dispose(true);
+
         }
 
-        private void lblParametros_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-            FrmVentas frm = new FrmVentas();
-            frm.ShowDialog();
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hola");
         }
     }
 }

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Label2 = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblRegistro = new System.Windows.Forms.Label();
             this.cboBuscar = new System.Windows.Forms.ComboBox();
             this.Label5 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lblMargenTop = new System.Windows.Forms.Label();
             this.lblMargenInf = new System.Windows.Forms.Label();
-            this.lblRegistro = new System.Windows.Forms.Label();
             this.GroupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCentro)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +88,17 @@
             this.GroupBox3.Size = new System.Drawing.Size(640, 75);
             this.GroupBox3.TabIndex = 201;
             this.GroupBox3.TabStop = false;
+            // 
+            // lblRegistro
+            // 
+            this.lblRegistro.AutoSize = true;
+            this.lblRegistro.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistro.ForeColor = System.Drawing.Color.Crimson;
+            this.lblRegistro.Location = new System.Drawing.Point(170, 49);
+            this.lblRegistro.Name = "lblRegistro";
+            this.lblRegistro.Size = new System.Drawing.Size(266, 22);
+            this.lblRegistro.TabIndex = 223;
+            this.lblRegistro.Text = "Cerca de 0  registros Encontrados";
             // 
             // cboBuscar
             // 
@@ -131,21 +142,21 @@
             this.dgvCentro.AllowUserToDeleteRows = false;
             this.dgvCentro.AllowUserToResizeColumns = false;
             this.dgvCentro.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.dgvCentro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.dgvCentro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCentro.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCentro.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvCentro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCentro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCentro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(120)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCentro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(120)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCentro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCentro.ColumnHeadersHeight = 30;
             this.dgvCentro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCentro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -160,11 +171,11 @@
             this.dgvCentro.Name = "dgvCentro";
             this.dgvCentro.ReadOnly = true;
             this.dgvCentro.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvCentro.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvCentro.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCentro.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCentro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCentro.Size = new System.Drawing.Size(640, 397);
@@ -186,8 +197,8 @@
             // dtCodigo
             // 
             this.dtCodigo.DataPropertyName = "Codigo";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dtCodigo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dtCodigo.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtCodigo.HeaderText = "Codigo";
             this.dtCodigo.MinimumWidth = 123;
             this.dtCodigo.Name = "dtCodigo";
@@ -223,6 +234,9 @@
             this.lblTituloPrinc.TabIndex = 207;
             this.lblTituloPrinc.Text = " SAE >> Seleccionar  Centro de Costos";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
+            this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);
+            this.lblTituloPrinc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseUp);
             // 
             // lblMargenIzq
             // 
@@ -278,17 +292,6 @@
             this.lblMargenInf.Name = "lblMargenInf";
             this.lblMargenInf.Size = new System.Drawing.Size(661, 2);
             this.lblMargenInf.TabIndex = 208;
-            // 
-            // lblRegistro
-            // 
-            this.lblRegistro.AutoSize = true;
-            this.lblRegistro.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.ForeColor = System.Drawing.Color.Crimson;
-            this.lblRegistro.Location = new System.Drawing.Point(170, 49);
-            this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(266, 22);
-            this.lblRegistro.TabIndex = 223;
-            this.lblRegistro.Text = "Cerca de 0  registros Encontrados";
             // 
             // FrmSelCentroCostos
             // 

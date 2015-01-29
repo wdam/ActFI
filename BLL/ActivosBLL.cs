@@ -104,5 +104,10 @@ namespace BLL
             return ADao.buscar(codigo);
         }
 
+        public int trasladar(string codigo, string area, string responsable) {
+            ActivosDAO ADao = new ActivosDAO();
+            return ADao.trasladar(codigo,area, responsable);
+        }
+
     }
 }

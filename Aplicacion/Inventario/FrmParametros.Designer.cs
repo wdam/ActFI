@@ -81,7 +81,7 @@
             // 
             this.lblTituloPrinc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.lblTituloPrinc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTituloPrinc.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloPrinc.Font = new System.Drawing.Font("Open Sans", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.lblTituloPrinc.Location = new System.Drawing.Point(2, 2);
             this.lblTituloPrinc.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
@@ -137,15 +137,17 @@
             this.lblSalir.ForeColor = System.Drawing.Color.White;
             this.lblSalir.Image = global::Aplicacion.Properties.Resources.exit1;
             this.lblSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSalir.Location = new System.Drawing.Point(368, 0);
+            this.lblSalir.Location = new System.Drawing.Point(368, 1);
             this.lblSalir.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
             this.lblSalir.Name = "lblSalir";
-            this.lblSalir.Size = new System.Drawing.Size(58, 64);
+            this.lblSalir.Size = new System.Drawing.Size(58, 66);
             this.lblSalir.TabIndex = 5;
             this.lblSalir.Text = "&Salir";
             this.lblSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblSalir, "Salir ");
             this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
+            this.lblSalir.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblGuardar
             // 
@@ -157,15 +159,17 @@
             this.lblGuardar.ForeColor = System.Drawing.Color.White;
             this.lblGuardar.Image = global::Aplicacion.Properties.Resources.guardar;
             this.lblGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblGuardar.Location = new System.Drawing.Point(292, 2);
+            this.lblGuardar.Location = new System.Drawing.Point(292, 1);
             this.lblGuardar.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
             this.lblGuardar.Name = "lblGuardar";
-            this.lblGuardar.Size = new System.Drawing.Size(58, 64);
+            this.lblGuardar.Size = new System.Drawing.Size(58, 66);
             this.lblGuardar.TabIndex = 1;
             this.lblGuardar.Text = "&Guardar";
             this.lblGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblGuardar, "Guardar Registro");
             this.lblGuardar.Click += new System.EventHandler(this.lblGuardar_Click);
+            this.lblGuardar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // txtctaActivo
             // 
@@ -310,9 +314,9 @@
             this.Panel1.Controls.Add(this.lblSalir);
             this.Panel1.Controls.Add(this.lblGuardar);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Panel1.Location = new System.Drawing.Point(2, 381);
+            this.Panel1.Location = new System.Drawing.Point(2, 382);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(719, 69);
+            this.Panel1.Size = new System.Drawing.Size(719, 68);
             this.Panel1.TabIndex = 204;
             // 
             // FrmParametros

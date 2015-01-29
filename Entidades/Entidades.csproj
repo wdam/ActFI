@@ -50,6 +50,7 @@
     <Compile Include="EPeriodo.cs" />
     <Compile Include="ETerceros.cs" />
     <Compile Include="ETipoDocumento.cs" />
+    <Compile Include="ETraslados.cs" />
     <Compile Include="EUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

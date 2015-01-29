@@ -22,6 +22,20 @@ namespace Aplicacion.Inventario
             InitializeComponent();
         }
 
+        #region Cambiar Colores de Fondo de los label
+        private void ColocarColorFondo(object sender, MouseEventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(26, 35, 40);
+        }
+
+        private void QuitarColorFondo(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(0, 140, 140);
+        }
+        #endregion  
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose(true);

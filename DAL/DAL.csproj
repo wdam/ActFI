@@ -55,6 +55,7 @@
     <Compile Include="DAO\ParametrosDAO.cs" />
     <Compile Include="DAO\TerceroDAO.cs" />
     <Compile Include="DAO\TipoDocumentoDAO.cs" />
+    <Compile Include="DAO\TrasladosDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

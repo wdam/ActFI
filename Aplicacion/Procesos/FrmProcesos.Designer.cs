@@ -110,6 +110,7 @@
             this.lblParametros.TabIndex = 132;
             this.lblParametros.Text = "Venta de Activos";
             this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblParametros.Click += new System.EventHandler(this.lblParametros_Click);
             // 
             // Label2
             // 

@@ -47,6 +47,7 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtArea = new System.Windows.Forms.TextBox();
             this.txtResponsable = new System.Windows.Forms.TextBox();
@@ -59,11 +60,15 @@
             this.lblMargenTop = new System.Windows.Forms.Label();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenInf = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblResponsable = new System.Windows.Forms.Label();
+            this.lblArea = new System.Windows.Forms.Label();
+            this.gbObser = new System.Windows.Forms.GroupBox();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.gbTraslado.SuspendLayout();
             this.gbDatos.SuspendLayout();
+            this.gbObser.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
@@ -102,10 +107,13 @@
             this.lblNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblNuevo, "Nuevo Registro");
             this.lblNuevo.Click += new System.EventHandler(this.lblNuevo_Click);
+            this.lblNuevo.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblNuevo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblGuardar
             // 
             this.lblGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblGuardar.Enabled = false;
             this.lblGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGuardar.ForeColor = System.Drawing.Color.White;
             this.lblGuardar.Image = global::Aplicacion.Properties.Resources.guardar;
@@ -119,10 +127,13 @@
             this.lblGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblGuardar, "Guardar Registro");
             this.lblGuardar.Click += new System.EventHandler(this.lblGuardar_Click);
+            this.lblGuardar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblCancelar
             // 
             this.lblCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCancelar.Enabled = false;
             this.lblCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCancelar.ForeColor = System.Drawing.Color.White;
             this.lblCancelar.Image = global::Aplicacion.Properties.Resources.Cancel;
@@ -136,6 +147,8 @@
             this.lblCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblCancelar, "Cancelar Operacion");
             this.lblCancelar.Click += new System.EventHandler(this.lblCancelar_Click);
+            this.lblCancelar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblCancelar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblSalir
             // 
@@ -153,6 +166,8 @@
             this.lblSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblSalir, "Salir ");
             this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
+            this.lblSalir.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // txtCodigo
             // 
@@ -172,14 +187,14 @@
             // 
             // FlowLayoutPanel1
             // 
-            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(150)))), ((int)(((byte)(30)))));
+            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
             this.FlowLayoutPanel1.Controls.Add(this.lblNuevo);
             this.FlowLayoutPanel1.Controls.Add(this.lblGuardar);
             this.FlowLayoutPanel1.Controls.Add(this.lblCancelar);
             this.FlowLayoutPanel1.Controls.Add(this.lblSalir);
             this.FlowLayoutPanel1.Controls.Add(this.lblOperacion);
             this.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 397);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 470);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(510, 66);
             this.FlowLayoutPanel1.TabIndex = 200;
@@ -193,6 +208,7 @@
             this.lblOperacion.Size = new System.Drawing.Size(70, 20);
             this.lblOperacion.TabIndex = 9;
             this.lblOperacion.Text = "Consulta";
+            this.lblOperacion.Visible = false;
             // 
             // gbTraslado
             // 
@@ -204,7 +220,7 @@
             this.gbTraslado.Enabled = false;
             this.gbTraslado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTraslado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.gbTraslado.Location = new System.Drawing.Point(13, 271);
+            this.gbTraslado.Location = new System.Drawing.Point(13, 255);
             this.gbTraslado.Name = "gbTraslado";
             this.gbTraslado.Size = new System.Drawing.Size(488, 116);
             this.gbTraslado.TabIndex = 198;
@@ -261,7 +277,9 @@
             // 
             // gbDatos
             // 
-            this.gbDatos.Controls.Add(this.dateTimePicker1);
+            this.gbDatos.Controls.Add(this.lblArea);
+            this.gbDatos.Controls.Add(this.lblResponsable);
+            this.gbDatos.Controls.Add(this.dtFecha);
             this.gbDatos.Controls.Add(this.txtDescripcion);
             this.gbDatos.Controls.Add(this.txtArea);
             this.gbDatos.Controls.Add(this.txtResponsable);
@@ -275,26 +293,34 @@
             this.gbDatos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
             this.gbDatos.Location = new System.Drawing.Point(13, 47);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(488, 220);
+            this.gbDatos.Size = new System.Drawing.Size(488, 208);
             this.gbDatos.TabIndex = 199;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Actuales";
+            // 
+            // dtFecha
+            // 
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFecha.Location = new System.Drawing.Point(293, 35);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(161, 29);
+            this.dtFecha.TabIndex = 13;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.txtDescripcion.Enabled = false;
-            this.txtDescripcion.Location = new System.Drawing.Point(125, 71);
+            this.txtDescripcion.Location = new System.Drawing.Point(125, 69);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(329, 65);
+            this.txtDescripcion.Size = new System.Drawing.Size(329, 66);
             this.txtDescripcion.TabIndex = 12;
             // 
             // txtArea
             // 
             this.txtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.txtArea.Enabled = false;
-            this.txtArea.Location = new System.Drawing.Point(125, 143);
+            this.txtArea.Location = new System.Drawing.Point(125, 140);
             this.txtArea.Name = "txtArea";
             this.txtArea.ReadOnly = true;
             this.txtArea.Size = new System.Drawing.Size(329, 29);
@@ -304,7 +330,7 @@
             // 
             this.txtResponsable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.txtResponsable.Enabled = false;
-            this.txtResponsable.Location = new System.Drawing.Point(125, 178);
+            this.txtResponsable.Location = new System.Drawing.Point(125, 175);
             this.txtResponsable.Name = "txtResponsable";
             this.txtResponsable.ReadOnly = true;
             this.txtResponsable.Size = new System.Drawing.Size(329, 29);
@@ -315,7 +341,7 @@
             this.Label10.AutoSize = true;
             this.Label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label10.ForeColor = System.Drawing.Color.Black;
-            this.Label10.Location = new System.Drawing.Point(12, 93);
+            this.Label10.Location = new System.Drawing.Point(12, 91);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(91, 21);
             this.Label10.TabIndex = 0;
@@ -326,7 +352,7 @@
             this.Label5.AutoSize = true;
             this.Label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.ForeColor = System.Drawing.Color.Black;
-            this.Label5.Location = new System.Drawing.Point(12, 181);
+            this.Label5.Location = new System.Drawing.Point(12, 178);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(98, 21);
             this.Label5.TabIndex = 0;
@@ -337,7 +363,7 @@
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.Black;
-            this.Label4.Location = new System.Drawing.Point(12, 147);
+            this.Label4.Location = new System.Drawing.Point(12, 144);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(42, 21);
             this.Label4.TabIndex = 0;
@@ -360,7 +386,7 @@
             this.lblMargenIzq.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMargenIzq.Location = new System.Drawing.Point(512, 0);
             this.lblMargenIzq.Name = "lblMargenIzq";
-            this.lblMargenIzq.Size = new System.Drawing.Size(2, 465);
+            this.lblMargenIzq.Size = new System.Drawing.Size(2, 538);
             this.lblMargenIzq.TabIndex = 204;
             // 
             // lblMargenDer
@@ -369,7 +395,7 @@
             this.lblMargenDer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblMargenDer.Location = new System.Drawing.Point(0, 0);
             this.lblMargenDer.Name = "lblMargenDer";
-            this.lblMargenDer.Size = new System.Drawing.Size(2, 465);
+            this.lblMargenDer.Size = new System.Drawing.Size(2, 538);
             this.lblMargenDer.TabIndex = 203;
             // 
             // lblMargenTop
@@ -385,8 +411,8 @@
             // 
             this.lblTituloPrinc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.lblTituloPrinc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTituloPrinc.Font = new System.Drawing.Font("Open Sans", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(150)))), ((int)(((byte)(30)))));
+            this.lblTituloPrinc.Font = new System.Drawing.Font("Open Sans", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
             this.lblTituloPrinc.Location = new System.Drawing.Point(2, 2);
             this.lblTituloPrinc.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.lblTituloPrinc.Name = "lblTituloPrinc";
@@ -394,23 +420,59 @@
             this.lblTituloPrinc.TabIndex = 205;
             this.lblTituloPrinc.Text = " SAE >> Traslados";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
+            this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);
+            this.lblTituloPrinc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseUp);
             // 
             // lblMargenInf
             // 
             this.lblMargenInf.BackColor = System.Drawing.Color.Black;
             this.lblMargenInf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMargenInf.Location = new System.Drawing.Point(2, 463);
+            this.lblMargenInf.Location = new System.Drawing.Point(2, 536);
             this.lblMargenInf.Name = "lblMargenInf";
             this.lblMargenInf.Size = new System.Drawing.Size(510, 2);
             this.lblMargenInf.TabIndex = 206;
             // 
-            // dateTimePicker1
+            // lblResponsable
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(293, 35);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(161, 29);
-            this.dateTimePicker1.TabIndex = 13;
+            this.lblResponsable.AutoSize = true;
+            this.lblResponsable.Location = new System.Drawing.Point(12, 67);
+            this.lblResponsable.Name = "lblResponsable";
+            this.lblResponsable.Size = new System.Drawing.Size(94, 21);
+            this.lblResponsable.TabIndex = 14;
+            this.lblResponsable.Text = "responsable";
+            this.lblResponsable.Visible = false;
+            // 
+            // lblArea
+            // 
+            this.lblArea.AutoSize = true;
+            this.lblArea.Location = new System.Drawing.Point(16, 116);
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size(40, 21);
+            this.lblArea.TabIndex = 15;
+            this.lblArea.Text = "area";
+            this.lblArea.Visible = false;
+            // 
+            // gbObser
+            // 
+            this.gbObser.Controls.Add(this.txtObservacion);
+            this.gbObser.Enabled = false;
+            this.gbObser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbObser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.gbObser.Location = new System.Drawing.Point(13, 372);
+            this.gbObser.Name = "gbObser";
+            this.gbObser.Size = new System.Drawing.Size(488, 93);
+            this.gbObser.TabIndex = 207;
+            this.gbObser.TabStop = false;
+            this.gbObser.Text = "Observaciones ";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(16, 29);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(460, 58);
+            this.txtObservacion.TabIndex = 0;
             // 
             // FrmTraslados
             // 
@@ -418,7 +480,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(514, 465);
+            this.ClientSize = new System.Drawing.Size(514, 538);
+            this.Controls.Add(this.gbObser);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblTituloPrinc);
             this.Controls.Add(this.lblMargenTop);
@@ -441,6 +504,8 @@
             this.gbTraslado.PerformLayout();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
+            this.gbObser.ResumeLayout(false);
+            this.gbObser.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -476,6 +541,10 @@
         private System.Windows.Forms.TextBox txtNitResp;
         private System.Windows.Forms.ComboBox cboArea;
         private System.Windows.Forms.Label lblOperacion;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.Label lblResponsable;
+        private System.Windows.Forms.Label lblArea;
+        private System.Windows.Forms.GroupBox gbObser;
+        private System.Windows.Forms.TextBox txtObservacion;
     }
 }
