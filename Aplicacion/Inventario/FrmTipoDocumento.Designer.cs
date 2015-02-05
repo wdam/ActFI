@@ -78,6 +78,9 @@
             this.lblTituloPrinc.TabIndex = 167;
             this.lblTituloPrinc.Text = " SAE  >> Tipo Transacción";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
+            this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);
+            this.lblTituloPrinc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseUp);
             // 
             // lblMargenIzq
             // 
@@ -153,6 +156,8 @@
             this.dgvTipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTipo.Size = new System.Drawing.Size(424, 314);
             this.dgvTipo.TabIndex = 171;
+            this.dgvTipo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipo_CellContentClick);
+            this.dgvTipo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipo_CellDoubleClick);
             // 
             // dtItem
             // 

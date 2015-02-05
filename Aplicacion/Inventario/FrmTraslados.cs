@@ -198,11 +198,19 @@ namespace Aplicacion.Inventario
                 txtNuevoRespon.Text = "";
             }
         }
-      
+
+        #region Implementacion de la interfaz
         public void SeleccionarDato(string dato)
         {
-            texto.Text = dato; 
+            texto.Text = dato;
         }
+
+        public void SeleccionarDato(string dato, string descripcion)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        
 
         private void txtCodigo_DoubleClick(object sender, EventArgs e)
         {
@@ -270,5 +278,8 @@ namespace Aplicacion.Inventario
             }
         }
 
-     }
+
+
+       
+    }
 }

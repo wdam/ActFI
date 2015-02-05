@@ -240,6 +240,8 @@
             this.txtDocumento.Size = new System.Drawing.Size(46, 28);
             this.txtDocumento.TabIndex = 0;
             this.toolTip1.SetToolTip(this.txtDocumento, "Seleccione Tipo de Documento");
+            this.txtDocumento.TextChanged += new System.EventHandler(this.txtDocumento_TextChanged);
+            this.txtDocumento.DoubleClick += new System.EventHandler(this.txtDocumento_DoubleClick);
             // 
             // txtDia
             // 

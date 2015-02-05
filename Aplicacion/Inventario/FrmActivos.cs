@@ -158,6 +158,27 @@ namespace Aplicacion.Inventario
         }
 
         #endregion
+
+        #region Implementacion de la interfaz ISeleccionar
+
+        public void SeleccionarDato(string codigo)
+        {
+            if (lblOperacion.Text == "Consulta")
+            {
+                txtCodigo.Text = codigo;
+            }
+            else
+            {
+                texto.Text = codigo;
+            }
+        }
+
+        public void SeleccionarDato(string dato, string descripcion)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion        
         
         private void cargarCuentas() {                       
             if ((lstParametros != null))
@@ -450,7 +471,7 @@ namespace Aplicacion.Inventario
 
         private void txtcentro_TextChanged(object sender, EventArgs e)
         {
-            centro = bllCentro.buscar(txtcentro.Text); 
+                centro = bllCentro.buscar(txtcentro.Text); 
                 if (centro  == null){
                    txtcentroNom.Text= "";
                 } else
@@ -474,20 +495,6 @@ namespace Aplicacion.Inventario
 
         }
 
-        #region Implementacion de la interfaz ISeleccionar
-
-        public void SeleccionarDato(string codigo)
-        {
-            if (lblOperacion.Text == "Consulta")
-            {
-                txtCodigo.Text = codigo;
-            }
-            else {
-                texto.Text = codigo;
-            }
-        }
-    
-        #endregion        
 
         private void txtcodProveedor_DoubleClick(object sender, EventArgs e)
         {
@@ -575,8 +582,7 @@ namespace Aplicacion.Inventario
             {
                 txtResponsable.Text = "";
             }
-            else
-            {
+            else {
                 txtCodResp.Text = user.nit;
                 txtResponsable.Text = user.nombre;
             }
@@ -588,6 +594,9 @@ namespace Aplicacion.Inventario
             FrmSelTercero Frm = new FrmSelTercero();
             Frm.tipo = "Empleados";
             Frm.ShowDialog(this);
-        }        
+        }
+
+
+        
     }
 }

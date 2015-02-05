@@ -189,8 +189,6 @@ namespace Aplicacion.Inventario
         private void cboBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtBuscar.Focus();
-        }
-
-                   
+        }                   
     }
 }

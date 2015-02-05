@@ -13,13 +13,9 @@ namespace DAL.DAO
     {
         public List<ETipoDocumento> getAll()
         {
-            ETipoDocumento objTipo = null;
-           
-            List<ETipoDocumento> lista = new List<ETipoDocumento>();
-           
-                string sql = "SELECT tipodoc, grupo, descripcion FROM tipdoc WHERE grupo = 'AF' ";
-           
-            
+            ETipoDocumento objTipo = null;           
+            List<ETipoDocumento> lista = new List<ETipoDocumento>();           
+            string sql = "SELECT tipodoc, grupo, descripcion FROM tipdoc WHERE grupo = 'AF' ";                
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -43,6 +39,33 @@ namespace DAL.DAO
                 }             
             }
             return lista;
+        }
+
+        public ETipoDocumento buscarTipo(string tipo) {
+            ETipoDocumento objTipo = new ETipoDocumento();
+            string sql = "SELECT * FROM USUARIOS WHERE LOGIN=?login AND PASSW=?clave AND estado='activo'";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = ConfigSAE.Instanciar.cadenaSAE();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();                    
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.HasRows == true)
+                        {
+                            dr.Read();
+                            objTipo.tipoDoc = dr.GetString("tipodoc");
+                            objTipo.grupo = dr.GetString("grupo");
+                            objTipo.descripcion = dr.GetString("descripcion");                            
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }               
+            }
+            return objTipo;
         }
     }
 }

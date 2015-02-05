@@ -102,9 +102,6 @@
     <Compile Include="Informes\FrmVerInforme.Designer.cs">
       <DependentUpon>FrmVerInforme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IActivos.cs" />
-    <Compile Include="Interfaces\ICentro.cs" />
-    <Compile Include="Interfaces\ICuenta.cs" />
     <Compile Include="Interfaces\ISeleccionar.cs" />
     <Compile Include="Inventario\FrmActivos.cs">
       <SubType>Form</SubType>
@@ -327,7 +324,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

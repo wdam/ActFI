@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using Aplicacion.Interfaces;
 
 namespace Aplicacion.Inventario
 {
@@ -27,6 +28,39 @@ namespace Aplicacion.Inventario
             cargarGrilla();
         }
 
+        #region Proceso para mover formulario
+
+        private bool mover;
+        private int pX;
+        private int pY;
+
+        private void lblTituloPrinc_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                mover = true;
+                pX = e.X;
+                pY = e.Y;
+                this.Cursor = Cursors.NoMove2D;
+            }
+        }
+
+        private void lblTituloPrinc_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mover)
+            {
+                this.Location = new Point((this.Left + e.X - pX), (this.Top + e.Y - pY));
+            }
+        }
+
+        private void lblTituloPrinc_MouseUp(object sender, MouseEventArgs e)
+        {
+            mover = false;
+            this.Cursor = Cursors.Default;
+        }
+
+        #endregion
+
         protected void cargarGrilla() {
             lstTipos = blltipo.getAll();
             int cont = 0;
@@ -42,7 +76,32 @@ namespace Aplicacion.Inventario
             else {
                 lblMensaje.Visible = true;
             }
-           
+
+        }
+
+        private void seleccionar(int fila)
+        {
+            ISeleccionar Iform = this.Owner as ISeleccionar;
+            if (Iform != null)
+            {
+                Iform.SeleccionarDato(dgvTipo.Rows[fila].Cells[2].Value.ToString());
+            }
+            this.Dispose();
+        }
+
+        private void dgvTipo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1){
+                seleccionar(e.RowIndex);
+            }
+        }
+
+        private void dgvTipo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                seleccionar(e.RowIndex);
+            }
         }
     }
 }

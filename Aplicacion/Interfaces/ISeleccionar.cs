@@ -8,6 +8,6 @@ namespace Aplicacion.Interfaces
 {
     public interface ISeleccionar
     {
-        void SeleccionarDato(string dato);
+        void SeleccionarDato(string dato);        
     }
 }

@@ -146,5 +146,10 @@ namespace Aplicacion.Inventario
         {
             setTexto.Text = dato;
         }
+
+        public void SeleccionarDato(string dato, string descripcion)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

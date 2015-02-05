@@ -8,16 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-
+using Aplicacion.Interfaces;
 namespace Aplicacion.Inventario
 {
-    public partial class FrmDocumentos : Form
+    public partial class FrmDocumentos : Form, ISeleccionar
     {
         BLL.TerceroBLL bllTer = new BLL.TerceroBLL();
         BLL.CentroCostoBLL bllCentro = new  BLL.CentroCostoBLL();
-        
-        
-        
+        BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
+
+        TextBox textoSel;
+                
         ECentroCosto centro;
         ETerceros tercero;
 
@@ -145,9 +146,7 @@ namespace Aplicacion.Inventario
             Habilitar();
             lblOperacion.Text = "Nuevo";
             limpiar();
-
-            FrmTipoDocumento FRM = new FrmTipoDocumento();
-            FRM.ShowDialog();
+            txtDocumento_DoubleClick(txtDocumento, null);
         }
 
         private void lblCancelar_Click(object sender, EventArgs e)
@@ -396,9 +395,7 @@ namespace Aplicacion.Inventario
         {
             lblOperacion.Text = "Editar";
         }
-
         
-
         private void txtNit_TextChanged(object sender, EventArgs e)
         {
             tercero = bllTer.buscar(txtNit.Text);
@@ -424,8 +421,31 @@ namespace Aplicacion.Inventario
                     txtCentro.Text = centro.Codigo;
                 }
         }
-       
-             
 
+        #region Implementacion de la Interfaz
+        public void SeleccionarDato(string dato)
+        {
+            textoSel.Text = dato;            
+        }        
+        #endregion
+
+        private void txtDocumento_DoubleClick(object sender, EventArgs e)
+        {
+            textoSel = (TextBox)sender;
+            FrmTipoDocumento FRM = new FrmTipoDocumento();
+            FRM.ShowDialog(this);
+        }
+
+        private void txtDocumento_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDocumento.Text.Length >= 2) { 
+                
+            }
+        }
+
+        protected void buscarDocumento(){
+            
+        }
+       
     }
 }
