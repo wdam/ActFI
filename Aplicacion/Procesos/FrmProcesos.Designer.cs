@@ -35,6 +35,7 @@
             this.Label2 = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
             this.lblActivos = new System.Windows.Forms.Label();
+            this.lblDepreciacion = new System.Windows.Forms.Label();
             this.TableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,9 +64,10 @@
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TableLayoutPanel1.Controls.Add(this.lblAreas, 1, 0);
             this.TableLayoutPanel1.Controls.Add(this.lblParametros, 2, 0);
-            this.TableLayoutPanel1.Controls.Add(this.Label2, 0, 1);
             this.TableLayoutPanel1.Controls.Add(this.lblCerrar, 2, 2);
-            this.TableLayoutPanel1.Controls.Add(this.lblActivos, 0, 0);
+            this.TableLayoutPanel1.Controls.Add(this.lblActivos, 1, 1);
+            this.TableLayoutPanel1.Controls.Add(this.Label2, 0, 1);
+            this.TableLayoutPanel1.Controls.Add(this.lblDepreciacion, 0, 0);
             this.TableLayoutPanel1.Location = new System.Drawing.Point(57, 96);
             this.TableLayoutPanel1.Name = "TableLayoutPanel1";
             this.TableLayoutPanel1.RowCount = 3;
@@ -158,13 +160,32 @@
             this.lblActivos.ForeColor = System.Drawing.Color.White;
             this.lblActivos.Image = global::Aplicacion.Properties.Resources.inventario2;
             this.lblActivos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblActivos.Location = new System.Drawing.Point(8, 8);
+            this.lblActivos.Location = new System.Drawing.Point(241, 125);
             this.lblActivos.Margin = new System.Windows.Forms.Padding(8);
             this.lblActivos.Name = "lblActivos";
             this.lblActivos.Size = new System.Drawing.Size(217, 100);
             this.lblActivos.TabIndex = 132;
             this.lblActivos.Text = "Gravamenes y Tipo";
             this.lblActivos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // lblDepreciacion
+            // 
+            this.lblDepreciacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDepreciacion.BackColor = System.Drawing.Color.Transparent;
+            this.lblDepreciacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblDepreciacion.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepreciacion.ForeColor = System.Drawing.Color.White;
+            this.lblDepreciacion.Image = global::Aplicacion.Properties.Resources.depreciacion;
+            this.lblDepreciacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblDepreciacion.Location = new System.Drawing.Point(8, 8);
+            this.lblDepreciacion.Margin = new System.Windows.Forms.Padding(8);
+            this.lblDepreciacion.Name = "lblDepreciacion";
+            this.lblDepreciacion.Size = new System.Drawing.Size(217, 100);
+            this.lblDepreciacion.TabIndex = 133;
+            this.lblDepreciacion.Text = "Depreciación";
+            this.lblDepreciacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblDepreciacion.Click += new System.EventHandler(this.lblDepreciacion_Click);
             // 
             // FrmProcesos
             // 
@@ -192,6 +213,7 @@
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Label lblCerrar;
         internal System.Windows.Forms.Label lblActivos;
+        internal System.Windows.Forms.Label lblDepreciacion;
 
     }
 }

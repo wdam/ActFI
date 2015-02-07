@@ -21,6 +21,10 @@ namespace Aplicacion.Inventario
                 
         ECentroCosto centro;
         ETerceros tercero;
+        ETipoDocumento tipodoc;
+
+        double debito = 0;
+        double credito = 0;
 
         public FrmDocumentos()
         {
@@ -201,7 +205,9 @@ namespace Aplicacion.Inventario
 
         }
         private void dgvDatos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
+        {   
+            double DebitoAux = 0;
+            double CreditoAux = 0;
             if (e.RowIndex >= 0) {
                 switch (e.ColumnIndex)
                 {
@@ -211,20 +217,26 @@ namespace Aplicacion.Inventario
                         }                        
                         break;
                     case 1:
-                        string debito = dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value.ToString();
-                        if (debito == "") {                            
-                            debito="0";
+                        string sdebito = dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value.ToString();
+                        if (sdebito == "" || sdebito == ".") {                            
+                            sdebito="0";
                         }
-                        dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value = Math.Round(Convert.ToDouble(debito), 2);
+                        DebitoAux = Math.Round(Convert.ToDouble(sdebito), 2);
+                        txtDebito.Text = (debito + DebitoAux).ToString();
+                        dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value = DebitoAux;
                         dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value = "0.00";
+                        txtCredito.Text = (credito).ToString();
                         break;
                     case 2:
-                       string credito = dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value.ToString();
-                       if (credito == "") {
-                           credito = "0";
+                       string scredito = dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value.ToString();
+                       if (scredito == "" || scredito==".") {
+                           scredito = "0";
                         }
-                       dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value = Math.Round(Convert.ToDouble(credito), 2);
+                       CreditoAux = Math.Round(Convert.ToDouble(scredito), 2);
+                       txtCredito.Text = (credito + CreditoAux).ToString();
+                       dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value = CreditoAux;
                        dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value = "0.00";
+                       txtDebito.Text = (debito).ToString();
                         break;
                     case 3:
                         break;
@@ -250,7 +262,6 @@ namespace Aplicacion.Inventario
                             dgvDatos.Rows[e.RowIndex].Cells["dtFecha"].Value = "00/00/0000";
                         }                        
                         break;
-
                 }
             }
         }
@@ -280,8 +291,7 @@ namespace Aplicacion.Inventario
                     
         private void FrmDocumentos_Load(object sender, EventArgs e)
         {
-            txtFecha.Text = BLL.Inicializar.periodo;
-            BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
+            txtFecha.Text = BLL.Inicializar.periodo;            
             BLL.CuentasBLL bllCuenta = new BLL.CuentasBLL();
 
             int nAux = bllCuenta.validarAuxiliares();
@@ -345,6 +355,12 @@ namespace Aplicacion.Inventario
                 validar = false;
             }
 
+            if (txtNombreTer.Text == "" || txtNit.Text =="") {
+                smsError.SetIconAlignment(txtNit, ErrorIconAlignment.MiddleLeft);
+                smsError.SetError(txtNit, "Ingrese el Nit del Tercero ");
+                validar = false;
+            }
+
             try { // Validar Fecha del Documento          
                 DateTime fecha;
                 fecha = Convert.ToDateTime(txtDia.Text + txtFecha.Text);
@@ -393,7 +409,14 @@ namespace Aplicacion.Inventario
 
         private void lblEditar_Click(object sender, EventArgs e)
         {
-            lblOperacion.Text = "Editar";
+            if (txtDocumento.Text == "" || txtNit.Text == "")
+            {
+                MessageBox.Show("No ha Seleccionado ningun documento contable ", "Control de Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                lblOperacion.Text = "Editar";
+                Habilitar();
+            }                        
         }
         
         private void txtNit_TextChanged(object sender, EventArgs e)
@@ -438,14 +461,67 @@ namespace Aplicacion.Inventario
 
         private void txtDocumento_TextChanged(object sender, EventArgs e)
         {
-            if (txtDocumento.Text.Length >= 2) { 
-                
+            if (txtDocumento.Text.Length >= 2)
+            {
+                buscarTipoDocumento();
+            }
+            else {
+                txtDesctipo.Text = "";
+                txtNumero.Text = "";
+            }
+        }     
+
+        protected void buscarTipoDocumento(){
+            if (txtDocumento.Text == "")
+            {
+                if (lblOperacion.Text == "Nuevo" || lblOperacion.Text == "Editar") {
+                    txtDocumento_DoubleClick(txtDocumento, null);
+                }
+            }
+            else
+            {
+                tipodoc = bllTipo.buscarTipo(txtDocumento.Text);
+                if (tipodoc == null)
+                {
+                    txtDesctipo.Text = "";
+                    txtNumero.Text = "";
+                    txtDocumento_DoubleClick(txtDocumento, null);                   
+                }
+                else {
+                    txtDesctipo.Text = tipodoc.descripcion;
+                    if (lblOperacion.Text == "Nuevo") {
+                        txtNumero.Text = string.Format("{0:000000}",tipodoc.actual);  
+                    }
+                }
             }
         }
 
-        protected void buscarDocumento(){
-            
+        private void txtNit_DoubleClick(object sender, EventArgs e)
+        {
+            textoSel = (TextBox)sender;
+            FrmSelTercero Frm = new FrmSelTercero();            
+            Frm.tipo = "PROVEEDOR";
+            Frm.ShowDialog(this);
         }
-       
+
+        private void txtDebito_TextChanged(object sender, EventArgs e)
+        {
+            debito = Math.Round(Convert.ToDouble(txtDebito.Text), 2);
+            txtDiferencia.Text = (debito - credito).ToString();
+        }
+
+        private void txtCredito_TextChanged(object sender, EventArgs e)
+        {
+            credito = Math.Round(Convert.ToDouble(txtCredito.Text), 2);
+            txtDiferencia.Text = (debito - credito).ToString();
+        }
+
+        private void dgvDatos_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+
+
+        }
+
+                     
     }
 }

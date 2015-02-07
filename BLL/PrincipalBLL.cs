@@ -8,10 +8,8 @@ namespace BLL
 {
     public class PrincipalBLL
     {
-        public void inicializar(string bd)
-        {
-            //Configuracion.Instanciar.BDatos = "activosfijos";
-            //Configuracion.Instanciar.BDatos = bd;
+        public void inicializarBD(string bd)
+        {           
             Inicializacion.BDatos = bd;                       
         }
 
@@ -36,6 +34,7 @@ namespace BLL
 
         public void iniciarPeriodo(string periodo) {
             Inicializar.periodo = periodo;
+            Inicializar.Mes = periodo.Substring(0, 2);
         }
 
                

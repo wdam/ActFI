@@ -86,7 +86,7 @@ namespace Aplicacion.Inventario
             {
                 Iform.SeleccionarDato(dgvTipo.Rows[fila].Cells[2].Value.ToString());
             }
-            this.Dispose();
+            this.Close();
         }
 
         private void dgvTipo_CellContentClick(object sender, DataGridViewCellEventArgs e)

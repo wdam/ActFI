@@ -11,5 +11,6 @@ namespace BLL
         public static string company; // Compañia seleccionada            
         public static string user; // Usuario Registrado
         public static string periodo;  // Periodo Actual
+        public static string Mes; 
     }
 }

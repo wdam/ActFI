@@ -186,12 +186,13 @@
             // 
             this.txtNit.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNit.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNit.Location = new System.Drawing.Point(158, 129);
+            this.txtNit.Location = new System.Drawing.Point(162, 129);
             this.txtNit.Name = "txtNit";
-            this.txtNit.Size = new System.Drawing.Size(136, 28);
+            this.txtNit.Size = new System.Drawing.Size(132, 28);
             this.txtNit.TabIndex = 5;
             this.toolTip1.SetToolTip(this.txtNit, "Nit Tercero");
             this.txtNit.TextChanged += new System.EventHandler(this.txtNit_TextChanged);
+            this.txtNit.DoubleClick += new System.EventHandler(this.txtNit_DoubleClick);
             // 
             // txtNumero
             // 
@@ -261,7 +262,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(14, 27);
+            this.label1.Location = new System.Drawing.Point(13, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 22);
             this.label1.TabIndex = 213;
@@ -272,7 +273,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(14, 62);
+            this.label2.Location = new System.Drawing.Point(13, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 22);
             this.label2.TabIndex = 213;
@@ -283,7 +284,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(14, 97);
+            this.label3.Location = new System.Drawing.Point(13, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 22);
             this.label3.TabIndex = 213;
@@ -294,7 +295,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(14, 132);
+            this.label4.Location = new System.Drawing.Point(13, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(138, 22);
             this.label4.TabIndex = 213;
@@ -474,6 +475,7 @@
             this.txtDebito.Text = "0";
             this.txtDebito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.txtDebito, "Debitos");
+            this.txtDebito.TextChanged += new System.EventHandler(this.txtDebito_TextChanged);
             // 
             // txtCredito
             // 
@@ -489,6 +491,7 @@
             this.txtCredito.Text = "0";
             this.txtCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.txtCredito, "Creditos");
+            this.txtCredito.TextChanged += new System.EventHandler(this.txtCredito_TextChanged);
             // 
             // txtDiferencia
             // 
@@ -716,6 +719,7 @@
             this.dgvDatos.TabIndex = 0;
             this.dgvDatos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellEndEdit);
             this.dgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDatos_EditingControlShowing);
+            this.dgvDatos.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDatos_RowsAdded);
             // 
             // dtDescripcion
             // 

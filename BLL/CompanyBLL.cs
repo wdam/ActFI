@@ -67,7 +67,7 @@ namespace BLL
                     bllPrin.iniciarPeriodo(per); 
                 }
                 string BDato = "sae" + Inicializar.company.ToLower() + Inicializar.periodo.Substring(3,4);
-                bllPrin.inicializar(BDato);                
+                bllPrin.inicializarBD(BDato);                
             }
             return mensaje;
         }

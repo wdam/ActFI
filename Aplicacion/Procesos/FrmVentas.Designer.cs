@@ -195,6 +195,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(247)))));
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
@@ -221,7 +222,7 @@
             this.lblTituloPrinc.Name = "lblTituloPrinc";
             this.lblTituloPrinc.Size = new System.Drawing.Size(590, 45);
             this.lblTituloPrinc.TabIndex = 169;
-            this.lblTituloPrinc.Text = " SAE  >> Venta de Activos Fijos";
+            this.lblTituloPrinc.Text = " SAE  >> Venta de Activos";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
             this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);

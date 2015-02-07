@@ -27,5 +27,10 @@ namespace Aplicacion.Procesos
             FrmVentas frm = new FrmVentas();
             frm.ShowDialog();
         }
+
+        private void lblDepreciacion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

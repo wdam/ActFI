@@ -10,10 +10,17 @@ namespace BLL
 {
     public class TipoDocumentoBLL
     {
-        TipoDocumentoDAO tipoDao = new TipoDocumentoDAO();
+        TipoDocumentoDAO tDao = new TipoDocumentoDAO();
 
         public List<ETipoDocumento> getAll() {
-            return tipoDao.getAll();            
+            return tDao.getAll();            
+        }
+
+        public ETipoDocumento buscarTipo(string tipo) {
+            if (String.IsNullOrWhiteSpace(tipo)) {
+                return null;
+            }
+            return tDao.buscarTipo(tipo, Inicializar.Mes);
         }
     }
 }

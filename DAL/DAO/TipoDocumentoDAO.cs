@@ -41,12 +41,12 @@ namespace DAL.DAO
             return lista;
         }
 
-        public ETipoDocumento buscarTipo(string tipo) {
-            ETipoDocumento objTipo = new ETipoDocumento();
-            string sql = "SELECT * FROM USUARIOS WHERE LOGIN=?login AND PASSW=?clave AND estado='activo'";
+        public ETipoDocumento buscarTipo(string tipo, string periodo) {
+            ETipoDocumento objTipo = null;
+            string sql = "SELECT tipodoc, grupo, descripcion , (actual"+periodo+" + 1) actual FROM tipdoc WHERE tipodoc='" + tipo + "' AND grupo ='AF' ORDER BY tipodoc";
             using (conexion cnx = new conexion())
             {
-                cnx.cadena = ConfigSAE.Instanciar.cadenaSAE();
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
                 using (MySqlCommand cmd = new MySqlCommand())
                 {
                     cmd.CommandText = sql;
@@ -57,15 +57,17 @@ namespace DAL.DAO
                         if (dr.HasRows == true)
                         {
                             dr.Read();
+                            objTipo = new ETipoDocumento();
                             objTipo.tipoDoc = dr.GetString("tipodoc");
                             objTipo.grupo = dr.GetString("grupo");
-                            objTipo.descripcion = dr.GetString("descripcion");                            
+                            objTipo.descripcion = dr.GetString("descripcion");
+                            objTipo.actual = dr.GetInt16("actual");
                         }
                         cnx.cerrarConexion();
                     }
-                }               
+                }                
             }
-            return objTipo;
+            return objTipo;           
         }
     }
 }
