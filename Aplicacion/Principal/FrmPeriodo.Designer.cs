@@ -142,11 +142,6 @@
             // cboPeriodo
             // 
             this.cboPeriodo.FormattingEnabled = true;
-            this.cboPeriodo.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04"});
             this.cboPeriodo.Location = new System.Drawing.Point(158, 95);
             this.cboPeriodo.Name = "cboPeriodo";
             this.cboPeriodo.Size = new System.Drawing.Size(69, 34);
@@ -220,6 +215,7 @@
             this.lblAplicar.TabIndex = 1;
             this.lblAplicar.Text = "&Aplicar";
             this.lblAplicar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblAplicar.Click += new System.EventHandler(this.lblAplicar_Click);
             // 
             // lblSalir
             // 

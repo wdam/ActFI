@@ -52,7 +52,7 @@ namespace DAL.DAO
             return nReg;
         }
 
-        public List<EDocumentos> getAll(string mes , string filtro) {
+          public List<EDocumentos> getAll(string mes , string filtro) {
             List<EDocumentos> lstDocumentos = new List<EDocumentos>();
             EDocumentos objDoc = null;
             string sql;
@@ -72,6 +72,32 @@ namespace DAL.DAO
                     if (cnx.abrirConexion()) {
                         MySqlDataReader dr = cmd.ExecuteReader();
                         while (dr.Read()) {
+                            objDoc = mapearObjeto(dr);
+                            lstDocumentos.Add(objDoc);
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return lstDocumentos;
+        }
+
+        public List<EDocumentos> buscarDocumento(int documento, string tipo, string  periodo){
+            List<EDocumentos> lstDocumentos = new List<EDocumentos>();
+            EDocumentos objDoc = null;
+            string sql = "SELECT * FROM documentos" + periodo + "  WHERE  tipodoc='"+ tipo+ "' AND doc='" +documento+ "' ";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
                             objDoc = mapearObjeto(dr);
                             lstDocumentos.Add(objDoc);
                         }
@@ -102,7 +128,61 @@ namespace DAL.DAO
             doc.tipo = fila.GetString("tipodoc");            
             return doc;
         }
-    }
 
-    
+        public void modificarCuenta(int documento, string tipo, string periodo)
+        { 
+            List<EDocumentos> lstDoc = buscarDocumento(documento, tipo, periodo);
+            double suma = 0;
+            string debito = "debito"+periodo;
+            string credito = "credito"+periodo;
+            string saldo = "saldo"+periodo;
+            string sql;
+            int reg = 0;
+            if (lstDoc.Count > 0) {
+                using (conexion cnx = new conexion())
+                {
+                    cnx.cadena = Configuracion.Instanciar.conexionBD();
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {                       
+                        cmd.Connection = cnx.getConexion();
+                        if (cnx.abrirConexion())
+                        {
+                            foreach (var item in lstDoc)
+                            {
+                                suma = item.debito - item.credito;
+                                sql = "UPDATE selpuc SET saldo=saldo - " + suma + ", " + saldo + "=" + saldo + " - " + suma + ", " +
+                                     debito + "=" + debito + " - " + item.debito + ", " +
+                                     credito + "=" + credito + " - " + item.credito + " " +
+                                    " WHERE codigo='" + item.codigo + "'";
+                                cmd.CommandText = sql;
+                                reg = cmd.ExecuteNonQuery();                               
+                            }                          
+                            cnx.cerrarConexion();
+                        }
+                    }
+                }                         
+            }            
+        }
+
+        public void eliminarDocumento(int documento, string tipo, string periodo)
+        {
+            int reg = 0; // Obtiene el numero de Registros afectados
+            string sql = "DELETE FROM documentos" + periodo + "  WHERE  tipodoc='" + tipo + "' AND doc='" + documento + "'  ";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();                   
+                    if (cnx.abrirConexion())
+                    {
+                        reg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }               
+            }     
+        }
+    }
+   
 }

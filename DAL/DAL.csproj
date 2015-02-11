@@ -52,6 +52,7 @@
     <Compile Include="DAO\CuentasDAO.cs" />
     <Compile Include="DAO\DepartamentoDAO.cs" />
     <Compile Include="DAO\DocumentosDAO.cs" />
+    <Compile Include="DAO\GenericaDAO.cs" />
     <Compile Include="DAO\ParametrosDAO.cs" />
     <Compile Include="DAO\TerceroDAO.cs" />
     <Compile Include="DAO\TipoDocumentoDAO.cs" />

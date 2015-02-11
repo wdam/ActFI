@@ -105,7 +105,7 @@ namespace DAL.DAO
             return obj;
         }
 
-        public EPeriodo getPeriodo(int codigo) {
+        public EPeriodo getPeriodo(int? codigo) {
             EPeriodo objPer = null;
             string sql = "SELECT * FROM periodos WHERE codigo=" + codigo + "";
             using (conexion cnx = new conexion())
@@ -130,9 +130,67 @@ namespace DAL.DAO
                         }
                         cnx.cerrarConexion();
                     }
-                }
-                return objPer;
+                }             
             }
+            return objPer;
+        }
+
+        public int guardarPeriodo(string periodo, string accion, int? codigo) {
+            int reg = 0; // Obtiene el numero de Registros afectados
+            string sql = "";
+            if (accion == "Nuevo") {
+                sql = " INSERT INTO periodos (periodo, inicio, activo, codigo ) Values (?periodo, '00','SI', ?codigo) ";                
+            }
+            else {
+                sql = " Update periodos set activo='SI', periodo=?periodo WHERE codigo=?codigo";
+            }            
+
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = ConfigSAE.Instanciar.cadenaSAE();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    cmd.Parameters.Add("?codigo", MySqlDbType.Int16).Value = codigo;
+                    cmd.Parameters.Add("?periodo", MySqlDbType.String).Value = periodo;                    
+                    if (cnx.abrirConexion())
+                    {
+                        reg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }                
+            }
+            return reg;
+        }
+
+        public List<EPeriodo> getPerBloqueado(string bloqueado) {
+            
+            List<EPeriodo> lstPeriodos = new List<EPeriodo>();
+            string sql = "SELECT * FROM bloq_per WHERE bloqueado = '"+bloqueado + "'  AND periodo <> '00' ORDER BY periodo";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {                            
+                            EPeriodo  objPer = new EPeriodo();
+                            objPer.periodo = dr.GetString("periodo");
+                            objPer.bloqueado = dr.GetChar("bloqueado");
+                            lstPeriodos.Add(objPer);
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }                
+            }
+            return lstPeriodos;
         }
 
         

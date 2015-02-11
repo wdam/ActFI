@@ -12,5 +12,6 @@ namespace Entidades
         public string inicio { get; set; }
         public string activo { get; set; }
         public int codigo { get; set; }
+        public char bloqueado { get; set; }
     }
 }

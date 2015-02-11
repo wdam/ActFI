@@ -193,6 +193,7 @@
             this.toolTip1.SetToolTip(this.txtNit, "Nit Tercero");
             this.txtNit.TextChanged += new System.EventHandler(this.txtNit_TextChanged);
             this.txtNit.DoubleClick += new System.EventHandler(this.txtNit_DoubleClick);
+            this.txtNit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDia_KeyPress);
             // 
             // txtNumero
             // 
@@ -256,6 +257,8 @@
             this.txtDia.Text = "00";
             this.txtDia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.txtDia, "Dia");
+            this.txtDia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDia_KeyPress);
+            this.txtDia.Leave += new System.EventHandler(this.txtDia_Leave);
             // 
             // label1
             // 
@@ -385,7 +388,7 @@
             this.txtPeriodo.Name = "txtPeriodo";
             this.txtPeriodo.Size = new System.Drawing.Size(70, 21);
             this.txtPeriodo.TabIndex = 215;
-            this.txtPeriodo.Text = "201412";
+            this.txtPeriodo.Text = "000000";
             this.toolTip1.SetToolTip(this.txtPeriodo, "Periodo");
             // 
             // txtNomCentro
@@ -413,6 +416,7 @@
             this.txtCentro.TabIndex = 4;
             this.toolTip1.SetToolTip(this.txtCentro, "Codigo Centro de Costo");
             this.txtCentro.TextChanged += new System.EventHandler(this.txtCentro_TextChanged);
+            this.txtCentro.DoubleClick += new System.EventHandler(this.txtCentro_DoubleClick);
             // 
             // txtVmto
             // 
@@ -425,6 +429,8 @@
             this.txtVmto.Text = "0";
             this.txtVmto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtVmto, "Dias de Vencimiento");
+            this.txtVmto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDia_KeyPress);
+            this.txtVmto.Leave += new System.EventHandler(this.txtVmto_Leave);
             // 
             // lblPeriodo
             // 
@@ -709,17 +715,20 @@
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDatos.EnableHeadersVisualStyles = false;
             this.dgvDatos.Location = new System.Drawing.Point(3, 69);
+            this.dgvDatos.MultiSelect = false;
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersVisible = false;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
             this.dgvDatos.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvDatos.Size = new System.Drawing.Size(1061, 200);
             this.dgvDatos.TabIndex = 0;
             this.dgvDatos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellEndEdit);
+            this.dgvDatos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellEnter);
             this.dgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDatos_EditingControlShowing);
-            this.dgvDatos.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDatos_RowsAdded);
+            this.dgvDatos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDatos_KeyDown);
             // 
             // dtDescripcion
             // 
@@ -763,7 +772,10 @@
             // 
             // dtBase
             // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0,00";
             this.dtBase.DefaultCellStyle = dataGridViewCellStyle5;
             this.dtBase.HeaderText = "Base";
             this.dtBase.MinimumWidth = 80;

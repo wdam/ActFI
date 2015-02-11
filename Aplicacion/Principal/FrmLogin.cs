@@ -51,13 +51,11 @@ namespace Aplicacion.Principal
                     if (!string.IsNullOrEmpty(user.rol))  // Verifica que tiene un rol definido como usuario
                     {
                         if (buscarCompany(user.rol))
-                        {
-                         
+                        {                         
                             MDIPrincipal frm = new MDIPrincipal();
                             frm.ShowDialog();
                             this.Dispose();
-                        }
-                                           
+                        }                                           
                     }
                     else 
                     {
@@ -99,18 +97,18 @@ namespace Aplicacion.Principal
         private bool buscarCompany(string rol) {
             if (rol == "admin" && txtcompania.Text == "" || txtcompania.Text == "Compañia")
             {
-                bllPrin.iniciarUsuario(txtusuario.Text);
+                bllPrin.iniciarUsuario(txtusuario.Text, rol);
                 
                 lstCompany = bllComp.getAll(); // Obtener todas las compañias creadas 
                 if (lstCompany == null)
                 {
                     MessageBox.Show("No hay compañias creadas, Verifique ", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Error);                   
-                    bllPrin.iniciarCompany("");
+                    bllPrin.iniciarCompany("",null);
                     bllPrin.iniciarPeriodo("00/0000");
                 }
                 else
-                {                    
-                    bllPrin.iniciarCompany(lstCompany.ElementAt(0).login);
+                {
+                    bllPrin.iniciarCompany(lstCompany.ElementAt(0).login, lstCompany.ElementAt(0).codigo);
                     string buscarPeriodo = bllComp.buscarPeriodo();
                     if (buscarPeriodo != "") {
                         MessageBox.Show(buscarPeriodo, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -130,8 +128,8 @@ namespace Aplicacion.Principal
                 }
                 else
                 {
-                    bllPrin.iniciarUsuario(txtusuario.Text);
-                    bllPrin.iniciarCompany(company.login);
+                    bllPrin.iniciarUsuario(txtusuario.Text, rol);
+                    bllPrin.iniciarCompany(company.login, company.codigo);
                     string buscarPeriodo = bllComp.buscarPeriodo();
                     if (buscarPeriodo != "")
                     {

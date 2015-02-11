@@ -46,6 +46,7 @@
     <Compile Include="ECuentas.cs" />
     <Compile Include="EDepartamentos.cs" />
     <Compile Include="EDocumentos.cs" />
+    <Compile Include="EGenerica.cs" />
     <Compile Include="EParametros.cs" />
     <Compile Include="EPeriodo.cs" />
     <Compile Include="ETerceros.cs" />

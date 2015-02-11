@@ -37,10 +37,15 @@ namespace DAL.DAO
             }
         }
 
-        public ECuentas buscar(string codigo)
+        public ECuentas buscar(string codigo, string nivel)
         {
+            string cond = "";
+            if (nivel == "Auxiliar")
+            {
+                cond = "  AND nivel='Auxiliar'";
+            }
             ECuentas objCuenta = null;
-            string sql = "SELECT codigo, descripcion, naturaleza, nivel, tipo FROM  selpuc WHERE codigo =?codigo";
+            string sql = "SELECT codigo, descripcion, naturaleza, nivel, tipo FROM  selpuc WHERE codigo =?codigo "+cond+"";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -91,10 +96,8 @@ namespace DAL.DAO
                              nReg = dr.GetInt16("nDato");
                          }
                          cnx.cerrarConexion();
-                     }
-                    
-                 }
-                
+                     }                    
+                 }                
             }
             return nReg;            
         }

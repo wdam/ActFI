@@ -44,7 +44,9 @@
     <Compile Include="CentroCostoBLL.cs" />
     <Compile Include="CompanyBLL.cs" />
     <Compile Include="CuentasBLL.cs" />
+    <Compile Include="DocumentosBLL.cs" />
     <Compile Include="EncriptarBLL.cs" />
+    <Compile Include="GenericaBLL.cs" />
     <Compile Include="Inicializar.cs" />
     <Compile Include="ParametrosBLL.cs" />
     <Compile Include="PrincipalBLL.cs" />

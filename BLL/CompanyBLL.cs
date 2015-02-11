@@ -57,10 +57,17 @@ namespace BLL
                     }
 
                     // Crear Archivo con el periodo actual 
-                    string ruta =  AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";
-                    StreamWriter swEscritor = new StreamWriter(ruta, false);
-                    swEscritor.Write(Inicializar.periodo.Trim());
-                    swEscritor.Close();
+                    try
+                    {
+                        string ruta = AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";
+                        StreamWriter swEscritor = new StreamWriter(ruta, false);
+                        swEscritor.Write(Inicializar.periodo.Trim());
+                        swEscritor.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        return ex.Message.ToString();
+                    }                   
                 }
                 else
                 {
@@ -81,6 +88,43 @@ namespace BLL
             else {
                 return "Error";
             }                                                
+        }
+
+        public List<EPeriodo> getPerBloqueado(string dato) {
+            CompanyDAO cDao = new CompanyDAO();
+            return cDao.getPerBloqueado(dato);
+        }
+
+        public string abrirPeriodo(string periodo) {
+              CompanyDAO cDao = new CompanyDAO();
+            if (Inicializar.codCompany.HasValue) {
+                EPeriodo objPer = cDao.getPeriodo(Inicializar.codCompany);
+                int nReg = 0;
+                if (objPer == null)
+                {
+                    nReg = cDao.guardarPeriodo(periodo, "Nuevo", Inicializar.codCompany);
+                }
+                else {
+                    nReg = cDao.guardarPeriodo(periodo, "Actualizar", Inicializar.codCompany);
+                }
+
+                if (nReg > 0)
+                {
+                    string ruta = AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";
+                    StreamWriter swEscritor = new StreamWriter(ruta, false);
+                    swEscritor.Write(periodo.Trim());
+                    swEscritor.Close();
+                    return "Correcto";
+                }
+                else {
+                    return "Error al Abrir Periodo.. ";
+                }
+            }
+            else
+            {
+                return "El período no se pudo abrir porque la compañia no existe, verifique... ";
+            }            
+            
         }
     }
 }

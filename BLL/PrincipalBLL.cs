@@ -24,19 +24,19 @@ namespace BLL
             return encriptar.EncryptData(clave);
         }
 
-        public void iniciarUsuario(string user) {
-            Inicializar.user = user;                
+        public void iniciarUsuario(string user, string rol) {
+            Inicializar.user = user;
+            Inicializar.rolUser = rol;
         }
 
-        public void iniciarCompany(string company) {
-            Inicializar.company = company;            
+        public void iniciarCompany(string company, int? codigo) {
+            Inicializar.company = company;
+            Inicializar.codCompany = codigo;
         }
 
         public void iniciarPeriodo(string periodo) {
             Inicializar.periodo = periodo;
             Inicializar.Mes = periodo.Substring(0, 2);
-        }
-
-               
+        }               
     }
 }

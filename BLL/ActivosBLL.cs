@@ -64,31 +64,31 @@ namespace BLL
             ECuentas cta = null;
             CuentasDAO cDao = new CuentasDAO();
 
-            cta = cDao.buscar(ctaActivo);
+            cta = cDao.buscar(ctaActivo,"");
             if (cta == null)
             {
                 return "La Cuenta de Activos No Existe";
             }
 
-            cta = cDao.buscar(ctaDepreciacion);
+            cta = cDao.buscar(ctaDepreciacion,"");
             if (cta == null)
             {
                 return "La Cuenta de Depreciacion No Existe";
             }
 
-            cta = cDao.buscar(ctaGastos);
+            cta = cDao.buscar(ctaGastos,"");
             if (cta == null)
             {
                 return "La Cuenta de Gastos No Existe";
             }
 
-            cta = cDao.buscar(ctaMonetaria);
+            cta = cDao.buscar(ctaMonetaria,"");
             if (cta == null)
             {
                 return "La Cuenta Correccion Monetaria No   Existe";
             }
 
-            cta = cDao.buscar(ctaDepMonetaria);
+            cta = cDao.buscar(ctaDepMonetaria,"");
             if (cta == null)
             {
                 return "La Cuenta de Depreciacion de la Correccion Monetaria No Existe";

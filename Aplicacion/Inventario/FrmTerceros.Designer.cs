@@ -135,8 +135,6 @@
             this.lblTituloPrinc.TabIndex = 176;
             this.lblTituloPrinc.Text = " SAE >> Terceros";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblTituloPrinc.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
-            this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblMargenInf
             // 
@@ -177,6 +175,8 @@
             this.lblNuevo.TabIndex = 0;
             this.lblNuevo.Text = "&Nuevo";
             this.lblNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblNuevo.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblNuevo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblGuardar
             // 
@@ -192,6 +192,8 @@
             this.lblGuardar.TabIndex = 1;
             this.lblGuardar.Text = "&Guardar";
             this.lblGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGuardar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblCancelar
             // 
@@ -207,6 +209,8 @@
             this.lblCancelar.TabIndex = 2;
             this.lblCancelar.Text = "&Cancelar";
             this.lblCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblCancelar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblCancelar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblEditar
             // 
@@ -222,6 +226,8 @@
             this.lblEditar.TabIndex = 3;
             this.lblEditar.Text = "&Editar";
             this.lblEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblEditar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblEditar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblBuscar
             // 
@@ -237,6 +243,8 @@
             this.lblBuscar.TabIndex = 4;
             this.lblBuscar.Text = "&Buscar";
             this.lblBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblBuscar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblBuscar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblSalir
             // 
@@ -253,6 +261,8 @@
             this.lblSalir.Text = "&Salir";
             this.lblSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
+            this.lblSalir.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblEstado
             // 
