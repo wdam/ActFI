@@ -90,6 +90,25 @@ namespace Aplicacion.Inventario
                 msjError.SetError(txtctaMonetaria, "Ingrese la Cuenta de Correccion Monetaria");
                 valido = false;
             }
+
+
+            if (!bllVal.noEstaVacio(txtVentas.Text))
+            {
+                msjError.SetError(txtVentas, "Seleccione Documento  para Ventas");
+                valido = false;
+            }
+
+            if (!bllVal.noEstaVacio(txtCompra.Text))
+            {
+                msjError.SetError(txtCompra, "Seccione Documento para Compras");
+                valido = false;
+            }
+
+            if (!bllVal.noEstaVacio(txtDepreciacion.Text))
+            {
+                msjError.SetError(txtDepreciacion, "Seleccione Documento para la Depreciacion");
+                valido = false;
+            }
             return valido;
         }
 
@@ -102,6 +121,9 @@ namespace Aplicacion.Inventario
             obj.ctaGastos = txtctaGastos.Text;
             obj.ctaMonetaria = txtctaMonetaria.Text;
             obj.ctaDepMonetaria = txtctaDepMonetaria.Text;
+            obj.compras = txtCompra.Text;
+            obj.ventas = txtVentas.Text;
+            obj.depreciacion = txtDepreciacion.Text;
 
             string mensaje = bllPar.Actualizar(obj);
 
@@ -110,23 +132,23 @@ namespace Aplicacion.Inventario
                 MessageBox.Show("Parametros Guardados Correctamente", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else {
-                MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void cargarParametros() { 
-            List<EParametros> lstPar;
+            EParametros lstPar;
             lstPar = bllPar.getParametros();
 
-            if (lstPar.Count > 0 ){
-               foreach (EParametros item in lstPar)
-	             {
-                txtctaActivo.Text = item.ctaActivo;
-                txtctaDepreciacion.Text = item.ctaDepreciacion;
-                txtctaGastos.Text = item.ctaGastos;
-                txtctaMonetaria.Text = item.ctaMonetaria;
-                txtctaDepMonetaria.Text = item.ctaDepMonetaria;
-                }
+            if (lstPar !=null ){
+                txtctaActivo.Text = lstPar.ctaActivo;
+                txtctaDepreciacion.Text = lstPar.ctaDepreciacion;
+                txtctaGastos.Text = lstPar.ctaGastos;
+                txtctaMonetaria.Text = lstPar.ctaMonetaria;
+                txtctaDepMonetaria.Text = lstPar.ctaDepMonetaria;
+                txtCompra.Text = lstPar.compras;
+                txtVentas.Text = lstPar.ventas;
+                txtDepreciacion.Text = lstPar.depreciacion;                
             }        
         }
 
@@ -142,6 +164,13 @@ namespace Aplicacion.Inventario
             frm.ShowDialog(this);
         }
 
+        private void seleccionarDoc(object sender, EventArgs e)
+        {
+            setTexto = (TextBox)sender;
+            FrmTipoDocumento frm = new FrmTipoDocumento();
+            frm.ShowDialog(this);
+        }
+
         public void SeleccionarDato(string dato)
         {
             setTexto.Text = dato;
@@ -150,6 +179,17 @@ namespace Aplicacion.Inventario
         public void SeleccionarDato(string dato, string descripcion)
         {
             throw new NotImplementedException();
+        }
+
+       
+
+        private void txtCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+            e.Handled = true;
         }
     }
 }

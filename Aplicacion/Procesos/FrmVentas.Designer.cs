@@ -45,7 +45,7 @@
             this.lblMargenTop = new System.Windows.Forms.Label();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.txtValLibros = new System.Windows.Forms.TextBox();
             this.txtDepreciacion = new System.Windows.Forms.TextBox();
             this.txtValCompra = new System.Windows.Forms.TextBox();
@@ -63,9 +63,21 @@
             this.txtValVenta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.dgvContable = new System.Windows.Forms.DataGridView();
+            this.lblCtaActivo = new System.Windows.Forms.Label();
+            this.lblCtaDepreciacion = new System.Windows.Forms.Label();
+            this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtNit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FlowLayoutPanel1.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.gbVenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.SuspendLayout();
             // 
             // FlowLayoutPanel1
@@ -78,7 +90,7 @@
             this.FlowLayoutPanel1.Controls.Add(this.lblSalir);
             this.FlowLayoutPanel1.Controls.Add(this.lblOperacion);
             this.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 385);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 484);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(590, 66);
             this.FlowLayoutPanel1.TabIndex = 171;
@@ -119,6 +131,7 @@
             this.lblGuardar.TabIndex = 1;
             this.lblGuardar.Text = "&Guardar";
             this.lblGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGuardar.Click += new System.EventHandler(this.lblGuardar_Click);
             this.lblGuardar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
             this.lblGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
@@ -234,7 +247,7 @@
             this.lblMargenIzq.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMargenIzq.Location = new System.Drawing.Point(592, 0);
             this.lblMargenIzq.Name = "lblMargenIzq";
-            this.lblMargenIzq.Size = new System.Drawing.Size(2, 453);
+            this.lblMargenIzq.Size = new System.Drawing.Size(2, 552);
             this.lblMargenIzq.TabIndex = 168;
             // 
             // lblMargenDer
@@ -243,14 +256,14 @@
             this.lblMargenDer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblMargenDer.Location = new System.Drawing.Point(0, 0);
             this.lblMargenDer.Name = "lblMargenDer";
-            this.lblMargenDer.Size = new System.Drawing.Size(2, 453);
+            this.lblMargenDer.Size = new System.Drawing.Size(2, 552);
             this.lblMargenDer.TabIndex = 167;
             // 
             // lblMargenInf
             // 
             this.lblMargenInf.BackColor = System.Drawing.Color.Black;
             this.lblMargenInf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMargenInf.Location = new System.Drawing.Point(2, 451);
+            this.lblMargenInf.Location = new System.Drawing.Point(2, 550);
             this.lblMargenInf.Name = "lblMargenInf";
             this.lblMargenInf.Size = new System.Drawing.Size(590, 2);
             this.lblMargenInf.TabIndex = 173;
@@ -268,7 +281,7 @@
             // 
             this.gbDatos.BackColor = System.Drawing.Color.White;
             this.gbDatos.Controls.Add(this.txtDescripcion);
-            this.gbDatos.Controls.Add(this.dateTimePicker1);
+            this.gbDatos.Controls.Add(this.dtpFecha);
             this.gbDatos.Controls.Add(this.txtValLibros);
             this.gbDatos.Controls.Add(this.txtDepreciacion);
             this.gbDatos.Controls.Add(this.txtValCompra);
@@ -300,13 +313,14 @@
             this.txtDescripcion.Size = new System.Drawing.Size(429, 64);
             this.txtDescripcion.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(434, 29);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(127, 29);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(434, 29);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(127, 29);
+            this.dtpFecha.TabIndex = 1;
+            this.dtpFecha.Value = new System.DateTime(2015, 2, 16, 0, 0, 0, 0);
             // 
             // txtValLibros
             // 
@@ -435,14 +449,17 @@
             // gbVenta
             // 
             this.gbVenta.BackColor = System.Drawing.Color.White;
+            this.gbVenta.Controls.Add(this.lblCtaDepreciacion);
+            this.gbVenta.Controls.Add(this.lblCtaActivo);
             this.gbVenta.Controls.Add(this.txtUtilidad);
+            this.gbVenta.Controls.Add(this.txtNumero);
             this.gbVenta.Controls.Add(this.txtValVenta);
             this.gbVenta.Controls.Add(this.label9);
             this.gbVenta.Controls.Add(this.label8);
             this.gbVenta.Enabled = false;
             this.gbVenta.Location = new System.Drawing.Point(10, 236);
             this.gbVenta.Name = "gbVenta";
-            this.gbVenta.Size = new System.Drawing.Size(574, 129);
+            this.gbVenta.Size = new System.Drawing.Size(574, 128);
             this.gbVenta.TabIndex = 175;
             this.gbVenta.TabStop = false;
             // 
@@ -489,13 +506,94 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Valor Venta";
             // 
+            // dgvContable
+            // 
+            this.dgvContable.AllowUserToAddRows = false;
+            this.dgvContable.AllowUserToDeleteRows = false;
+            this.dgvContable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtCuenta,
+            this.dtDebito,
+            this.dtCredito,
+            this.dtDescripcion,
+            this.dtNit});
+            this.dgvContable.Location = new System.Drawing.Point(10, 370);
+            this.dgvContable.Name = "dgvContable";
+            this.dgvContable.ReadOnly = true;
+            this.dgvContable.Size = new System.Drawing.Size(561, 94);
+            this.dgvContable.TabIndex = 176;
+            // 
+            // lblCtaActivo
+            // 
+            this.lblCtaActivo.AutoSize = true;
+            this.lblCtaActivo.Location = new System.Drawing.Point(29, 58);
+            this.lblCtaActivo.Name = "lblCtaActivo";
+            this.lblCtaActivo.Size = new System.Drawing.Size(63, 13);
+            this.lblCtaActivo.TabIndex = 2;
+            this.lblCtaActivo.Text = "lblCtaActivo";
+            // 
+            // lblCtaDepreciacion
+            // 
+            this.lblCtaDepreciacion.AutoSize = true;
+            this.lblCtaDepreciacion.Location = new System.Drawing.Point(29, 77);
+            this.lblCtaDepreciacion.Name = "lblCtaDepreciacion";
+            this.lblCtaDepreciacion.Size = new System.Drawing.Size(96, 13);
+            this.lblCtaDepreciacion.TabIndex = 3;
+            this.lblCtaDepreciacion.Text = "lblCtaDepreciacion";
+            // 
+            // smsError
+            // 
+            this.smsError.ContainerControl = this;
+            this.smsError.Icon = ((System.Drawing.Icon)(resources.GetObject("smsError.Icon")));
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumero.Location = new System.Drawing.Point(314, 16);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(104, 29);
+            this.txtNumero.TabIndex = 0;
+            this.txtNumero.TextChanged += new System.EventHandler(this.txtValVenta_TextChanged);
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValVenta_KeyPress);
+            // 
+            // dtCuenta
+            // 
+            this.dtCuenta.HeaderText = "Cuenta";
+            this.dtCuenta.Name = "dtCuenta";
+            this.dtCuenta.ReadOnly = true;
+            // 
+            // dtDebito
+            // 
+            this.dtDebito.HeaderText = "Debito";
+            this.dtDebito.Name = "dtDebito";
+            this.dtDebito.ReadOnly = true;
+            // 
+            // dtCredito
+            // 
+            this.dtCredito.HeaderText = "Credito";
+            this.dtCredito.Name = "dtCredito";
+            this.dtCredito.ReadOnly = true;
+            // 
+            // dtDescripcion
+            // 
+            this.dtDescripcion.HeaderText = "Descripcion";
+            this.dtDescripcion.Name = "dtDescripcion";
+            this.dtDescripcion.ReadOnly = true;
+            // 
+            // dtNit
+            // 
+            this.dtNit.HeaderText = "Nit";
+            this.dtNit.Name = "dtNit";
+            this.dtNit.ReadOnly = true;
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(594, 453);
+            this.ClientSize = new System.Drawing.Size(594, 552);
+            this.Controls.Add(this.dgvContable);
             this.Controls.Add(this.gbVenta);
             this.Controls.Add(this.gbDatos);
             this.Controls.Add(this.btnExit);
@@ -516,6 +614,8 @@
             this.gbDatos.PerformLayout();
             this.gbVenta.ResumeLayout(false);
             this.gbVenta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smsError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,7 +647,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtValLibros;
         private System.Windows.Forms.TextBox txtDepreciacion;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox gbVenta;
         private System.Windows.Forms.Label label8;
@@ -555,5 +655,15 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtUtilidad;
         private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.DataGridView dgvContable;
+        private System.Windows.Forms.Label lblCtaDepreciacion;
+        private System.Windows.Forms.Label lblCtaActivo;
+        private System.Windows.Forms.ErrorProvider smsError;
+        private System.Windows.Forms.TextBox txtNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtDebito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtCredito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtNit;
     }
 }

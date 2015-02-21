@@ -10,7 +10,7 @@ namespace BLL
 {
     public class ParametrosBLL
     {
-        public List<EParametros> getParametros() {
+        public EParametros getParametros() {
             ParametrosDAO PDao = new ParametrosDAO();
             return PDao.getParamentro();
         }

@@ -15,7 +15,7 @@ namespace Entidades
         public string numSerie { get; set; }
         public string tipo { get; set; }
 
-        public string vidaUtil { get; set; }
+        public int vidaUtil { get; set; }
         public string propiedad { get; set; }
         public DateTime fecha { get; set; }
         public string area { get; set; }

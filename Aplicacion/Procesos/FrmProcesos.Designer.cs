@@ -32,9 +32,9 @@
             this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblAreas = new System.Windows.Forms.Label();
             this.lblParametros = new System.Windows.Forms.Label();
-            this.Label2 = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
             this.lblActivos = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
             this.lblDepreciacion = new System.Windows.Forms.Label();
             this.TableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -114,23 +114,6 @@
             this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblParametros.Click += new System.EventHandler(this.lblParametros_Click);
             // 
-            // Label2
-            // 
-            this.Label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label2.BackColor = System.Drawing.Color.Transparent;
-            this.Label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label2.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label2.ForeColor = System.Drawing.Color.White;
-            this.Label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Label2.Location = new System.Drawing.Point(8, 125);
-            this.Label2.Margin = new System.Windows.Forms.Padding(8);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(217, 100);
-            this.Label2.TabIndex = 132;
-            this.Label2.Text = "Registro de Fallas";
-            this.Label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
             // lblCerrar
             // 
             this.lblCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -168,6 +151,23 @@
             this.lblActivos.Text = "Gravamenes y Tipo";
             this.lblActivos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // Label2
+            // 
+            this.Label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label2.BackColor = System.Drawing.Color.Transparent;
+            this.Label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Label2.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.ForeColor = System.Drawing.Color.White;
+            this.Label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Label2.Location = new System.Drawing.Point(8, 125);
+            this.Label2.Margin = new System.Windows.Forms.Padding(8);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(217, 100);
+            this.Label2.TabIndex = 132;
+            this.Label2.Text = "Registro de Fallas";
+            this.Label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // lblDepreciacion
             // 
             this.lblDepreciacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -199,6 +199,8 @@
             this.Name = "FrmProcesos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmProcesos";
+            this.Activated += new System.EventHandler(this.FrmProcesos_Activated);
+            this.Deactivate += new System.EventHandler(this.FrmProcesos_Deactivate);
             this.TableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

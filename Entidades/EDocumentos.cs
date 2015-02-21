@@ -18,7 +18,7 @@ namespace Entidades
         public double debito { get; set; }
         public double credito { get; set; }
         public string codigo { get; set; }
-        public string baseD { get; set; }
+        public double baseD { get; set; }
         public int diasv { get; set; }
         public string fecha { get; set; }
         public string nit { get; set; }

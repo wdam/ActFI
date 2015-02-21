@@ -11,12 +11,12 @@ namespace DAL.DAO
 {
     public class DocumentosDAO
     {
-        public int insert(string tabla, EDocumentos objDoc) {
+        public int insert(string periodo, EDocumentos objDoc) {
             int nReg = 0; // Numero de registros afectados
-            string sql = "INSERT INTO " + tabla +  " (item, doc, tipodoc, periodo, dia, centro, desc, debito, " +
-                         " credito, codigo, base, diasv,?fechaven,?nit,?cheque,?modulo ) " +
-                         " VALUES ( ?item, ?doc, ?tipodoc, ?periodo, ?dia, ?centro, ?desc, ?debito, ?credito, "+
-                         " ?codigo, ?base, ?diasv,  ?fechaven,?nit,?cheque,?modulo";
+            string sql = "INSERT INTO documentos" + periodo + " (item, doc, tipodoc, periodo, dia, centro, descri, debito, " +
+                         " credito, codigo, base, diasv, fechaven, nit, cheque, modulo ) " +
+                         " VALUES ( ?item, ?doc, ?tipodoc, ?periodo, ?dia, ?centro, ?descri, ?debito, ?credito, " +
+                         " ?codigo, ?base, ?diasv,  ?fechaven,?nit,?cheque,?modulo)";
 
             using (conexion cnx = new conexion())
             {
@@ -33,7 +33,7 @@ namespace DAL.DAO
                         cmd.Parameters.Add("?periodo", MySqlDbType.String).Value = objDoc.periodo;
                         cmd.Parameters.Add("?dia", MySqlDbType.String).Value = objDoc.dia;
                         cmd.Parameters.Add("?centro", MySqlDbType.String).Value = objDoc.centro;
-                        cmd.Parameters.Add("?desc", MySqlDbType.String).Value = objDoc.descripcion;
+                        cmd.Parameters.Add("?descri", MySqlDbType.String).Value = objDoc.descripcion;
                         cmd.Parameters.Add("?debito", MySqlDbType.Double).Value = objDoc.debito;
                         cmd.Parameters.Add("?credito", MySqlDbType.Double).Value = objDoc.credito;
                         cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = objDoc.codigo;
@@ -48,6 +48,9 @@ namespace DAL.DAO
                         cnx.cerrarConexion();
                     }
                 }
+            }
+            if (nReg > 0) {
+                ActualizarCuenta(objDoc.codigo, objDoc.debito, objDoc.credito,  periodo);
             }
             return nReg;
         }
@@ -110,7 +113,7 @@ namespace DAL.DAO
 
         protected EDocumentos mapearObjeto(MySqlDataReader fila) {
             EDocumentos doc = new EDocumentos();
-            doc.baseD = fila.GetString("base");
+            doc.baseD = fila.GetDouble("base");
             doc.centro = fila.GetString("centro");
             doc.cheque = fila.GetString("cheque");
             doc.codigo = fila.GetString("codigo");
@@ -164,7 +167,7 @@ namespace DAL.DAO
             }            
         }
 
-        public void eliminarDocumento(int documento, string tipo, string periodo)
+        public int eliminarDocumento(int documento, string tipo, string periodo)
         {
             int reg = 0; // Obtiene el numero de Registros afectados
             string sql = "DELETE FROM documentos" + periodo + "  WHERE  tipodoc='" + tipo + "' AND doc='" + documento + "'  ";
@@ -181,7 +184,63 @@ namespace DAL.DAO
                         cnx.cerrarConexion();
                     }
                 }               
-            }     
+            }
+            return reg;
+        }
+
+        private void ActualizarCuenta(string cuenta, double dto, double cto, string periodo ){
+            double suma = 0;
+            string debito = "debito" + periodo;
+            string credito = "credito" + periodo;
+            string saldo = "saldo" + periodo;
+            string sql;
+            int nReg = 0;
+            suma = dto - cto;
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        sql = "UPDATE selpuc SET saldo=saldo +  ?suma , " + saldo + "=" + saldo + " +  ?suma , " +
+                                 debito + "=" + debito + " + ?dto , " +
+                                 credito + "=" + credito + " + ?cto "  +
+                                " WHERE codigo='" + cuenta + "'";
+
+                        cmd.Parameters.Add("?suma", MySqlDbType.Double).Value = suma;
+                        cmd.Parameters.Add("?dto", MySqlDbType.Double).Value = dto;
+                        cmd.Parameters.Add("?cto", MySqlDbType.Double).Value = cto;
+
+                            cmd.CommandText = sql;
+                            nReg=cmd.ExecuteNonQuery();                        
+                        cnx.cerrarConexion();
+                    }
+                }
+            }  
+        }
+
+        public void insertObservacion(int documento, string tipo, string observacion, string periodo) {
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        string sql = "REPLACE INTO obsdocumentos"+periodo+" SET doc=?doc, tipodoc='?tipo' , comentario='?observ' ";
+                        cmd.Parameters.Add("?doc", MySqlDbType.Int32).Value = documento;
+                        cmd.Parameters.Add("?tipo", MySqlDbType.String).Value = tipo;
+                        cmd.Parameters.Add("?observ", MySqlDbType.String).Value = observacion;
+
+                        cmd.CommandText = sql;
+                        int nReg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
         }
     }
    

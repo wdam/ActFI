@@ -69,5 +69,27 @@ namespace DAL.DAO
             }
             return objTipo;           
         }
+
+        public int updateConsecutivo(int actual, string tipodoc, string periodo) {            
+            int nReg = 0;
+            string sql = " Update tipdoc set actual" + periodo + "=?actual WHERE tipodoc=?tipodoc AND actual" +periodo+ "<?actual  ";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        cmd.Parameters.Add("?actual", MySqlDbType.Int32).Value = actual;
+                        cmd.Parameters.Add("?tipodoc", MySqlDbType.String).Value = tipodoc;                        
+                        cmd.CommandText = sql;
+                        nReg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return nReg;
+        }
     }
 }

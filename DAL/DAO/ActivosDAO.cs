@@ -39,6 +39,34 @@ namespace DAL.DAO
             }
         }
 
+        public List<EActivos> getAll(string tipo) {
+            EActivos objActivo = null;
+            List<EActivos> lista = new List<EActivos>();
+            string sql = "SELECT * FROM afactivos WHERE  valLibros   > valSalvamento";
+
+
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            objActivo = mapearObjeto(dr);
+                            lista.Add(objActivo);
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }             
+            }
+            return lista;
+        }
+
         public int insertar(EActivos act) {
             int reg=0;
             string sql = "INSERT INTO afactivos (codigo, nombre, descripcion, numSerie, referecia, tipo, " +
@@ -182,9 +210,35 @@ namespace DAL.DAO
                         cnx.cerrarConexion();
                     }
 
-                }
-                return reg;
+                }               
             }
+            return reg;
+        }
+
+        public int UpdateValores(double valLibro, double valDepAjus, double valDeprAcum, string codigo)
+        {
+            int nReg = 0;
+            string sql = "UPDATE afactivos SET valLibros = ?valLibros, depAcumulada = ?depAcumulada, " +
+                         " depajustada = ?depajustada  WHERE codigo =?codigo ";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = codigo;
+                    cmd.Parameters.Add("?valLibros", MySqlDbType.Double).Value = valLibro;
+                    cmd.Parameters.Add("?depajustada", MySqlDbType.Double).Value = valDepAjus;
+                    cmd.Parameters.Add("?depAcumulada", MySqlDbType.Double).Value = valDeprAcum;                                       
+                    if (cnx.abrirConexion())
+                    {
+                        nReg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return nReg;
         }
 
         protected EActivos mapearObjeto(MySqlDataReader fila)
@@ -195,7 +249,7 @@ namespace DAL.DAO
             act.descripcion = fila.GetString("descripcion");            
             act.numSerie = fila.GetString("numSerie") ?? "NO";
             act.referencia = fila.GetString("referecia") ?? "NO";
-            act.vidaUtil = fila.GetString("vidaUtil");
+            act.vidaUtil = fila.GetInt32("vidaUtil");
             act.tipo = fila.GetString("tipo");
 
             act.propiedad = fila.GetString("propiedad");
@@ -226,8 +280,8 @@ namespace DAL.DAO
             EActivos act = new EActivos();
             act.codigo = fila.GetString("codigo");
             act.nombre = fila.GetString("nombre");
-            act.descripcion = fila.GetString("descripcion");                    
-            act.vidaUtil = fila.GetString("vidaUtil");
+            act.descripcion = fila.GetString("descripcion");
+            act.vidaUtil = fila.GetInt32("vidaUtil");
             
             act.propiedad = fila.GetString("propiedad");
             act.area = fila.GetString("AreaLoc");

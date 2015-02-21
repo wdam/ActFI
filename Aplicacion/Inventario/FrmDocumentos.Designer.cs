@@ -333,9 +333,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(90)))));
             this.label7.Location = new System.Drawing.Point(30, 28);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 26);
+            this.label7.Size = new System.Drawing.Size(78, 26);
             this.label7.TabIndex = 213;
-            this.label7.Text = "Debito $";
+            this.label7.Text = "Debito ";
             // 
             // gbGeneral
             // 
@@ -693,6 +693,7 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.AllowUserToResizeColumns = false;
             this.dgvDatos.AllowUserToResizeRows = false;
             this.dgvDatos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
@@ -725,8 +726,10 @@
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvDatos.Size = new System.Drawing.Size(1061, 200);
             this.dgvDatos.TabIndex = 0;
+            this.dgvDatos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDatos_CellBeginEdit);
             this.dgvDatos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellEndEdit);
             this.dgvDatos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellEnter);
+            this.dgvDatos.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDatos_CellValidating);
             this.dgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDatos_EditingControlShowing);
             this.dgvDatos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDatos_KeyDown);
             // 
@@ -870,11 +873,11 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(721, 28);
+            this.label10.Location = new System.Drawing.Point(745, 28);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 26);
+            this.label10.Size = new System.Drawing.Size(33, 26);
             this.label10.TabIndex = 213;
-            this.label10.Text = "=        $";
+            this.label10.Text = "=  ";
             // 
             // label8
             // 
@@ -883,9 +886,9 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label8.Location = new System.Drawing.Point(396, 28);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 26);
+            this.label8.Size = new System.Drawing.Size(84, 26);
             this.label8.TabIndex = 213;
-            this.label8.Text = "Credito $";
+            this.label8.Text = "Credito ";
             // 
             // label11
             // 

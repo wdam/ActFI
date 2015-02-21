@@ -22,5 +22,12 @@ namespace BLL
             }
             return tDao.buscarTipo(tipo, Inicializar.Mes);
         }
+
+        public void updateConsecutivo(int numero, string tipo) {
+            if (string.IsNullOrEmpty(tipo)) {
+                return;            
+             }
+            tDao.updateConsecutivo(numero, tipo, Inicializar.Mes);
+        }
     }
 }

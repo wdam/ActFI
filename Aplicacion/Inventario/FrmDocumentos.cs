@@ -30,8 +30,7 @@ namespace Aplicacion.Inventario
         double debito = 0;
         double credito = 0;
         bool busGrilla = false;
-        int fila=-1;
-        int columna = -1;
+        int fila, FinEdit, columna;        
 
         public FrmDocumentos()
         {
@@ -138,10 +137,10 @@ namespace Aplicacion.Inventario
             txtNomCentro.Text = "";
             txtObservaciones.Text = "";
             lblCuenta.Text = "";
-            txtNumero.Text = "";          
-            txtDiferencia.Text = "0";
-            txtCredito.Text = "0";
-            txtDebito.Text = "0";
+            txtNumero.Text = "";            
+            txtCredito.Text = "0,00"; 
+            txtDebito.Text = "0,00";
+            txtDiferencia.Text = "0,00"; 
             txtVmto.Text = "0";
 
             dgvDatos.Rows.Clear();
@@ -183,7 +182,7 @@ namespace Aplicacion.Inventario
             {
                 case 1:  case 2: case 4: 
                     TextBox txt = (TextBox)sender;
-                    if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || e.KeyChar == '.' && txt.Text.Contains(".") == false)
+                    if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || e.KeyChar == ',' && txt.Text.Contains(",") == false)
                     {
                         e.Handled = false;
                     }                
@@ -199,7 +198,7 @@ namespace Aplicacion.Inventario
                     }
                     break;
                 case 6:
-                    TextBox txt1 = (TextBox)sender;
+                    TextBox txt1 = (TextBox)sender;                    
                     if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || e.KeyChar == '/' )
                     {
                         e.Handled = false;
@@ -208,16 +207,14 @@ namespace Aplicacion.Inventario
                     {
                         e.Handled = true;
                     }
-                    break;
+                    break;                
             }
 
         }
         private void dgvDatos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            busGrilla = false;
-            fila = e.RowIndex;
-            columna = e.ColumnIndex;
-            if (e.RowIndex >= 0) {
+            busGrilla = false;           
+            if (e.RowIndex >= 0) {                
                 switch (e.ColumnIndex)
                 {
                     case 0:
@@ -226,27 +223,25 @@ namespace Aplicacion.Inventario
                         }                        
                         break;
                     case 1:                       
-                        string sdebito = dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value.ToString();
-                        if (sdebito == "" || sdebito == ".") {                            
+                        string sdebito = (string)dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value;
+                        if (string.IsNullOrEmpty(sdebito) || sdebito == ",") {                            
                             sdebito="0";
-                        }                       
-                        dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value = Math.Round(Convert.ToDouble(sdebito), 2);
-                        if (Convert.ToDouble(sdebito) > 0) {
-                            dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value = "0.00";
-                            SendKeys.Send("{TAB}");    
                         }
-                        
+                        dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value = UtilSystem.fMoneda(Math.Round(Convert.ToDouble(sdebito), 2));
+                        if (Convert.ToDouble(sdebito) > 0) {
+                            dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value = "0,00";
+                            SendKeys.Send("{TAB}");    
+                        }                        
                         break;
                     case 2:
-                       string scredito = dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value.ToString();
-                       if (scredito == "" || scredito==".") {
+                        string scredito = (string)dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value;
+                       if (string.IsNullOrEmpty(scredito) || scredito == ","){
                            scredito = "0";
-                        }                       
-                       dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value = Math.Round(Convert.ToDouble(scredito), 2);
-                       if (Convert.ToDouble(scredito) > 0) {
-                           dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value = "0.00";                       
-                       }
-                       
+                        }
+                       dgvDatos.Rows[e.RowIndex].Cells["dtCredito"].Value = UtilSystem.fMoneda(Math.Round(Convert.ToDouble(scredito), 2));                    
+                        if (Convert.ToDouble(scredito) > 0) {
+                           dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value = "0,00";                       
+                       }                       
                         break;
                     case 3:
                         busGrilla = true;
@@ -260,22 +255,28 @@ namespace Aplicacion.Inventario
                         }                                            
                         break;
                     case 4:
+                        string sBase = (string)dgvDatos.Rows[e.RowIndex].Cells["dtBase"].Value;
+                        if (string.IsNullOrEmpty(sBase) || sBase == ","){
+                            sBase = "0";
+                        }
+                        dgvDatos.Rows[e.RowIndex].Cells["dtBase"].Value = UtilSystem.fMoneda(Math.Round(Convert.ToDouble(sBase), 2));
+                        MessageBox.Show(dgvDatos.Rows[e.RowIndex].Cells["dtBase"].Value.ToString());
                         break;
                     case 5:
-                        try
-                        {
-                            int dias = Convert.ToInt16(dgvDatos.Rows[e.RowIndex].Cells["dtDvmto"].Value.ToString());                            
+                       
+                            string sDias = (string)dgvDatos.Rows[e.RowIndex].Cells["dtDvmto"].Value ?? "0";
+                            if (string.IsNullOrEmpty(sDias)) {
+                                sDias = "0";
+                            }
+                            int dias = Convert.ToInt16(sDias);                            
                             DateTime fecha = Convert.ToDateTime(txtDia.Text + txtFecha.Text);
-                            dgvDatos.Rows[e.RowIndex].Cells["dtFecha"].Value = fecha.AddDays(dias);
-                        }
-                        catch (Exception) { }                                                                                                                                                       
+                            dgvDatos.Rows[e.RowIndex].Cells["dtFecha"].Value = fecha.AddDays(dias).ToShortDateString();
+                            MessageBox.Show(dgvDatos.Rows[e.RowIndex].Cells["dtFecha"].Value.ToString());                                                                                                                                                                          
                         break;
                     case 6:                       
-                        try
-                        {
+                        try {
                             DateTime Fecha = DateTime.Parse(dgvDatos.Rows[e.RowIndex].Cells["dtFecha"].Value.ToString());
-                        }
-                        catch (Exception){
+                        } catch (Exception){
                             MessageBox.Show("Error al digitar la fecha de vencimiento, Verifique el formato (DD/MM/AAAA)", "SAE Control de Errores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dgvDatos.Rows[e.RowIndex].Cells["dtFecha"].Value = "00/00/0000";
                         }                        
@@ -305,10 +306,61 @@ namespace Aplicacion.Inventario
                 }
             }
 
+
             debito = dgvDatos.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToDouble(x.Cells["dtDebito"].Value));
             credito = dgvDatos.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToDouble(x.Cells["dtCredito"].Value));
-            txtDebito.Text = debito.ToString();
-            txtCredito.Text = credito.ToString();
+            txtDebito.Text = UtilSystem.fMoneda(debito);            
+            txtCredito.Text = UtilSystem.fMoneda(credito);
+        }
+        private void dgvDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = e.RowIndex;
+            columna = e.ColumnIndex;
+            smsError.Dispose();
+            if (txtCentro.Enabled == false){
+                dgvDatos.Rows[e.RowIndex].Cells["dtCentro"].ReadOnly = true;
+            }
+            valoresporDefecto(e.RowIndex);
+        }
+
+        private void dgvDatos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (lblOperacion.Text != "Nuevo" && lblOperacion.Text != "Editar")
+                return;
+            
+            if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
+            {
+                if (fila == dgvDatos.Rows.Count-1) {
+                    return;
+                }
+                DialogResult resul;
+                resul = MessageBox.Show("Toda la fila será retirada, ¿Desea Quitarla?", "Control de Información", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resul == System.Windows.Forms.DialogResult.Yes)
+                {
+                    dgvDatos.Rows.RemoveAt(fila);
+                }
+                return;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void dgvDatos_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (FinEdit == 1 && e.ColumnIndex != 8){
+                FinEdit = 0;
+                if (e.ColumnIndex == 7 && txtCentro.Enabled == false)
+                {
+                    SendKeys.Send("{HOME}");
+                }
+                else {
+                    SendKeys.Send("{TAB}");        
+                }
+                e.Cancel = true;  
+            }
         }
 
         private void buscarCuenta(string codigo)
@@ -368,48 +420,24 @@ namespace Aplicacion.Inventario
             }
         }
 
-        private void dgvDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvDatos_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            smsError.Dispose();
-            if (txtCentro.Enabled == false) {
-                dgvDatos.Rows[e.RowIndex].Cells["dtCentro"].ReadOnly = true;
-            }            
-            valoresporDefecto(e.RowIndex);
+            FinEdit = 1;
         }
-
-        private void dgvDatos_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (lblOperacion.Text != "Nuevo" && lblOperacion.Text != "Editar") {
-                return; 
-            }
-
-            if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back) {
-                if (fila == dgvDatos.Rows.Count - 1) {
-                    return;
-                }
-                DialogResult resul;
-                resul = MessageBox.Show("Toda la fila será retirada, ¿Desea Quitarla?", "Control de Información", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resul == System.Windows.Forms.DialogResult.Yes) {
-                    dgvDatos.Rows.RemoveAt(fila);
-                }
-                return;
-            }
-            else if (e.KeyCode == Keys.Enter) {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");                
-            }
-        }
-
+             
         private void valoresporDefecto(int fila) {
             if (dgvDatos.Rows[fila].Cells["dtNit"].Value == null &&  txtNombreTer.Text != "") {
                 dgvDatos.Rows[fila].Cells["dtNit"].Value = txtNit.Text;
             }
             if (dgvDatos.Rows[fila].Cells["dtDebito"].Value == null){
-                dgvDatos.Rows[fila].Cells["dtDebito"].Value = "0.00";
+                dgvDatos.Rows[fila].Cells["dtDebito"].Value = "0,00";
             }
 
             if (dgvDatos.Rows[fila].Cells["dtCredito"].Value == null){
-                dgvDatos.Rows[fila].Cells["dtCredito"].Value = "0.00";
+                dgvDatos.Rows[fila].Cells["dtCredito"].Value = "0,00";
+            }
+            if (dgvDatos.Rows[fila].Cells["dtBase"].Value == null) {
+                dgvDatos.Rows[fila].Cells["dtBase"].Value = "0,00";
             }
             
             if (dgvDatos.Rows[fila].Cells["dtCentro"].Value == null && txtNomCentro.Text != "" && txtCentro.Enabled == true) {
@@ -417,7 +445,7 @@ namespace Aplicacion.Inventario
             }
             DateTime fecha = Convert.ToDateTime(txtDia.Text + txtFecha.Text);            
             if (dgvDatos.Rows[fila].Cells["dtDvmto"].Value == null) {
-                dgvDatos.Rows[fila].Cells["dtDvmto"].Value = Convert.ToInt16(txtVmto.Text);
+                dgvDatos.Rows[fila].Cells["dtDvmto"].Value = txtVmto.Text;
                 dgvDatos.Rows[fila].Cells["dtFecha"].Value = fecha.AddDays(Convert.ToInt16(txtVmto.Text));
             }                                            
         }
@@ -493,11 +521,67 @@ namespace Aplicacion.Inventario
             smsError.Dispose();
             if (validarDatos())
             {
+                if (lblOperacion.Text == "Nuevo"){
+                    lstDocumentos = bllDoc.buscarDocumento(Convert.ToInt32(txtNumero.Text.Trim()), txtDocumento.Text);
+                    if (lstDocumentos.Count > 0)
+                    {
+                        txtNumero.Text = UtilSystem.fConsecutivo(Convert.ToInt32(txtNumero.Text) + 1);
+                    }
+                    bllTipo.updateConsecutivo(Convert.ToInt32(txtNumero.Text), txtDocumento.Text);      
+                }
+                else {
+                    bllDoc.modificarCuentas(Convert.ToInt32(txtNumero.Text), txtDocumento.Text);
+                    bllDoc.eliminarDocumento(Convert.ToInt32(txtNumero.Text), txtDocumento.Text);
+                }
 
+                guardar();
+                guardarObservacion();
+                MessageBox.Show("Datos Guardados Correctamente.. ", "Control de Información ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblOperacion.Text = "Consulta";
+                Deshabilitar();
             }
             else {
                 MessageBox.Show("Datos Incorrectos, Por favor Verifique...", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void guardar()
+        {
+            int cont = 0;
+            foreach (DataGridViewRow item in dgvDatos.Rows)
+            {
+                // Crear Objeto de tipo Documento
+                if (!item.IsNewRow)
+                {
+                    cont++;
+                    EDocumentos ObjDoc = new EDocumentos();
+                    ObjDoc.item = cont;
+                    ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
+                    ObjDoc.tipo = txtDocumento.Text.Trim();
+                    ObjDoc.periodo = BLL.Inicializar.Mes;
+                    ObjDoc.dia = txtDia.Text;
+                    ObjDoc.centro = (string)item.Cells["dtCentro"].Value ?? "0";
+                    ObjDoc.descripcion = UtilSystem.truncarCadena(item.Cells["dtDescripcion"].Value.ToString(), 50);
+                    ObjDoc.debito = UtilSystem.DIN(item.Cells["dtDebito"].Value.ToString() ?? "0");
+                    ObjDoc.credito = UtilSystem.DIN(item.Cells["dtCredito"].Value.ToString() ?? "0");
+                    ObjDoc.codigo = item.Cells["dtCuenta"].Value.ToString();
+                    ObjDoc.baseD = UtilSystem.DIN(item.Cells["dtBase"].Value.ToString() ?? "0");
+                    ObjDoc.diasv = Convert.ToInt16(item.Cells["dtDvmto"].Value);
+                    ObjDoc.fecha = UtilSystem.truncarCadena(item.Cells["dtFecha"].Value.ToString(), 10);
+                    ObjDoc.cheque = (string)item.Cells["dtCheque"].Value ?? "";
+                    ObjDoc.nit = (string)item.Cells["dtNit"].Value ?? "0";
+                    ObjDoc.modulo = "Contabilidad AF";
+
+                    bllDoc.insertar(ObjDoc);
+                }
+            }
+        }
+
+        private void guardarObservacion() {
+            if (string.IsNullOrWhiteSpace(txtObservaciones.Text)) {
+                return;
+            }
+            bllDoc.insertObservacion(Convert.ToInt32(txtDocumento.Text), txtDocumento.Text, txtObservaciones.Text);
         }
 
         private bool validarDatos() {
@@ -679,7 +763,7 @@ namespace Aplicacion.Inventario
                 else {
                     txtDesctipo.Text = tipodoc.descripcion;
                     if (lblOperacion.Text == "Nuevo") {
-                        txtNumero.Text = string.Format("{0:000000}",tipodoc.actual);  
+                        txtNumero.Text = UtilSystem.fConsecutivo(tipodoc.actual);  
                     }
                 }
             }
@@ -695,13 +779,13 @@ namespace Aplicacion.Inventario
         }
 
         private void txtDebito_TextChanged(object sender, EventArgs e)
-        {            
-            txtDiferencia.Text = (debito - credito).ToString();
+        {
+            txtDiferencia.Text = UtilSystem.fMoneda(debito - credito);
         }
 
         private void txtCredito_TextChanged(object sender, EventArgs e)
-        {         
-            txtDiferencia.Text = (debito - credito).ToString();
+        {
+            txtDiferencia.Text = UtilSystem.fMoneda(debito - credito);
         }
 
         private void txtVmto_Leave(object sender, EventArgs e)
@@ -736,19 +820,6 @@ namespace Aplicacion.Inventario
             textoSel = (TextBox)sender;
             FrmSelCentroCostos frmCC = new FrmSelCentroCostos();
             frmCC.ShowDialog(this);
-        }
-
-        private void guardar() {
-            if (lblOperacion.Text == "Nuevo") {
-                lstDocumentos = bllDoc.buscarDocumento(Convert.ToInt32(txtNumero.Text), txtDocumento.Text);
-                if (lstDocumentos.Count > 0){
-                    txtNumero.Text = string.Format("{0:000000}", txtNumero.Text + 1); 
-                }
-            }
-            else {
-                bllDoc.ModificarCuentas(Convert.ToInt32(txtNumero.Text), txtDocumento.Text);
-            }
-                   
-        }        
+        }                     
     }
 }

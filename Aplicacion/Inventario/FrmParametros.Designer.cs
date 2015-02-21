@@ -53,9 +53,18 @@
             this.Label24 = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCompra = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtVentas = new System.Windows.Forms.TextBox();
+            this.txtDepreciacion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.msjError)).BeginInit();
             this.GroupBox1.SuspendLayout();
             this.Panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
@@ -95,7 +104,7 @@
             // 
             this.lblMargenInf.BackColor = System.Drawing.Color.Black;
             this.lblMargenInf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMargenInf.Location = new System.Drawing.Point(2, 450);
+            this.lblMargenInf.Location = new System.Drawing.Point(2, 374);
             this.lblMargenInf.Name = "lblMargenInf";
             this.lblMargenInf.Size = new System.Drawing.Size(719, 2);
             this.lblMargenInf.TabIndex = 200;
@@ -106,7 +115,7 @@
             this.lblMargenIzq.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMargenIzq.Location = new System.Drawing.Point(721, 2);
             this.lblMargenIzq.Name = "lblMargenIzq";
-            this.lblMargenIzq.Size = new System.Drawing.Size(2, 450);
+            this.lblMargenIzq.Size = new System.Drawing.Size(2, 374);
             this.lblMargenIzq.TabIndex = 199;
             // 
             // lblMargenDer
@@ -115,7 +124,7 @@
             this.lblMargenDer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblMargenDer.Location = new System.Drawing.Point(0, 2);
             this.lblMargenDer.Name = "lblMargenDer";
-            this.lblMargenDer.Size = new System.Drawing.Size(2, 450);
+            this.lblMargenDer.Size = new System.Drawing.Size(2, 374);
             this.lblMargenDer.TabIndex = 198;
             // 
             // lblMargenTop
@@ -174,50 +183,50 @@
             // txtctaActivo
             // 
             this.txtctaActivo.Location = new System.Drawing.Point(89, 28);
-            this.txtctaActivo.MaxLength = 9;
+            this.txtctaActivo.MaxLength = 12;
             this.txtctaActivo.Name = "txtctaActivo";
             this.txtctaActivo.Size = new System.Drawing.Size(175, 29);
-            this.txtctaActivo.TabIndex = 11;
+            this.txtctaActivo.TabIndex = 0;
             this.toolTip1.SetToolTip(this.txtctaActivo, "Cuenta de Activo");
             this.txtctaActivo.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaDepMonetaria
             // 
             this.txtctaDepMonetaria.Location = new System.Drawing.Point(306, 100);
-            this.txtctaDepMonetaria.MaxLength = 9;
+            this.txtctaDepMonetaria.MaxLength = 12;
             this.txtctaDepMonetaria.Name = "txtctaDepMonetaria";
             this.txtctaDepMonetaria.Size = new System.Drawing.Size(175, 29);
-            this.txtctaDepMonetaria.TabIndex = 15;
+            this.txtctaDepMonetaria.TabIndex = 4;
             this.toolTip1.SetToolTip(this.txtctaDepMonetaria, "Cuenta Monetaria (Depreciación)");
             this.txtctaDepMonetaria.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaGastos
             // 
             this.txtctaGastos.Location = new System.Drawing.Point(89, 65);
-            this.txtctaGastos.MaxLength = 9;
+            this.txtctaGastos.MaxLength = 12;
             this.txtctaGastos.Name = "txtctaGastos";
             this.txtctaGastos.Size = new System.Drawing.Size(175, 29);
-            this.txtctaGastos.TabIndex = 13;
+            this.txtctaGastos.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txtctaGastos, "Cuenta de Gastos");
             this.txtctaGastos.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaDepreciacion
             // 
             this.txtctaDepreciacion.Location = new System.Drawing.Point(501, 28);
-            this.txtctaDepreciacion.MaxLength = 9;
+            this.txtctaDepreciacion.MaxLength = 12;
             this.txtctaDepreciacion.Name = "txtctaDepreciacion";
             this.txtctaDepreciacion.Size = new System.Drawing.Size(175, 29);
-            this.txtctaDepreciacion.TabIndex = 12;
+            this.txtctaDepreciacion.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtctaDepreciacion, "Cuenta de Depreciación");
             this.txtctaDepreciacion.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaMonetaria
             // 
             this.txtctaMonetaria.Location = new System.Drawing.Point(501, 65);
-            this.txtctaMonetaria.MaxLength = 9;
+            this.txtctaMonetaria.MaxLength = 12;
             this.txtctaMonetaria.Name = "txtctaMonetaria";
             this.txtctaMonetaria.Size = new System.Drawing.Size(175, 29);
-            this.txtctaMonetaria.TabIndex = 14;
+            this.txtctaMonetaria.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtctaMonetaria, "Cuenta Corrección Monetaria");
             this.txtctaMonetaria.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
@@ -241,7 +250,7 @@
             this.GroupBox1.Controls.Add(this.Label25);
             this.GroupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox1.ForeColor = System.Drawing.Color.Crimson;
-            this.GroupBox1.Location = new System.Drawing.Point(12, 67);
+            this.GroupBox1.Location = new System.Drawing.Point(9, 139);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Size = new System.Drawing.Size(699, 161);
             this.GroupBox1.TabIndex = 203;
@@ -252,6 +261,7 @@
             // 
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.ForeColor = System.Drawing.Color.DimGray;
             this.Label1.Location = new System.Drawing.Point(181, 138);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(225, 18);
@@ -314,10 +324,102 @@
             this.Panel1.Controls.Add(this.lblSalir);
             this.Panel1.Controls.Add(this.lblGuardar);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Panel1.Location = new System.Drawing.Point(2, 382);
+            this.Panel1.Location = new System.Drawing.Point(2, 306);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(719, 68);
             this.Panel1.TabIndex = 204;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.txtCompra);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtVentas);
+            this.groupBox2.Controls.Add(this.txtDepreciacion);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Crimson;
+            this.groupBox2.Location = new System.Drawing.Point(9, 53);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(699, 80);
+            this.groupBox2.TabIndex = 205;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Documentos Contables";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(181, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(253, 18);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Doble Click Para Seleccionar Documentos";
+            // 
+            // txtCompra
+            // 
+            this.txtCompra.Location = new System.Drawing.Point(565, 28);
+            this.txtCompra.MaxLength = 2;
+            this.txtCompra.Name = "txtCompra";
+            this.txtCompra.Size = new System.Drawing.Size(60, 29);
+            this.txtCompra.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.txtCompra, "Cuenta de Activo");
+            this.txtCompra.DoubleClick += new System.EventHandler(this.seleccionarDoc);
+            this.txtCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(484, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 22);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Compras";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(23, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 22);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Depreciación";
+            // 
+            // txtVentas
+            // 
+            this.txtVentas.Location = new System.Drawing.Point(350, 28);
+            this.txtVentas.MaxLength = 2;
+            this.txtVentas.Name = "txtVentas";
+            this.txtVentas.Size = new System.Drawing.Size(60, 29);
+            this.txtVentas.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtVentas, "Cuenta de Gastos");
+            this.txtVentas.DoubleClick += new System.EventHandler(this.seleccionarDoc);
+            this.txtVentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
+            // 
+            // txtDepreciacion
+            // 
+            this.txtDepreciacion.Location = new System.Drawing.Point(135, 28);
+            this.txtDepreciacion.MaxLength = 2;
+            this.txtDepreciacion.Name = "txtDepreciacion";
+            this.txtDepreciacion.Size = new System.Drawing.Size(60, 29);
+            this.txtDepreciacion.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtDepreciacion, "Cuenta de Depreciación");
+            this.txtDepreciacion.DoubleClick += new System.EventHandler(this.seleccionarDoc);
+            this.txtDepreciacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(285, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 22);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Ventas";
             // 
             // FrmParametros
             // 
@@ -325,7 +427,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(723, 452);
+            this.ClientSize = new System.Drawing.Size(723, 376);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.btnExit);
@@ -344,6 +447,8 @@
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             this.Panel1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -373,5 +478,13 @@
         internal System.Windows.Forms.Panel Panel1;
         internal System.Windows.Forms.Label lblSalir;
         internal System.Windows.Forms.Label lblGuardar;
+        internal System.Windows.Forms.GroupBox groupBox2;
+        internal System.Windows.Forms.Label label2;
+        internal System.Windows.Forms.TextBox txtCompra;
+        internal System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.TextBox txtVentas;
+        internal System.Windows.Forms.TextBox txtDepreciacion;
+        internal System.Windows.Forms.Label label6;
     }
 }

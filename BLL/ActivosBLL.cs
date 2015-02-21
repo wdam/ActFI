@@ -15,6 +15,14 @@ namespace BLL
             return ADao.getAll();
         }
 
+        public List<EActivos> getActivos(string tipo)
+        {
+            ActivosDAO ADao = new ActivosDAO();
+            return ADao.getAll(tipo);
+        }
+
+        
+
         public string insertar(EActivos obj) {
             EParametros parametro = new EParametros();
             parametro.ctaActivo = obj.ctaActivo;
@@ -109,5 +117,12 @@ namespace BLL
             return ADao.trasladar(codigo,area, responsable);
         }
 
+        public void UpdateValores(double valLibro, double valDepAjus, double valDeprAcum, string codigo){
+            if (string.IsNullOrEmpty(codigo)){
+                return;
+            }
+            ActivosDAO ADao = new ActivosDAO();
+            ADao.UpdateValores(valLibro, valDepAjus, valDeprAcum, codigo);
+        }
     }
 }

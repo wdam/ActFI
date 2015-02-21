@@ -32,7 +32,7 @@ namespace Aplicacion.Inventario
             lista = bllAct.getActivos();
             dgvActivos.AutoGenerateColumns = false;
             cargarGrilla();
-            cboBuscar.Text = "Nombre";
+            cboBuscar.Text = "Nombre";                        
         }
 
         #region Proceso de cargar Grilla

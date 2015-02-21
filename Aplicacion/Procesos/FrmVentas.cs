@@ -16,6 +16,7 @@ namespace Aplicacion.Procesos
     {
 
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
+        BLL.DocumentosBLL bllDoc = new BLL.DocumentosBLL();
         EActivos activo;
 
         public FrmVentas()
@@ -126,7 +127,6 @@ namespace Aplicacion.Procesos
 
         }
 
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose(true);
@@ -151,9 +151,11 @@ namespace Aplicacion.Procesos
             if (activo != null)
             {
                 txtDescripcion.Text = activo.descripcion.ToString();
-                txtValCompra.Text = activo.valComercial.ToString();
-                txtValLibros.Text = activo.valLibros.ToString();
-                txtDepreciacion.Text = activo.depAcumulada.ToString();
+                txtValCompra.Text = UtilSystem.fMoneda(activo.valComercial);
+                txtValLibros.Text = UtilSystem.fMoneda(activo.valLibros);
+                txtDepreciacion.Text = UtilSystem.fMoneda(activo.depAcumulada);
+                lblCtaActivo.Text = activo.ctaActivo;
+                lblCtaDepreciacion.Text = activo.ctaDepreciacion;
             }
             else {
                 MessageBox.Show("El Activo no Se Encuentra registrado Verifique.. !!", "Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -219,7 +221,100 @@ namespace Aplicacion.Procesos
             }
         }
 
+        private void lblGuardar_Click(object sender, EventArgs e)
+        {
+            if (validar())
+            {
+                GuardarContabilidad();
+            }
+            else {
+                MessageBox.Show("Datos Incorrectos. Verifique", "Control de Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }           
+        }
 
-       
+        private void MovimientoContable(string tipo, string cuenta, string Descripcion, string nit) {
+            if (string.IsNullOrWhiteSpace(cuenta))
+                return;
+
+            dgvContable.Rows.Add(cuenta, "0", "0", Descripcion, nit);
+            int fila = dgvContable.Rows.Count - 1;
+            switch (tipo)
+            {   
+                case "Ganancia":
+                    dgvContable.Rows[fila].Cells["dtDebito"].Value = 0;
+                    dgvContable.Rows[fila].Cells["dtCredito"].Value = Convert.ToDouble(txtUtilidad.Text);
+                    break;
+                case "Articulo":
+                    dgvContable.Rows[fila].Cells["dtDebito"].Value = 0;
+                    dgvContable.Rows[fila].Cells["dtCredito"].Value = Convert.ToDouble(txtValCompra.Text);
+                    break;
+                    
+                case "Caja":
+                    dgvContable.Rows[fila].Cells["dtDebito"].Value = Convert.ToDouble(txtValVenta.Text);
+                    dgvContable.Rows[fila].Cells["dtCredito"].Value = 0;
+                    break;                
+                case "Perdida":
+                    dgvContable.Rows[fila].Cells["dtDebito"].Value = Math.Abs(Convert.ToDouble(txtUtilidad.Text));
+                    dgvContable.Rows[fila].Cells["dtCredito"].Value = 0;
+                    break;
+                case "Depreciacion":
+                    dgvContable.Rows[fila].Cells["dtDebito"].Value = Convert.ToDouble(txtDepreciacion.Text);
+                    dgvContable.Rows[fila].Cells["dtCredito"].Value = 0;
+                    break;
+            }            
+        }
+
+        private bool validar() {
+            bool correcto = true;
+            if (string.IsNullOrWhiteSpace(txtCodigo.Text)){
+                smsError.SetError(lblBuscar, "Ingrese el Codigo del Articulo");
+                correcto = false;                
+            }
+
+            if (string.IsNullOrWhiteSpace(txtValVenta.Text) || txtValVenta.Text == "0") {
+                smsError.SetError(txtValVenta, "Ingrese el Valor de Venta");
+                correcto = false;
+            }
+            return correcto;
+        }
+
+        private void GuardarContabilidad()
+        {
+            dgvContable.Rows.Clear();
+            MovimientoContable("Caja", "110505001", "VENTA DE ACTIVO " + txtCodigo.Text, "0");
+            MovimientoContable("Depreciacion", lblCtaDepreciacion.Text, "DEPRECIACION  ACUMULADA", "0");
+            MovimientoContable("Articulo", lblCtaActivo.Text, "VALOR ADQUISICION", "0");
+            if (Convert.ToDouble(txtUtilidad.Text) > 0) {
+                MovimientoContable("Ganancia", "42454001", "UTILIDAD POR VENTA", "0");
+            }
+            else {
+                MovimientoContable("Perdida", "531015001q", "PERDIDA POR VENTA", "0");
+            }
+
+            int cont = 0;
+            foreach (DataGridViewRow item in dgvContable.Rows)
+            {
+                // Crear Objeto de tipo Documento                
+                    cont++;
+                    EDocumentos ObjDoc = new EDocumentos();
+                    ObjDoc.item = cont;
+                    ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
+                    ObjDoc.tipo = "VV";
+                    ObjDoc.periodo = BLL.Inicializar.Mes;
+                    ObjDoc.dia = DateTime.Now.Day.ToString();
+                    ObjDoc.centro = "0";
+                    ObjDoc.descripcion = UtilSystem.truncarCadena(item.Cells["dtDescripcion"].Value.ToString(), 50);
+                    ObjDoc.debito = UtilSystem.DIN(item.Cells["dtDebito"].Value.ToString() ?? "0");
+                    ObjDoc.credito = UtilSystem.DIN(item.Cells["dtCredito"].Value.ToString() ?? "0");
+                    ObjDoc.codigo = item.Cells["dtCuenta"].Value.ToString();
+                    ObjDoc.baseD =0;
+                    ObjDoc.diasv = 0;
+                    ObjDoc.fecha = dtpFecha.Value.ToString("d"); 
+                    ObjDoc.cheque = "";
+                    ObjDoc.nit = (string)item.Cells["dtNit"].Value ?? "0";
+                    ObjDoc.modulo = "Venta AF";                    
+                    bllDoc.insertar(ObjDoc);                
+            }
+        }       
     }
 }

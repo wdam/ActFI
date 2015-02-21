@@ -14,5 +14,8 @@ namespace Entidades
         public string ctaDepMonetaria { get; set; }
         public string ctaMonetaria { get; set; }
         public string ctaGastos { get; set; }
+        public string ventas { get; set; }
+        public string compras { get; set; }
+        public string depreciacion { get; set; }
     }
 }

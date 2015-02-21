@@ -71,7 +71,8 @@
             // SpContenedor.Panel2
             // 
             this.SpContenedor.Panel2.BackColor = System.Drawing.Color.White;
-            this.SpContenedor.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SpContenedor.Panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SpContenedor.Panel2.BackgroundImage")));
+            this.SpContenedor.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.SpContenedor.Size = new System.Drawing.Size(995, 502);
             this.SpContenedor.SplitterDistance = 120;
             this.SpContenedor.SplitterWidth = 1;

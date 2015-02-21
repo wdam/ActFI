@@ -19,8 +19,27 @@ namespace BLL
             return dDao.buscarDocumento(codigo, tipo, BLL.Inicializar.Mes);
         }
 
-        public void ModificarCuentas(int codigo, string tipo) {
+        public void modificarCuentas(int codigo, string tipo) {
             dDao.modificarCuenta(codigo, tipo, BLL.Inicializar.Mes);
+        }
+
+        public void eliminarDocumento(int codigo, string tipo) {
+            dDao.eliminarDocumento(codigo, tipo, BLL.Inicializar.Mes);
+        }
+
+        public int insertar(EDocumentos objDoc) {
+            CuentasDAO cDao = new CuentasDAO();
+            if (cDao.buscar(objDoc.codigo, "Auxiliar") == null) {
+                return 0;
+            }
+            return  dDao.insert(BLL.Inicializar.Mes, objDoc);
+        }
+
+        public void insertObservacion(int documento, string tipo, string observacion) {
+            if (string.IsNullOrWhiteSpace(tipo)) {
+                return;
+            }
+            dDao.insertObservacion(documento, tipo, observacion, Inicializar.Mes);
         }
     }
 }

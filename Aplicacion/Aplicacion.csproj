@@ -84,6 +84,7 @@
       <DependentUpon>infActivo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UtilSystem.cs" />
     <Compile Include="Informes\FrmInfActivos.cs">
       <SubType>Form</SubType>
     </Compile>

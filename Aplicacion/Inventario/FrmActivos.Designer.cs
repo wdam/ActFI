@@ -345,6 +345,7 @@
             this.txtvalComercial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.txtvalComercial, "Valor Comercial");
             this.txtvalComercial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
+            this.txtvalComercial.Leave += new System.EventHandler(this.txtvalComercial_Leave);
             // 
             // txtCodResp
             // 
@@ -392,7 +393,7 @@
             // lblColor1
             // 
             this.lblColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.lblColor1.Location = new System.Drawing.Point(197, 97);
+            this.lblColor1.Location = new System.Drawing.Point(178, 97);
             this.lblColor1.Name = "lblColor1";
             this.lblColor1.Size = new System.Drawing.Size(170, 3);
             this.lblColor1.TabIndex = 171;
@@ -401,10 +402,10 @@
             // lblColor
             // 
             this.lblColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.lblColor.Location = new System.Drawing.Point(34, 97);
+            this.lblColor.Location = new System.Drawing.Point(18, 97);
             this.lblColor.Name = "lblColor";
-            this.lblColor.Size = new System.Drawing.Size(164, 3);
-            this.lblColor.TabIndex = 170;
+            this.lblColor.Size = new System.Drawing.Size(160, 3);
+            this.lblColor.TabIndex = 160;
             // 
             // btnTab2
             // 
@@ -414,7 +415,7 @@
             this.btnTab2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.btnTab2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTab2.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTab2.Location = new System.Drawing.Point(197, 58);
+            this.btnTab2.Location = new System.Drawing.Point(178, 63);
             this.btnTab2.Name = "btnTab2";
             this.btnTab2.Size = new System.Drawing.Size(170, 36);
             this.btnTab2.TabIndex = 168;
@@ -430,7 +431,7 @@
             this.btnTab1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.btnTab1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTab1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTab1.Location = new System.Drawing.Point(34, 58);
+            this.btnTab1.Location = new System.Drawing.Point(18, 63);
             this.btnTab1.Name = "btnTab1";
             this.btnTab1.Size = new System.Drawing.Size(160, 36);
             this.btnTab1.TabIndex = 169;
@@ -674,6 +675,7 @@
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(324, 29);
             this.cboTipo.TabIndex = 6;
+            this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
             this.cboTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboAreaResp_KeyPress);
             // 
             // Label2
@@ -689,8 +691,8 @@
             // txtvidaUtil
             // 
             this.txtvidaUtil.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtvidaUtil.Location = new System.Drawing.Point(555, 138);
-            this.txtvidaUtil.MaxLength = 2;
+            this.txtvidaUtil.Location = new System.Drawing.Point(566, 138);
+            this.txtvidaUtil.MaxLength = 3;
             this.txtvidaUtil.Name = "txtvidaUtil";
             this.txtvidaUtil.Size = new System.Drawing.Size(70, 29);
             this.txtvidaUtil.TabIndex = 7;
@@ -725,15 +727,18 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(372, 31);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(363, 29);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(440, 67);
             this.txtDescripcion.MaxLength = 200;
@@ -778,9 +783,9 @@
             this.Label8.ForeColor = System.Drawing.Color.Black;
             this.Label8.Location = new System.Drawing.Point(430, 141);
             this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(123, 22);
+            this.Label8.Size = new System.Drawing.Size(133, 22);
             this.Label8.TabIndex = 0;
-            this.Label8.Text = "Vida útil (Años)";
+            this.Label8.Text = "Vida útil (Meses)";
             // 
             // Label7
             // 
@@ -945,6 +950,8 @@
             // 
             // txtdepAcumulada
             // 
+            this.txtdepAcumulada.BackColor = System.Drawing.Color.White;
+            this.txtdepAcumulada.Enabled = false;
             this.txtdepAcumulada.Location = new System.Drawing.Point(581, 132);
             this.txtdepAcumulada.MaxLength = 20;
             this.txtdepAcumulada.Name = "txtdepAcumulada";
@@ -952,10 +959,11 @@
             this.txtdepAcumulada.TabIndex = 7;
             this.txtdepAcumulada.Text = "0";
             this.txtdepAcumulada.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtdepAcumulada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
             // txtdepAjustada
             // 
+            this.txtdepAjustada.BackColor = System.Drawing.Color.White;
+            this.txtdepAjustada.Enabled = false;
             this.txtdepAjustada.Location = new System.Drawing.Point(200, 132);
             this.txtdepAjustada.MaxLength = 20;
             this.txtdepAjustada.Name = "txtdepAjustada";
@@ -963,7 +971,6 @@
             this.txtdepAjustada.TabIndex = 6;
             this.txtdepAjustada.Text = "0";
             this.txtdepAjustada.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtdepAjustada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
             // Label1
             // 
@@ -979,14 +986,16 @@
             // 
             this.Label9.AutoSize = true;
             this.Label9.ForeColor = System.Drawing.Color.Black;
-            this.Label9.Location = new System.Drawing.Point(388, 31);
+            this.Label9.Location = new System.Drawing.Point(407, 31);
             this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(143, 22);
+            this.Label9.Size = new System.Drawing.Size(118, 22);
             this.Label9.TabIndex = 0;
-            this.Label9.Text = "Valor Salvamento";
+            this.Label9.Text = "Valor Residual";
             // 
             // txtvalHistorico
             // 
+            this.txtvalHistorico.BackColor = System.Drawing.Color.White;
+            this.txtvalHistorico.Enabled = false;
             this.txtvalHistorico.Location = new System.Drawing.Point(160, 97);
             this.txtvalHistorico.MaxLength = 20;
             this.txtvalHistorico.Name = "txtvalHistorico";
@@ -994,10 +1003,11 @@
             this.txtvalHistorico.TabIndex = 4;
             this.txtvalHistorico.Text = "0";
             this.txtvalHistorico.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtvalHistorico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
             // txtvalLibros
             // 
+            this.txtvalLibros.BackColor = System.Drawing.Color.White;
+            this.txtvalLibros.Enabled = false;
             this.txtvalLibros.Location = new System.Drawing.Point(200, 63);
             this.txtvalLibros.MaxLength = 20;
             this.txtvalLibros.Name = "txtvalLibros";
@@ -1005,7 +1015,6 @@
             this.txtvalLibros.TabIndex = 3;
             this.txtvalLibros.Text = "0";
             this.txtvalLibros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtvalLibros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
             // txtvalSalvamento
             // 
@@ -1017,9 +1026,12 @@
             this.txtvalSalvamento.Text = "0";
             this.txtvalSalvamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtvalSalvamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
+            this.txtvalSalvamento.Leave += new System.EventHandler(this.txtvalSalvamento_Leave);
             // 
             // txtvalMejoras
             // 
+            this.txtvalMejoras.BackColor = System.Drawing.Color.White;
+            this.txtvalMejoras.Enabled = false;
             this.txtvalMejoras.Location = new System.Drawing.Point(541, 63);
             this.txtvalMejoras.MaxLength = 20;
             this.txtvalMejoras.Name = "txtvalMejoras";
@@ -1027,7 +1039,6 @@
             this.txtvalMejoras.TabIndex = 5;
             this.txtvalMejoras.Text = "0";
             this.txtvalMejoras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtvalMejoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
             // Label10
             // 
@@ -1087,8 +1098,6 @@
             this.ClientSize = new System.Drawing.Size(798, 556);
             this.Controls.Add(this.lblColor1);
             this.Controls.Add(this.lblColor);
-            this.Controls.Add(this.btnTab2);
-            this.Controls.Add(this.btnTab1);
             this.Controls.Add(this.Label26);
             this.Controls.Add(this.FlowLayoutPanel1);
             this.Controls.Add(this.lblMargenInf);
@@ -1097,14 +1106,15 @@
             this.Controls.Add(this.lblMargenIzq);
             this.Controls.Add(this.lblMargenDer);
             this.Controls.Add(this.lblMargenTop);
-            this.Controls.Add(this.panelBasicos);
             this.Controls.Add(this.panelVal);
+            this.Controls.Add(this.panelBasicos);
+            this.Controls.Add(this.btnTab2);
+            this.Controls.Add(this.btnTab1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Activos";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmActivos_FormClosing);
             this.Load += new System.EventHandler(this.FrmActivos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).EndInit();
             this.FlowLayoutPanel1.ResumeLayout(false);

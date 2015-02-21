@@ -89,7 +89,7 @@ namespace Aplicacion.Inventario
                 switch (e.ColumnIndex)
                 {
                     case 1:
-                        codigo = dgvItems.Rows[e.RowIndex].Cells["dtCodigo"].Value.ToString().Trim();
+                        codigo = (string)dgvItems.Rows[e.RowIndex].Cells["dtCodigo"].Value ?? "";
                         if (codigo.Length > 0)
                         {
                             activo = bllAct.buscar(codigo);

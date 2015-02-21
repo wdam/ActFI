@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Aplicacion.Principal;
 using Entidades;
 using Aplicacion.Interfaces;
+using Aplicacion.Principal;
 using CrystalDecisions.CrystalReports.Engine;
 
 
@@ -18,13 +18,12 @@ namespace Aplicacion.Inventario
     public partial class FrmActivos : Form, ISeleccionar
     {
         TextBox texto;
-        List<EParametros> lstParametros;
+        EParametros objParametros;
         BLL.ParametrosBLL bllPar = new BLL.ParametrosBLL();
         BLL.TerceroBLL bllTer = new BLL.TerceroBLL();
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         BLL.CentroCostoBLL bllCentro = new BLL.CentroCostoBLL();
-        
-        Utilidades util = new Utilidades();
+                
         bool Encontro = false;   // Verificar si encontro datos de un activo
         ETerceros user;
         ECentroCosto centro;
@@ -106,7 +105,7 @@ namespace Aplicacion.Inventario
         {
             foreach (Control texto in gbValores.Controls) {
                 if  (texto is TextBox) {
-                    texto.Text = "0";
+                    texto.Text = "0,00";
                 }
             }
         }
@@ -180,17 +179,16 @@ namespace Aplicacion.Inventario
 
         #endregion        
         
-        private void cargarCuentas() {                       
-            if ((lstParametros != null))
+        private void cargarCuentas() {
+            if ((objParametros != null))
             {
-                foreach (EParametros item in lstParametros)
-                {
-                    txtctaActivo.Text = item.ctaActivo;
-                    txtctaDepreciacion.Text = item.ctaDepreciacion;
-                    txtctaGastos.Text = item.ctaGastos;
-                    txtctaMonetaria.Text = item.ctaMonetaria;
-                    txtctaDepMonetaria.Text = item.ctaDepMonetaria;
-                }
+
+                txtctaActivo.Text = objParametros.ctaActivo;
+                txtctaDepreciacion.Text = objParametros.ctaDepreciacion;
+                txtctaGastos.Text = objParametros.ctaGastos;
+                txtctaMonetaria.Text = objParametros.ctaMonetaria;
+                txtctaDepMonetaria.Text = objParametros.ctaDepMonetaria;
+                
             }
         }
 
@@ -235,7 +233,7 @@ namespace Aplicacion.Inventario
 
         private void FrmActivos_Load(object sender, EventArgs e)
         {
-            lstParametros = bllPar.getParametros();
+            objParametros = bllPar.getParametros();
             smsError.Dispose();
             Deshabilitar();
             ocultarPanel2();
@@ -269,7 +267,7 @@ namespace Aplicacion.Inventario
                     bandera = false;
                 }
                 
-                if (!ctrVal.noEstaVacio(cboAreaResp.SelectedText.ToString()))
+                if (!ctrVal.noEstaVacio(cboAreaResp.SelectedText.ToString()) && lblOperacion.Text == "Nuevo")
                 {
                     smsError.SetError(cboAreaResp, "Seleccione el Area Responsable");
                     bandera = false;
@@ -294,13 +292,7 @@ namespace Aplicacion.Inventario
                 if(!ctrVal.esValorValido(txtvalComercial.Text)){
                     smsError.SetError(txtvalComercial, "EL Valor Comercial Debe Ser mayor a cero (0)");
                     bandera = false;
-                }
-
-                if (!ctrVal.esValorValido(txtvalSalvamento.Text))
-                {
-                    smsError.SetError(txtvalSalvamento, "EL Valor Salvamento Debe Ser mayor a cero (0)");
-                    bandera = false;
-                }
+                }               
                 
             }
             return bandera;
@@ -370,7 +362,7 @@ namespace Aplicacion.Inventario
             objAct.numSerie = txtNumSerie.Text;
             objAct.referencia = txtReferencia.Text;
             objAct.tipo = cboTipo.Text;
-            objAct.vidaUtil = txtvidaUtil.Text;
+            objAct.vidaUtil = Convert.ToInt16(txtvidaUtil.Text);
 
             objAct.propiedad = cboPropiedad.Text;
             objAct.fecha = dtpFecha.Value;
@@ -380,13 +372,13 @@ namespace Aplicacion.Inventario
             objAct.centrocosto = txtcentro.Text;
             objAct.estado = "Activo";
 
-            objAct.valComercial = Convert.ToDouble(txtvalComercial.Text);
-            objAct.valSalvamento = Convert.ToDouble(txtvalSalvamento.Text);
-            objAct.valHistorico = Convert.ToDouble(txtvalHistorico.Text);
-            objAct.valLibros = Convert.ToDouble(txtvalLibros.Text);
-            objAct.valMejoras = Convert.ToDouble(txtvalMejoras.Text);
-            objAct.depAjustada = Convert.ToDouble(txtdepAjustada.Text);
-            objAct.depAcumulada = Convert.ToDouble(txtdepAcumulada.Text);
+            objAct.valComercial = UtilSystem.DIN(txtvalComercial.Text);
+            objAct.valSalvamento = UtilSystem.DIN(txtvalSalvamento.Text);
+            objAct.valHistorico = UtilSystem.DIN(txtvalHistorico.Text);
+            objAct.valLibros = UtilSystem.DIN(txtvalLibros.Text);
+            objAct.valMejoras = UtilSystem.DIN(txtvalMejoras.Text);
+            objAct.depAjustada = UtilSystem.DIN(txtdepAjustada.Text);
+            objAct.depAcumulada = UtilSystem.DIN(txtdepAcumulada.Text);
 
             objAct.ctaActivo = txtctaActivo.Text;
             objAct.ctaDepreciacion = txtctaDepreciacion.Text;
@@ -407,14 +399,9 @@ namespace Aplicacion.Inventario
         }
 
         private void txtvalComercial_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            util.ValidarNumero(sender, e);
-        }
-
-        private void FrmActivos_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            util.Dispose();
-        }
+        {            
+            UtilSystem.ValNumeroDecimal(sender, e);
+        }        
 
         private void lblEditar_Click(object sender, EventArgs e)
         {
@@ -440,23 +427,23 @@ namespace Aplicacion.Inventario
                     txtNumSerie.Text = activo.numSerie;
                     txtReferencia.Text = activo.referencia;
                     txtDescripcion.Text = activo.descripcion;
-                    txtvidaUtil.Text = activo.vidaUtil;
+                    txtvidaUtil.Text = activo.vidaUtil.ToString();
                     cboTipo.Text = activo.tipo;
 
                     cboPropiedad.Text = activo.propiedad;
                     dtpFecha.Value = activo.fecha;
                     txtcodProveedor.Text = activo.proveedor;
-                    txtcentro.Text = activo.centrocosto;
-                    cboAreaResp.SelectedValue = activo.area;
+                    txtcentro.Text = activo.centrocosto;                   
+                    cboAreaResp.SelectedValue = activo.area;                    
                     txtCodResp.Text = activo.responsable;
 
-                    txtvalComercial.Text = activo.valComercial.ToString();
-                    txtvalHistorico.Text = activo.valHistorico.ToString();
-                    txtvalLibros.Text = activo.valLibros.ToString();
-                    txtvalMejoras.Text = activo.valMejoras.ToString();
-                    txtvalSalvamento.Text = activo.valSalvamento.ToString();
-                    txtdepAcumulada.Text = activo.depAcumulada.ToString();
-                    txtdepAjustada.Text = activo.depAjustada.ToString();
+                    txtvalComercial.Text =UtilSystem.fMoneda(activo.valComercial);
+                    txtvalHistorico.Text = UtilSystem.fMoneda(activo.valHistorico);
+                    txtvalLibros.Text = UtilSystem.fMoneda(activo.valLibros);
+                    txtvalMejoras.Text = UtilSystem.fMoneda(activo.valMejoras);
+                    txtvalSalvamento.Text = UtilSystem.fMoneda(activo.valSalvamento);
+                    txtdepAcumulada.Text =UtilSystem.fMoneda( activo.depAcumulada);
+                    txtdepAjustada.Text = UtilSystem.fMoneda(activo.depAjustada);
 
                     txtctaActivo.Text = activo.ctaActivo;
                     txtctaDepMonetaria.Text = activo.ctaDepMonetaria;
@@ -474,8 +461,7 @@ namespace Aplicacion.Inventario
                 centro = bllCentro.buscar(txtcentro.Text); 
                 if (centro  == null){
                    txtcentroNom.Text= "";
-                } else
-                {
+                } else {
                     txtcentroNom.Text = centro.Nombre;
                     txtcentro.Text = centro.Codigo;
                 }
@@ -494,7 +480,6 @@ namespace Aplicacion.Inventario
             }
 
         }
-
 
         private void txtcodProveedor_DoubleClick(object sender, EventArgs e)
         {
@@ -596,7 +581,39 @@ namespace Aplicacion.Inventario
             Frm.ShowDialog(this);
         }
 
+        private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTipo.Text == "Construcción y Edificaciones"){
+                txtvidaUtil.Text = "240";
+            }
+            else if (cboTipo.Text == "Maquinaria y Equipos" || cboTipo.Text == "Equipo de Oficina")
+            {
+                txtvidaUtil.Text = "120";
+            }
+            else if (cboTipo.Text == "Equipo de Computación y Comunicación" || cboTipo.Text == "Flota y Equipo de transporte")
+            {
+                txtvidaUtil.Text = "60";
+            }            
+            else {
+                txtvidaUtil.Text = "0";
+            }
+        }
 
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            txtDescripcion.Text = txtNombre.Text;
+        }
+
+        private void txtvalComercial_Leave(object sender, EventArgs e)
+        {            
+            txtvalHistorico.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
+            txtvalLibros.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
+            txtvalComercial.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
+        }
+
+        private void txtvalSalvamento_Leave(object sender, EventArgs e){
+             txtvalSalvamento.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalSalvamento.Text));
+        }                      
         
     }
 }

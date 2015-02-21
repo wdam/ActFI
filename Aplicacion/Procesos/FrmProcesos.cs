@@ -30,7 +30,21 @@ namespace Aplicacion.Procesos
 
         private void lblDepreciacion_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            FrmDepreciacion frmDep = new FrmDepreciacion();
+            frmDep.ShowDialog();
+            this.Show();
+        }
 
+        private void FrmProcesos_Deactivate(object sender, EventArgs e)
+        {
+            this.Opacity = 0.01D;
+            this.BackColor = Color.Blue;
+        }
+
+        private void FrmProcesos_Activated(object sender, EventArgs e)
+        {
+            this.Opacity = 1D;
         }
     }
 }
