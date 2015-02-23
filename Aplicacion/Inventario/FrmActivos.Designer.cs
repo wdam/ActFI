@@ -498,9 +498,9 @@
             // 
             this.cboPropiedad.FormattingEnabled = true;
             this.cboPropiedad.Items.AddRange(new object[] {
-            "Propio",
-            "Alquilado",
-            "Leasing"});
+            "PROPIO",
+            "ALQUILADO",
+            "LEASING"});
             this.cboPropiedad.Location = new System.Drawing.Point(120, 33);
             this.cboPropiedad.Name = "cboPropiedad";
             this.cboPropiedad.Size = new System.Drawing.Size(178, 30);
@@ -1106,10 +1106,10 @@
             this.Controls.Add(this.lblMargenIzq);
             this.Controls.Add(this.lblMargenDer);
             this.Controls.Add(this.lblMargenTop);
-            this.Controls.Add(this.panelVal);
             this.Controls.Add(this.panelBasicos);
             this.Controls.Add(this.btnTab2);
             this.Controls.Add(this.btnTab1);
+            this.Controls.Add(this.panelVal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;

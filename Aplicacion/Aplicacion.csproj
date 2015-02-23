@@ -84,6 +84,12 @@
       <DependentUpon>infActivo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Inventario\FrmSelDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmSelDocumentos.Designer.cs">
+      <DependentUpon>FrmSelDocumentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UtilSystem.cs" />
     <Compile Include="Informes\FrmInfActivos.cs">
       <SubType>Form</SubType>
@@ -269,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmSelCuentas.resx">
       <DependentUpon>FrmSelCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmSelDocumentos.resx">
+      <DependentUpon>FrmSelDocumentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmSelTercero.resx">
       <DependentUpon>FrmSelTercero.cs</DependentUpon>

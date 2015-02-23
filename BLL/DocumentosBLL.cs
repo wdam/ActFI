@@ -19,6 +19,18 @@ namespace BLL
             return dDao.buscarDocumento(codigo, tipo, BLL.Inicializar.Mes);
         }
 
+        public List<EDocumentos> getDocumentos() {
+            TipoDocumentoDAO tDao = new TipoDocumentoDAO();
+            List<ETipoDocumento> tipodoc = tDao.getAll();
+            string tipo = "";
+            foreach (var item in tipodoc)
+            {
+                tipo +=  "'"+item.tipoDoc + "'," ;
+            }
+            tipo = tipo.Substring(0, tipo.Length - 1);
+            return dDao.getAll(BLL.Inicializar.Mes, tipo);
+        }
+
         public void modificarCuentas(int codigo, string tipo) {
             dDao.modificarCuenta(codigo, tipo, BLL.Inicializar.Mes);
         }

@@ -104,7 +104,7 @@ namespace Aplicacion.Inventario
             lista = bllCuenta.getAll();
             dgvCuentas.AutoGenerateColumns = false;
             cargarGrilla("Auxiliar");
-            cboBuscar.Text = "Descripcion";
+            cboBuscar.Text = "Cuenta";
             txtBuscar.Focus();
         }
 

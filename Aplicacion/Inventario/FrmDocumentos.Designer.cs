@@ -83,16 +83,6 @@
             this.lblEliminar = new System.Windows.Forms.Label();
             this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDvmto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtNit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCheque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbMovimiento = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -103,6 +93,17 @@
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOperacion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDvmto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtNit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCheque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblModulo = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
@@ -625,6 +626,7 @@
             this.lblBuscar.Text = "&Buscar";
             this.lblBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblBuscar, "Buscar Registro");
+            this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
             this.lblBuscar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
             this.lblBuscar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
@@ -732,110 +734,6 @@
             this.dgvDatos.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDatos_CellValidating);
             this.dgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDatos_EditingControlShowing);
             this.dgvDatos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDatos_KeyDown);
-            // 
-            // dtDescripcion
-            // 
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dtDescripcion.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dtDescripcion.HeaderText = "Descripción";
-            this.dtDescripcion.MinimumWidth = 200;
-            this.dtDescripcion.Name = "dtDescripcion";
-            this.dtDescripcion.ToolTipText = "Descripción";
-            this.dtDescripcion.Width = 240;
-            // 
-            // dtDebito
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(90)))));
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0,00";
-            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtDebito.HeaderText = "Debitos";
-            this.dtDebito.Name = "dtDebito";
-            this.dtDebito.ToolTipText = "Debitos";
-            // 
-            // dtCredito
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0,00";
-            this.dtCredito.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtCredito.HeaderText = "Creditos";
-            this.dtCredito.Name = "dtCredito";
-            this.dtCredito.ToolTipText = "Creditos";
-            // 
-            // dtCuenta
-            // 
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dtCuenta.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dtCuenta.HeaderText = "Cuenta";
-            this.dtCuenta.Name = "dtCuenta";
-            this.dtCuenta.ToolTipText = "Cuenta Contable";
-            // 
-            // dtBase
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = "0,00";
-            this.dtBase.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dtBase.HeaderText = "Base";
-            this.dtBase.MinimumWidth = 80;
-            this.dtBase.Name = "dtBase";
-            this.dtBase.ToolTipText = "Base";
-            this.dtBase.Width = 80;
-            // 
-            // dtDvmto
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.dtDvmto.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtDvmto.HeaderText = "Dias V.";
-            this.dtDvmto.MinimumWidth = 70;
-            this.dtDvmto.Name = "dtDvmto";
-            this.dtDvmto.ToolTipText = "Dias de Vencimiento";
-            this.dtDvmto.Width = 70;
-            // 
-            // dtFecha
-            // 
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Format = "d";
-            dataGridViewCellStyle7.NullValue = "00/00/0000";
-            this.dtFecha.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dtFecha.HeaderText = "Fecha";
-            this.dtFecha.MinimumWidth = 90;
-            this.dtFecha.Name = "dtFecha";
-            this.dtFecha.ToolTipText = "Fecha Vencimiento";
-            this.dtFecha.Width = 90;
-            // 
-            // dtNit
-            // 
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dtNit.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dtNit.HeaderText = "Nit";
-            this.dtNit.MinimumWidth = 95;
-            this.dtNit.Name = "dtNit";
-            this.dtNit.ToolTipText = "Nit Tercero";
-            this.dtNit.Width = 95;
-            // 
-            // dtCentro
-            // 
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.dtCentro.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dtCentro.HeaderText = "Cto Costo";
-            this.dtCentro.Name = "dtCentro";
-            this.dtCentro.ToolTipText = "Centro de Costo";
-            // 
-            // dtCheque
-            // 
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dtCheque.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dtCheque.HeaderText = "Cheque";
-            this.dtCheque.Name = "dtCheque";
-            this.dtCheque.ToolTipText = "Cheque";
             // 
             // gbMovimiento
             // 
@@ -954,6 +852,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblModulo);
             this.groupBox1.Controls.Add(this.lblPeriodo);
             this.groupBox1.Controls.Add(this.lblPrint);
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -962,6 +861,131 @@
             this.groupBox1.Size = new System.Drawing.Size(317, 164);
             this.groupBox1.TabIndex = 221;
             this.groupBox1.TabStop = false;
+            // 
+            // dtDescripcion
+            // 
+            this.dtDescripcion.DataPropertyName = "descripcion";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dtDescripcion.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtDescripcion.HeaderText = "Descripción";
+            this.dtDescripcion.MinimumWidth = 200;
+            this.dtDescripcion.Name = "dtDescripcion";
+            this.dtDescripcion.ToolTipText = "Descripción";
+            this.dtDescripcion.Width = 240;
+            // 
+            // dtDebito
+            // 
+            this.dtDebito.DataPropertyName = "debito";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(90)))));
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0,00";
+            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtDebito.HeaderText = "Debitos";
+            this.dtDebito.Name = "dtDebito";
+            this.dtDebito.ToolTipText = "Debitos";
+            // 
+            // dtCredito
+            // 
+            this.dtCredito.DataPropertyName = "credito";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0,00";
+            this.dtCredito.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtCredito.HeaderText = "Creditos";
+            this.dtCredito.Name = "dtCredito";
+            this.dtCredito.ToolTipText = "Creditos";
+            // 
+            // dtCuenta
+            // 
+            this.dtCuenta.DataPropertyName = "codigo";
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dtCuenta.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dtCuenta.HeaderText = "Cuenta";
+            this.dtCuenta.Name = "dtCuenta";
+            this.dtCuenta.ToolTipText = "Cuenta Contable";
+            // 
+            // dtBase
+            // 
+            this.dtBase.DataPropertyName = "baseD";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0,00";
+            this.dtBase.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtBase.HeaderText = "Base";
+            this.dtBase.MinimumWidth = 80;
+            this.dtBase.Name = "dtBase";
+            this.dtBase.ToolTipText = "Base";
+            this.dtBase.Width = 80;
+            // 
+            // dtDvmto
+            // 
+            this.dtDvmto.DataPropertyName = "diasv";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.dtDvmto.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dtDvmto.HeaderText = "Dias V.";
+            this.dtDvmto.MinimumWidth = 70;
+            this.dtDvmto.Name = "dtDvmto";
+            this.dtDvmto.ToolTipText = "Dias de Vencimiento";
+            this.dtDvmto.Width = 70;
+            // 
+            // dtFecha
+            // 
+            this.dtFecha.DataPropertyName = "fecha";
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Format = "d";
+            dataGridViewCellStyle7.NullValue = "00/00/0000";
+            this.dtFecha.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dtFecha.HeaderText = "Fecha";
+            this.dtFecha.MinimumWidth = 90;
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.ToolTipText = "Fecha Vencimiento";
+            this.dtFecha.Width = 90;
+            // 
+            // dtNit
+            // 
+            this.dtNit.DataPropertyName = "Nit";
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dtNit.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dtNit.HeaderText = "Nit";
+            this.dtNit.MinimumWidth = 95;
+            this.dtNit.Name = "dtNit";
+            this.dtNit.ToolTipText = "Nit Tercero";
+            this.dtNit.Width = 95;
+            // 
+            // dtCentro
+            // 
+            this.dtCentro.DataPropertyName = "centro";
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.dtCentro.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dtCentro.HeaderText = "Cto Costo";
+            this.dtCentro.Name = "dtCentro";
+            this.dtCentro.ToolTipText = "Centro de Costo";
+            // 
+            // dtCheque
+            // 
+            this.dtCheque.DataPropertyName = "cheque";
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.dtCheque.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dtCheque.HeaderText = "Cheque";
+            this.dtCheque.Name = "dtCheque";
+            this.dtCheque.ToolTipText = "Cheque";
+            // 
+            // lblModulo
+            // 
+            this.lblModulo.AutoSize = true;
+            this.lblModulo.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModulo.ForeColor = System.Drawing.Color.Black;
+            this.lblModulo.Location = new System.Drawing.Point(124, 135);
+            this.lblModulo.Name = "lblModulo";
+            this.lblModulo.Size = new System.Drawing.Size(69, 22);
+            this.lblModulo.TabIndex = 222;
+            this.lblModulo.Text = "Modulo";
             // 
             // FrmDocumentos
             // 
@@ -998,6 +1022,7 @@
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.FlowLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1067,5 +1092,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtNit;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCentro;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCheque;
+        private System.Windows.Forms.Label lblModulo;
     }
 }

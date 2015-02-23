@@ -24,8 +24,7 @@ namespace Aplicacion.Inventario
         ECentroCosto objCentro;
         ETerceros tercero;
         ETipoDocumento tipodoc;
-        ECuentas objCuenta;
-        EDocumentos objDocumento;
+        ECuentas objCuenta;        
 
         double debito = 0;
         double credito = 0;
@@ -110,6 +109,15 @@ namespace Aplicacion.Inventario
             lblCancelar.Enabled = true;
             lblGuardar.Enabled = true;
             txtObservaciones.Enabled = true;
+            if (lblOperacion.Text == "Editar")
+            {
+                txtDocumento.ReadOnly = true;
+                txtNumero.ReadOnly = true;
+            }
+            else {
+                txtDocumento.ReadOnly = false;
+                txtNumero.ReadOnly = false;
+            }
         }
 
         private void Deshabilitar() {
@@ -141,8 +149,7 @@ namespace Aplicacion.Inventario
             txtCredito.Text = "0,00"; 
             txtDebito.Text = "0,00";
             txtDiferencia.Text = "0,00"; 
-            txtVmto.Text = "0";
-
+            txtVmto.Text = "0";            
             dgvDatos.Rows.Clear();
             txtDia.Text = DateTime.Now.Day.ToString();
             txtFecha.Text = BLL.Inicializar.periodo;                        
@@ -223,7 +230,7 @@ namespace Aplicacion.Inventario
                         }                        
                         break;
                     case 1:                       
-                        string sdebito = (string)dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value;
+                        string sdebito = (string)dgvDatos.Rows[e.RowIndex].Cells["dtDebito"].Value ?? "0";
                         if (string.IsNullOrEmpty(sdebito) || sdebito == ",") {                            
                             sdebito="0";
                         }
@@ -477,6 +484,7 @@ namespace Aplicacion.Inventario
         private void FrmDocumentos_Load(object sender, EventArgs e)
         {
             lblPeriodo.Text = BLL.Inicializar.Mes;
+            txtFecha.Text = BLL.Inicializar.periodo;
             BLL.CuentasBLL bllCuenta = new BLL.CuentasBLL();
             int nAux = bllCuenta.validarAuxiliares();
             List<ETipoDocumento> nTipo = bllTipo.getAll();
@@ -558,7 +566,7 @@ namespace Aplicacion.Inventario
                     ObjDoc.item = cont;
                     ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
                     ObjDoc.tipo = txtDocumento.Text.Trim();
-                    ObjDoc.periodo = BLL.Inicializar.Mes;
+                    ObjDoc.periodo = BLL.Inicializar.periodo;
                     ObjDoc.dia = txtDia.Text;
                     ObjDoc.centro = (string)item.Cells["dtCentro"].Value ?? "0";
                     ObjDoc.descripcion = UtilSystem.truncarCadena(item.Cells["dtDescripcion"].Value.ToString(), 50);
@@ -719,7 +727,16 @@ namespace Aplicacion.Inventario
                 }
             }
             else {
-                textoSel.Text = dato;            
+                if (lblOperacion.Text == "Consulta") {
+                    string[] aux = dato.Split('-');
+                    //txtDocumento.Text = aux[0];
+                    //txtNumero.Text = aux[1];
+                    mostrarDocumento(aux[1], aux[0]);
+                    
+                }
+                else {
+                    textoSel.Text = dato;
+                }                            
             }            
         }        
         #endregion
@@ -734,6 +751,10 @@ namespace Aplicacion.Inventario
 
         private void txtDocumento_TextChanged(object sender, EventArgs e)
         {
+            if (lblOperacion.Text == "Consulta") {
+                return;
+            }         
+
             if (txtDocumento.Text.Length >= 2)
             {
                 buscarTipoDocumento();
@@ -820,6 +841,42 @@ namespace Aplicacion.Inventario
             textoSel = (TextBox)sender;
             FrmSelCentroCostos frmCC = new FrmSelCentroCostos();
             frmCC.ShowDialog(this);
-        }                     
+        }
+
+        private void lblBuscar_Click(object sender, EventArgs e) {
+            busGrilla = false;
+            lblOperacion.Text = "Consulta";
+            textoSel = (TextBox)txtDocumento;
+            FrmSelDocumentos frmDoc = new FrmSelDocumentos();
+            frmDoc.ShowDialog(this);            
+        }
+
+        private void mostrarDocumento( string numero, string tipo) {
+            dgvDatos.AutoGenerateColumns = false;
+            if (string.IsNullOrEmpty(tipo) || string.IsNullOrEmpty(numero)) {
+                return;
+            }
+            limpiar();
+            lstDocumentos = bllDoc.buscarDocumento(Convert.ToInt32(numero), tipo);
+            if (lstDocumentos.Count > 0)
+            {
+                txtNumero.Text =UtilSystem.fConsecutivo(lstDocumentos[0].documento);
+                txtDocumento.Text = lstDocumentos[0].tipo;
+                txtNit.Text = lstDocumentos[0].nit;
+                txtDia.Text = lstDocumentos[0].dia;
+                txtVmto.Text = lstDocumentos[0].diasv.ToString();
+                lblModulo.Text = lstDocumentos[0].modulo;
+                txtCentro.Text = lstDocumentos[0].centro;                            
+                foreach (EDocumentos item in lstDocumentos)
+                {
+                    dgvDatos.Rows.Add(item.descripcion, item.debito, item.credito, item.codigo, item.baseD,
+                        item.diasv, item.fecha,item.nit, item.centro, item.cheque);
+                }                           
+            }
+            else {
+                MessageBox.Show("El documento no se encuentra en este Periodo ", "Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }    
+            
+        }
     }
 }

@@ -125,12 +125,7 @@ namespace Aplicacion.Procesos
                                      cuenta = dtGrupo.Key,
                                      valor = dtGrupo.Sum(row => UtilSystem.DIN(row.Cells["dtDepreciacion"].Value.ToString()))
                                  };
-            //foreach (var item in agruparDebito)
-            //{
-            //    dgvContable.Rows.Add(item.cuenta, item.valor);
-            //}
-
-
+          
             int cont = 0;
             foreach (var item in agruparDebito)
             {
@@ -140,7 +135,7 @@ namespace Aplicacion.Procesos
                     ObjDoc.item = cont;
                     ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
                     ObjDoc.tipo = Documento;
-                    ObjDoc.periodo = BLL.Inicializar.Mes;
+                    ObjDoc.periodo = BLL.Inicializar.periodo;
                     ObjDoc.dia = DateTime.Now.Day.ToString();
                     ObjDoc.centro = "0";
                     ObjDoc.descripcion = "GASTO POR DEPRECIACION CTA " + item.cuenta;
@@ -164,7 +159,7 @@ namespace Aplicacion.Procesos
                 ObjDoc.item = cont;
                 ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
                 ObjDoc.tipo = Documento;
-                ObjDoc.periodo = BLL.Inicializar.Mes;
+                ObjDoc.periodo = BLL.Inicializar.periodo;
                 ObjDoc.dia = DateTime.Now.Day.ToString();
                 ObjDoc.centro = "0";
                 ObjDoc.descripcion = "DEPRECIACION ACUMULADA CTA " + item.cuenta;
