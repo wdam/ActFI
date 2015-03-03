@@ -93,6 +93,7 @@
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOperacion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblModulo = new System.Windows.Forms.Label();
             this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,7 +104,6 @@
             this.dtNit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtCentro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtCheque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblModulo = new System.Windows.Forms.Label();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
@@ -862,6 +862,17 @@
             this.groupBox1.TabIndex = 221;
             this.groupBox1.TabStop = false;
             // 
+            // lblModulo
+            // 
+            this.lblModulo.AutoSize = true;
+            this.lblModulo.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModulo.ForeColor = System.Drawing.Color.Black;
+            this.lblModulo.Location = new System.Drawing.Point(104, 135);
+            this.lblModulo.Name = "lblModulo";
+            this.lblModulo.Size = new System.Drawing.Size(69, 22);
+            this.lblModulo.TabIndex = 222;
+            this.lblModulo.Text = "Modulo";
+            // 
             // dtDescripcion
             // 
             this.dtDescripcion.DataPropertyName = "descripcion";
@@ -870,6 +881,7 @@
             this.dtDescripcion.HeaderText = "Descripción";
             this.dtDescripcion.MinimumWidth = 200;
             this.dtDescripcion.Name = "dtDescripcion";
+            this.dtDescripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtDescripcion.ToolTipText = "Descripción";
             this.dtDescripcion.Width = 240;
             // 
@@ -883,6 +895,7 @@
             this.dtDebito.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtDebito.HeaderText = "Debitos";
             this.dtDebito.Name = "dtDebito";
+            this.dtDebito.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtDebito.ToolTipText = "Debitos";
             // 
             // dtCredito
@@ -895,6 +908,7 @@
             this.dtCredito.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtCredito.HeaderText = "Creditos";
             this.dtCredito.Name = "dtCredito";
+            this.dtCredito.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtCredito.ToolTipText = "Creditos";
             // 
             // dtCuenta
@@ -904,6 +918,7 @@
             this.dtCuenta.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtCuenta.HeaderText = "Cuenta";
             this.dtCuenta.Name = "dtCuenta";
+            this.dtCuenta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtCuenta.ToolTipText = "Cuenta Contable";
             // 
             // dtBase
@@ -917,6 +932,7 @@
             this.dtBase.HeaderText = "Base";
             this.dtBase.MinimumWidth = 80;
             this.dtBase.Name = "dtBase";
+            this.dtBase.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtBase.ToolTipText = "Base";
             this.dtBase.Width = 80;
             // 
@@ -931,6 +947,7 @@
             this.dtDvmto.HeaderText = "Dias V.";
             this.dtDvmto.MinimumWidth = 70;
             this.dtDvmto.Name = "dtDvmto";
+            this.dtDvmto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtDvmto.ToolTipText = "Dias de Vencimiento";
             this.dtDvmto.Width = 70;
             // 
@@ -944,6 +961,7 @@
             this.dtFecha.HeaderText = "Fecha";
             this.dtFecha.MinimumWidth = 90;
             this.dtFecha.Name = "dtFecha";
+            this.dtFecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtFecha.ToolTipText = "Fecha Vencimiento";
             this.dtFecha.Width = 90;
             // 
@@ -955,6 +973,7 @@
             this.dtNit.HeaderText = "Nit";
             this.dtNit.MinimumWidth = 95;
             this.dtNit.Name = "dtNit";
+            this.dtNit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtNit.ToolTipText = "Nit Tercero";
             this.dtNit.Width = 95;
             // 
@@ -965,6 +984,7 @@
             this.dtCentro.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtCentro.HeaderText = "Cto Costo";
             this.dtCentro.Name = "dtCentro";
+            this.dtCentro.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtCentro.ToolTipText = "Centro de Costo";
             // 
             // dtCheque
@@ -974,18 +994,8 @@
             this.dtCheque.DefaultCellStyle = dataGridViewCellStyle10;
             this.dtCheque.HeaderText = "Cheque";
             this.dtCheque.Name = "dtCheque";
+            this.dtCheque.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dtCheque.ToolTipText = "Cheque";
-            // 
-            // lblModulo
-            // 
-            this.lblModulo.AutoSize = true;
-            this.lblModulo.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModulo.ForeColor = System.Drawing.Color.Black;
-            this.lblModulo.Location = new System.Drawing.Point(124, 135);
-            this.lblModulo.Name = "lblModulo";
-            this.lblModulo.Size = new System.Drawing.Size(69, 22);
-            this.lblModulo.TabIndex = 222;
-            this.lblModulo.Text = "Modulo";
             // 
             // FrmDocumentos
             // 
@@ -1082,6 +1092,7 @@
         private System.Windows.Forms.Label lblPrint;
         private System.Windows.Forms.Label lblPeriodo;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblModulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDebito;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCredito;
@@ -1092,6 +1103,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtNit;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCentro;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCheque;
-        private System.Windows.Forms.Label lblModulo;
     }
 }

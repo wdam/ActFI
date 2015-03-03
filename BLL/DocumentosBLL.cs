@@ -53,5 +53,13 @@ namespace BLL
             }
             dDao.insertObservacion(documento, tipo, observacion, Inicializar.Mes);
         }
+
+        public string getObservacion(string documento, string tipo)
+        {
+            if (string.IsNullOrEmpty(documento) || string.IsNullOrEmpty(tipo)) {
+                return ""; 
+            }
+            return dDao.getObservacion(Convert.ToInt32(documento), tipo, Inicializar.Mes);
+        }
     }
 }

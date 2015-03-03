@@ -85,14 +85,14 @@
             this.lblAreas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAreas.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAreas.ForeColor = System.Drawing.Color.White;
-            this.lblAreas.Image = global::Aplicacion.Properties.Resources.Area;
+            this.lblAreas.Image = global::Aplicacion.Properties.Resources.mantenientos;
             this.lblAreas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblAreas.Location = new System.Drawing.Point(241, 8);
             this.lblAreas.Margin = new System.Windows.Forms.Padding(8);
             this.lblAreas.Name = "lblAreas";
             this.lblAreas.Size = new System.Drawing.Size(217, 100);
             this.lblAreas.TabIndex = 132;
-            this.lblAreas.Text = "Avaluos y Salvamentos";
+            this.lblAreas.Text = "Mantenimiento";
             this.lblAreas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // lblParametros

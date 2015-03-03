@@ -52,7 +52,12 @@ namespace Aplicacion
                 SendKeys.Send("{TAB}");
             }
         }
-       
-       
+
+        public static List<Entidades.EtipoDepreciacion> metodosDepreciacion() {
+            List<Entidades.EtipoDepreciacion> lstTipos = new List<Entidades.EtipoDepreciacion>();
+            lstTipos.Add(new Entidades.EtipoDepreciacion { sigla = "NDP", Descripcion = "NDP > NO DEPRECIACBLE" });
+            lstTipos.Add(new Entidades.EtipoDepreciacion { sigla = "DLR", Descripcion = "DLR > DEPRECIACION LINEA RECTA" });
+            return lstTipos;
+        }       
     }
 }

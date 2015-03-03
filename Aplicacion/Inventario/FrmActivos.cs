@@ -170,12 +170,7 @@ namespace Aplicacion.Inventario
             {
                 texto.Text = codigo;
             }
-        }
-
-        public void SeleccionarDato(string dato, string descripcion)
-        {
-            throw new NotImplementedException();
-        }
+        }      
 
         #endregion        
         
@@ -266,8 +261,8 @@ namespace Aplicacion.Inventario
                     smsError.SetError(cboTipo, "Seleccione un Tipo");
                     bandera = false;
                 }
-                
-                if (!ctrVal.noEstaVacio(cboAreaResp.SelectedText.ToString()) && lblOperacion.Text == "Nuevo")
+
+                if (!ctrVal.noEstaVacio(cboAreaResp.SelectedValue.ToString()) && lblOperacion.Text == "Nuevo")
                 {
                     smsError.SetError(cboAreaResp, "Seleccione el Area Responsable");
                     bandera = false;
@@ -365,12 +360,12 @@ namespace Aplicacion.Inventario
             objAct.vidaUtil = Convert.ToInt16(txtvidaUtil.Text);
 
             objAct.propiedad = cboPropiedad.Text;
-            objAct.fecha = dtpFecha.Value;
+            objAct.fecha = dtpFecha.Value.ToShortDateString();
             objAct.area = cboAreaResp.SelectedValue.ToString();
             objAct.responsable = txtCodResp.Text;
             objAct.proveedor = txtcodProveedor.Text;
             objAct.centrocosto = txtcentro.Text;
-            objAct.estado = "Activo";
+            objAct.estado = cboEstado.Text;
 
             objAct.valComercial = UtilSystem.DIN(txtvalComercial.Text);
             objAct.valSalvamento = UtilSystem.DIN(txtvalSalvamento.Text);
@@ -431,11 +426,12 @@ namespace Aplicacion.Inventario
                     cboTipo.Text = activo.tipo;
 
                     cboPropiedad.Text = activo.propiedad;
-                    dtpFecha.Value = activo.fecha;
+                    dtpFecha.Value = DateTime.Parse(activo.fecha);
                     txtcodProveedor.Text = activo.proveedor;
                     txtcentro.Text = activo.centrocosto;                   
                     cboAreaResp.SelectedValue = activo.area;                    
                     txtCodResp.Text = activo.responsable;
+                    cboEstado.Text = activo.estado;
 
                     txtvalComercial.Text =UtilSystem.fMoneda(activo.valComercial);
                     txtvalHistorico.Text = UtilSystem.fMoneda(activo.valHistorico);
@@ -533,7 +529,7 @@ namespace Aplicacion.Inventario
                 // Asignacion de Parametros 
                 reporte.SetParameterValue("comp", objC.descripcion);
                 reporte.SetParameterValue("nit", objC.nit);
-                reporte.SetParameterValue("periodo", "Periodo Actual: 07 / 2014");
+                reporte.SetParameterValue("periodo", "Periodo Actual: "+ BLL.Inicializar.periodo);
                 
                 frm.CReporte.ReportSource = reporte;
                 frm.CReporte.Refresh();
@@ -613,7 +609,13 @@ namespace Aplicacion.Inventario
 
         private void txtvalSalvamento_Leave(object sender, EventArgs e){
              txtvalSalvamento.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalSalvamento.Text));
-        }                      
-        
+        }
+
+        private void cboEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+      
     }
 }

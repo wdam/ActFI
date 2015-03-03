@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bin\Debug\Reportes\FrminfActivos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FrminfActivos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="bin\Debug\Reportes\infActivo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +95,12 @@
     </Compile>
     <Compile Include="Inventario\FrmSelDocumentos.Designer.cs">
       <DependentUpon>FrmSelDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\FrmGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\FrmGrupos.Designer.cs">
+      <DependentUpon>FrmGrupos.cs</DependentUpon>
     </Compile>
     <Compile Include="UtilSystem.cs" />
     <Compile Include="Informes\FrmInfActivos.cs">
@@ -236,6 +248,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="bin\Debug\Reportes\FrminfActivos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FrminfActivos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="bin\Debug\Reportes\infActivo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>infActivo.cs</LastGenOutput>
@@ -287,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmTraslados.resx">
       <DependentUpon>FrmTraslados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\FrmGrupos.resx">
+      <DependentUpon>FrmGrupos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\FrmDepreciacion.resx">
       <DependentUpon>FrmDepreciacion.cs</DependentUpon>
@@ -461,6 +480,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="af.ico" />
+    <None Include="Resources\48x48\pdf.png" />
+    <None Include="Resources\64x64\mantenientos.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\48x48\Apply.png" />
     <None Include="Resources\48x48\informes1.png" />
@@ -471,7 +492,6 @@
     <None Include="Resources\48x48\proceso1.png" />
     <None Include="Resources\48x48\proceso.png" />
     <None Include="Resources\64x64\contabilida.png" />
-    <None Include="Resources\64x64\contabilidad.png" />
     <None Include="Resources\house.png" />
     <None Include="Resources\calendar.png" />
     <None Include="Resources\inicio.jpg" />

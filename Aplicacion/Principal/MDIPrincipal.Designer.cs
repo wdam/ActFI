@@ -42,6 +42,7 @@
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuStrip1 = new System.Windows.Forms.MenuStrip();
             this.GeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCambiarPer = new System.Windows.Forms.ToolStripMenuItem();
             this.AcercadeoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCompania = new System.Windows.Forms.ToolStripMenuItem();
             this.lblPeriodo = new System.Windows.Forms.ToolStripMenuItem();
@@ -232,9 +233,20 @@
             // 
             // GeneralesToolStripMenuItem
             // 
+            this.GeneralesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCambiarPer});
             this.GeneralesToolStripMenuItem.Name = "GeneralesToolStripMenuItem";
             this.GeneralesToolStripMenuItem.Size = new System.Drawing.Size(108, 29);
             this.GeneralesToolStripMenuItem.Text = "Generales";
+            // 
+            // tsmCambiarPer
+            // 
+            this.tsmCambiarPer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tsmCambiarPer.Image = global::Aplicacion.Properties.Resources.calendar;
+            this.tsmCambiarPer.Name = "tsmCambiarPer";
+            this.tsmCambiarPer.Size = new System.Drawing.Size(226, 30);
+            this.tsmCambiarPer.Text = "Cambiar Periodo";
+            this.tsmCambiarPer.Click += new System.EventHandler(this.tsmCambiarPer_Click);
             // 
             // AcercadeoolStripMenuItem
             // 
@@ -322,6 +334,7 @@
         private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem lblCompania;
         private System.Windows.Forms.ToolStripMenuItem lblPeriodo;
+        private System.Windows.Forms.ToolStripMenuItem tsmCambiarPer;
     }
 }
 

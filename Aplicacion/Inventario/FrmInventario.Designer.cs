@@ -35,11 +35,12 @@
             this.lblAreas = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
             this.lblActivos = new System.Windows.Forms.Label();
+            this.lblDocumentos = new System.Windows.Forms.Label();
             this.lblSaldos = new System.Windows.Forms.Label();
             this.lblParametros = new System.Windows.Forms.Label();
-            this.lblDocumentos = new System.Windows.Forms.Label();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lblGrupos = new System.Windows.Forms.Label();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,13 +55,14 @@
             this.menuPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.menuPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.menuPrincipal.Controls.Add(this.lblTerceros, 2, 1);
-            this.menuPrincipal.Controls.Add(this.lblTraslados, 1, 1);
             this.menuPrincipal.Controls.Add(this.lblAreas, 1, 0);
             this.menuPrincipal.Controls.Add(this.lblCerrar, 2, 2);
             this.menuPrincipal.Controls.Add(this.lblActivos, 0, 0);
             this.menuPrincipal.Controls.Add(this.lblDocumentos, 2, 0);
-            this.menuPrincipal.Controls.Add(this.lblSaldos, 0, 1);
-            this.menuPrincipal.Controls.Add(this.lblParametros, 0, 2);
+            this.menuPrincipal.Controls.Add(this.lblParametros, 0, 1);
+            this.menuPrincipal.Controls.Add(this.lblGrupos, 1, 1);
+            this.menuPrincipal.Controls.Add(this.lblTraslados, 1, 2);
+            this.menuPrincipal.Controls.Add(this.lblSaldos, 0, 2);
             this.menuPrincipal.Location = new System.Drawing.Point(57, 88);
             this.menuPrincipal.Name = "menuPrincipal";
             this.menuPrincipal.RowCount = 3;
@@ -100,7 +102,7 @@
             this.lblTraslados.ForeColor = System.Drawing.Color.White;
             this.lblTraslados.Image = global::Aplicacion.Properties.Resources.traslados;
             this.lblTraslados.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTraslados.Location = new System.Drawing.Point(240, 125);
+            this.lblTraslados.Location = new System.Drawing.Point(240, 242);
             this.lblTraslados.Margin = new System.Windows.Forms.Padding(8);
             this.lblTraslados.Name = "lblTraslados";
             this.lblTraslados.Size = new System.Drawing.Size(216, 100);
@@ -170,46 +172,6 @@
             this.toolTip1.SetToolTip(this.lblActivos, "Gestion de Activos");
             this.lblActivos.Click += new System.EventHandler(this.lblActivos_Click);
             // 
-            // lblSaldos
-            // 
-            this.lblSaldos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSaldos.BackColor = System.Drawing.Color.Transparent;
-            this.lblSaldos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblSaldos.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaldos.ForeColor = System.Drawing.Color.White;
-            this.lblSaldos.Image = global::Aplicacion.Properties.Resources.money;
-            this.lblSaldos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblSaldos.Location = new System.Drawing.Point(8, 125);
-            this.lblSaldos.Margin = new System.Windows.Forms.Padding(8);
-            this.lblSaldos.Name = "lblSaldos";
-            this.lblSaldos.Size = new System.Drawing.Size(216, 100);
-            this.lblSaldos.TabIndex = 133;
-            this.lblSaldos.Text = "Saldos Iniciales";
-            this.lblSaldos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.lblSaldos, "Saldos Iniciales ");
-            this.lblSaldos.Click += new System.EventHandler(this.lblSaldos_Click);
-            // 
-            // lblParametros
-            // 
-            this.lblParametros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblParametros.BackColor = System.Drawing.Color.Transparent;
-            this.lblParametros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblParametros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblParametros.ForeColor = System.Drawing.Color.White;
-            this.lblParametros.Image = global::Aplicacion.Properties.Resources.parametros;
-            this.lblParametros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblParametros.Location = new System.Drawing.Point(8, 242);
-            this.lblParametros.Margin = new System.Windows.Forms.Padding(8);
-            this.lblParametros.Name = "lblParametros";
-            this.lblParametros.Size = new System.Drawing.Size(216, 100);
-            this.lblParametros.TabIndex = 132;
-            this.lblParametros.Text = "Parametros";
-            this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.lblParametros, "Parametros");
-            this.lblParametros.Click += new System.EventHandler(this.lblParametros_Click);
-            // 
             // lblDocumentos
             // 
             this.lblDocumentos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -230,6 +192,46 @@
             this.toolTip1.SetToolTip(this.lblDocumentos, "Generar Documentos Contables");
             this.lblDocumentos.Click += new System.EventHandler(this.lblDocumentos_Click);
             // 
+            // lblSaldos
+            // 
+            this.lblSaldos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSaldos.BackColor = System.Drawing.Color.Transparent;
+            this.lblSaldos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblSaldos.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaldos.ForeColor = System.Drawing.Color.White;
+            this.lblSaldos.Image = global::Aplicacion.Properties.Resources.money;
+            this.lblSaldos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblSaldos.Location = new System.Drawing.Point(8, 242);
+            this.lblSaldos.Margin = new System.Windows.Forms.Padding(8);
+            this.lblSaldos.Name = "lblSaldos";
+            this.lblSaldos.Size = new System.Drawing.Size(216, 100);
+            this.lblSaldos.TabIndex = 133;
+            this.lblSaldos.Text = "Saldos Iniciales";
+            this.lblSaldos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.lblSaldos, "Saldos Iniciales ");
+            this.lblSaldos.Click += new System.EventHandler(this.lblSaldos_Click);
+            // 
+            // lblParametros
+            // 
+            this.lblParametros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblParametros.BackColor = System.Drawing.Color.Transparent;
+            this.lblParametros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblParametros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblParametros.ForeColor = System.Drawing.Color.White;
+            this.lblParametros.Image = global::Aplicacion.Properties.Resources.parametros;
+            this.lblParametros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblParametros.Location = new System.Drawing.Point(8, 125);
+            this.lblParametros.Margin = new System.Windows.Forms.Padding(8);
+            this.lblParametros.Name = "lblParametros";
+            this.lblParametros.Size = new System.Drawing.Size(216, 100);
+            this.lblParametros.TabIndex = 132;
+            this.lblParametros.Text = "Parametros";
+            this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.lblParametros, "Parametros");
+            this.lblParametros.Click += new System.EventHandler(this.lblParametros_Click);
+            // 
             // lblTituloPrinc
             // 
             this.lblTituloPrinc.BackColor = System.Drawing.Color.Transparent;
@@ -243,6 +245,26 @@
             this.lblTituloPrinc.TabIndex = 168;
             this.lblTituloPrinc.Text = "Procesos Basicos de Activos Fijos";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGrupos
+            // 
+            this.lblGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGrupos.BackColor = System.Drawing.Color.Transparent;
+            this.lblGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblGrupos.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupos.ForeColor = System.Drawing.Color.White;
+            this.lblGrupos.Image = global::Aplicacion.Properties.Resources.traslados;
+            this.lblGrupos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblGrupos.Location = new System.Drawing.Point(240, 125);
+            this.lblGrupos.Margin = new System.Windows.Forms.Padding(8);
+            this.lblGrupos.Name = "lblGrupos";
+            this.lblGrupos.Size = new System.Drawing.Size(216, 100);
+            this.lblGrupos.TabIndex = 134;
+            this.lblGrupos.Text = "Grupos y Subgrupos";
+            this.lblGrupos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.lblGrupos, "Grupos y Subgrupos");
+            this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
             // 
             // FrmInventario
             // 
@@ -274,6 +296,7 @@
         private System.Windows.Forms.Label lblSaldos;
         private System.Windows.Forms.Label lblTituloPrinc;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label lblGrupos;
 
     }
 }

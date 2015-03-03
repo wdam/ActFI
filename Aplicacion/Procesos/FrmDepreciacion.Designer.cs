@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblMargenTop = new System.Windows.Forms.Label();
             this.lblMargenInf = new System.Windows.Forms.Label();
             this.lblMargenIzq = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.dtCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtPeriodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDepreciacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDepAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtLibros = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +48,7 @@
             this.dtCtaDep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
             this.txtanio = new System.Windows.Forms.TextBox();
             this.cboPeriodo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,15 +56,11 @@
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblDepreciar = new System.Windows.Forms.Label();
             this.lblSalir = new System.Windows.Forms.Label();
-            this.dgvContable = new System.Windows.Forms.DataGridView();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtNumero = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContable)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMargenTop
@@ -72,25 +69,25 @@
             this.lblMargenTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMargenTop.Location = new System.Drawing.Point(2, 0);
             this.lblMargenTop.Name = "lblMargenTop";
-            this.lblMargenTop.Size = new System.Drawing.Size(702, 2);
+            this.lblMargenTop.Size = new System.Drawing.Size(467, 2);
             this.lblMargenTop.TabIndex = 176;
             // 
             // lblMargenInf
             // 
             this.lblMargenInf.BackColor = System.Drawing.Color.Black;
             this.lblMargenInf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMargenInf.Location = new System.Drawing.Point(2, 573);
+            this.lblMargenInf.Location = new System.Drawing.Point(2, 339);
             this.lblMargenInf.Name = "lblMargenInf";
-            this.lblMargenInf.Size = new System.Drawing.Size(702, 2);
+            this.lblMargenInf.Size = new System.Drawing.Size(467, 2);
             this.lblMargenInf.TabIndex = 177;
             // 
             // lblMargenIzq
             // 
             this.lblMargenIzq.BackColor = System.Drawing.Color.Black;
             this.lblMargenIzq.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblMargenIzq.Location = new System.Drawing.Point(704, 0);
+            this.lblMargenIzq.Location = new System.Drawing.Point(469, 0);
             this.lblMargenIzq.Name = "lblMargenIzq";
-            this.lblMargenIzq.Size = new System.Drawing.Size(2, 575);
+            this.lblMargenIzq.Size = new System.Drawing.Size(2, 341);
             this.lblMargenIzq.TabIndex = 175;
             // 
             // lblMargenDer
@@ -99,7 +96,7 @@
             this.lblMargenDer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblMargenDer.Location = new System.Drawing.Point(0, 0);
             this.lblMargenDer.Name = "lblMargenDer";
-            this.lblMargenDer.Size = new System.Drawing.Size(2, 575);
+            this.lblMargenDer.Size = new System.Drawing.Size(2, 341);
             this.lblMargenDer.TabIndex = 174;
             // 
             // btnExit
@@ -130,7 +127,7 @@
             this.lblTituloPrinc.Location = new System.Drawing.Point(2, 2);
             this.lblTituloPrinc.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.lblTituloPrinc.Name = "lblTituloPrinc";
-            this.lblTituloPrinc.Size = new System.Drawing.Size(702, 45);
+            this.lblTituloPrinc.Size = new System.Drawing.Size(467, 45);
             this.lblTituloPrinc.TabIndex = 178;
             this.lblTituloPrinc.Text = " SAE  >> Depreciación de Activos";
             this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,17 +140,17 @@
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dtCodigo,
-            this.dtYear,
+            this.dtPeriodo,
             this.dtDepreciacion,
             this.dtDepAcum,
             this.dtLibros,
             this.dtCtaGastos,
             this.dtCtaDep});
-            this.dgvDatos.Location = new System.Drawing.Point(12, 228);
+            this.dgvDatos.Location = new System.Drawing.Point(517, 67);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersVisible = false;
-            this.dgvDatos.Size = new System.Drawing.Size(682, 156);
+            this.dgvDatos.Size = new System.Drawing.Size(70, 156);
             this.dgvDatos.TabIndex = 180;
             // 
             // dtCodigo
@@ -162,17 +159,17 @@
             this.dtCodigo.Name = "dtCodigo";
             this.dtCodigo.ReadOnly = true;
             // 
-            // dtYear
+            // dtPeriodo
             // 
-            this.dtYear.HeaderText = "Periodo";
-            this.dtYear.Name = "dtYear";
-            this.dtYear.ReadOnly = true;
+            this.dtPeriodo.HeaderText = "Periodo";
+            this.dtPeriodo.Name = "dtPeriodo";
+            this.dtPeriodo.ReadOnly = true;
             // 
             // dtDepreciacion
             // 
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.dtDepreciacion.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle40.Format = "N2";
+            dataGridViewCellStyle40.NullValue = null;
+            this.dtDepreciacion.DefaultCellStyle = dataGridViewCellStyle40;
             this.dtDepreciacion.HeaderText = "Depreciación Mensual";
             this.dtDepreciacion.MinimumWidth = 150;
             this.dtDepreciacion.Name = "dtDepreciacion";
@@ -181,9 +178,9 @@
             // 
             // dtDepAcum
             // 
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.dtDepAcum.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle41.Format = "N2";
+            dataGridViewCellStyle41.NullValue = null;
+            this.dtDepAcum.DefaultCellStyle = dataGridViewCellStyle41;
             this.dtDepAcum.HeaderText = "Depreciación Acumulada ";
             this.dtDepAcum.MinimumWidth = 150;
             this.dtDepAcum.Name = "dtDepAcum";
@@ -192,9 +189,9 @@
             // 
             // dtLibros
             // 
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.dtLibros.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle42.Format = "N2";
+            dataGridViewCellStyle42.NullValue = null;
+            this.dtLibros.DefaultCellStyle = dataGridViewCellStyle42;
             this.dtLibros.HeaderText = "Valor en Libros";
             this.dtLibros.Name = "dtLibros";
             this.dtLibros.ReadOnly = true;
@@ -221,9 +218,11 @@
             this.lblPeriodo.Size = new System.Drawing.Size(70, 22);
             this.lblPeriodo.TabIndex = 184;
             this.lblPeriodo.Text = "00/0000";
+            this.lblPeriodo.Visible = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNumero);
             this.groupBox1.Controls.Add(this.lblPeriodo);
             this.groupBox1.Controls.Add(this.txtanio);
@@ -233,10 +232,20 @@
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(446, 170);
+            this.groupBox1.Size = new System.Drawing.Size(446, 214);
             this.groupBox1.TabIndex = 185;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumero.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumero.Location = new System.Drawing.Point(335, 65);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(105, 28);
+            this.txtNumero.TabIndex = 223;
+            this.txtNumero.Visible = false;
             // 
             // txtanio
             // 
@@ -251,6 +260,7 @@
             // 
             // cboPeriodo
             // 
+            this.cboPeriodo.Enabled = false;
             this.cboPeriodo.FormattingEnabled = true;
             this.cboPeriodo.Location = new System.Drawing.Point(103, 92);
             this.cboPeriodo.Name = "cboPeriodo";
@@ -271,7 +281,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(93, 50);
+            this.label5.Location = new System.Drawing.Point(93, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 26);
             this.label5.TabIndex = 220;
@@ -283,10 +293,10 @@
             this.FlowLayoutPanel1.Controls.Add(this.lblDepreciar);
             this.FlowLayoutPanel1.Controls.Add(this.lblSalir);
             this.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 507);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 273);
             this.FlowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
-            this.FlowLayoutPanel1.Size = new System.Drawing.Size(702, 66);
+            this.FlowLayoutPanel1.Size = new System.Drawing.Size(467, 66);
             this.FlowLayoutPanel1.TabIndex = 224;
             // 
             // lblDepreciar
@@ -326,44 +336,23 @@
             this.toolTip1.SetToolTip(this.lblSalir, "Salir");
             this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
             // 
-            // dgvContable
-            // 
-            this.dgvContable.AllowUserToAddRows = false;
-            this.dgvContable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigo,
-            this.sumat});
-            this.dgvContable.Location = new System.Drawing.Point(12, 390);
-            this.dgvContable.Name = "dgvContable";
-            this.dgvContable.Size = new System.Drawing.Size(526, 111);
-            this.dgvContable.TabIndex = 225;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "ctaGastos";
-            this.codigo.HeaderText = "Column1";
-            this.codigo.Name = "codigo";
-            // 
-            // sumat
-            // 
-            this.sumat.DataPropertyName = "suma";
-            this.sumat.HeaderText = "Column1";
-            this.sumat.Name = "sumat";
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumero.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero.Location = new System.Drawing.Point(326, 126);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(105, 28);
-            this.txtNumero.TabIndex = 223;
-            // 
             // toolTip1
             // 
             this.toolTip1.AutoPopDelay = 5000;
             this.toolTip1.InitialDelay = 300;
             this.toolTip1.ReshowDelay = 100;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(55, 139);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(336, 72);
+            this.label1.TabIndex = 224;
+            this.label1.Text = "Nota\r\n          1. Este Proceso puede tardar varios minutos\r\n          2. Recomen" +
+    "damos hacer este proceso solo al final \r\n              de cada periodo\r\n";
             // 
             // FrmDepreciacion
             // 
@@ -371,8 +360,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(706, 575);
-            this.Controls.Add(this.dgvContable);
+            this.ClientSize = new System.Drawing.Size(471, 341);
             this.Controls.Add(this.FlowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDatos);
@@ -391,7 +379,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvContable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -414,17 +401,15 @@
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel1;
         private System.Windows.Forms.Label lblDepreciar;
         private System.Windows.Forms.Label lblSalir;
+        private System.Windows.Forms.TextBox txtNumero;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtPeriodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDepreciacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDepAcum;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtLibros;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCtaGastos;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCtaDep;
-        private System.Windows.Forms.DataGridView dgvContable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumat;
-        private System.Windows.Forms.TextBox txtNumero;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label1;
     }
 }

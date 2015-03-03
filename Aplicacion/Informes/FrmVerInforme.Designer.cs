@@ -110,6 +110,7 @@
             // 
             this.CReporte.ActiveViewIndex = -1;
             this.CReporte.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.CReporte.CachedPageNumberPerDoc = 10;
             this.CReporte.Cursor = System.Windows.Forms.Cursors.Default;
             this.CReporte.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CReporte.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,6 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(841, 506);
             this.Controls.Add(this.CReporte);
             this.Controls.Add(this.lblMargenInf);
@@ -132,24 +134,22 @@
             this.Controls.Add(this.lblMargenDer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVerInforme";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmVerInforme";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmVerInforme_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal System.Windows.Forms.Button btnExit;
         internal System.Windows.Forms.Label lblTituloPrinc;
         internal System.Windows.Forms.Label lblMargenIzq;
         internal System.Windows.Forms.Label lblMargenDer;
         internal System.Windows.Forms.Label lblMargenTop;
         internal System.Windows.Forms.Label lblMargenInf;
         public CrystalDecisions.Windows.Forms.CrystalReportViewer CReporte;
+        private System.Windows.Forms.Button btnExit;
         
     }
 }

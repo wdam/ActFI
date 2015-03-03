@@ -86,6 +86,8 @@
             this.Label8 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
             this.panelVal = new System.Windows.Forms.Panel();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
             this.txtctaActivo = new System.Windows.Forms.TextBox();
             this.Label21 = new System.Windows.Forms.Label();
@@ -499,7 +501,7 @@
             this.cboPropiedad.FormattingEnabled = true;
             this.cboPropiedad.Items.AddRange(new object[] {
             "PROPIO",
-            "ALQUILADO",
+            "ARRENDADO",
             "LEASING"});
             this.cboPropiedad.Location = new System.Drawing.Point(120, 33);
             this.cboPropiedad.Name = "cboPropiedad";
@@ -652,6 +654,7 @@
             // txtCodigo
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.White;
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(86, 31);
             this.txtCodigo.MaxLength = 10;
@@ -800,6 +803,8 @@
             // panelVal
             // 
             this.panelVal.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.panelVal.Controls.Add(this.cboEstado);
+            this.panelVal.Controls.Add(this.label27);
             this.panelVal.Controls.Add(this.GroupBox4);
             this.panelVal.Controls.Add(this.gbValores);
             this.panelVal.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -808,6 +813,29 @@
             this.panelVal.Size = new System.Drawing.Size(780, 380);
             this.panelVal.TabIndex = 173;
             this.panelVal.Visible = false;
+            // 
+            // cboEstado
+            // 
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Items.AddRange(new object[] {
+            "En Funcionamiento",
+            "En Mantenimiento",
+            "En Contruccion"});
+            this.cboEstado.Location = new System.Drawing.Point(96, 334);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(174, 30);
+            this.cboEstado.TabIndex = 7;
+            this.cboEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboEstado_KeyPress);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(26, 339);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(62, 22);
+            this.label27.TabIndex = 6;
+            this.label27.Text = "Estado";
             // 
             // GroupBox4
             // 
@@ -822,7 +850,7 @@
             this.GroupBox4.Controls.Add(this.Label24);
             this.GroupBox4.Controls.Add(this.Label25);
             this.GroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.GroupBox4.Location = new System.Drawing.Point(11, 190);
+            this.GroupBox4.Location = new System.Drawing.Point(11, 180);
             this.GroupBox4.Name = "GroupBox4";
             this.GroupBox4.Size = new System.Drawing.Size(760, 142);
             this.GroupBox4.TabIndex = 5;
@@ -1106,10 +1134,10 @@
             this.Controls.Add(this.lblMargenIzq);
             this.Controls.Add(this.lblMargenDer);
             this.Controls.Add(this.lblMargenTop);
-            this.Controls.Add(this.panelBasicos);
             this.Controls.Add(this.btnTab2);
             this.Controls.Add(this.btnTab1);
             this.Controls.Add(this.panelVal);
+            this.Controls.Add(this.panelBasicos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;
@@ -1125,6 +1153,7 @@
             this.grbCrear.ResumeLayout(false);
             this.grbCrear.PerformLayout();
             this.panelVal.ResumeLayout(false);
+            this.panelVal.PerformLayout();
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
             this.gbValores.ResumeLayout(false);
@@ -1217,5 +1246,7 @@
         private System.Windows.Forms.Label Label18;
         private System.Windows.Forms.Label Label19;
         private System.Windows.Forms.Label Label20;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox cboEstado;
     }
 }

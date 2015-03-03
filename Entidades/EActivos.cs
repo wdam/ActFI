@@ -8,6 +8,7 @@ namespace Entidades
 {
     public class EActivos
     {
+        
         public string codigo { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
@@ -17,7 +18,7 @@ namespace Entidades
 
         public int vidaUtil { get; set; }
         public string propiedad { get; set; }
-        public DateTime fecha { get; set; }
+        public string fecha { get; set; }                 
         public string area { get; set; }
         public string responsable { get; set; }
         public string proveedor { get; set; }

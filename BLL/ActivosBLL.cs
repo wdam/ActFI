@@ -5,23 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using DAL.DAO;
-
+using System.Data;
 namespace BLL
 {
     public class ActivosBLL
     {
-        public List<EActivos> getActivos() {
-            ActivosDAO ADao = new ActivosDAO();
-            return ADao.getAll();
+        ActivosDAO aDao = new ActivosDAO();
+        public List<EActivos> getActivos() {           
+            return aDao.getAll();
         }
 
         public List<EActivos> getActivos(string tipo)
-        {
-            ActivosDAO ADao = new ActivosDAO();
-            return ADao.getAll(tipo);
-        }
-
-        
+        {           
+            return aDao.getAll(Inicializar.Mes);
+        }        
 
         public string insertar(EActivos obj) {
             EParametros parametro = new EParametros();
@@ -38,8 +35,7 @@ namespace BLL
             {
                 return validar;
             }
-
-            ActivosDAO aDao = new ActivosDAO();
+         
             if (aDao.insertar(obj) > 0)
             {
                 return "Exito"; //Datos Guardados Correctamente
@@ -55,8 +51,7 @@ namespace BLL
                
             if (validar !="Correcto"){
                  return validar;
-            }
-            ActivosDAO aDao = new ActivosDAO();
+            }           
             if (aDao.actualizar(obj) > 0)
             {
                 return "Exito";// Datos Actualizados Correctamente
@@ -107,22 +102,23 @@ namespace BLL
         public EActivos buscar(string codigo) {
             if (string.IsNullOrEmpty(codigo)) {
                 return null;
-            }
-            ActivosDAO ADao = new ActivosDAO();
-            return ADao.buscar(codigo);
+            }          
+            return aDao.buscar(codigo);
         }
 
-        public int trasladar(string codigo, string area, string responsable) {
-            ActivosDAO ADao = new ActivosDAO();
-            return ADao.trasladar(codigo,area, responsable);
+        public int trasladar(string codigo, string area, string responsable) {            
+            return aDao.trasladar(codigo,area, responsable);
         }
 
         public void UpdateValores(double valLibro, double valDepAjus, double valDeprAcum, string codigo){
             if (string.IsNullOrEmpty(codigo)){
                 return;
-            }
-            ActivosDAO ADao = new ActivosDAO();
-            ADao.UpdateValores(valLibro, valDepAjus, valDeprAcum, codigo);
+            }           
+            aDao.UpdateValores(valLibro, valDepAjus, valDeprAcum, codigo);
+        }
+
+        public DataTable informeGeneral() {
+            return aDao.informeGeneral();
         }
     }
 }

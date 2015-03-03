@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entidades;
 using DAL.Conexion;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace DAL.DAO
 {
@@ -17,8 +18,7 @@ namespace DAL.DAO
             string sql = "SELECT ac.codigo, ac.nombre, ac.descripcion, ar.nombre AS AreaLoc, ac.estado, " +
                 " ac.valComercial, ac.valLibros, ac.depajustada,  ac.proveedor, " +
                 " ac.propiedad, ac.vidaUtil, ac.responsable FROM afactivos ac " +
-                " INNER JOIN afarea ar ON ac.AreaLoc = ar.codigo ";
-                
+                " INNER JOIN afarea ar ON ac.AreaLoc = ar.codigo ";                
 
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -34,17 +34,18 @@ namespace DAL.DAO
                         }
                         cnx.cerrarConexion();
                     }
-                }
-                return lista;
+                }               
             }
+            return lista;
         }
 
-        public List<EActivos> getAll(string tipo) {
-            EActivos objActivo = null;
+        public List<EActivos> getAll(string periodo) {
+         
             List<EActivos> lista = new List<EActivos>();
-            string sql = "SELECT * FROM afactivos WHERE  valLibros   > valSalvamento";
-
-
+            string sql = " SELECT af.codigo, af.valComercial, af.valSalvamento, af.depAcumulada, af.tipo, "+
+                  " af.ctadepreciacion, af.ctagastos , af.vidaUtil, af.valLibros FROM afactivos af WHERE  " +
+                  "  af.codigo NOT IN  (SELECT codigo FROM afdepreciacion WHERE periodo='" + periodo + "') " +
+                  " AND af.valLibros > af.valSalvamento AND af.propiedad='PROPIO'";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -57,8 +58,18 @@ namespace DAL.DAO
                         MySqlDataReader dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
-                            objActivo = mapearObjeto(dr);
-                            lista.Add(objActivo);
+                            EActivos act = new EActivos();
+                            act.codigo = dr.GetString("codigo");                        
+                            act.vidaUtil = dr.GetInt32("vidaUtil");
+                            act.tipo = dr.GetString("tipo");
+                            act.valComercial = dr.GetDouble("valComercial");
+                            act.valSalvamento = dr.GetDouble("valSalvamento");
+                            act.valLibros = dr.GetDouble("valLibros");                            
+                            act.depAcumulada = dr.GetDouble("depAcumulada");                          
+                            act.ctaDepreciacion = dr.GetString("ctadepreciacion");
+                            act.ctaGastos = dr.GetString("ctagastos");
+                           
+                            lista.Add(act);
                         }
                         cnx.cerrarConexion();
                     }
@@ -95,7 +106,7 @@ namespace DAL.DAO
                     cmd.Parameters.Add("vidaUtil", MySqlDbType.String).Value = act.vidaUtil;
 
                     cmd.Parameters.Add("?propiedad", MySqlDbType.String).Value = act.propiedad;
-                    cmd.Parameters.Add("?fechaCompra", MySqlDbType.DateTime).Value = act.fecha;
+                    cmd.Parameters.Add("?fechaCompra", MySqlDbType.String).Value = act.fecha;
                     cmd.Parameters.Add("?AreaLoc", MySqlDbType.String).Value = act.area;
                     cmd.Parameters.Add("?responsable", MySqlDbType.String).Value = act.responsable;
                     cmd.Parameters.Add("?proveedor", MySqlDbType.String).Value = act.proveedor;
@@ -172,10 +183,11 @@ namespace DAL.DAO
 
         public int actualizar(EActivos act) {
             int reg = 0;
-            string sql = "UPDATE afactivos SET nombre=?nombre, descripcion=?descripcion, numSerie=?numSerie, referecia=?referecia, " +
-                            " propiedad=?propiedad, ccosto=?ccosto, valComercial=?valComercial, valSalvamento=?valSalvamento," +
-                            " valLibros=?valLibros, ctaActivo=?ctaActivo, ctadepreciacion=?ctadepreciacion, " +
-                            " ctagastos=?ctagastos, ctamonetaria=?ctamonetaria, ctadepreMon=?ctadepreMon WHERE codigo=?codigo ";
+            string sql = "UPDATE afactivos SET nombre=?nombre, descripcion=?descripcion, numSerie=?numSerie, " +
+                       "  referecia=?referecia, propiedad=?propiedad, ccosto=?ccosto, valComercial=?valComercial, " +
+                       " valSalvamento=?valSalvamento, ctaActivo=?ctaActivo, ctadepreciacion=?ctadepreciacion, " +
+                       " ctagastos=?ctagastos, ctamonetaria=?ctamonetaria, ctadepreMon=?ctadepreMon, "+
+                       " estado=?estado WHERE codigo=?codigo ";
                            
 
             using (conexion cnx = new conexion())
@@ -193,17 +205,17 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?referecia", MySqlDbType.String).Value = act.referencia;                   
                     cmd.Parameters.Add("?propiedad", MySqlDbType.String).Value = act.propiedad;                   
                     cmd.Parameters.Add("?ccosto", MySqlDbType.String).Value = act.centrocosto;
+                    cmd.Parameters.Add("?estado", MySqlDbType.String).Value = act.estado;
                    
                     cmd.Parameters.Add("?valComercial", MySqlDbType.Double).Value = act.valComercial;
                     cmd.Parameters.Add("?valSalvamento", MySqlDbType.Double).Value = act.valSalvamento;
-                    cmd.Parameters.Add("?valLibros", MySqlDbType.Double).Value = act.valLibros;
+                    
                     cmd.Parameters.Add("?ctaActivo", MySqlDbType.String).Value = act.ctaActivo;
                     cmd.Parameters.Add("?ctadepreciacion", MySqlDbType.String).Value = act.ctaDepreciacion;
                     cmd.Parameters.Add("?ctagastos", MySqlDbType.String).Value = act.ctaGastos;
                     cmd.Parameters.Add("?ctamonetaria", MySqlDbType.String).Value = act.ctaMonetaria;
                     cmd.Parameters.Add("?ctadepreMon", MySqlDbType.String).Value = act.ctaDepMonetaria;
                     
-
                     if (cnx.abrirConexion())
                     {
                         reg = cmd.ExecuteNonQuery();
@@ -241,6 +253,29 @@ namespace DAL.DAO
             return nReg;
         }
 
+        public DataTable informeGeneral() {
+            DataTable dt = null;
+            string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.fechaCompra AS fecha, " +
+                " af.estado,  CONCAT(t.nit, '   ', t.nombre,' ', t.apellidos) responsable FROM " +
+                " afactivos af INNER JOIN terceros t ON af.responsable = t.nit";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand()) {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();                   
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataAdapter DA = new MySqlDataAdapter(cmd);
+                        dt = new DataTable();
+                        DA.Fill(dt);
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return dt;
+        }
+
         protected EActivos mapearObjeto(MySqlDataReader fila)
         {
             EActivos act = new EActivos();
@@ -253,7 +288,7 @@ namespace DAL.DAO
             act.tipo = fila.GetString("tipo");
 
             act.propiedad = fila.GetString("propiedad");
-            act.fecha = fila.GetDateTime("fechaCompra");
+            act.fecha = fila.GetString("fechaCompra");
             act.area = fila.GetString("AreaLoc");
             act.responsable = fila.GetString("responsable");
             act.proveedor = fila.GetString("proveedor");

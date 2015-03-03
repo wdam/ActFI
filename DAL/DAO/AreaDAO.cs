@@ -15,7 +15,7 @@ namespace DAL.DAO
         public int insertar(EArea obj) { 
 
             int reg  = 0; // Obtiene el numero de Registros afectados
-            string sql = "INSERT INTO afArea (codigo, nombre, descripcion) VALUES (?codigo, ?nombre, ?descripcion)";
+            string sql = "INSERT INTO afarea (codigo, nombre, descripcion) VALUES (?codigo, ?nombre, ?descripcion)";
 
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -23,9 +23,9 @@ namespace DAL.DAO
                     cmd.CommandText = sql;
                     cmd.Connection = cnx.getConexion();
 
-                    cmd.Parameters.Add("?codigo", MySql.Data.MySqlClient.MySqlDbType.String).Value = obj.codigo;
-                    cmd.Parameters.Add("?nombre", MySql.Data.MySqlClient.MySqlDbType.String).Value = obj.nombre;
-                    cmd.Parameters.Add("?descripcion", MySql.Data.MySqlClient.MySqlDbType.String).Value = obj.descripcion;
+                    cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = obj.codigo;
+                    cmd.Parameters.Add("?nombre", MySqlDbType.String).Value = obj.nombre;
+                    cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = obj.descripcion;
 
                     if (cnx.abrirConexion()) {
                         reg = cmd.ExecuteNonQuery();
@@ -39,7 +39,7 @@ namespace DAL.DAO
         public  List<EArea> getAll (){
             EArea  objArea = null;
             List<EArea> lista = new List<EArea>();
-            string sql  = "SELECT * FROM afArea ";
+            string sql  = "SELECT * FROM afarea ";
             using (conexion cnx = new conexion()){
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
                 using (MySqlCommand cmd = new MySqlCommand()) {

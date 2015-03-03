@@ -25,25 +25,12 @@ namespace Aplicacion.Informes
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Dispose(true);
-        }
-
-        private void FrmVerInforme_Load(object sender, EventArgs e)
-        {            
-            //lista.Add(activo);
-            //ReportDocument reporte = new ReportDocument();
-            //string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\infActivo.rpt";
-            //reporte.Load(ruta);
-            //reporte.SetDataSource(lista);
-            //CReporte.ReportSource = reporte;
-            //CReporte.Refresh();
-        }
+            this.Close();
+        }       
 
         private void parametros (){
             BLL.CompanyBLL bllComp = new BLL.CompanyBLL();
             comp = bllComp.buscar();
-
-
         }
 
 

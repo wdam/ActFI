@@ -14,4 +14,14 @@ namespace Entidades
         public string ccosto { get; set; }
         public string descripcion { get; set; }
     }
+
+    public class EtipoDepreciacion {
+        public string sigla { get; set;}
+        public string Descripcion { get; set; }
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
+    }
 }

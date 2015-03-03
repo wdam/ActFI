@@ -129,5 +129,13 @@ namespace Aplicacion.Principal
             lblCompania.Text = Inicializar.company;
             lblPeriodo.Text = Inicializar.periodo;
         }
+
+        private void tsmCambiarPer_Click(object sender, EventArgs e)
+        {
+            FrmPeriodo frmP = new FrmPeriodo();
+            frmP.ShowDialog();
+        }
+
+        
     }
 }

@@ -295,15 +295,15 @@ namespace Aplicacion {
             
             private global::System.Data.DataColumn columnpropiedad;
             
-            private global::System.Data.DataColumn columnfechaCompra;
+            private global::System.Data.DataColumn columnfecha;
             
-            private global::System.Data.DataColumn columnAreaLoc;
+            private global::System.Data.DataColumn columnarea;
             
             private global::System.Data.DataColumn columnresponsable;
             
             private global::System.Data.DataColumn columnproveedor;
             
-            private global::System.Data.DataColumn columnccosto;
+            private global::System.Data.DataColumn columncentro;
             
             private global::System.Data.DataColumn columnestado;
             
@@ -430,17 +430,17 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fechaCompraColumn {
+            public global::System.Data.DataColumn fechaColumn {
                 get {
-                    return this.columnfechaCompra;
+                    return this.columnfecha;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AreaLocColumn {
+            public global::System.Data.DataColumn areaColumn {
                 get {
-                    return this.columnAreaLoc;
+                    return this.columnarea;
                 }
             }
             
@@ -462,9 +462,9 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ccostoColumn {
+            public global::System.Data.DataColumn centroColumn {
                 get {
-                    return this.columnccosto;
+                    return this.columncentro;
                 }
             }
             
@@ -618,11 +618,11 @@ namespace Aplicacion {
                         string tipo, 
                         short vidaUtil, 
                         string propiedad, 
-                        System.DateTime fechaCompra, 
-                        string AreaLoc, 
+                        System.DateTime fecha, 
+                        string area, 
                         string responsable, 
                         string proveedor, 
-                        string ccosto, 
+                        string centro, 
                         string estado, 
                         double valComercial, 
                         double valSalvamento, 
@@ -646,11 +646,11 @@ namespace Aplicacion {
                         tipo,
                         vidaUtil,
                         propiedad,
-                        fechaCompra,
-                        AreaLoc,
+                        fecha,
+                        area,
                         responsable,
                         proveedor,
-                        ccosto,
+                        centro,
                         estado,
                         valComercial,
                         valSalvamento,
@@ -694,11 +694,11 @@ namespace Aplicacion {
                 this.columntipo = base.Columns["tipo"];
                 this.columnvidaUtil = base.Columns["vidaUtil"];
                 this.columnpropiedad = base.Columns["propiedad"];
-                this.columnfechaCompra = base.Columns["fechaCompra"];
-                this.columnAreaLoc = base.Columns["AreaLoc"];
+                this.columnfecha = base.Columns["fecha"];
+                this.columnarea = base.Columns["area"];
                 this.columnresponsable = base.Columns["responsable"];
                 this.columnproveedor = base.Columns["proveedor"];
-                this.columnccosto = base.Columns["ccosto"];
+                this.columncentro = base.Columns["centro"];
                 this.columnestado = base.Columns["estado"];
                 this.columnvalComercial = base.Columns["valComercial"];
                 this.columnvalSalvamento = base.Columns["valSalvamento"];
@@ -733,16 +733,16 @@ namespace Aplicacion {
                 base.Columns.Add(this.columnvidaUtil);
                 this.columnpropiedad = new global::System.Data.DataColumn("propiedad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpropiedad);
-                this.columnfechaCompra = new global::System.Data.DataColumn("fechaCompra", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfechaCompra);
-                this.columnAreaLoc = new global::System.Data.DataColumn("AreaLoc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAreaLoc);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
+                this.columnarea = new global::System.Data.DataColumn("area", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnarea);
                 this.columnresponsable = new global::System.Data.DataColumn("responsable", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnresponsable);
                 this.columnproveedor = new global::System.Data.DataColumn("proveedor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproveedor);
-                this.columnccosto = new global::System.Data.DataColumn("ccosto", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnccosto);
+                this.columncentro = new global::System.Data.DataColumn("centro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncentro);
                 this.columnestado = new global::System.Data.DataColumn("estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestado);
                 this.columnvalComercial = new global::System.Data.DataColumn("valComercial", typeof(double), null, global::System.Data.MappingType.Element);
@@ -1039,33 +1039,33 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime fechaCompra {
+            public System.DateTime fecha {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableafactivos.fechaCompraColumn]));
+                        return ((global::System.DateTime)(this[this.tableafactivos.fechaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaCompra\' de la tabla \'afactivos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha\' de la tabla \'afactivos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableafactivos.fechaCompraColumn] = value;
+                    this[this.tableafactivos.fechaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AreaLoc {
+            public string area {
                 get {
                     try {
-                        return ((string)(this[this.tableafactivos.AreaLocColumn]));
+                        return ((string)(this[this.tableafactivos.areaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'AreaLoc\' de la tabla \'afactivos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'area\' de la tabla \'afactivos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableafactivos.AreaLocColumn] = value;
+                    this[this.tableafactivos.areaColumn] = value;
                 }
             }
             
@@ -1103,17 +1103,17 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ccosto {
+            public string centro {
                 get {
                     try {
-                        return ((string)(this[this.tableafactivos.ccostoColumn]));
+                        return ((string)(this[this.tableafactivos.centroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ccosto\' de la tabla \'afactivos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'centro\' de la tabla \'afactivos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableafactivos.ccostoColumn] = value;
+                    this[this.tableafactivos.centroColumn] = value;
                 }
             }
             
@@ -1423,26 +1423,26 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsfechaCompraNull() {
-                return this.IsNull(this.tableafactivos.fechaCompraColumn);
+            public bool IsfechaNull() {
+                return this.IsNull(this.tableafactivos.fechaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetfechaCompraNull() {
-                this[this.tableafactivos.fechaCompraColumn] = global::System.Convert.DBNull;
+            public void SetfechaNull() {
+                this[this.tableafactivos.fechaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAreaLocNull() {
-                return this.IsNull(this.tableafactivos.AreaLocColumn);
+            public bool IsareaNull() {
+                return this.IsNull(this.tableafactivos.areaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAreaLocNull() {
-                this[this.tableafactivos.AreaLocColumn] = global::System.Convert.DBNull;
+            public void SetareaNull() {
+                this[this.tableafactivos.areaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1471,14 +1471,14 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsccostoNull() {
-                return this.IsNull(this.tableafactivos.ccostoColumn);
+            public bool IscentroNull() {
+                return this.IsNull(this.tableafactivos.centroColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetccostoNull() {
-                this[this.tableafactivos.ccostoColumn] = global::System.Convert.DBNull;
+            public void SetcentroNull() {
+                this[this.tableafactivos.centroColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

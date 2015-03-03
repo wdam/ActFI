@@ -17,11 +17,10 @@ namespace Aplicacion.Procesos
         BLL.ParametrosBLL bllPar = new BLL.ParametrosBLL();
         BLL.DocumentosBLL bllDoc = new BLL.DocumentosBLL();
         BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
-        
+        BLL.DepreciacionBLL bllDep = new BLL.DepreciacionBLL();
 
         List<EPeriodo> lstPer;
-        List<EDocumentos> lstDocumentos;      
-        EActivos objActivo;
+        List<EDocumentos> lstDocumentos;              
         EParametros objParametros;
         List<EActivos> lstActivos;
         ETipoDocumento tipodoc;
@@ -50,6 +49,8 @@ namespace Aplicacion.Procesos
         private void FrmDepreciacion_Load(object sender, EventArgs e)
         {
             lblPeriodo.Text = BLL.Inicializar.periodo;
+            txtanio.Text = BLL.Inicializar.periodo.Substring(3,4);
+           
             lstPer = bllComp.getPerBloqueado("n");
             if (lstPer.Count > 0)
             {
@@ -74,7 +75,7 @@ namespace Aplicacion.Procesos
             {
                 MessageBox.Show("No se ha Selecciondo el Documento Contable para Depreciaciones.. Verifique", "Control de Información ActFI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+            cboPeriodo.Text = BLL.Inicializar.Mes;
         }
 
         private void Consecutivo()
@@ -109,16 +110,16 @@ namespace Aplicacion.Procesos
             bllTipo.updateConsecutivo(Convert.ToInt32(txtNumero.Text), Documento);    
 
             var agruparDebito = from row in dgvDatos.Rows.Cast<DataGridViewRow>()
-                                group row by row.Cells["dtCtaDep"].Value into
+                                group row by row.Cells["dtCtaGastos"].Value into
                                 dtGrupo
                                 select new
                                 {
                                     cuenta = dtGrupo.Key,
                                     valor = dtGrupo.Sum(row => UtilSystem.DIN(row.Cells["dtDepreciacion"].Value.ToString()))
                                 };
-
+            
             var AgruparCredito = from row in dgvDatos.Rows.Cast<DataGridViewRow>()
-                                 group row by row.Cells["dtCtaGastos"].Value into
+                                 group row by row.Cells["dtCtaDep"].Value into
                                  dtGrupo
                                  select new
                                  {
@@ -187,16 +188,35 @@ namespace Aplicacion.Procesos
             lstActivos = bllAct.getActivos("");
             if (lstActivos.Count > 0)
             {
-                
+                this.Cursor = Cursors.WaitCursor;   
                 depreciar();
-                //actualizarValores();  
-                Contabilidad();                                                                                       
+                actualizarValores();  
+                Contabilidad();
+                guardarDepreciacion();
+                this.Cursor = Cursors.Default;                                         
             }
             else
             {
                 MessageBox.Show("No se Econtraron Activos a Depreciar en este Periodo", "Control de Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void guardarDepreciacion() {
+            List<EDepreciacion> lstDep = new List<EDepreciacion>();
+            foreach (DataGridViewRow fila in dgvDatos.Rows)
+            {
+                EDepreciacion objDep = new EDepreciacion();
+                objDep.documento = Documento + txtNumero.Text.ToString();
+                objDep.codigo = fila.Cells["dtCodigo"].Value.ToString();
+                objDep.periodo = fila.Cells["dtPeriodo"].Value.ToString().Substring(0,2);
+                objDep.valorDep = UtilSystem.DIN(fila.Cells["dtLibros"].Value.ToString() ?? "0");
+                objDep.depreciacion = UtilSystem.DIN(fila.Cells["dtDepreciacion"].Value.ToString() ?? "0");
+                lstDep.Add(objDep);
+            }
+            bllDep.insertar(lstDep);
+            MessageBox.Show("Proceso de Depreciacion Finalizado Correctamente ", "Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
 
         private void lblSalir_Click(object sender, EventArgs e)
         {

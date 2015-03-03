@@ -90,7 +90,7 @@ namespace DAL.DAO
         public List<EDocumentos> buscarDocumento(int documento, string tipo, string  periodo){
             List<EDocumentos> lstDocumentos = new List<EDocumentos>();
             EDocumentos objDoc = null;
-            string sql = "SELECT * FROM documentos" + periodo + "  WHERE  tipodoc='"+ tipo+ "' AND doc='" +documento+ "' ";
+            string sql = "SELECT * FROM documentos" + periodo + "  WHERE  tipodoc='" + tipo + "' AND doc='" + documento + "' ORDER BY item";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -244,7 +244,7 @@ namespace DAL.DAO
                     cmd.Connection = cnx.getConexion();
                     if (cnx.abrirConexion())
                     {
-                        string sql = "REPLACE INTO obsdocumentos"+periodo+" SET doc=?doc, tipodoc='?tipo' , comentario='?observ' ";
+                        string sql = "REPLACE INTO obsdocumentos"+periodo+" SET doc=?doc, tipodoc=?tipo , comentario=?observ ";
                         cmd.Parameters.Add("?doc", MySqlDbType.Int32).Value = documento;
                         cmd.Parameters.Add("?tipo", MySqlDbType.String).Value = tipo;
                         cmd.Parameters.Add("?observ", MySqlDbType.String).Value = observacion;
@@ -255,6 +255,30 @@ namespace DAL.DAO
                     }
                 }
             }
+        }
+
+        public string getObservacion(int documento, string tipo, string periodo) {
+            string Observacion="";
+            string sql = "SELECT * FROM obsdocumentos" + periodo + "  WHERE  tipodoc='" + tipo + "' AND doc='" + documento + "' ";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            Observacion = dr.GetString("comentario");                            
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return Observacion;            
         }
     }
    

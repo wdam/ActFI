@@ -266,8 +266,7 @@ namespace Aplicacion.Inventario
                         if (string.IsNullOrEmpty(sBase) || sBase == ","){
                             sBase = "0";
                         }
-                        dgvDatos.Rows[e.RowIndex].Cells["dtBase"].Value = UtilSystem.fMoneda(Math.Round(Convert.ToDouble(sBase), 2));
-                        MessageBox.Show(dgvDatos.Rows[e.RowIndex].Cells["dtBase"].Value.ToString());
+                        dgvDatos.Rows[e.RowIndex].Cells["dtBase"].Value = UtilSystem.fMoneda(Math.Round(Convert.ToDouble(sBase), 2));                        
                         break;
                     case 5:
                        
@@ -312,13 +311,16 @@ namespace Aplicacion.Inventario
 
                 }
             }
+            sacarCuenta();           
+        }
 
-
+        private void sacarCuenta() {
             debito = dgvDatos.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToDouble(x.Cells["dtDebito"].Value));
             credito = dgvDatos.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToDouble(x.Cells["dtCredito"].Value));
-            txtDebito.Text = UtilSystem.fMoneda(debito);            
+            txtDebito.Text = UtilSystem.fMoneda(debito);
             txtCredito.Text = UtilSystem.fMoneda(credito);
         }
+
         private void dgvDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             fila = e.RowIndex;
@@ -589,7 +591,7 @@ namespace Aplicacion.Inventario
             if (string.IsNullOrWhiteSpace(txtObservaciones.Text)) {
                 return;
             }
-            bllDoc.insertObservacion(Convert.ToInt32(txtDocumento.Text), txtDocumento.Text, txtObservaciones.Text);
+            bllDoc.insertObservacion(Convert.ToInt32(txtNumero.Text), txtDocumento.Text, txtObservaciones.Text);
         }
 
         private bool validarDatos() {
@@ -657,7 +659,7 @@ namespace Aplicacion.Inventario
                     return false;
                 }
 
-                if (Convert.ToDouble(dgvDatos.Rows[i].Cells["dtCentro"].Value) == 0 && txtCentro.Enabled == true)
+                if (dgvDatos.Rows[i].Cells["dtCentro"].Value.ToString() == "0" && txtCentro.Enabled == true)
                 {
                     smsError.SetError(lblCuenta, "Verifique todos los centros de costos");
                     dgvDatos.Rows[i].Cells["dtCentro"].Selected = true;
@@ -750,11 +752,7 @@ namespace Aplicacion.Inventario
         }
 
         private void txtDocumento_TextChanged(object sender, EventArgs e)
-        {
-            if (lblOperacion.Text == "Consulta") {
-                return;
-            }         
-
+        {                
             if (txtDocumento.Text.Length >= 2)
             {
                 buscarTipoDocumento();
@@ -871,7 +869,9 @@ namespace Aplicacion.Inventario
                 {
                     dgvDatos.Rows.Add(item.descripcion, item.debito, item.credito, item.codigo, item.baseD,
                         item.diasv, item.fecha,item.nit, item.centro, item.cheque);
-                }                           
+                }
+                txtObservaciones.Text = bllDoc.getObservacion(numero, tipo);
+                sacarCuenta();
             }
             else {
                 MessageBox.Show("El documento no se encuentra en este Periodo ", "Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

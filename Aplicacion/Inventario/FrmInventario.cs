@@ -79,5 +79,13 @@ namespace Aplicacion.Inventario
             frm.ShowDialog();
             this.menuPrincipal.Visible = true;
         }
+
+        private void lblGrupos_Click(object sender, EventArgs e)
+        {
+            this.menuPrincipal.Visible = false;
+            Principal.FrmGrupos frmG = new Principal.FrmGrupos();
+            frmG.ShowDialog();
+            this.menuPrincipal.Visible = true;
+        }
     }
 }

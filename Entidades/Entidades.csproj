@@ -45,8 +45,10 @@
     <Compile Include="ECompany.cs" />
     <Compile Include="ECuentas.cs" />
     <Compile Include="EDepartamentos.cs" />
+    <Compile Include="EDepreciacion.cs" />
     <Compile Include="EDocumentos.cs" />
     <Compile Include="EGenerica.cs" />
+    <Compile Include="EGrupo.cs" />
     <Compile Include="EParametros.cs" />
     <Compile Include="EPeriodo.cs" />
     <Compile Include="ETerceros.cs" />
