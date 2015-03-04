@@ -19,6 +19,7 @@ namespace Aplicacion.Principal
 
         List<EGrupo> lstGrupos;
         EGrupo objGrupo;
+        List<ESubgrupo> lstSubgrupo;
         public FrmGrupos()
         {
             InitializeComponent();
@@ -116,6 +117,7 @@ namespace Aplicacion.Principal
         {
             ocultarPanel2();
             dgvGrupo.AutoGenerateColumns = false;
+            dgvSubGrupo.AutoGenerateColumns = false;
             List<EtipoDepreciacion> lstTipos = UtilSystem.metodosDepreciacion();
             cboMetodo.DisplayMember = "Descripcion";
             cboMetodo.ValueMember = "sigla";            
@@ -150,6 +152,7 @@ namespace Aplicacion.Principal
         private void lblNuevo_Click(object sender, EventArgs e)
         {
             lblOperacion.Text = "Nuevo";
+            btnTab1.PerformClick();
             Habilitar();         
             limpiar();
         }
@@ -295,8 +298,17 @@ namespace Aplicacion.Principal
                 txtGastos.Text = objGrupo.ctaGastos;
                 txtMantenimiento.Text = objGrupo.ctaMantenimiento;
                 txtPerdida.Text = objGrupo.ctaPerdida;
-                txtRevalorizar.Text = objGrupo.ctaRevalorizar;                
+                txtRevalorizar.Text = objGrupo.ctaRevalorizar;
+                lblOperacion.Text = "Editar";
+                txtSigla.ReadOnly = true;
+                //Buscar Subgrupos 
+                cargarSubgrupos(codigo);
             }
+        }
+        private void cargarSubgrupos(string codigo) {
+            lstSubgrupo = bllGrupo.getSubgrupo(codigo);
+            dgvSubGrupo.DataSource = lstSubgrupo;
+            dgvSubGrupo.Refresh();
         }
 
         private void lblEditar_Click(object sender, EventArgs e)
@@ -311,6 +323,22 @@ namespace Aplicacion.Principal
                 MessageBox.Show("No ha Seleccionado Ningun Grupo para Editar", "Control de Informaión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
+        }
+
+        private void lblNuevoSub_Click(object sender, EventArgs e)
+        {
+            int fila = dgvGrupo.CurrentCell.RowIndex;
+            if (fila != -1)
+            {
+                string grupo = (string)dgvGrupo.Rows[fila].Cells["dgCodigo"].Value;
+                FrmSubgrupo frm = new FrmSubgrupo(grupo,"Nuevo");
+                frm.ShowDialog();
+                cargarSubgrupos(grupo);
+            }
+            else {
+                MessageBox.Show("Para agregar Subgrupos debe Seleccionar Un Grupo", "Control de Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
 
     }

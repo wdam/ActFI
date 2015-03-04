@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblMargenInf = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
@@ -53,6 +54,9 @@
             this.Label26 = new System.Windows.Forms.Label();
             this.btnTab2 = new System.Windows.Forms.Button();
             this.btnTab1 = new System.Windows.Forms.Button();
+            this.panelSubgrupo = new System.Windows.Forms.Panel();
+            this.lblNuevoSub = new System.Windows.Forms.Label();
+            this.dgvSubGrupo = new System.Windows.Forms.DataGridView();
             this.panelGrupo = new System.Windows.Forms.Panel();
             this.txtVidaUtil = new System.Windows.Forms.NumericUpDown();
             this.lblPorcentaje = new System.Windows.Forms.Label();
@@ -84,8 +88,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelSubgrupo = new System.Windows.Forms.Panel();
-            this.dgvSubGrupo = new System.Windows.Forms.DataGridView();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblNuevo = new System.Windows.Forms.Label();
             this.lblEditar = new System.Windows.Forms.Label();
@@ -95,20 +97,22 @@
             this.lblOperacion = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.dsCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dsDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dsEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dsGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsconsecutivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.spContenedor)).BeginInit();
             this.spContenedor.Panel1.SuspendLayout();
             this.spContenedor.Panel2.SuspendLayout();
             this.spContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupo)).BeginInit();
+            this.panelSubgrupo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubGrupo)).BeginInit();
             this.panelGrupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValSalvamento)).BeginInit();
-            this.panelSubgrupo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubGrupo)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.SuspendLayout();
@@ -349,6 +353,79 @@
             this.btnTab1.Text = "Grupos";
             this.btnTab1.UseVisualStyleBackColor = true;
             this.btnTab1.Click += new System.EventHandler(this.btnTab1_Click);
+            // 
+            // panelSubgrupo
+            // 
+            this.panelSubgrupo.Controls.Add(this.lblMensaje);
+            this.panelSubgrupo.Controls.Add(this.lblNuevoSub);
+            this.panelSubgrupo.Controls.Add(this.dgvSubGrupo);
+            this.panelSubgrupo.Location = new System.Drawing.Point(0, 38);
+            this.panelSubgrupo.Name = "panelSubgrupo";
+            this.panelSubgrupo.Size = new System.Drawing.Size(595, 356);
+            this.panelSubgrupo.TabIndex = 0;
+            // 
+            // lblNuevoSub
+            // 
+            this.lblNuevoSub.BackColor = System.Drawing.Color.White;
+            this.lblNuevoSub.Image = ((System.Drawing.Image)(resources.GetObject("lblNuevoSub.Image")));
+            this.lblNuevoSub.Location = new System.Drawing.Point(3, 254);
+            this.lblNuevoSub.Name = "lblNuevoSub";
+            this.lblNuevoSub.Size = new System.Drawing.Size(32, 32);
+            this.lblNuevoSub.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.lblNuevoSub, "Agregar Subgrupo");
+            this.lblNuevoSub.Click += new System.EventHandler(this.lblNuevoSub_Click);
+            // 
+            // dgvSubGrupo
+            // 
+            this.dgvSubGrupo.AllowUserToResizeColumns = false;
+            this.dgvSubGrupo.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.dgvSubGrupo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvSubGrupo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
+            this.dgvSubGrupo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(120)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubGrupo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSubGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSubGrupo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dsCodigo,
+            this.dsDescripcion,
+            this.dsEstado,
+            this.dsGrupo,
+            this.dsconsecutivo});
+            this.dgvSubGrupo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSubGrupo.EnableHeadersVisualStyles = false;
+            this.smsError.SetIconAlignment(this.dgvSubGrupo, System.Windows.Forms.ErrorIconAlignment.TopRight);
+            this.dgvSubGrupo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvSubGrupo.Location = new System.Drawing.Point(0, 0);
+            this.dgvSubGrupo.Name = "dgvSubGrupo";
+            this.dgvSubGrupo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubGrupo.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvSubGrupo.RowHeadersVisible = false;
+            this.dgvSubGrupo.RowHeadersWidth = 25;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubGrupo.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvSubGrupo.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubGrupo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvSubGrupo.ShowCellErrors = false;
+            this.dgvSubGrupo.ShowRowErrors = false;
+            this.dgvSubGrupo.Size = new System.Drawing.Size(595, 356);
+            this.dgvSubGrupo.TabIndex = 0;
             // 
             // panelGrupo
             // 
@@ -620,7 +697,7 @@
             // 
             this.txtSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSigla.Location = new System.Drawing.Point(152, 41);
-            this.txtSigla.MaxLength = 3;
+            this.txtSigla.MaxLength = 4;
             this.txtSigla.Name = "txtSigla";
             this.txtSigla.Size = new System.Drawing.Size(100, 29);
             this.txtSigla.TabIndex = 0;
@@ -695,64 +772,6 @@
             this.label1.Size = new System.Drawing.Size(100, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descripción";
-            // 
-            // panelSubgrupo
-            // 
-            this.panelSubgrupo.Controls.Add(this.dgvSubGrupo);
-            this.panelSubgrupo.Location = new System.Drawing.Point(0, 38);
-            this.panelSubgrupo.Name = "panelSubgrupo";
-            this.panelSubgrupo.Size = new System.Drawing.Size(595, 356);
-            this.panelSubgrupo.TabIndex = 0;
-            // 
-            // dgvSubGrupo
-            // 
-            this.dgvSubGrupo.AllowUserToResizeColumns = false;
-            this.dgvSubGrupo.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Empty;
-            this.dgvSubGrupo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSubGrupo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(253)))));
-            this.dgvSubGrupo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(120)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubGrupo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvSubGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSubGrupo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dsCodigo,
-            this.dsDescripcion,
-            this.dsEstado,
-            this.dsGrupo});
-            this.dgvSubGrupo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSubGrupo.EnableHeadersVisualStyles = false;
-            this.smsError.SetIconAlignment(this.dgvSubGrupo, System.Windows.Forms.ErrorIconAlignment.TopRight);
-            this.dgvSubGrupo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dgvSubGrupo.Location = new System.Drawing.Point(0, 0);
-            this.dgvSubGrupo.Name = "dgvSubGrupo";
-            this.dgvSubGrupo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubGrupo.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvSubGrupo.RowHeadersWidth = 23;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubGrupo.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvSubGrupo.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubGrupo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvSubGrupo.ShowCellErrors = false;
-            this.dgvSubGrupo.ShowRowErrors = false;
-            this.dgvSubGrupo.Size = new System.Drawing.Size(595, 356);
-            this.dgvSubGrupo.TabIndex = 0;
             // 
             // FlowLayoutPanel1
             // 
@@ -882,30 +901,65 @@
             this.smsError.ContainerControl = this;
             this.smsError.Icon = ((System.Drawing.Icon)(resources.GetObject("smsError.Icon")));
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.ForeColor = System.Drawing.Color.Crimson;
+            this.lblMensaje.Location = new System.Drawing.Point(291, 316);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(279, 26);
+            this.lblMensaje.TabIndex = 202;
+            this.lblMensaje.Text = "No se han creado subgrupos ";
+            this.lblMensaje.Visible = false;
+            // 
             // dsCodigo
             // 
+            this.dsCodigo.DataPropertyName = "codigo";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dsCodigo.DefaultCellStyle = dataGridViewCellStyle4;
             this.dsCodigo.HeaderText = "Codigo";
+            this.dsCodigo.MaxInputLength = 6;
+            this.dsCodigo.MinimumWidth = 110;
             this.dsCodigo.Name = "dsCodigo";
+            this.dsCodigo.ReadOnly = true;
             this.dsCodigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dsCodigo.Width = 110;
             // 
             // dsDescripcion
             // 
             this.dsDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dsDescripcion.DataPropertyName = "descripcion";
             this.dsDescripcion.HeaderText = "Descripcion";
+            this.dsDescripcion.MaxInputLength = 120;
             this.dsDescripcion.Name = "dsDescripcion";
+            this.dsDescripcion.ReadOnly = true;
             this.dsDescripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dsEstado
             // 
+            this.dsEstado.DataPropertyName = "estado";
             this.dsEstado.HeaderText = "Estado";
             this.dsEstado.Name = "dsEstado";
+            this.dsEstado.ReadOnly = true;
+            this.dsEstado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dsEstado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dsGrupo
             // 
+            this.dsGrupo.DataPropertyName = "grupo";
             this.dsGrupo.HeaderText = "Grupo";
             this.dsGrupo.Name = "dsGrupo";
+            this.dsGrupo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dsGrupo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dsconsecutivo
+            // 
+            this.dsconsecutivo.DataPropertyName = "consecutivo";
+            this.dsconsecutivo.HeaderText = "Consecutivo";
+            this.dsconsecutivo.Name = "dsconsecutivo";
+            this.dsconsecutivo.ReadOnly = true;
+            this.dsconsecutivo.Visible = false;
             // 
             // FrmGrupos
             // 
@@ -933,12 +987,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.spContenedor)).EndInit();
             this.spContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupo)).EndInit();
+            this.panelSubgrupo.ResumeLayout(false);
+            this.panelSubgrupo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubGrupo)).EndInit();
             this.panelGrupo.ResumeLayout(false);
             this.panelGrupo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtVidaUtil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValSalvamento)).EndInit();
-            this.panelSubgrupo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSubGrupo)).EndInit();
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.FlowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).EndInit();
@@ -1008,9 +1063,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgConsecutivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgEstado;
+        private System.Windows.Forms.Label lblNuevoSub;
+        private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn dsCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dsDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dsEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn dsGrupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dsconsecutivo;
     }
 }

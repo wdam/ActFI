@@ -102,6 +102,12 @@
     <Compile Include="Principal\FrmGrupos.Designer.cs">
       <DependentUpon>FrmGrupos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Principal\FrmSubgrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\FrmSubgrupo.Designer.cs">
+      <DependentUpon>FrmSubgrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UtilSystem.cs" />
     <Compile Include="Informes\FrmInfActivos.cs">
       <SubType>Form</SubType>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmGrupos.resx">
       <DependentUpon>FrmGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\FrmSubgrupo.resx">
+      <DependentUpon>FrmSubgrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\FrmDepreciacion.resx">
       <DependentUpon>FrmDepreciacion.cs</DependentUpon>

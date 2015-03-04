@@ -117,62 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="dgCodigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dgDescripcion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dgConsecutivo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dgEstado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblNuevoSub.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAxpJREFUWEetVy1wE0EUjkAgmAFydzMwwwwGgUAgEIhKZEUFEoFAoJmS28McMxVA
-        7jIRZQaBQFQgKhAVFRWRiIqIisqICERFREVFBHzf23dLmlzurrf9Zt4k93b3vbdv389u5yqI+h+eBrnZ
-        CTPzC/Q7zM1E6TjI4oNwkGRRHm/o9OvBwzS9CeEfoWQK+hvm8TzM4lP8HoUD84MU5PEhvk/we8E5QWbO
-        aMztYXpHxbQDhL7Bjv+IYuw66Mev7ufvQh1eQfQ1vRVlvZdY89MaamZBv7fdSdMbOqUZKAhC9u2OzSj4
-        8v6ZDjVGNDCP5KhURtTfvqdD1eBEKB9zB3DlW2W3hngki89hxCTIk8fKLofufEzXdfvmhbK9ocHLo5xW
-        esK6PZ7XKUekv1bXOmKg6nAp7mbJE/EEsqc0JhhwVlC929sYQGDeZulcSTXropGyKtHWAELT9uLSUXCx
-        CGkY7T4GdD/3HtAAePq7ssQ1U6aMftbCxwACx70rXkDQS4SKABQZHa+FrwFYvyFr8mSLkb/DyK+qcMvw
-        NYBZIOU6N3sdqVao7TrkQCXriOe3bADllM0tSMU6sH+w5tAAdLX4SPkOKwo8ScU6cBPMPCqaMDWU77As
-        wJdUrEOReZIBl1JCsbj4OkjFOiwacMzzUL7D4uLrIBXrgGP/xkCkJQf4OFG+Ay1cRxK4q0pGZXMLUrEO
-        4Fm9vLm4otAQjOplA8qUVAFrpmx+riiwb+tYLXwNYMmXNUXxc0WhIXwNwBF+YvFzd0aUxCEZvEYJowY+
-        BlApDJiJ+wsUTAaXsirhY8DazSIQjQhig6hBWwO6g95zKgftKmsBaBAQxFQ6Z4dUbinaGGDvAbj0oO+s
-        zTjeUiCML50p73DK9gaVy2NGzr7mZswJNICewO+msluDbrc7NzN4rtmzTTxhu+ScjYo70KHGYGAXAcfd
-        1+58Bbw04LLCKmkpGcoOap5ZUmSY58wqDbirVNkViDf0JmuDzZzh/6H0cwQeCUrQWFjb/z9gmedN60oj
-        2FdTsgUFexA+lnN1GcBKytex2Wd5bf4q7nT+AStjHRYULuJ7AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="dsCodigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dsDescripcion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dsEstado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dsGrupo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dsconsecutivo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="smsError.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>213, 17</value>
+    <value>312, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>30</value>
+    <value>56</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="smsError.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAMMOAADDDgAAAAAAAAAA
@@ -197,4 +148,7 @@
         AAD//wAA//8AAA==
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>411, 17</value>
+  </metadata>
 </root>
