@@ -20,34 +20,26 @@ namespace BLL
             return aDao.getAll(Inicializar.Mes);
         }        
 
-        public string insertar(EActivos obj) {
-            EParametros parametro = new EParametros();
-            parametro.ctaActivo = obj.ctaActivo;
-            parametro.ctaDepMonetaria = obj.ctaDepMonetaria;
-            parametro.ctaDepreciacion = obj.ctaDepreciacion;
-            parametro.ctaGastos = obj.ctaGastos;
-            parametro.ctaMonetaria = obj.ctaMonetaria;
-
-            CuentasBLL bllCuenta = new CuentasBLL();
-
-            string validar = bllCuenta.validarCuentas(parametro);
-            if (validar != "Correcto")
-            {
-                return validar;
-            }
+        public string insertar(EActivos obj) {        
+          
+            //string validar = bllCuenta.validarCuentas(parametro);
+            //if (validar != "Correcto")
+            //{
+            //    return validar;
+            //}
          
             if (aDao.insertar(obj) > 0)
             {
                 return "Exito"; //Datos Guardados Correctamente
             }
             else {
-                return "Error al Guardar los Datos";
+                return "Error al Guardar los Datos del Activo";
             }
         }
 
         public string actualizar(EActivos obj) {
             string validar;
-            validar = validarCuentas(obj.ctaActivo, obj.ctaDepreciacion, obj.ctaGastos, obj.ctaMonetaria, obj.ctaDepMonetaria);                                                 
+            validar = validarCuentas(obj.ctaActivo, obj.ctaDepreciacion, obj.ctaGastos, obj.ctaPerdida, obj.ctaGanancia);                                                 
                
             if (validar !="Correcto"){
                  return validar;
@@ -62,7 +54,7 @@ namespace BLL
             }
         }
 
-        private string validarCuentas(string ctaActivo, string ctaDepreciacion, string ctaGastos, string ctaMonetaria, string ctaDepMonetaria)
+        private string validarCuentas(string ctaActivo, string ctaDepreciacion, string ctaGastos, string ctaPerdida, string ctaGanancia)
         {
             ECuentas cta = null;
             CuentasDAO cDao = new CuentasDAO();
@@ -85,16 +77,16 @@ namespace BLL
                 return "La Cuenta de Gastos No Existe";
             }
 
-            cta = cDao.buscar(ctaMonetaria,"");
+            cta = cDao.buscar(ctaGanancia,"");
             if (cta == null)
             {
-                return "La Cuenta Correccion Monetaria No   Existe";
+                return "La Cuenta de Ganancias  No   Existe";
             }
 
-            cta = cDao.buscar(ctaDepMonetaria,"");
+            cta = cDao.buscar(ctaPerdida,"");
             if (cta == null)
             {
-                return "La Cuenta de Depreciacion de la Correccion Monetaria No Existe";
+                return "La Cuenta de Perdida No Existe";
             }
             return "Correcto";
         }

@@ -74,7 +74,7 @@ namespace DAL.DAO
             }
             else if (operacion == "Editar")
             {
-                sql = "UPDATE SET afsubgrupo SET  descripcion=?descripcion, estado=?estado,  " +
+                sql = "UPDATE  afsubgrupo SET  descripcion=?descripcion, estado=?estado,  " +
                       " grupo=?grupo WHERE codigo=?codigo"; 
             }
 
@@ -143,7 +143,8 @@ namespace DAL.DAO
         public List<ESubgrupo> getSubgrupo(string grupo)
         {            
             List<ESubgrupo> lista = new List<ESubgrupo>();
-            string sql = "SELECT  * FROM afsubgrupo where grupo='"+grupo+"' ";
+            ESubgrupo objSubgrupo = null;
+            string sql = "SELECT  *  FROM afsubgrupo where grupo='"+grupo+"' ";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -156,13 +157,8 @@ namespace DAL.DAO
                         MySqlDataReader dr = cmd.ExecuteReader();
                         while (dr.Read())
                         {
-                            ESubgrupo objGrup = new ESubgrupo();
-                            objGrup.codigo = dr.GetString("codigo");
-                            objGrup.descripcion = dr.GetString("descripcion");
-                            objGrup.consecutivo = dr.GetInt32("consecutivo");
-                            objGrup.estado = dr.GetString("estado");
-                            objGrup.grupo = dr.GetString("grupo");
-                            lista.Add(objGrup);
+                            objSubgrupo = mapearSubgrupo(dr);
+                            lista.Add(objSubgrupo);
                         }
                         cnx.cerrarConexion();
                     }
@@ -196,6 +192,44 @@ namespace DAL.DAO
                 }                
             }
             return objGrupo;
+        }
+
+        public ESubgrupo buscarSubgrupo(string codigo)
+        {
+            ESubgrupo objSubgrupo = null;
+            string sql = "SELECT * FROM afsubgrupo WHERE codigo=?codigo";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = codigo;
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.HasRows == true)
+                        {
+                            dr.Read();
+                            objSubgrupo = mapearSubgrupo(dr);
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return objSubgrupo;
+        }
+
+        private ESubgrupo mapearSubgrupo(MySqlDataReader fila)
+        {
+            ESubgrupo objSub = new ESubgrupo();
+            objSub.codigo = fila.GetString("codigo");
+            objSub.descripcion = fila.GetString("descripcion");
+            objSub.consecutivo = fila.GetInt32("consecutivo");
+            objSub.estado = fila.GetString("estado");
+            objSub.grupo = fila.GetString("grupo");
+            return objSub;
         }
 
 

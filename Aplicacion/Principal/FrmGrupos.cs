@@ -20,6 +20,8 @@ namespace Aplicacion.Principal
         List<EGrupo> lstGrupos;
         EGrupo objGrupo;
         List<ESubgrupo> lstSubgrupo;
+        string grupoSel; // Grupo Seleccionado
+        int fila; // Fila Seleccionada
         public FrmGrupos()
         {
             InitializeComponent();
@@ -127,8 +129,14 @@ namespace Aplicacion.Principal
 
         private void cargarGrupos() {
             lstGrupos = bllGrupo.getAll("Todos");
+           
             dgvGrupo.DataSource = lstGrupos;
             dgvGrupo.Refresh();
+            if (lstGrupos.Count > 0)
+            {
+                fila = dgvGrupo.CurrentCell.RowIndex;
+                lblNuevoSub.Visible = true;
+            }
         }
 
         private void cboVer_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,8 +158,9 @@ namespace Aplicacion.Principal
         }
 
         private void lblNuevo_Click(object sender, EventArgs e)
-        {
+        {            
             lblOperacion.Text = "Nuevo";
+            smsError.Dispose();
             btnTab1.PerformClick();
             Habilitar();         
             limpiar();
@@ -160,6 +169,7 @@ namespace Aplicacion.Principal
         private void lblCancelar_Click(object sender, EventArgs e)
         {
             Deshabilitar();
+            smsError.Dispose();
         }
 
         private void lblGuardar_Click(object sender, EventArgs e)
@@ -313,6 +323,7 @@ namespace Aplicacion.Principal
 
         private void lblEditar_Click(object sender, EventArgs e)
         {
+            smsError.Dispose();
             if (!string.IsNullOrWhiteSpace(txtSigla.Text))
             {
                 lblOperacion.Text = "Editar";
@@ -327,18 +338,32 @@ namespace Aplicacion.Principal
 
         private void lblNuevoSub_Click(object sender, EventArgs e)
         {
-            int fila = dgvGrupo.CurrentCell.RowIndex;
+            fila = dgvGrupo.CurrentCell.RowIndex;
             if (fila != -1)
             {
-                string grupo = (string)dgvGrupo.Rows[fila].Cells["dgCodigo"].Value;
-                FrmSubgrupo frm = new FrmSubgrupo(grupo,"Nuevo");
+                grupoSel = (string)dgvGrupo.Rows[fila].Cells["dgCodigo"].Value;
+                FrmSubgrupo frm = new FrmSubgrupo(grupoSel, "Nuevo");
                 frm.ShowDialog();
-                cargarSubgrupos(grupo);
+                cargarSubgrupos(grupoSel);
             }
             else {
                 MessageBox.Show("Para agregar Subgrupos debe Seleccionar Un Grupo", "Control de Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
+        }
+
+        private void dgvSubGrupo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            if (e.RowIndex != -1)
+            {
+                fila = dgvGrupo.CurrentCell.RowIndex;
+                grupoSel = (string)dgvGrupo.Rows[fila].Cells["dgCodigo"].Value;
+                string subgrupo = dgvSubGrupo.Rows[e.RowIndex].Cells["dsCodigo"].Value.ToString();
+                FrmSubgrupo frm = new FrmSubgrupo(subgrupo, "Editar");
+                frm.ShowDialog();
+                cargarSubgrupos(grupoSel);
+            }
         }
 
     }

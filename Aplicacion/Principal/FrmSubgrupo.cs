@@ -15,13 +15,13 @@ namespace Aplicacion.Principal
     {
         BLL.GrupoBLL bllGrupo = new BLL.GrupoBLL();
         private string operacion="";
-        private string grupo = "";
+        private string codigo = "";        
 
         public FrmSubgrupo(string grupo, string operacion)
         {
             InitializeComponent();
             this.operacion = operacion;
-            this.grupo = grupo;
+            this.codigo = grupo;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -99,7 +99,24 @@ namespace Aplicacion.Principal
 
         private void FrmSubgrupo_Load(object sender, EventArgs e)
         {
-            txtGrupo.Text = grupo;
+            if (this.operacion == "Nuevo")
+            {
+                txtGrupo.Text = codigo;
+            }
+            else if (this.operacion == "Editar") {
+                txtCodigo.ReadOnly = true;
+                mostrarDatos();
+            }                        
+        }
+
+        private void mostrarDatos() {
+            ESubgrupo obj = bllGrupo.buscarSubgrupo(codigo);
+            if (obj != null) {
+                txtCodigo.Text = obj.codigo;
+                txtDescripcion.Text = obj.descripcion;
+                txtGrupo.Text = obj.grupo;
+                cboEstado.Text = obj.estado;
+            }
         }
     }
 }

@@ -181,8 +181,8 @@ namespace Aplicacion.Inventario
                 txtctaActivo.Text = objParametros.ctaActivo;
                 txtctaDepreciacion.Text = objParametros.ctaDepreciacion;
                 txtctaGastos.Text = objParametros.ctaGastos;
-                txtctaMonetaria.Text = objParametros.ctaMonetaria;
-                txtctaDepMonetaria.Text = objParametros.ctaDepMonetaria;
+                txtGanancia.Text = objParametros.ctaMonetaria;
+                txtMantenimiento.Text = objParametros.ctaDepMonetaria;
                 
             }
         }
@@ -256,9 +256,9 @@ namespace Aplicacion.Inventario
                     bandera = false;
                 }
 
-                if (!ctrVal.noEstaVacio(cboTipo.Text))
+                if (!ctrVal.noEstaVacio(cboGrupo.Text))
                 {
-                    smsError.SetError(cboTipo, "Seleccione un Tipo");
+                    smsError.SetError(cboGrupo, "Seleccione un Tipo");
                     bandera = false;
                 }
 
@@ -356,7 +356,10 @@ namespace Aplicacion.Inventario
             objAct.descripcion = txtDescripcion.Text;
             objAct.numSerie = txtNumSerie.Text;
             objAct.referencia = txtReferencia.Text;
-            objAct.tipo = cboTipo.Text;
+            objAct.marca = txtMarca.Text;
+            objAct.modelo = txtModelo.Text;
+            objAct.grupo = cboGrupo.SelectedValue.ToString();
+            objAct.subGrupo = cboSubgrupo.SelectedValue.ToString();
             objAct.vidaUtil = Convert.ToInt16(txtvidaUtil.Text);
 
             objAct.propiedad = cboPropiedad.Text;
@@ -378,9 +381,9 @@ namespace Aplicacion.Inventario
             objAct.ctaActivo = txtctaActivo.Text;
             objAct.ctaDepreciacion = txtctaDepreciacion.Text;
             objAct.ctaGastos = txtctaGastos.Text;
-            objAct.ctaMonetaria = txtctaMonetaria.Text;
-            objAct.ctaDepMonetaria = txtctaDepMonetaria.Text;
-
+            objAct.ctaGanancia = txtGanancia.Text;
+            objAct.ctaMantenimiento = txtMantenimiento.Text;
+            objAct.ctaPerdida = txtPerdida.Text;
             return objAct;
         }
 
@@ -422,8 +425,11 @@ namespace Aplicacion.Inventario
                     txtNumSerie.Text = activo.numSerie;
                     txtReferencia.Text = activo.referencia;
                     txtDescripcion.Text = activo.descripcion;
+                    txtMarca.Text = activo.marca;
+                    txtModelo.Text = activo.modelo;
                     txtvidaUtil.Text = activo.vidaUtil.ToString();
-                    cboTipo.Text = activo.tipo;
+                    cboGrupo.SelectedValue = activo.grupo;
+                    cboSubgrupo.SelectedValue = activo.subGrupo;
 
                     cboPropiedad.Text = activo.propiedad;
                     dtpFecha.Value = DateTime.Parse(activo.fecha);
@@ -442,10 +448,11 @@ namespace Aplicacion.Inventario
                     txtdepAjustada.Text = UtilSystem.fMoneda(activo.depAjustada);
 
                     txtctaActivo.Text = activo.ctaActivo;
-                    txtctaDepMonetaria.Text = activo.ctaDepMonetaria;
+                    txtMantenimiento.Text = activo.ctaMantenimiento;
                     txtctaDepreciacion.Text = activo.ctaDepreciacion;
                     txtctaGastos.Text = activo.ctaGastos;
-                    txtctaMonetaria.Text = activo.ctaMonetaria;
+                    txtGanancia.Text = activo.ctaGanancia;
+                    txtPerdida.Text = activo.ctaPerdida;
                     Encontro = true;
                 }
             }   
@@ -579,14 +586,14 @@ namespace Aplicacion.Inventario
 
         private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboTipo.Text == "Construcción y Edificaciones"){
+            if (cboGrupo.Text == "Construcción y Edificaciones"){
                 txtvidaUtil.Text = "240";
             }
-            else if (cboTipo.Text == "Maquinaria y Equipos" || cboTipo.Text == "Equipo de Oficina")
+            else if (cboGrupo.Text == "Maquinaria y Equipos" || cboGrupo.Text == "Equipo de Oficina")
             {
                 txtvidaUtil.Text = "120";
             }
-            else if (cboTipo.Text == "Equipo de Computación y Comunicación" || cboTipo.Text == "Flota y Equipo de transporte")
+            else if (cboGrupo.Text == "Equipo de Computación y Comunicación" || cboGrupo.Text == "Flota y Equipo de transporte")
             {
                 txtvidaUtil.Text = "60";
             }            

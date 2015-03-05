@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupos));
             this.lblMargenInf = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
@@ -55,8 +55,14 @@
             this.btnTab2 = new System.Windows.Forms.Button();
             this.btnTab1 = new System.Windows.Forms.Button();
             this.panelSubgrupo = new System.Windows.Forms.Panel();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.lblNuevoSub = new System.Windows.Forms.Label();
             this.dgvSubGrupo = new System.Windows.Forms.DataGridView();
+            this.dsCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsconsecutivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGrupo = new System.Windows.Forms.Panel();
             this.txtVidaUtil = new System.Windows.Forms.NumericUpDown();
             this.lblPorcentaje = new System.Windows.Forms.Label();
@@ -97,12 +103,6 @@
             this.lblOperacion = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblMensaje = new System.Windows.Forms.Label();
-            this.dsCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsconsecutivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.spContenedor)).BeginInit();
             this.spContenedor.Panel1.SuspendLayout();
             this.spContenedor.Panel2.SuspendLayout();
@@ -364,19 +364,34 @@
             this.panelSubgrupo.Size = new System.Drawing.Size(595, 356);
             this.panelSubgrupo.TabIndex = 0;
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.ForeColor = System.Drawing.Color.Crimson;
+            this.lblMensaje.Location = new System.Drawing.Point(291, 316);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(279, 26);
+            this.lblMensaje.TabIndex = 202;
+            this.lblMensaje.Text = "No se han creado subgrupos ";
+            this.lblMensaje.Visible = false;
+            // 
             // lblNuevoSub
             // 
             this.lblNuevoSub.BackColor = System.Drawing.Color.White;
-            this.lblNuevoSub.Image = ((System.Drawing.Image)(resources.GetObject("lblNuevoSub.Image")));
+            this.lblNuevoSub.Image = global::Aplicacion.Properties.Resources.addGrup;
             this.lblNuevoSub.Location = new System.Drawing.Point(3, 254);
             this.lblNuevoSub.Name = "lblNuevoSub";
             this.lblNuevoSub.Size = new System.Drawing.Size(32, 32);
             this.lblNuevoSub.TabIndex = 1;
             this.toolTip1.SetToolTip(this.lblNuevoSub, "Agregar Subgrupo");
+            this.lblNuevoSub.Visible = false;
             this.lblNuevoSub.Click += new System.EventHandler(this.lblNuevoSub_Click);
             // 
             // dgvSubGrupo
             // 
+            this.dgvSubGrupo.AllowUserToAddRows = false;
+            this.dgvSubGrupo.AllowUserToDeleteRows = false;
             this.dgvSubGrupo.AllowUserToResizeColumns = false;
             this.dgvSubGrupo.AllowUserToResizeRows = false;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
@@ -404,6 +419,7 @@
             this.dgvSubGrupo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dgvSubGrupo.Location = new System.Drawing.Point(0, 0);
             this.dgvSubGrupo.Name = "dgvSubGrupo";
+            this.dgvSubGrupo.ReadOnly = true;
             this.dgvSubGrupo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -426,6 +442,56 @@
             this.dgvSubGrupo.ShowRowErrors = false;
             this.dgvSubGrupo.Size = new System.Drawing.Size(595, 356);
             this.dgvSubGrupo.TabIndex = 0;
+            this.dgvSubGrupo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubGrupo_CellDoubleClick);
+            // 
+            // dsCodigo
+            // 
+            this.dsCodigo.DataPropertyName = "codigo";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dsCodigo.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dsCodigo.HeaderText = "Codigo";
+            this.dsCodigo.MaxInputLength = 6;
+            this.dsCodigo.MinimumWidth = 110;
+            this.dsCodigo.Name = "dsCodigo";
+            this.dsCodigo.ReadOnly = true;
+            this.dsCodigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dsCodigo.Width = 110;
+            // 
+            // dsDescripcion
+            // 
+            this.dsDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dsDescripcion.DataPropertyName = "descripcion";
+            this.dsDescripcion.HeaderText = "Descripcion";
+            this.dsDescripcion.MaxInputLength = 120;
+            this.dsDescripcion.Name = "dsDescripcion";
+            this.dsDescripcion.ReadOnly = true;
+            this.dsDescripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dsEstado
+            // 
+            this.dsEstado.DataPropertyName = "estado";
+            this.dsEstado.HeaderText = "Estado";
+            this.dsEstado.Name = "dsEstado";
+            this.dsEstado.ReadOnly = true;
+            this.dsEstado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dsEstado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dsGrupo
+            // 
+            this.dsGrupo.DataPropertyName = "grupo";
+            this.dsGrupo.HeaderText = "Grupo";
+            this.dsGrupo.Name = "dsGrupo";
+            this.dsGrupo.ReadOnly = true;
+            this.dsGrupo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dsGrupo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dsconsecutivo
+            // 
+            this.dsconsecutivo.DataPropertyName = "consecutivo";
+            this.dsconsecutivo.HeaderText = "Consecutivo";
+            this.dsconsecutivo.Name = "dsconsecutivo";
+            this.dsconsecutivo.ReadOnly = true;
+            this.dsconsecutivo.Visible = false;
             // 
             // panelGrupo
             // 
@@ -900,66 +966,6 @@
             // 
             this.smsError.ContainerControl = this;
             this.smsError.Icon = ((System.Drawing.Icon)(resources.GetObject("smsError.Icon")));
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.ForeColor = System.Drawing.Color.Crimson;
-            this.lblMensaje.Location = new System.Drawing.Point(291, 316);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(279, 26);
-            this.lblMensaje.TabIndex = 202;
-            this.lblMensaje.Text = "No se han creado subgrupos ";
-            this.lblMensaje.Visible = false;
-            // 
-            // dsCodigo
-            // 
-            this.dsCodigo.DataPropertyName = "codigo";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dsCodigo.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dsCodigo.HeaderText = "Codigo";
-            this.dsCodigo.MaxInputLength = 6;
-            this.dsCodigo.MinimumWidth = 110;
-            this.dsCodigo.Name = "dsCodigo";
-            this.dsCodigo.ReadOnly = true;
-            this.dsCodigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dsCodigo.Width = 110;
-            // 
-            // dsDescripcion
-            // 
-            this.dsDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dsDescripcion.DataPropertyName = "descripcion";
-            this.dsDescripcion.HeaderText = "Descripcion";
-            this.dsDescripcion.MaxInputLength = 120;
-            this.dsDescripcion.Name = "dsDescripcion";
-            this.dsDescripcion.ReadOnly = true;
-            this.dsDescripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dsEstado
-            // 
-            this.dsEstado.DataPropertyName = "estado";
-            this.dsEstado.HeaderText = "Estado";
-            this.dsEstado.Name = "dsEstado";
-            this.dsEstado.ReadOnly = true;
-            this.dsEstado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dsEstado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dsGrupo
-            // 
-            this.dsGrupo.DataPropertyName = "grupo";
-            this.dsGrupo.HeaderText = "Grupo";
-            this.dsGrupo.Name = "dsGrupo";
-            this.dsGrupo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dsGrupo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dsconsecutivo
-            // 
-            this.dsconsecutivo.DataPropertyName = "consecutivo";
-            this.dsconsecutivo.HeaderText = "Consecutivo";
-            this.dsconsecutivo.Name = "dsconsecutivo";
-            this.dsconsecutivo.ReadOnly = true;
-            this.dsconsecutivo.Visible = false;
             // 
             // FrmGrupos
             // 

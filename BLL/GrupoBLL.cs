@@ -66,6 +66,15 @@ namespace BLL
             return gDao.buscar(codigo);
         }
 
+        public ESubgrupo buscarSubgrupo(string codigo)
+        {
+            if (string.IsNullOrEmpty(codigo))
+            {
+                return null;
+            }
+            return gDao.buscarSubgrupo(codigo);
+        }
+
         public List<ESubgrupo> getSubgrupo(string grupo) {
             if (string.IsNullOrWhiteSpace(grupo))
             {

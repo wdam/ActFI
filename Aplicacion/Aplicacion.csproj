@@ -489,6 +489,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="af.ico" />
+    <None Include="Resources\48x48\addGrup.png" />
     <None Include="Resources\48x48\pdf.png" />
     <None Include="Resources\64x64\mantenientos.png" />
     <None Include="Resources\user.png" />

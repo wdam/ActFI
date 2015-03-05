@@ -12,11 +12,12 @@ namespace Entidades
         public string codigo { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
+        public string marca { get; set; }
+        public string modelo { get; set; }
         public string referencia { get; set; }
         public string numSerie { get; set; }
-        public string tipo { get; set; }
 
-        public int vidaUtil { get; set; }
+       
         public string propiedad { get; set; }
         public string fecha { get; set; }                 
         public string area { get; set; }
@@ -33,10 +34,15 @@ namespace Entidades
         public double depAjustada { get; set; }
         public double depAcumulada { get; set; }
 
+        public string grupo { get; set; }
+        public string subGrupo { get; set; }
+        public int vidaUtil { get; set; }
+        public string metodoDep { get; set; }  // Metodo de Depreciacion
         public string ctaActivo { get; set; }
         public string ctaGastos { get; set; }
         public string ctaDepreciacion { get; set; }
-        public string ctaMonetaria { get; set; }
-        public string ctaDepMonetaria { get; set; }
+        public string ctaGanancia { get; set; }
+        public string ctaPerdida { get; set; }
+        public string ctaMantenimiento { get; set; }
     }
 }

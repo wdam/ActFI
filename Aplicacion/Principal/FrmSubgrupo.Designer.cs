@@ -34,23 +34,23 @@
             this.lblAplicar = new System.Windows.Forms.Label();
             this.lblSalir = new System.Windows.Forms.Label();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblOperacion = new System.Windows.Forms.Label();
             this.lblMargenIzq = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtGrupo = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblMargenInf = new System.Windows.Forms.Label();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenTop = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cboEstado = new System.Windows.Forms.ComboBox();
-            this.txtGrupo = new System.Windows.Forms.TextBox();
             this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblOperacion = new System.Windows.Forms.Label();
             this.FlowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
@@ -112,6 +112,16 @@
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(526, 66);
             this.FlowLayoutPanel1.TabIndex = 229;
             // 
+            // lblOperacion
+            // 
+            this.lblOperacion.AutoSize = true;
+            this.lblOperacion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOperacion.Location = new System.Drawing.Point(340, 0);
+            this.lblOperacion.Name = "lblOperacion";
+            this.lblOperacion.Size = new System.Drawing.Size(70, 20);
+            this.lblOperacion.TabIndex = 9;
+            this.lblOperacion.Text = "Consulta";
+            // 
             // lblMargenIzq
             // 
             this.lblMargenIzq.BackColor = System.Drawing.Color.Black;
@@ -158,6 +168,69 @@
             this.groupBox1.TabIndex = 222;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crear y Editar Subgrupo";
+            // 
+            // cboEstado
+            // 
+            this.cboEstado.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
+            this.cboEstado.Location = new System.Drawing.Point(132, 116);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(121, 30);
+            this.cboEstado.TabIndex = 2;
+            this.cboEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboEstado_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Open Sans Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(21, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 23);
+            this.label4.TabIndex = 223;
+            this.label4.Text = "Estado";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcion.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(132, 80);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(370, 29);
+            this.txtDescripcion.TabIndex = 1;
+            // 
+            // txtGrupo
+            // 
+            this.txtGrupo.Enabled = false;
+            this.txtGrupo.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(30)))), ((int)(((byte)(90)))));
+            this.txtGrupo.Location = new System.Drawing.Point(394, 45);
+            this.txtGrupo.MaxLength = 4;
+            this.txtGrupo.Name = "txtGrupo";
+            this.txtGrupo.Size = new System.Drawing.Size(74, 29);
+            this.txtGrupo.TabIndex = 0;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(132, 45);
+            this.txtCodigo.MaxLength = 5;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(90, 29);
+            this.txtCodigo.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Open Sans Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 23);
+            this.label3.TabIndex = 221;
+            this.label3.Text = "Descripción";
             // 
             // btnExit
             // 
@@ -210,69 +283,6 @@
             this.lblMargenTop.Size = new System.Drawing.Size(530, 2);
             this.lblMargenTop.TabIndex = 226;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Open Sans Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 23);
-            this.label3.TabIndex = 221;
-            this.label3.Text = "Descripción";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(132, 45);
-            this.txtCodigo.MaxLength = 4;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(90, 29);
-            this.txtCodigo.TabIndex = 0;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(132, 80);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(370, 29);
-            this.txtDescripcion.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Open Sans Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 23);
-            this.label4.TabIndex = 223;
-            this.label4.Text = "Estado";
-            // 
-            // cboEstado
-            // 
-            this.cboEstado.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Items.AddRange(new object[] {
-            "ACTIVO",
-            "INACTIVO"});
-            this.cboEstado.Location = new System.Drawing.Point(132, 116);
-            this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(121, 30);
-            this.cboEstado.TabIndex = 2;
-            this.cboEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboEstado_KeyPress);
-            // 
-            // txtGrupo
-            // 
-            this.txtGrupo.Enabled = false;
-            this.txtGrupo.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(30)))), ((int)(((byte)(90)))));
-            this.txtGrupo.Location = new System.Drawing.Point(394, 45);
-            this.txtGrupo.MaxLength = 4;
-            this.txtGrupo.Name = "txtGrupo";
-            this.txtGrupo.Size = new System.Drawing.Size(74, 29);
-            this.txtGrupo.TabIndex = 0;
-            // 
             // smsError
             // 
             this.smsError.ContainerControl = this;
@@ -283,16 +293,6 @@
             this.toolTip1.AutoPopDelay = 5000;
             this.toolTip1.InitialDelay = 300;
             this.toolTip1.ReshowDelay = 100;
-            // 
-            // lblOperacion
-            // 
-            this.lblOperacion.AutoSize = true;
-            this.lblOperacion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOperacion.Location = new System.Drawing.Point(340, 0);
-            this.lblOperacion.Name = "lblOperacion";
-            this.lblOperacion.Size = new System.Drawing.Size(70, 20);
-            this.lblOperacion.TabIndex = 9;
-            this.lblOperacion.Text = "Consulta";
             // 
             // FrmSubgrupo
             // 

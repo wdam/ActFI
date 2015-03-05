@@ -61,7 +61,7 @@ namespace DAL.DAO
                             EActivos act = new EActivos();
                             act.codigo = dr.GetString("codigo");                        
                             act.vidaUtil = dr.GetInt32("vidaUtil");
-                            act.tipo = dr.GetString("tipo");
+                            act.grupo = dr.GetString("grupo");
                             act.valComercial = dr.GetDouble("valComercial");
                             act.valSalvamento = dr.GetDouble("valSalvamento");
                             act.valLibros = dr.GetDouble("valLibros");                            
@@ -80,16 +80,16 @@ namespace DAL.DAO
 
         public int insertar(EActivos act) {
             int reg=0;
-            string sql = "INSERT INTO afactivos (codigo, nombre, descripcion, numSerie, referecia, tipo, " +
+            string sql = "INSERT INTO afactivos (codigo, nombre, descripcion,marca, modelo,  numSerie, referecia, " +
                             " vidaUtil, propiedad, fechaCompra, AreaLoc, responsable, proveedor, ccosto, " +
                             " estado, valComercial, valSalvamento, valLibros, valMejoras, valHistorico, " +
-                            "depajustada, depAcumulada, ctaActivo, ctadepreciacion, ctagastos, " +
-                            "ctamonetaria, ctadepreMon, Adep) VALUES  " +
-                            "(?codigo, ?nombre, ?descripcion, ?numSerie, ?referecia, ?tipo, " +
+                            "depajustada, depAcumulada, grupo, subgrupo, ctaActivo, ctadepreciacion, ctagastos, " +
+                            "ctaPerdida, ctaGanancia, ctaMantenimiento, metodoDep) VALUES  " +
+                            "(?codigo, ?nombre, ?descripcion, ?marca, ?modelo, ?numSerie, ?referecia, " +
                             " ?vidaUtil, ?propiedad, ?fechaCompra, ?AreaLoc, ?responsable, ?proveedor, ?ccosto, " +
                             " ?estado, ?valComercial, ?valSalvamento, ?valLibros, ?valMejoras, ?valHistorico, " +
-                            " ?depajustada, ?depAcumulada, ?ctaActivo, ?ctadepreciacion, ?ctagastos, " +
-                            "?ctamonetaria, ?ctadepreMon, ?Adep)";
+                            " ?depajustada, ?depAcumulada, ?grupo, ?subgrupo, ?ctaActivo, ?ctadepreciacion, ?ctagastos, " +
+                            "?ctaPerdida, ?ctaGanancia, ?ctaMantenimiento, ?metodoDep)";
 
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -100,10 +100,14 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = act.codigo;
                     cmd.Parameters.Add("?nombre", MySqlDbType.String).Value = act.nombre;
                     cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = act.descripcion;
+                    cmd.Parameters.Add("?marca", MySqlDbType.String).Value = act.marca;
+                    cmd.Parameters.Add("?modelo", MySqlDbType.String).Value = act.modelo;
                     cmd.Parameters.Add("?numSerie", MySqlDbType.String).Value = act.numSerie;
                     cmd.Parameters.Add("?referecia", MySqlDbType.String).Value = act.referencia;
-                    cmd.Parameters.Add("?tipo", MySqlDbType.String).Value = act.tipo;
-                    cmd.Parameters.Add("vidaUtil", MySqlDbType.String).Value = act.vidaUtil;
+                    cmd.Parameters.Add("?grupo", MySqlDbType.String).Value = act.grupo;
+                    cmd.Parameters.Add("?subgrupo", MySqlDbType.String).Value = act.subGrupo;
+                    cmd.Parameters.Add("?vidaUtil", MySqlDbType.Int32).Value = act.vidaUtil;
+                    cmd.Parameters.Add("?metodoDep", MySqlDbType.VarChar).Value = act.metodoDep;
 
                     cmd.Parameters.Add("?propiedad", MySqlDbType.String).Value = act.propiedad;
                     cmd.Parameters.Add("?fechaCompra", MySqlDbType.String).Value = act.fecha;
@@ -124,9 +128,9 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?ctaActivo", MySqlDbType.String).Value = act.ctaActivo;
                     cmd.Parameters.Add("?ctadepreciacion", MySqlDbType.String).Value = act.ctaDepreciacion;
                     cmd.Parameters.Add("?ctagastos", MySqlDbType.String).Value = act.ctaGastos;
-                    cmd.Parameters.Add("?ctamonetaria", MySqlDbType.String).Value = act.ctaMonetaria;
-                    cmd.Parameters.Add("?ctadepreMon", MySqlDbType.String).Value = act.ctaDepMonetaria;
-                    cmd.Parameters.Add("?Adep", MySqlDbType.String).Value = "2";
+                    cmd.Parameters.Add("?ctaPerdida", MySqlDbType.String).Value = act.ctaPerdida;
+                    cmd.Parameters.Add("?ctaGanancia", MySqlDbType.String).Value = act.ctaGanancia;
+                    cmd.Parameters.Add("?ctaMantenimiento", MySqlDbType.String).Value = act.ctaMantenimiento;
 
                     if (cnx.abrirConexion()) {
                         reg = cmd.ExecuteNonQuery();
@@ -186,8 +190,8 @@ namespace DAL.DAO
             string sql = "UPDATE afactivos SET nombre=?nombre, descripcion=?descripcion, numSerie=?numSerie, " +
                        "  referecia=?referecia, propiedad=?propiedad, ccosto=?ccosto, valComercial=?valComercial, " +
                        " valSalvamento=?valSalvamento, ctaActivo=?ctaActivo, ctadepreciacion=?ctadepreciacion, " +
-                       " ctagastos=?ctagastos, ctamonetaria=?ctamonetaria, ctadepreMon=?ctadepreMon, "+
-                       " estado=?estado WHERE codigo=?codigo ";
+                       " ctagastos=?ctagastos, ctaPerdida=?ctaPerdida, ctaGanancia=?ctaGanancia, " +
+                       " ctaMantenimiento=?ctaMantenimiento, estado=?estado WHERE codigo=?codigo ";
                            
 
             using (conexion cnx = new conexion())
@@ -213,8 +217,9 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?ctaActivo", MySqlDbType.String).Value = act.ctaActivo;
                     cmd.Parameters.Add("?ctadepreciacion", MySqlDbType.String).Value = act.ctaDepreciacion;
                     cmd.Parameters.Add("?ctagastos", MySqlDbType.String).Value = act.ctaGastos;
-                    cmd.Parameters.Add("?ctamonetaria", MySqlDbType.String).Value = act.ctaMonetaria;
-                    cmd.Parameters.Add("?ctadepreMon", MySqlDbType.String).Value = act.ctaDepMonetaria;
+                    cmd.Parameters.Add("?ctaPerdida", MySqlDbType.String).Value = act.ctaPerdida;
+                    cmd.Parameters.Add("?ctaGanancia", MySqlDbType.String).Value = act.ctaGanancia;
+                    cmd.Parameters.Add("?ctaMantenimiento", MySqlDbType.String).Value = act.ctaMantenimiento;
                     
                     if (cnx.abrirConexion())
                     {
@@ -281,11 +286,15 @@ namespace DAL.DAO
             EActivos act = new EActivos();
             act.codigo   = fila.GetString("codigo");
             act.nombre = fila.GetString("nombre");
-            act.descripcion = fila.GetString("descripcion");            
+            act.descripcion = fila.GetString("descripcion");
+            act.marca = fila.GetString("marca");
+            act.modelo = fila.GetString("modelo");    
             act.numSerie = fila.GetString("numSerie") ?? "NO";
             act.referencia = fila.GetString("referecia") ?? "NO";
             act.vidaUtil = fila.GetInt32("vidaUtil");
-            act.tipo = fila.GetString("tipo");
+            act.grupo = fila.GetString("grupo");
+            act.subGrupo = fila.GetString("subgrupo");
+            act.metodoDep = fila.GetString("metodoDep");
 
             act.propiedad = fila.GetString("propiedad");
             act.fecha = fila.GetString("fechaCompra");
@@ -306,8 +315,9 @@ namespace DAL.DAO
             act.ctaActivo = fila.GetString("ctaActivo");
             act.ctaDepreciacion = fila.GetString("ctadepreciacion");
             act.ctaGastos = fila.GetString("ctagastos");
-            act.ctaMonetaria = fila.GetString("ctamonetaria");
-            act.ctaDepMonetaria = fila.GetString("ctadepreMon");
+            act.ctaGanancia = fila.GetString("ctaGanancia");
+            act.ctaMantenimiento = fila.GetString("ctaPerdida");
+            act.ctaPerdida = fila.GetString("ctaMantenimiento");
             return act;
         }
 

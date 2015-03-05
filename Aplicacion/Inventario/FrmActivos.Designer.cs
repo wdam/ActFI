@@ -72,7 +72,7 @@
             this.Label15 = new System.Windows.Forms.Label();
             this.grbCrear = new System.Windows.Forms.GroupBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.cboTipo = new System.Windows.Forms.ComboBox();
+            this.cboGrupo = new System.Windows.Forms.ComboBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.txtvidaUtil = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
@@ -81,7 +81,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.Label3 = new System.Windows.Forms.Label();
-            this.Label5 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.Label8 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
@@ -92,10 +91,10 @@
             this.txtctaActivo = new System.Windows.Forms.TextBox();
             this.Label21 = new System.Windows.Forms.Label();
             this.Label22 = new System.Windows.Forms.Label();
-            this.txtctaDepMonetaria = new System.Windows.Forms.TextBox();
+            this.txtMantenimiento = new System.Windows.Forms.TextBox();
             this.txtctaGastos = new System.Windows.Forms.TextBox();
             this.txtctaDepreciacion = new System.Windows.Forms.TextBox();
-            this.txtctaMonetaria = new System.Windows.Forms.TextBox();
+            this.txtGanancia = new System.Windows.Forms.TextBox();
             this.Label23 = new System.Windows.Forms.Label();
             this.Label24 = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
@@ -113,6 +112,19 @@
             this.Label18 = new System.Windows.Forms.Label();
             this.Label19 = new System.Windows.Forms.Label();
             this.Label20 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtPerdida = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.cboSubgrupo = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.btnTab3 = new System.Windows.Forms.Button();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.panelBasicos.SuspendLayout();
@@ -121,6 +133,7 @@
             this.panelVal.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.gbValores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExit
@@ -478,9 +491,9 @@
             this.groupbox2.Controls.Add(this.Label17);
             this.groupbox2.Controls.Add(this.Label15);
             this.groupbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.groupbox2.Location = new System.Drawing.Point(11, 194);
+            this.groupbox2.Location = new System.Drawing.Point(11, 334);
             this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Size = new System.Drawing.Size(760, 179);
+            this.groupbox2.Size = new System.Drawing.Size(760, 39);
             this.groupbox2.TabIndex = 4;
             this.groupbox2.TabStop = false;
             this.groupbox2.Text = "Datos de Adquisición y Ubicación";
@@ -629,24 +642,32 @@
             // 
             // grbCrear
             // 
+            this.grbCrear.Controls.Add(this.label32);
+            this.grbCrear.Controls.Add(this.pictureBox1);
             this.grbCrear.Controls.Add(this.txtCodigo);
-            this.grbCrear.Controls.Add(this.cboTipo);
+            this.grbCrear.Controls.Add(this.cboSubgrupo);
+            this.grbCrear.Controls.Add(this.cboGrupo);
             this.grbCrear.Controls.Add(this.Label2);
             this.grbCrear.Controls.Add(this.txtvidaUtil);
             this.grbCrear.Controls.Add(this.Label4);
+            this.grbCrear.Controls.Add(this.txtMarca);
             this.grbCrear.Controls.Add(this.txtReferencia);
+            this.grbCrear.Controls.Add(this.txtModelo);
             this.grbCrear.Controls.Add(this.txtNumSerie);
             this.grbCrear.Controls.Add(this.txtNombre);
             this.grbCrear.Controls.Add(this.txtDescripcion);
             this.grbCrear.Controls.Add(this.Label3);
+            this.grbCrear.Controls.Add(this.label33);
             this.grbCrear.Controls.Add(this.Label5);
+            this.grbCrear.Controls.Add(this.label31);
             this.grbCrear.Controls.Add(this.Label6);
+            this.grbCrear.Controls.Add(this.label29);
             this.grbCrear.Controls.Add(this.Label8);
             this.grbCrear.Controls.Add(this.Label7);
             this.grbCrear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
             this.grbCrear.Location = new System.Drawing.Point(10, 7);
             this.grbCrear.Name = "grbCrear";
-            this.grbCrear.Size = new System.Drawing.Size(760, 177);
+            this.grbCrear.Size = new System.Drawing.Size(760, 321);
             this.grbCrear.TabIndex = 3;
             this.grbCrear.TabStop = false;
             this.grbCrear.Text = "Crear";
@@ -659,27 +680,27 @@
             this.txtCodigo.Location = new System.Drawing.Point(86, 31);
             this.txtCodigo.MaxLength = 10;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(175, 29);
-            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.Size = new System.Drawing.Size(156, 29);
+            this.txtCodigo.TabIndex = 0;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
-            // cboTipo
+            // cboGrupo
             // 
-            this.cboTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTipo.FormattingEnabled = true;
-            this.cboTipo.Items.AddRange(new object[] {
+            this.cboGrupo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGrupo.FormattingEnabled = true;
+            this.cboGrupo.Items.AddRange(new object[] {
             "Construcción y Edificaciones",
             "Equipo de Computación y Comunicación",
             "Equipo de Oficina",
             "Flota y Equipo de transporte",
             "Maquinaria y Equipos"});
-            this.cboTipo.Location = new System.Drawing.Point(67, 137);
-            this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(324, 29);
-            this.cboTipo.TabIndex = 6;
-            this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
-            this.cboTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboAreaResp_KeyPress);
+            this.cboGrupo.Location = new System.Drawing.Point(125, 244);
+            this.cboGrupo.Name = "cboGrupo";
+            this.cboGrupo.Size = new System.Drawing.Size(324, 29);
+            this.cboGrupo.TabIndex = 7;
+            this.cboGrupo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
+            this.cboGrupo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboAreaResp_KeyPress);
             // 
             // Label2
             // 
@@ -694,7 +715,7 @@
             // txtvidaUtil
             // 
             this.txtvidaUtil.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtvidaUtil.Location = new System.Drawing.Point(566, 138);
+            this.txtvidaUtil.Location = new System.Drawing.Point(632, 284);
             this.txtvidaUtil.MaxLength = 3;
             this.txtvidaUtil.Name = "txtvidaUtil";
             this.txtvidaUtil.Size = new System.Drawing.Size(70, 29);
@@ -713,20 +734,20 @@
             // txtReferencia
             // 
             this.txtReferencia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReferencia.Location = new System.Drawing.Point(157, 101);
+            this.txtReferencia.Location = new System.Drawing.Point(125, 207);
             this.txtReferencia.MaxLength = 20;
             this.txtReferencia.Name = "txtReferencia";
-            this.txtReferencia.Size = new System.Drawing.Size(175, 29);
-            this.txtReferencia.TabIndex = 4;
+            this.txtReferencia.Size = new System.Drawing.Size(230, 29);
+            this.txtReferencia.TabIndex = 6;
             // 
             // txtNumSerie
             // 
             this.txtNumSerie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumSerie.Location = new System.Drawing.Point(157, 66);
+            this.txtNumSerie.Location = new System.Drawing.Point(125, 170);
             this.txtNumSerie.MaxLength = 20;
             this.txtNumSerie.Name = "txtNumSerie";
-            this.txtNumSerie.Size = new System.Drawing.Size(175, 29);
-            this.txtNumSerie.TabIndex = 3;
+            this.txtNumSerie.Size = new System.Drawing.Size(230, 29);
+            this.txtNumSerie.TabIndex = 5;
             // 
             // txtNombre
             // 
@@ -736,45 +757,35 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(363, 29);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 1;
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(440, 67);
+            this.txtDescripcion.Location = new System.Drawing.Point(125, 68);
             this.txtDescripcion.MaxLength = 200;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(295, 63);
-            this.txtDescripcion.TabIndex = 5;
+            this.txtDescripcion.Size = new System.Drawing.Size(416, 57);
+            this.txtDescripcion.TabIndex = 2;
             // 
             // Label3
             // 
             this.Label3.AutoSize = true;
             this.Label3.ForeColor = System.Drawing.Color.Black;
-            this.Label3.Location = new System.Drawing.Point(343, 70);
+            this.Label3.Location = new System.Drawing.Point(19, 72);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(100, 44);
             this.Label3.TabIndex = 0;
             this.Label3.Text = "Descripción\r\nDetallada";
             // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.ForeColor = System.Drawing.Color.Black;
-            this.Label5.Location = new System.Drawing.Point(20, 69);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(138, 22);
-            this.Label5.TabIndex = 0;
-            this.Label5.Text = "Número de Serie";
-            // 
             // Label6
             // 
             this.Label6.AutoSize = true;
             this.Label6.ForeColor = System.Drawing.Color.Black;
-            this.Label6.Location = new System.Drawing.Point(20, 104);
+            this.Label6.Location = new System.Drawing.Point(19, 210);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(90, 22);
             this.Label6.TabIndex = 0;
@@ -784,7 +795,7 @@
             // 
             this.Label8.AutoSize = true;
             this.Label8.ForeColor = System.Drawing.Color.Black;
-            this.Label8.Location = new System.Drawing.Point(430, 141);
+            this.Label8.Location = new System.Drawing.Point(496, 287);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(133, 22);
             this.Label8.TabIndex = 0;
@@ -794,11 +805,11 @@
             // 
             this.Label7.AutoSize = true;
             this.Label7.ForeColor = System.Drawing.Color.Black;
-            this.Label7.Location = new System.Drawing.Point(20, 140);
+            this.Label7.Location = new System.Drawing.Point(19, 247);
             this.Label7.Name = "Label7";
-            this.Label7.Size = new System.Drawing.Size(43, 22);
+            this.Label7.Size = new System.Drawing.Size(59, 22);
             this.Label7.TabIndex = 0;
-            this.Label7.Text = "Tipo";
+            this.Label7.Text = "Grupo";
             // 
             // panelVal
             // 
@@ -842,10 +853,12 @@
             this.GroupBox4.Controls.Add(this.txtctaActivo);
             this.GroupBox4.Controls.Add(this.Label21);
             this.GroupBox4.Controls.Add(this.Label22);
-            this.GroupBox4.Controls.Add(this.txtctaDepMonetaria);
+            this.GroupBox4.Controls.Add(this.txtMantenimiento);
             this.GroupBox4.Controls.Add(this.txtctaGastos);
             this.GroupBox4.Controls.Add(this.txtctaDepreciacion);
-            this.GroupBox4.Controls.Add(this.txtctaMonetaria);
+            this.GroupBox4.Controls.Add(this.txtPerdida);
+            this.GroupBox4.Controls.Add(this.txtGanancia);
+            this.GroupBox4.Controls.Add(this.label28);
             this.GroupBox4.Controls.Add(this.Label23);
             this.GroupBox4.Controls.Add(this.Label24);
             this.GroupBox4.Controls.Add(this.Label25);
@@ -886,14 +899,15 @@
             this.Label22.TabIndex = 0;
             this.Label22.Text = "Depreciación";
             // 
-            // txtctaDepMonetaria
+            // txtMantenimiento
             // 
-            this.txtctaDepMonetaria.Location = new System.Drawing.Point(303, 105);
-            this.txtctaDepMonetaria.MaxLength = 10;
-            this.txtctaDepMonetaria.Name = "txtctaDepMonetaria";
-            this.txtctaDepMonetaria.Size = new System.Drawing.Size(175, 29);
-            this.txtctaDepMonetaria.TabIndex = 5;
-            this.txtctaDepMonetaria.DoubleClick += new System.EventHandler(this.formCuenta);
+            this.txtMantenimiento.Location = new System.Drawing.Point(153, 104);
+            this.txtMantenimiento.MaxLength = 10;
+            this.txtMantenimiento.Name = "txtMantenimiento";
+            this.txtMantenimiento.Size = new System.Drawing.Size(175, 29);
+            this.txtMantenimiento.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtMantenimiento, "Cuenta de Mantenimiento");
+            this.txtMantenimiento.DoubleClick += new System.EventHandler(this.formCuenta);
             // 
             // txtctaGastos
             // 
@@ -913,24 +927,25 @@
             this.txtctaDepreciacion.TabIndex = 2;
             this.txtctaDepreciacion.DoubleClick += new System.EventHandler(this.formCuenta);
             // 
-            // txtctaMonetaria
+            // txtGanancia
             // 
-            this.txtctaMonetaria.Location = new System.Drawing.Point(542, 68);
-            this.txtctaMonetaria.MaxLength = 10;
-            this.txtctaMonetaria.Name = "txtctaMonetaria";
-            this.txtctaMonetaria.Size = new System.Drawing.Size(175, 29);
-            this.txtctaMonetaria.TabIndex = 4;
-            this.txtctaMonetaria.DoubleClick += new System.EventHandler(this.formCuenta);
+            this.txtGanancia.Location = new System.Drawing.Point(542, 68);
+            this.txtGanancia.MaxLength = 10;
+            this.txtGanancia.Name = "txtGanancia";
+            this.txtGanancia.Size = new System.Drawing.Size(175, 29);
+            this.txtGanancia.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.txtGanancia, "Cuenta de Ganancia");
+            this.txtGanancia.DoubleClick += new System.EventHandler(this.formCuenta);
             // 
             // Label23
             // 
             this.Label23.AutoSize = true;
             this.Label23.ForeColor = System.Drawing.Color.Black;
-            this.Label23.Location = new System.Drawing.Point(372, 71);
+            this.Label23.Location = new System.Drawing.Point(447, 71);
             this.Label23.Name = "Label23";
-            this.Label23.Size = new System.Drawing.Size(167, 22);
+            this.Label23.Size = new System.Drawing.Size(81, 22);
             this.Label23.TabIndex = 0;
-            this.Label23.Text = "Correción Monetaria";
+            this.Label23.Text = "Ganancia";
             // 
             // Label24
             // 
@@ -946,11 +961,11 @@
             // 
             this.Label25.AutoSize = true;
             this.Label25.ForeColor = System.Drawing.Color.Black;
-            this.Label25.Location = new System.Drawing.Point(20, 108);
+            this.Label25.Location = new System.Drawing.Point(20, 107);
             this.Label25.Name = "Label25";
-            this.Label25.Size = new System.Drawing.Size(281, 22);
+            this.Label25.Size = new System.Drawing.Size(126, 22);
             this.Label25.TabIndex = 0;
-            this.Label25.Text = "Correción Monetaria (Depreciación)";
+            this.Label25.Text = "Mantenimiento";
             // 
             // gbValores
             // 
@@ -1118,12 +1133,152 @@
             this.Label20.TabIndex = 0;
             this.Label20.Text = "Depreciación Ajustada";
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.Black;
+            this.label28.Location = new System.Drawing.Point(447, 107);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(69, 22);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Perdida";
+            // 
+            // txtPerdida
+            // 
+            this.txtPerdida.Location = new System.Drawing.Point(542, 104);
+            this.txtPerdida.MaxLength = 10;
+            this.txtPerdida.Name = "txtPerdida";
+            this.txtPerdida.Size = new System.Drawing.Size(175, 29);
+            this.txtPerdida.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.txtPerdida, "Cuenta de Perdida");
+            this.txtPerdida.DoubleClick += new System.EventHandler(this.formCuenta);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.Black;
+            this.label29.Location = new System.Drawing.Point(19, 284);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(85, 22);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Subgrupo";
+            // 
+            // cboSubgrupo
+            // 
+            this.cboSubgrupo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSubgrupo.FormattingEnabled = true;
+            this.cboSubgrupo.Items.AddRange(new object[] {
+            "Construcción y Edificaciones",
+            "Equipo de Computación y Comunicación",
+            "Equipo de Oficina",
+            "Flota y Equipo de transporte",
+            "Maquinaria y Equipos"});
+            this.cboSubgrupo.Location = new System.Drawing.Point(125, 281);
+            this.cboSubgrupo.Name = "cboSubgrupo";
+            this.cboSubgrupo.Size = new System.Drawing.Size(324, 29);
+            this.cboSubgrupo.TabIndex = 8;
+            this.cboSubgrupo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
+            this.cboSubgrupo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboAreaResp_KeyPress);
+            // 
+            // label30
+            // 
+            this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
+            this.label30.Location = new System.Drawing.Point(348, 97);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(170, 3);
+            this.label30.TabIndex = 175;
+            this.label30.Visible = false;
+            // 
+            // btnTab3
+            // 
+            this.btnTab3.AutoSize = true;
+            this.btnTab3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTab3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
+            this.btnTab3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnTab3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTab3.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTab3.Location = new System.Drawing.Point(348, 63);
+            this.btnTab3.Name = "btnTab3";
+            this.btnTab3.Size = new System.Drawing.Size(170, 36);
+            this.btnTab3.TabIndex = 174;
+            this.btnTab3.Text = "Valores y Cuentas";
+            this.btnTab3.UseVisualStyleBackColor = true;
+            // 
+            // Label5
+            // 
+            this.Label5.AutoSize = true;
+            this.Label5.ForeColor = System.Drawing.Color.Black;
+            this.Label5.Location = new System.Drawing.Point(19, 173);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(94, 22);
+            this.Label5.TabIndex = 0;
+            this.Label5.Text = "N° de Serie";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(560, 89);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 158);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(19, 136);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(57, 22);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Marca";
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarca.Location = new System.Drawing.Point(125, 133);
+            this.txtMarca.MaxLength = 30;
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(206, 29);
+            this.txtMarca.TabIndex = 3;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.ForeColor = System.Drawing.Color.Black;
+            this.label32.Location = new System.Drawing.Point(615, 67);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(66, 22);
+            this.label32.TabIndex = 9;
+            this.label32.Text = "Imagen";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.Color.Black;
+            this.label33.Location = new System.Drawing.Point(341, 136);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(67, 22);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Modelo";
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelo.Location = new System.Drawing.Point(411, 133);
+            this.txtModelo.MaxLength = 10;
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(130, 29);
+            this.txtModelo.TabIndex = 4;
+            // 
             // FrmActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(798, 556);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.btnTab3);
             this.Controls.Add(this.lblColor1);
             this.Controls.Add(this.lblColor);
             this.Controls.Add(this.Label26);
@@ -1136,8 +1291,8 @@
             this.Controls.Add(this.lblMargenTop);
             this.Controls.Add(this.btnTab2);
             this.Controls.Add(this.btnTab1);
-            this.Controls.Add(this.panelVal);
             this.Controls.Add(this.panelBasicos);
+            this.Controls.Add(this.panelVal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;
@@ -1158,6 +1313,7 @@
             this.GroupBox4.PerformLayout();
             this.gbValores.ResumeLayout(false);
             this.gbValores.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1194,7 +1350,7 @@
         private System.Windows.Forms.Label Label17;
         private System.Windows.Forms.GroupBox grbCrear;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.ComboBox cboTipo;
+        private System.Windows.Forms.ComboBox cboGrupo;
         private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.TextBox txtvidaUtil;
         private System.Windows.Forms.Label Label4;
@@ -1203,7 +1359,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label Label3;
-        private System.Windows.Forms.Label Label5;
         private System.Windows.Forms.Label Label6;
         private System.Windows.Forms.Label Label8;
         private System.Windows.Forms.Label Label7;
@@ -1224,10 +1379,10 @@
         private System.Windows.Forms.TextBox txtctaActivo;
         private System.Windows.Forms.Label Label21;
         private System.Windows.Forms.Label Label22;
-        private System.Windows.Forms.TextBox txtctaDepMonetaria;
+        private System.Windows.Forms.TextBox txtMantenimiento;
         private System.Windows.Forms.TextBox txtctaGastos;
         private System.Windows.Forms.TextBox txtctaDepreciacion;
-        private System.Windows.Forms.TextBox txtctaMonetaria;
+        private System.Windows.Forms.TextBox txtGanancia;
         private System.Windows.Forms.Label Label23;
         private System.Windows.Forms.Label Label24;
         private System.Windows.Forms.Label Label25;
@@ -1248,5 +1403,18 @@
         private System.Windows.Forms.Label Label20;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ComboBox cboEstado;
+        private System.Windows.Forms.TextBox txtPerdida;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox cboSubgrupo;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button btnTab3;
+        private System.Windows.Forms.Label Label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.Label label33;
     }
 }
