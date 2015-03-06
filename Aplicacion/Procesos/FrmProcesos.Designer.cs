@@ -94,6 +94,7 @@
             this.lblAreas.TabIndex = 132;
             this.lblAreas.Text = "Mantenimiento";
             this.lblAreas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblAreas.Visible = false;
             // 
             // lblParametros
             // 
@@ -112,6 +113,7 @@
             this.lblParametros.TabIndex = 132;
             this.lblParametros.Text = "Venta de Activos";
             this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblParametros.Visible = false;
             this.lblParametros.Click += new System.EventHandler(this.lblParametros_Click);
             // 
             // lblCerrar
@@ -150,6 +152,7 @@
             this.lblActivos.TabIndex = 132;
             this.lblActivos.Text = "Gravamenes y Tipo";
             this.lblActivos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblActivos.Visible = false;
             // 
             // Label2
             // 
@@ -167,6 +170,7 @@
             this.Label2.TabIndex = 132;
             this.Label2.Text = "Registro de Fallas";
             this.Label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Label2.Visible = false;
             // 
             // lblDepreciacion
             // 

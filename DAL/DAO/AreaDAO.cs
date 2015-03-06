@@ -15,7 +15,7 @@ namespace DAL.DAO
         public int insertar(EArea obj) { 
 
             int reg  = 0; // Obtiene el numero de Registros afectados
-            string sql = "INSERT INTO afarea (codigo, nombre, descripcion) VALUES (?codigo, ?nombre, ?descripcion)";
+            string sql = "INSERT INTO afarea (codigo, nombre, responsable) VALUES (?codigo, ?nombre, ?responsable)";
 
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -25,7 +25,7 @@ namespace DAL.DAO
 
                     cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = obj.codigo;
                     cmd.Parameters.Add("?nombre", MySqlDbType.String).Value = obj.nombre;
-                    cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = obj.descripcion;
+                    cmd.Parameters.Add("?responsable", MySqlDbType.String).Value = obj.responsable;
 
                     if (cnx.abrirConexion()) {
                         reg = cmd.ExecuteNonQuery();
@@ -62,14 +62,14 @@ namespace DAL.DAO
            EArea area  = new EArea();
             area.codigo =  fila.GetString ("codigo");
             area.nombre = fila.GetString ("nombre");
-            area.descripcion = fila.GetString ("descripcion");
+            area.responsable = fila.GetString ("responsable");
             return area;
         }
 
         public int actualizar(EArea obj)
         {
             int reg = 0; // Obtiene el numero de Registros afectados
-            string sql = "UPDATE  afArea SET nombre=?nombre, descripcion=?descripcion WHERE  codigo=?codigo";
+            string sql = "UPDATE  afArea SET nombre=?nombre, responsable=?responsable WHERE  codigo=?codigo";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -80,7 +80,7 @@ namespace DAL.DAO
 
                     cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = obj.codigo;
                     cmd.Parameters.Add("?nombre", MySqlDbType.String).Value = obj.nombre;
-                    cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = obj.descripcion;
+                    cmd.Parameters.Add("?responsable", MySqlDbType.String).Value = obj.responsable;
                     if (cnx.abrirConexion())
                     {
                         reg = cmd.ExecuteNonQuery();
@@ -115,7 +115,7 @@ namespace DAL.DAO
                 }
                 return obj;
             }
-        }
+        }              
         
     }
 }

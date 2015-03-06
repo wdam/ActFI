@@ -27,5 +27,13 @@ namespace Aplicacion.Informes
             FrmInfActivos frm = new FrmInfActivos();
             frm.ShowDialog();
         }
+
+        private void lblAreas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrminfAreas frmA = new FrminfAreas();
+            frmA.ShowDialog();
+            this.Show();
+        }
     }
 }

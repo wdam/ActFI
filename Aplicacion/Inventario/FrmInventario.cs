@@ -24,44 +24,52 @@ namespace Aplicacion.Inventario
 
         private void lblActivos_Click(object sender, EventArgs e)
         {
-            this.menuPrincipal.Visible = false;            
+            //this.menuPrincipal.Visible = false;
+            this.Hide();
             FrmActivos frm = Application.OpenForms.OfType<FrmActivos>().FirstOrDefault();
             FrmActivos form = frm ?? new FrmActivos();
             form.ShowDialog();
-            this.menuPrincipal.Visible = true;
-            
+            //this.menuPrincipal.Visible = true;
+            this.Show();
         }
 
         private void lblAreas_Click(object sender, EventArgs e)
         {
-            this.menuPrincipal.Visible = false;            
+            //this.menuPrincipal.Visible = false;            
+            this.Hide();
             FrmAreaResp frm = new FrmAreaResp();
             frm.ShowDialog();
-            this.menuPrincipal.Visible = true;            
+            this.Show();
+            //this.menuPrincipal.Visible = true;            
         }
 
         private void lblParametros_Click(object sender, EventArgs e)
         {
-            this.menuPrincipal.Visible = false;            
+           // this.menuPrincipal.Visible = false;            
+            this.Hide();
             FrmParametros frm = new FrmParametros();
             frm.ShowDialog();
-            this.menuPrincipal.Visible = true;
+            this.Show();
         }
 
         private void lblTerceros_Click(object sender, EventArgs e)
         {
-            this.menuPrincipal.Visible = false;            
+          //  this.menuPrincipal.Visible = false;            
+            this.Hide();
             FrmTerceros frm = new FrmTerceros();
             frm.ShowDialog();
-            this.menuPrincipal.Visible = true;
+            this.Show();
+            //this.menuPrincipal.Visible = true;
         }
 
         private void lblTraslados_Click(object sender, EventArgs e)
         {
-            this.menuPrincipal.Visible = false;            
+            //this.menuPrincipal.Visible = false;            
+            this.Hide();
             FrmTraslados frm = new FrmTraslados();
             frm.ShowDialog();
-            this.menuPrincipal.Visible = true;
+            this.Show();
+            //this.menuPrincipal.Visible = true;
         }
 
         private void lblSaldos_Click(object sender, EventArgs e)
@@ -73,19 +81,19 @@ namespace Aplicacion.Inventario
         }
 
         private void lblDocumentos_Click(object sender, EventArgs e)
-        {
-            this.menuPrincipal.Visible = false;
+        {            
+            this.Hide();
             FrmDocumentos frm = new FrmDocumentos();
             frm.ShowDialog();
-            this.menuPrincipal.Visible = true;
+            this.Show();            
         }
 
         private void lblGrupos_Click(object sender, EventArgs e)
-        {
-            this.menuPrincipal.Visible = false;
+        {            
+            this.Hide();
             Principal.FrmGrupos frmG = new Principal.FrmGrupos();
             frmG.ShowDialog();
-            this.menuPrincipal.Visible = true;
+            this.Show();            
         }
     }
 }

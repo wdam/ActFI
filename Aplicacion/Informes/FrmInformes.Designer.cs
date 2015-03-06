@@ -97,6 +97,7 @@
             this.lblTerceros.TabIndex = 132;
             this.lblTerceros.Text = "Proveedores";
             this.lblTerceros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblTerceros.Visible = false;
             // 
             // lblTraslados
             // 
@@ -114,6 +115,7 @@
             this.lblTraslados.TabIndex = 132;
             this.lblTraslados.Text = "Centro de Costo";
             this.lblTraslados.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblTraslados.Visible = false;
             // 
             // lblAreas
             // 
@@ -132,6 +134,8 @@
             this.lblAreas.TabIndex = 132;
             this.lblAreas.Text = "Ubicacion";
             this.lblAreas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblAreas.Visible = false;
+            this.lblAreas.Click += new System.EventHandler(this.lblAreas_Click);
             // 
             // lblParametros
             // 
@@ -149,6 +153,7 @@
             this.lblParametros.TabIndex = 132;
             this.lblParametros.Text = "Funcionario";
             this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblParametros.Visible = false;
             // 
             // lblCerrar
             // 
@@ -204,6 +209,7 @@
             this.Label2.TabIndex = 132;
             this.Label2.Text = "Mejoras y Reparaciones";
             this.Label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Label2.Visible = false;
             // 
             // lblActivos
             // 
@@ -221,6 +227,7 @@
             this.lblActivos.TabIndex = 132;
             this.lblActivos.Text = "Libro Diario";
             this.lblActivos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblActivos.Visible = false;
             // 
             // FrmInformes
             // 

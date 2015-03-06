@@ -9,6 +9,8 @@ namespace Aplicacion
 {
     public static class UtilSystem 
     {
+        public static string rutaImagen = AppDomain.CurrentDomain.BaseDirectory + "assetsimages\\";
+        
         public static double DIN(string monto) {
             return Math.Round(Convert.ToDouble(monto),2);                              
         }
@@ -22,11 +24,16 @@ namespace Aplicacion
             return string.Format("{0:#,0.00}", valor);
         }
 
+        // formato de consecutivo Contabilidad
         public static string fConsecutivo(int numero)
         {
             return string.Format("{0:000000}", numero);            
         }
 
+        // Formato de consecutivo de activos
+        public static string fConsActivo(int numero) {
+            return string.Format("{0:0000}", numero);
+        }
 
         public static void ValidarNumero(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {

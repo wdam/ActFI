@@ -9,6 +9,6 @@ D:\Wendell\ActFI\DAL\bin\Debug\DAL.dll
 D:\Wendell\ActFI\DAL\bin\Debug\DAL.pdb
 D:\Wendell\ActFI\DAL\bin\Debug\Entidades.dll
 D:\Wendell\ActFI\DAL\bin\Debug\Entidades.pdb
-D:\Wendell\ActFI\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\Wendell\ActFI\DAL\obj\Debug\DAL.dll
 D:\Wendell\ActFI\DAL\obj\Debug\DAL.pdb
+D:\Wendell\ActFI\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

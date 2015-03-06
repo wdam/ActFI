@@ -82,5 +82,13 @@ namespace BLL
             }
             return gDao.getSubgrupo(grupo);
         }
+
+        public void updateConsecutivo(string sigla){
+           if (string.IsNullOrWhiteSpace(sigla))
+            {
+                return;
+            }
+            gDao.updateConsecutivo(sigla);
+        }
     }
 }

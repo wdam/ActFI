@@ -23,13 +23,18 @@ namespace Aplicacion.Inventario
         BLL.TerceroBLL bllTer = new BLL.TerceroBLL();
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         BLL.CentroCostoBLL bllCentro = new BLL.CentroCostoBLL();
+        BLL.GrupoBLL bllGrupo = new BLL.GrupoBLL();
                 
         bool Encontro = false;   // Verificar si encontro datos de un activo
-        ETerceros user;
-        ECentroCosto centro;
         
+        ETerceros user;
+        ECentroCosto centro;        
         EActivos activo;
-         
+        EGrupo objGrupo;
+        // Declaracion de Listas
+        List<EGrupo> lstGrupos;
+        List<ESubgrupo> lstSubgrupo;
+        double porSalvto = 0; // porcentaje de salvamento 
         public FrmActivos()
         {
             InitializeComponent();
@@ -37,34 +42,59 @@ namespace Aplicacion.Inventario
 
         #region Ocultar / Mostrar Paneles dependiendo de la opcion seleccionada
 
-        private void ocultarPanel1(){
-            panelBasicos.Visible = false;
-            panelVal.Visible = true;
-            panelVal.Width = 780;
-            lblColor.Visible = false;
-            lblColor1.Visible = true;
-            btnTab2.FlatAppearance.BorderSize = 1;
-            btnTab1.FlatAppearance.BorderSize = 0;
+        private void verPanel1(){
+            panel1.Visible = true;
+            panel3.Visible = false;
+            panel2.Visible = false;
+            panel1.Width = 780;
+            lblLinea1.Visible = true;
+            lblLinea2.Visible = false;
+            lblLinea3.Visible = false;            
+            btnTab1.FlatAppearance.BorderSize = 1;
+            btnTab2.FlatAppearance.BorderSize = 0;
+            btnTab3.FlatAppearance.BorderSize = 0;
         }
 
-        private void ocultarPanel2() { 
-            panelBasicos.Visible = true;
-            panelVal.Visible = false;
-            panelVal.Width = 780;
-            lblColor1.Visible = false;
-            lblColor.Visible = true;
+        private void verPanel2() {
+            panel1.Visible = false;
+            panel2.Visible = true;
+            panel3.Visible = false;
+            panel2.Width = 780;
+            lblLinea1.Visible = false;
+            lblLinea2.Visible = true;
+            lblLinea3.Visible = false;
+            btnTab1.FlatAppearance.BorderSize = 0;
+            btnTab2.FlatAppearance.BorderSize = 1;
+            btnTab3.FlatAppearance.BorderSize = 0;
+        }
+
+        private void verPanel3() {
+            panel1.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = true;
+            panel3.Width = 780;
+            lblLinea1.Visible = false;
+            lblLinea2.Visible = false;
+            lblLinea3.Visible = true;
+            btnTab1.FlatAppearance.BorderSize = 0;
             btnTab2.FlatAppearance.BorderSize = 0;
-            btnTab1.FlatAppearance.BorderSize = 1;
+            btnTab3.FlatAppearance.BorderSize = 1;
+        
         }
 
         private void btnTab1_Click(object sender, EventArgs e)
         {
-            ocultarPanel2();
+            verPanel1();
         }
 
         private void btnTab2_Click(object sender, EventArgs e)
         {
-            ocultarPanel1();
+            verPanel2();
+        }
+
+        private void btnTab3_Click(object sender, EventArgs e)
+        {
+            verPanel3();
         }
 
         #endregion  
@@ -73,11 +103,12 @@ namespace Aplicacion.Inventario
 
         private void Habilitar()
         {
-            panelBasicos.Enabled = true;
-            panelVal.Enabled = true;
+            panel1.Enabled = true;
+            panel2.Enabled = true;
+            panel3.Enabled = true;
             lblGuardar.Enabled = true;
             lblCancelar.Enabled = true;
-            txtCodigo.Enabled = true;
+            //txtCodigo.Enabled = true;
             txtCodResp.Enabled = true;
             cboAreaResp.Enabled = true;
 
@@ -90,8 +121,9 @@ namespace Aplicacion.Inventario
 
         private void Deshabilitar()
         {
-            panelBasicos.Enabled = false;
-            panelVal.Enabled = false;
+            panel1.Enabled = false;
+            panel2.Enabled = false;
+            panel3.Enabled = false;
             lblGuardar.Enabled = false;
             lblCancelar.Enabled = false;
 
@@ -108,6 +140,7 @@ namespace Aplicacion.Inventario
                     texto.Text = "0,00";
                 }
             }
+            pbxImagen.Image = Properties.Resources.defaultIm;
         }
         #endregion
 
@@ -174,17 +207,41 @@ namespace Aplicacion.Inventario
 
         #endregion        
         
-        private void cargarCuentas() {
-            if ((objParametros != null))
-            {
+        
 
-                txtctaActivo.Text = objParametros.ctaActivo;
-                txtctaDepreciacion.Text = objParametros.ctaDepreciacion;
-                txtctaGastos.Text = objParametros.ctaGastos;
-                txtGanancia.Text = objParametros.ctaMonetaria;
-                txtMantenimiento.Text = objParametros.ctaDepMonetaria;
-                
+        private void cargarGrupos() {
+            lstGrupos = bllGrupo.getAll("Activo");
+            cboGrupo.DataSource = lstGrupos;
+            cboGrupo.DisplayMember = "descripcion";
+            cboGrupo.ValueMember = "sigla";
+            if (lstGrupos.Count > 0) {
+                cboGrupo_SelectedIndexChanged(null, null);
             }
+        }
+
+        private void valoresGrupo(string sigla)
+        {
+            objGrupo = bllGrupo.buscar(sigla);
+            if (objGrupo != null) {
+                txtvidaUtil.Text = objGrupo.vidaUtil.ToString();
+                cboMetodo.SelectedValue = objGrupo.metodoDep;
+                txtctaActivo.Text = objGrupo.ctaActivo;
+                txtctaDepreciacion.Text = objGrupo.ctaDepreciacion;
+                txtctaGanancia.Text = objGrupo.ctaGanancia;
+                txtctaGastos.Text = objGrupo.ctaGastos;
+                txtctaMantenimiento.Text = objGrupo.ctaMantenimiento;
+                txtctaPerdida.Text = objGrupo.ctaPerdida;
+                porSalvto = Math.Round(Convert.ToDouble(objGrupo.valSalvamento) / 100, 2);
+                txtCodigo.Text = sigla + UtilSystem.fConsActivo(objGrupo.consecutivo + 1);
+            }
+        }
+
+        private void cargarSubgrupos(string sigla) {
+            cboSubgrupo.Text = "";
+            lstSubgrupo = bllGrupo.getSubgrupo(sigla);
+            cboSubgrupo.DataSource = lstSubgrupo;
+            cboSubgrupo.DisplayMember = "descripcion";
+            cboSubgrupo.ValueMember = "codigo";
         }
 
         private void CargarAreas() {
@@ -199,10 +256,12 @@ namespace Aplicacion.Inventario
             }
         }
 
+        
+
         private void lblCancelar_Click(object sender, EventArgs e)
         {            
             Deshabilitar();
-            ocultarPanel2();
+            verPanel1();
             lblOperacion.Text = "Consulta";
             smsError.Dispose();
         }
@@ -214,16 +273,16 @@ namespace Aplicacion.Inventario
 
         private void lblNuevo_Click(object sender, EventArgs e)
         {
-            using (Utilidades util = new Utilidades()) {
+            this.smsError.Dispose();
+            lblOperacion.Text = "Nuevo";                      
+            using (Utilidades util = new Utilidades()){
                 util.limpiarControles(this);
             }
+            cboGrupo_SelectedIndexChanged(null, null);
 
-            this.smsError.Dispose();
-            Habilitar();
-            ocultarPanel2();              
-            colocarEnCero();
-            cargarCuentas();
-            lblOperacion.Text = "Nuevo";
+            verPanel1();     
+            Habilitar();                    
+            colocarEnCero();                        
         }
 
         private void FrmActivos_Load(object sender, EventArgs e)
@@ -231,8 +290,13 @@ namespace Aplicacion.Inventario
             objParametros = bllPar.getParametros();
             smsError.Dispose();
             Deshabilitar();
-            ocultarPanel2();
+            verPanel1();
             CargarAreas();
+            cargarGrupos();
+            List<EtipoDepreciacion> lstTipos = UtilSystem.metodosDepreciacion();
+            cboMetodo.DisplayMember = "Descripcion";
+            cboMetodo.ValueMember = "sigla";
+            cboMetodo.DataSource = lstTipos;
         }
 
         private bool validar() {
@@ -262,9 +326,20 @@ namespace Aplicacion.Inventario
                     bandera = false;
                 }
 
-                if (!ctrVal.noEstaVacio(cboAreaResp.SelectedValue.ToString()) && lblOperacion.Text == "Nuevo")
+                if (cboAreaResp.Text =="" && lblOperacion.Text == "Nuevo")
                 {
                     smsError.SetError(cboAreaResp, "Seleccione el Area Responsable");
+                    bandera = false;
+                }
+
+                if (cboGrupo.Text == "") {
+                    smsError.SetError(cboGrupo, "Seleccione el Grupo");
+                    bandera = false;
+                }
+
+                if (cboSubgrupo.Text == "")
+                {
+                    smsError.SetError(cboSubgrupo, "Seleccione el Subgrupo");
                     bandera = false;
                 }
                 if (!ctrVal.noEstaVacio(txtResponsable.Text))
@@ -320,9 +395,11 @@ namespace Aplicacion.Inventario
             string mensaje = bllAct.insertar(activo);
             if (mensaje == "Exito")
             {
+                bllGrupo.updateConsecutivo(activo.grupo);
+                guardarImagen();
                 MessageBox.Show("Datos Guardados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Deshabilitar();
-                ocultarPanel2();
+                verPanel1();
                 lblOperacion.Text = "Consulta";
             }
             else
@@ -337,15 +414,29 @@ namespace Aplicacion.Inventario
             string mensaje = bllAct.actualizar(activo);
             if (mensaje == "Exito")
             {
+                guardarImagen();
                 MessageBox.Show("Datos Actualizados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Deshabilitar();
-                ocultarPanel2();
-                lblOperacion.Text = "Consulta";
+                verPanel1();
+                lblOperacion.Text = "Consulta";               
             }
             else
             {
                 MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void guardarImagen()
+        {
+            if (pbxImagen.Image != null)
+            {
+                if (!System.IO.Directory.Exists(UtilSystem.rutaImagen))
+                {
+                    System.IO.Directory.CreateDirectory(UtilSystem.rutaImagen);
+                }
+                pbxImagen.Image.Save(UtilSystem.rutaImagen + txtCodigo.Text + ".jpg");
+            }
+           
         }
 
         private EActivos CrearActivo()
@@ -361,6 +452,7 @@ namespace Aplicacion.Inventario
             objAct.grupo = cboGrupo.SelectedValue.ToString();
             objAct.subGrupo = cboSubgrupo.SelectedValue.ToString();
             objAct.vidaUtil = Convert.ToInt16(txtvidaUtil.Text);
+            objAct.metodoDep = cboMetodo.SelectedValue.ToString();
 
             objAct.propiedad = cboPropiedad.Text;
             objAct.fecha = dtpFecha.Value.ToShortDateString();
@@ -381,9 +473,9 @@ namespace Aplicacion.Inventario
             objAct.ctaActivo = txtctaActivo.Text;
             objAct.ctaDepreciacion = txtctaDepreciacion.Text;
             objAct.ctaGastos = txtctaGastos.Text;
-            objAct.ctaGanancia = txtGanancia.Text;
-            objAct.ctaMantenimiento = txtMantenimiento.Text;
-            objAct.ctaPerdida = txtPerdida.Text;
+            objAct.ctaGanancia = txtctaGanancia.Text;
+            objAct.ctaMantenimiento = txtctaMantenimiento.Text;
+            objAct.ctaPerdida = txtctaPerdida.Text;
             return objAct;
         }
 
@@ -429,7 +521,9 @@ namespace Aplicacion.Inventario
                     txtModelo.Text = activo.modelo;
                     txtvidaUtil.Text = activo.vidaUtil.ToString();
                     cboGrupo.SelectedValue = activo.grupo;
+                    cboGrupo_SelectedIndexChanged(null, null);
                     cboSubgrupo.SelectedValue = activo.subGrupo;
+                    cboMetodo.SelectedValue = activo.metodoDep;
 
                     cboPropiedad.Text = activo.propiedad;
                     dtpFecha.Value = DateTime.Parse(activo.fecha);
@@ -448,11 +542,16 @@ namespace Aplicacion.Inventario
                     txtdepAjustada.Text = UtilSystem.fMoneda(activo.depAjustada);
 
                     txtctaActivo.Text = activo.ctaActivo;
-                    txtMantenimiento.Text = activo.ctaMantenimiento;
+                    txtctaMantenimiento.Text = activo.ctaMantenimiento;
                     txtctaDepreciacion.Text = activo.ctaDepreciacion;
                     txtctaGastos.Text = activo.ctaGastos;
-                    txtGanancia.Text = activo.ctaGanancia;
-                    txtPerdida.Text = activo.ctaPerdida;
+                    txtctaGanancia.Text = activo.ctaGanancia;
+                    txtctaPerdida.Text = activo.ctaPerdida;
+                    string ruta = UtilSystem.rutaImagen + activo.codigo + ".jpg";
+                    if (System.IO.File.Exists(UtilSystem.rutaImagen + activo.codigo + ".jpg")) {
+                        pbxImagen.ImageLocation = UtilSystem.rutaImagen + activo.codigo + ".jpg";
+                        pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
                     Encontro = true;
                 }
             }   
@@ -584,34 +683,22 @@ namespace Aplicacion.Inventario
             Frm.ShowDialog(this);
         }
 
-        private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
+         private void txtNombre_Leave(object sender, EventArgs e)
         {
-            if (cboGrupo.Text == "Construcción y Edificaciones"){
-                txtvidaUtil.Text = "240";
-            }
-            else if (cboGrupo.Text == "Maquinaria y Equipos" || cboGrupo.Text == "Equipo de Oficina")
-            {
-                txtvidaUtil.Text = "120";
-            }
-            else if (cboGrupo.Text == "Equipo de Computación y Comunicación" || cboGrupo.Text == "Flota y Equipo de transporte")
-            {
-                txtvidaUtil.Text = "60";
+            if (txtDescripcion.Text == "") {
+                txtDescripcion.Text = txtNombre.Text;
             }            
-            else {
-                txtvidaUtil.Text = "0";
-            }
-        }
-
-        private void txtNombre_Leave(object sender, EventArgs e)
-        {
-            txtDescripcion.Text = txtNombre.Text;
         }
 
         private void txtvalComercial_Leave(object sender, EventArgs e)
         {            
+            if (string.IsNullOrWhiteSpace(txtvalComercial.Text)){
+                txtvalComercial.Text="0";
+            }
             txtvalHistorico.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
             txtvalLibros.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
             txtvalComercial.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
+            txtvalSalvamento.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text) * porSalvto);
         }
 
         private void txtvalSalvamento_Leave(object sender, EventArgs e){
@@ -623,6 +710,24 @@ namespace Aplicacion.Inventario
             e.Handled = true;
         }
 
-      
+        private void cboGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarSubgrupos(cboGrupo.SelectedValue.ToString());
+            if (lblOperacion.Text == "Nuevo") {
+                valoresGrupo(cboGrupo.SelectedValue.ToString());
+            }        
+        }
+
+        private void lblNuevoSub_Click(object sender, EventArgs e)
+        {
+            abrirDialog.ShowDialog();
+            pbxImagen.ImageLocation = abrirDialog.FileName;
+            pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;    
+        }
+
+        private void txtvidaUtil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UtilSystem.ValidarNumero(sender, e);
+        }            
     }
 }

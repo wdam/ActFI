@@ -110,7 +110,7 @@ namespace DAL.DAO
                 condicion = "";
             }
             else {
-                condicion = " estado = '" + filtro + "'";
+                condicion = " WHERE estado = '" + filtro + "'";
             }
             List<EGrupo> lista = new List<EGrupo>();
             string sql = "SELECT  sigla, descripcion, consecutivo, estado FROM afgrupo "+condicion+"";
@@ -192,6 +192,26 @@ namespace DAL.DAO
                 }                
             }
             return objGrupo;
+        }
+
+        public int updateConsecutivo(string sigla) {
+            int nReg = 0;
+            string sql = "UPDATE afgrupo SET consecutivo = consecutivo + 1 WHERE sigla='"+sigla+"'";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();                    
+                    if (cnx.abrirConexion())
+                    {
+                        nReg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return nReg;
         }
 
         public ESubgrupo buscarSubgrupo(string codigo)

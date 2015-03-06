@@ -90,6 +90,12 @@
       <DependentUpon>infActivo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Informes\FrminfAreas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informes\FrminfAreas.Designer.cs">
+      <DependentUpon>FrminfAreas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\FrmSelDocumentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInfActivos.resx">
       <DependentUpon>FrmInfActivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\FrminfAreas.resx">
+      <DependentUpon>FrminfAreas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInformes.resx">
       <DependentUpon>FrmInformes.cs</DependentUpon>
@@ -489,6 +498,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="af.ico" />
+    <None Include="Resources\64x64\grupo.png" />
+    <None Include="Resources\48x48\subir.png" />
+    <None Include="Resources\48x48\camera.png" />
+    <None Include="Resources\64x64\defaultIm.png" />
+    <None Include="Resources\64x64\defaulIm.png" />
     <None Include="Resources\48x48\addGrup.png" />
     <None Include="Resources\48x48\pdf.png" />
     <None Include="Resources\64x64\mantenientos.png" />

@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Aplicacion.Principal;
 using Entidades;
+using Aplicacion.Interfaces;
 
 
 namespace Aplicacion.Inventario
 {
-    public partial class FrmAreaResp : Form
+    public partial class FrmAreaResp : Form, ISeleccionar
     {
         string ultimo = string.Format("000");
-        List<EArea> lista;
+       
         BLL.AreaBLL bllArea = new BLL.AreaBLL();
+        BLL.TerceroBLL bllTer = new BLL.TerceroBLL();
+
+        ETerceros user;
+        List<EArea> lista;
+
         public FrmAreaResp()
         {
             InitializeComponent();
@@ -91,7 +97,7 @@ namespace Aplicacion.Inventario
         private void QuitarColorFondo(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            lbl.BackColor = Color.FromArgb(10, 130, 80);
+            lbl.BackColor = Color.FromArgb(30, 150, 130);
         }
         #endregion  
 
@@ -143,7 +149,7 @@ namespace Aplicacion.Inventario
             if (e.RowIndex != -1){
                 txtCodigo.Text = dgvArea.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtNomArea.Text = dgvArea.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtDescripcion.Text = dgvArea.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtNit.Text = dgvArea.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
         }
 
@@ -175,9 +181,9 @@ namespace Aplicacion.Inventario
                     smsError.SetError(txtNomArea, "Ingrese el Nombre del Area");
                     bandera = false;
                 }
-                if (!ctrVal.noEstaVacio(txtDescripcion.Text))
+                if (!ctrVal.noEstaVacio(txtNombreResp.Text))
                 {
-                    smsError.SetError(txtDescripcion, "Ingresa la Descripcion");
+                   smsError.SetError(txtNit, "Seleccione el Responsable del Area");
                     bandera = false;
                 }
                 return bandera;     
@@ -207,7 +213,7 @@ namespace Aplicacion.Inventario
             EArea objArea = new EArea();
             objArea.codigo = txtCodigo.Text;
             objArea.nombre = txtNomArea.Text;
-            objArea.descripcion = txtDescripcion.Text;
+            objArea.responsable = txtNit.Text;
             string mensaje = bllArea.insertar(objArea);
 
             if (mensaje == "Exito")
@@ -226,7 +232,7 @@ namespace Aplicacion.Inventario
             EArea objArea = new EArea();
             objArea.codigo = txtCodigo.Text;
             objArea.nombre = txtNomArea.Text;
-            objArea.descripcion = txtDescripcion.Text;
+            objArea.responsable = txtNit.Text;
 
             string mensaje = bllArea.actualizar(objArea);
 
@@ -239,6 +245,32 @@ namespace Aplicacion.Inventario
             {
                 MessageBox.Show(mensaje + ".. Verifique", "SAE Control");
             }
+        }
+
+        private void txtNit_TextChanged(object sender, EventArgs e)
+        {
+           user = bllTer.buscar(txtNit.Text);
+           if (user == null)
+           {
+              txtNombreResp.Text = "";
+           }
+           else
+           {
+               txtNit.Text = user.nit;
+               txtNombreResp.Text = user.nombre;
+           }
+        }
+
+        private void txtNit_DoubleClick(object sender, EventArgs e)
+        {
+            FrmSelTercero Frm = new FrmSelTercero();
+            Frm.tipo = "Empleados";
+            Frm.ShowDialog(this);
+        }
+
+        public void SeleccionarDato(string dato)
+        {
+            txtNit.Text = dato;
         }
     }
 }

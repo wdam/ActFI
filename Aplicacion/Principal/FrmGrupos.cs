@@ -37,6 +37,39 @@ namespace Aplicacion.Principal
             this.Dispose(true);
         }
 
+        #region Proceso para mover formulario
+
+        private bool mover;
+        private int pX;
+        private int pY;
+
+        private void lblTituloPrinc_MouseDown(object sender, MouseEventArgs e)
+        {
+           if (e.Button == MouseButtons.Left)
+           {
+              mover = true;
+              pX = e.X;
+              pY = e.Y;
+              this.Cursor = Cursors.NoMove2D;
+           }
+        }
+
+        private void lblTituloPrinc_MouseMove(object sender, MouseEventArgs e)
+        {
+           if (mover)
+           {
+              this.Location = new Point((this.Left + e.X - pX), (this.Top + e.Y - pY));
+           }
+        }
+
+        private void lblTituloPrinc_MouseUp(object sender, MouseEventArgs e)
+        {
+           mover = false;
+           this.Cursor = Cursors.Default;
+        }
+
+        #endregion
+
         #region Ocultar / Mostrar Paneles dependiendo de la opcion seleccionada
 
         private void ocultarPanel1()
