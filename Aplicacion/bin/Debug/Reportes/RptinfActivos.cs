@@ -16,14 +16,14 @@ namespace Aplicacion.bin.Debug.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class FrminfActivos : ReportClass {
+    public class RptinfActivos : ReportClass {
         
-        public FrminfActivos() {
+        public RptinfActivos() {
         }
         
         public override string ResourceName {
             get {
-                return "FrminfActivos.rpt";
+                return "RptinfActivos.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Aplicacion.bin.Debug.Reportes {
         
         public override string FullResourceName {
             get {
-                return "Aplicacion.bin.Debug.Reportes.FrminfActivos.rpt";
+                return "Aplicacion.bin.Debug.Reportes.RptinfActivos.rpt";
             }
             set {
                 // Do nothing
@@ -114,9 +114,9 @@ namespace Aplicacion.bin.Debug.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedFrminfActivos : Component, ICachedReport {
+    public class CachedRptinfActivos : Component, ICachedReport {
         
-        public CachedFrminfActivos() {
+        public CachedRptinfActivos() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace Aplicacion.bin.Debug.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            FrminfActivos rpt = new FrminfActivos();
+            RptinfActivos rpt = new RptinfActivos();
             rpt.Site = this.Site;
             return rpt;
         }

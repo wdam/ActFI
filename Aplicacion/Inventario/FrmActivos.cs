@@ -629,7 +629,7 @@ namespace Aplicacion.Inventario
 
                 Informes.FrmVerInforme frm = new Informes.FrmVerInforme();                
                 ReportDocument reporte = new ReportDocument();
-                string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\infActivo.rpt";
+                string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\rptinfActBasico.rpt";
                 reporte.Load(ruta);
                 reporte.SetDataSource(lst);
                 // Asignacion de Parametros 

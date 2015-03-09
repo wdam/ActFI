@@ -38,10 +38,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtCodActivo = new System.Windows.Forms.TextBox();
             this.rbUnico = new System.Windows.Forms.RadioButton();
             this.rbTodos = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboArea = new System.Windows.Forms.ComboBox();
             this.lblMargenInf = new System.Windows.Forms.Label();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenIzq = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.lblGenerar.Text = "&Generar";
             this.lblGenerar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblGenerar, "Generar Informe");
+            this.lblGenerar.Click += new System.EventHandler(this.lblGenerar_Click);
             // 
             // lblSalir
             // 
@@ -85,11 +86,11 @@
             this.lblSalir.Text = "&Salir";
             this.lblSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblSalir, "Salir");
+            this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(247)))));
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
@@ -134,7 +135,7 @@
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.groupBox2.Location = new System.Drawing.Point(11, 163);
+            this.groupBox2.Location = new System.Drawing.Point(17, 163);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(511, 69);
             this.groupBox2.TabIndex = 235;
@@ -166,24 +167,17 @@
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(540, 66);
             this.FlowLayoutPanel1.TabIndex = 234;
             // 
-            // txtCodActivo
-            // 
-            this.txtCodActivo.Enabled = false;
-            this.txtCodActivo.Location = new System.Drawing.Point(144, 62);
-            this.txtCodActivo.Name = "txtCodActivo";
-            this.txtCodActivo.Size = new System.Drawing.Size(132, 29);
-            this.txtCodActivo.TabIndex = 2;
-            // 
             // rbUnico
             // 
             this.rbUnico.AutoSize = true;
             this.rbUnico.ForeColor = System.Drawing.Color.Black;
             this.rbUnico.Location = new System.Drawing.Point(34, 63);
             this.rbUnico.Name = "rbUnico";
-            this.rbUnico.Size = new System.Drawing.Size(100, 26);
+            this.rbUnico.Size = new System.Drawing.Size(137, 26);
             this.rbUnico.TabIndex = 1;
-            this.rbUnico.Text = "Un Activo";
+            this.rbUnico.Text = "Una Especifica";
             this.rbUnico.UseVisualStyleBackColor = true;
+            this.rbUnico.CheckedChanged += new System.EventHandler(this.rbUnico_CheckedChanged);
             // 
             // rbTodos
             // 
@@ -192,25 +186,35 @@
             this.rbTodos.ForeColor = System.Drawing.Color.Black;
             this.rbTodos.Location = new System.Drawing.Point(34, 29);
             this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(75, 26);
+            this.rbTodos.Size = new System.Drawing.Size(74, 26);
             this.rbTodos.TabIndex = 0;
             this.rbTodos.TabStop = true;
-            this.rbTodos.Text = "Todos";
+            this.rbTodos.Text = "Todas";
             this.rbTodos.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtCodActivo);
+            this.groupBox1.Controls.Add(this.cboArea);
             this.groupBox1.Controls.Add(this.rbUnico);
             this.groupBox1.Controls.Add(this.rbTodos);
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.groupBox1.Location = new System.Drawing.Point(11, 53);
+            this.groupBox1.Location = new System.Drawing.Point(17, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(511, 108);
             this.groupBox1.TabIndex = 233;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione Activo";
+            this.groupBox1.Text = " ";
+            // 
+            // cboArea
+            // 
+            this.cboArea.Enabled = false;
+            this.cboArea.FormattingEnabled = true;
+            this.cboArea.Location = new System.Drawing.Point(174, 62);
+            this.cboArea.Name = "cboArea";
+            this.cboArea.Size = new System.Drawing.Size(297, 30);
+            this.cboArea.TabIndex = 2;
+            this.cboArea.SelectedIndexChanged += new System.EventHandler(this.cboArea_SelectedIndexChanged);
             // 
             // lblMargenInf
             // 
@@ -266,6 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(544, 366);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupBox2);
@@ -278,7 +283,9 @@
             this.Controls.Add(this.lblMargenTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrminfAreas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrminfAreas";
+            this.Load += new System.EventHandler(this.FrminfAreas_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);
@@ -299,7 +306,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel1;
-        private System.Windows.Forms.TextBox txtCodActivo;
         private System.Windows.Forms.RadioButton rbUnico;
         private System.Windows.Forms.RadioButton rbTodos;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -308,5 +314,6 @@
         internal System.Windows.Forms.Label lblMargenIzq;
         internal System.Windows.Forms.Label lblMargenDer;
         internal System.Windows.Forms.Label lblMargenTop;
+        private System.Windows.Forms.ComboBox cboArea;
     }
 }

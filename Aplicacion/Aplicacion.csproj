@@ -78,16 +78,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bin\Debug\Reportes\FrminfActivos.cs">
+    <Compile Include="bin\Debug\Reportes\rptinfActBasico.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FrminfActivos.rpt</DependentUpon>
+      <DependentUpon>rptinfActBasico.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="bin\Debug\Reportes\infActivo.cs">
+    <Compile Include="bin\Debug\Reportes\RptinfActivos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>infActivo.rpt</DependentUpon>
+      <DependentUpon>RptinfActivos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="bin\Debug\Reportes\RptInfAreas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptInfAreas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Informes\FrminfAreas.cs">
@@ -260,13 +266,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="bin\Debug\Reportes\FrminfActivos.rpt">
+    <EmbeddedResource Include="bin\Debug\Reportes\rptinfActBasico.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>FrminfActivos.cs</LastGenOutput>
+      <LastGenOutput>rptinfActBasico.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reportes\infActivo.rpt">
+    <EmbeddedResource Include="bin\Debug\Reportes\RptinfActivos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>infActivo.cs</LastGenOutput>
+      <LastGenOutput>RptinfActivos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Reportes\RptInfAreas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptInfAreas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInfActivos.resx">
       <DependentUpon>FrmInfActivos.cs</DependentUpon>

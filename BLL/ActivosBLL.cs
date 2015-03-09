@@ -112,5 +112,9 @@ namespace BLL
         public DataTable informeGeneral() {
             return aDao.informeGeneral();
         }
+
+        public DataTable informeUbicacion(string codigo) {
+            return aDao.informeUbicacion(codigo);
+        }
     }
 }

@@ -35,7 +35,7 @@
             this.lblAreas = new System.Windows.Forms.Label();
             this.lblParametros = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
-            this.Label1 = new System.Windows.Forms.Label();
+            this.lblHistorial = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.lblActivos = new System.Windows.Forms.Label();
             this.TableLayoutPanel1.SuspendLayout();
@@ -69,7 +69,7 @@
             this.TableLayoutPanel1.Controls.Add(this.lblAreas, 1, 0);
             this.TableLayoutPanel1.Controls.Add(this.lblParametros, 2, 0);
             this.TableLayoutPanel1.Controls.Add(this.lblCerrar, 2, 2);
-            this.TableLayoutPanel1.Controls.Add(this.Label1, 0, 0);
+            this.TableLayoutPanel1.Controls.Add(this.lblHistorial, 0, 0);
             this.TableLayoutPanel1.Controls.Add(this.Label2, 0, 2);
             this.TableLayoutPanel1.Controls.Add(this.lblActivos, 0, 1);
             this.TableLayoutPanel1.Location = new System.Drawing.Point(42, 96);
@@ -134,7 +134,6 @@
             this.lblAreas.TabIndex = 132;
             this.lblAreas.Text = "Ubicacion";
             this.lblAreas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblAreas.Visible = false;
             this.lblAreas.Click += new System.EventHandler(this.lblAreas_Click);
             // 
             // lblParametros
@@ -174,24 +173,24 @@
             this.lblCerrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
-            // Label1
+            // lblHistorial
             // 
-            this.Label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblHistorial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label1.BackColor = System.Drawing.Color.Transparent;
-            this.Label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label1.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label1.ForeColor = System.Drawing.Color.White;
-            this.Label1.Image = global::Aplicacion.Properties.Resources.traslados;
-            this.Label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Label1.Location = new System.Drawing.Point(8, 8);
-            this.Label1.Margin = new System.Windows.Forms.Padding(8);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(226, 100);
-            this.Label1.TabIndex = 133;
-            this.Label1.Text = "Historial de Activos";
-            this.Label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Label1.Click += new System.EventHandler(this.Label1_Click);
+            this.lblHistorial.BackColor = System.Drawing.Color.Transparent;
+            this.lblHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblHistorial.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHistorial.ForeColor = System.Drawing.Color.White;
+            this.lblHistorial.Image = global::Aplicacion.Properties.Resources.traslados;
+            this.lblHistorial.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblHistorial.Location = new System.Drawing.Point(8, 8);
+            this.lblHistorial.Margin = new System.Windows.Forms.Padding(8);
+            this.lblHistorial.Name = "lblHistorial";
+            this.lblHistorial.Size = new System.Drawing.Size(226, 100);
+            this.lblHistorial.TabIndex = 133;
+            this.lblHistorial.Text = "Historial de Activos";
+            this.lblHistorial.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblHistorial.Click += new System.EventHandler(this.lblHistorial_Click);
             // 
             // Label2
             // 
@@ -255,7 +254,7 @@
         internal System.Windows.Forms.Label lblAreas;
         internal System.Windows.Forms.Label lblParametros;
         internal System.Windows.Forms.Label lblCerrar;
-        internal System.Windows.Forms.Label Label1;
+        internal System.Windows.Forms.Label lblHistorial;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Label lblActivos;
     }

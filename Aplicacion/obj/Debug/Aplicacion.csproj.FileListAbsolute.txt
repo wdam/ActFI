@@ -71,3 +71,4 @@ D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.pdb
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Inventario.FrmSelDocumentos.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Principal.FrmGrupos.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Principal.FrmSubgrupo.resources
+D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrminfAreas.resources

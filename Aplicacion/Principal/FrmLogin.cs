@@ -195,7 +195,7 @@ namespace Aplicacion.Principal
             this.txtclaveUsua.GotFocus += new EventHandler(this.txtclaveUsua_GotFocus);
             this.txtpasswC.LostFocus += new EventHandler(this.txtpasswC_LostFocus);
             this.txtpasswC.GotFocus += new EventHandler(this.txtpasswC_GotFocus);
-            //this.btnEntrar_Click(null, null);
+            this.btnEntrar_Click(null, null);
         }
 
     }

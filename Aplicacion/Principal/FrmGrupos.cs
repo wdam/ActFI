@@ -22,6 +22,7 @@ namespace Aplicacion.Principal
         List<ESubgrupo> lstSubgrupo;
         string grupoSel; // Grupo Seleccionado
         int fila; // Fila Seleccionada
+
         public FrmGrupos()
         {
             InitializeComponent();
@@ -36,6 +37,20 @@ namespace Aplicacion.Principal
         {
             this.Dispose(true);
         }
+
+        #region Cambiar Colores de Fondo de los label
+        private void ColocarColorFondo(object sender, MouseEventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(192, 32, 64);
+        }
+
+        private void QuitarColorFondo(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(0, 111, 169);
+        }
+        #endregion  
 
         #region Proceso para mover formulario
 
@@ -386,8 +401,7 @@ namespace Aplicacion.Principal
         }
 
         private void dgvSubGrupo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
+        {           
             if (e.RowIndex != -1)
             {
                 fila = dgvGrupo.CurrentCell.RowIndex;

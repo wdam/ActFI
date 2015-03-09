@@ -49,7 +49,7 @@ namespace Aplicacion.Informes
 
             Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
             ReportDocument reporte = new ReportDocument();
-            string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\infActivo.rpt";
+            string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\rptinfActBasico.rpt";
             reporte.Load(ruta);
             reporte.SetDataSource(lst);
             // Asignacion de Parametros 
@@ -70,7 +70,7 @@ namespace Aplicacion.Informes
             dt = bllAct.informeGeneral();
             Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
             ReportDocument reporte = new ReportDocument();
-            string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\FrminfActivos.rpt";
+            string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\RptinfActivos.rpt";
             reporte.Load(ruta);
             reporte.SetDataSource(dt);
             // Asignacion de Parametros 

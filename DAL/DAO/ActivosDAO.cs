@@ -259,16 +259,36 @@ namespace DAL.DAO
         }
 
         public DataTable informeGeneral() {
-            DataTable dt = null;
             string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.fechaCompra AS fecha, " +
-                " af.estado,  CONCAT(t.nit, '   ', t.nombre,' ', t.apellidos) responsable FROM " +
-                " afactivos af INNER JOIN terceros t ON af.responsable = t.nit";
+               " af.estado,  CONCAT(t.nit, ' ', t.nombre,' ', t.apellidos) responsable FROM " +
+               " afactivos af INNER JOIN terceros t ON af.responsable = t.nit";           
+            DataTable dt = consultar(sql);
+            return dt;
+        }
+
+        public DataTable informeUbicacion(string codigo) {
+            string area ="";
+            if (codigo !=""){
+               area = " WHERE af.AreaLoc = '"+codigo+"'";
+            }
+            string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.fechaCompra AS fecha, " +
+                 " af.estado,  CONCAT(t.nit, ' ', t.nombre,' ', t.apellidos) responsable,  " +
+                 " af.AreaLoc as area, a.nombre AS referencia FROM  afactivos af INNER JOIN terceros " +
+                 " t ON af.responsable = t.nit INNER JOIN afarea a ON af.AreaLoc = a.codigo "+area+"";
+            DataTable dt = consultar(sql);
+            return dt;
+        }
+
+        private DataTable consultar(string sql)
+        {
+            DataTable dt = null;
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
-                using (MySqlCommand cmd = new MySqlCommand()) {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
                     cmd.CommandText = sql;
-                    cmd.Connection = cnx.getConexion();                   
+                    cmd.Connection = cnx.getConexion();
                     if (cnx.abrirConexion())
                     {
                         MySqlDataAdapter DA = new MySqlDataAdapter(cmd);

@@ -21,18 +21,21 @@ namespace Aplicacion.Informes
         {
             this.Dispose(true);
         }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-            FrmInfActivos frm = new FrmInfActivos();
-            frm.ShowDialog();
-        }
+   
 
         private void lblAreas_Click(object sender, EventArgs e)
         {
             this.Hide();
             FrminfAreas frmA = new FrminfAreas();
             frmA.ShowDialog();
+            this.Show();
+        }
+
+        private void lblHistorial_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmInfActivos frm = new FrmInfActivos();
+            frm.ShowDialog();
             this.Show();
         }
     }

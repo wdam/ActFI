@@ -16,14 +16,14 @@ namespace Aplicacion.bin.Debug.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class infActivo : ReportClass {
+    public class RptInfAreas : ReportClass {
         
-        public infActivo() {
+        public RptInfAreas() {
         }
         
         public override string ResourceName {
             get {
-                return "infActivo.rpt";
+                return "RptInfAreas.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Aplicacion.bin.Debug.Reportes {
         
         public override string FullResourceName {
             get {
-                return "Aplicacion.bin.Debug.Reportes.infActivo.rpt";
+                return "Aplicacion.bin.Debug.Reportes.RptInfAreas.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Aplicacion.bin.Debug.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Aplicacion.bin.Debug.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,9 +82,25 @@ namespace Aplicacion.bin.Debug.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
         
@@ -114,9 +130,9 @@ namespace Aplicacion.bin.Debug.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedinfActivo : Component, ICachedReport {
+    public class CachedRptInfAreas : Component, ICachedReport {
         
-        public CachedinfActivo() {
+        public CachedRptInfAreas() {
         }
         
         [Browsable(false)]
@@ -153,7 +169,7 @@ namespace Aplicacion.bin.Debug.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            infActivo rpt = new infActivo();
+            RptInfAreas rpt = new RptInfAreas();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -23,29 +23,24 @@ namespace Aplicacion.Inventario
         }
 
         private void lblActivos_Click(object sender, EventArgs e)
-        {
-            //this.menuPrincipal.Visible = false;
+        {            
             this.Hide();
             FrmActivos frm = Application.OpenForms.OfType<FrmActivos>().FirstOrDefault();
             FrmActivos form = frm ?? new FrmActivos();
-            form.ShowDialog();
-            //this.menuPrincipal.Visible = true;
+            form.ShowDialog();            
             this.Show();
         }
 
         private void lblAreas_Click(object sender, EventArgs e)
-        {
-            //this.menuPrincipal.Visible = false;            
+        {                   
             this.Hide();
             FrmAreaResp frm = new FrmAreaResp();
             frm.ShowDialog();
-            this.Show();
-            //this.menuPrincipal.Visible = true;            
+            this.Show();                     
         }
 
         private void lblParametros_Click(object sender, EventArgs e)
-        {
-           // this.menuPrincipal.Visible = false;            
+        {                   
             this.Hide();
             FrmParametros frm = new FrmParametros();
             frm.ShowDialog();
@@ -53,23 +48,19 @@ namespace Aplicacion.Inventario
         }
 
         private void lblTerceros_Click(object sender, EventArgs e)
-        {
-          //  this.menuPrincipal.Visible = false;            
+        {                 
             this.Hide();
             FrmTerceros frm = new FrmTerceros();
             frm.ShowDialog();
-            this.Show();
-            //this.menuPrincipal.Visible = true;
+            this.Show();            
         }
 
         private void lblTraslados_Click(object sender, EventArgs e)
-        {
-            //this.menuPrincipal.Visible = false;            
+        {                      
             this.Hide();
             FrmTraslados frm = new FrmTraslados();
             frm.ShowDialog();
-            this.Show();
-            //this.menuPrincipal.Visible = true;
+            this.Show();            
         }
 
         private void lblSaldos_Click(object sender, EventArgs e)

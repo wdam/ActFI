@@ -287,7 +287,7 @@ namespace Aplicacion {
             
             private global::System.Data.DataColumn columnnumSerie;
             
-            private global::System.Data.DataColumn columnreferecia;
+            private global::System.Data.DataColumn columnreferencia;
             
             private global::System.Data.DataColumn columntipo;
             
@@ -398,9 +398,9 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn refereciaColumn {
+            public global::System.Data.DataColumn referenciaColumn {
                 get {
-                    return this.columnreferecia;
+                    return this.columnreferencia;
                 }
             }
             
@@ -614,7 +614,7 @@ namespace Aplicacion {
                         string nombre, 
                         string descripcion, 
                         string numSerie, 
-                        string referecia, 
+                        string referencia, 
                         string tipo, 
                         short vidaUtil, 
                         string propiedad, 
@@ -642,7 +642,7 @@ namespace Aplicacion {
                         nombre,
                         descripcion,
                         numSerie,
-                        referecia,
+                        referencia,
                         tipo,
                         vidaUtil,
                         propiedad,
@@ -690,7 +690,7 @@ namespace Aplicacion {
                 this.columnnombre = base.Columns["nombre"];
                 this.columndescripcion = base.Columns["descripcion"];
                 this.columnnumSerie = base.Columns["numSerie"];
-                this.columnreferecia = base.Columns["referecia"];
+                this.columnreferencia = base.Columns["referencia"];
                 this.columntipo = base.Columns["tipo"];
                 this.columnvidaUtil = base.Columns["vidaUtil"];
                 this.columnpropiedad = base.Columns["propiedad"];
@@ -725,8 +725,8 @@ namespace Aplicacion {
                 base.Columns.Add(this.columndescripcion);
                 this.columnnumSerie = new global::System.Data.DataColumn("numSerie", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumSerie);
-                this.columnreferecia = new global::System.Data.DataColumn("referecia", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnreferecia);
+                this.columnreferencia = new global::System.Data.DataColumn("referencia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreferencia);
                 this.columntipo = new global::System.Data.DataColumn("tipo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntipo);
                 this.columnvidaUtil = new global::System.Data.DataColumn("vidaUtil", typeof(short), null, global::System.Data.MappingType.Element);
@@ -975,17 +975,17 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string referecia {
+            public string referencia {
                 get {
                     try {
-                        return ((string)(this[this.tableafactivos.refereciaColumn]));
+                        return ((string)(this[this.tableafactivos.referenciaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'referecia\' de la tabla \'afactivos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'referencia\' de la tabla \'afactivos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableafactivos.refereciaColumn] = value;
+                    this[this.tableafactivos.referenciaColumn] = value;
                 }
             }
             
@@ -1375,14 +1375,14 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsrefereciaNull() {
-                return this.IsNull(this.tableafactivos.refereciaColumn);
+            public bool IsreferenciaNull() {
+                return this.IsNull(this.tableafactivos.referenciaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetrefereciaNull() {
-                this[this.tableafactivos.refereciaColumn] = global::System.Convert.DBNull;
+            public void SetreferenciaNull() {
+                this[this.tableafactivos.referenciaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
