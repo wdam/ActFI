@@ -32,7 +32,7 @@ namespace Aplicacion
 
         // Formato de consecutivo de activos
         public static string fConsActivo(int numero) {
-            return string.Format("{0:0000}", numero);
+            return string.Format("{0:00000}", numero);
         }
 
         public static void ValidarNumero(object sender, System.Windows.Forms.KeyPressEventArgs e)

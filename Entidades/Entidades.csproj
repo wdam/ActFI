@@ -51,6 +51,7 @@
     <Compile Include="EGrupo.cs" />
     <Compile Include="EParametros.cs" />
     <Compile Include="EPeriodo.cs" />
+    <Compile Include="EPolizas.cs" />
     <Compile Include="ETerceros.cs" />
     <Compile Include="ETipoDocumento.cs" />
     <Compile Include="ETraslados.cs" />

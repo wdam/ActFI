@@ -42,44 +42,99 @@ namespace Aplicacion.Inventario
 
         #region Ocultar / Mostrar Paneles dependiendo de la opcion seleccionada
 
-        private void verPanel1(){
-            panel1.Visible = true;
-            panel3.Visible = false;
-            panel2.Visible = false;
-            panel1.Width = 780;
+        private void verPanel1(){            
+            pnlValores.Visible = false;
+            pnlDetalle.Visible = false;
+            pnlSeguro.Visible = false;
+            pnlMantenimiento.Visible = false;
+            pnlGeneral.Visible = true;
+            pnlGeneral.Width = 780;
             lblLinea1.Visible = true;
             lblLinea2.Visible = false;
-            lblLinea3.Visible = false;            
+            lblLinea3.Visible = false;
+            lblLinea4.Visible = false;
+            lblLinea5.Visible = false;
             btnTab1.FlatAppearance.BorderSize = 1;
             btnTab2.FlatAppearance.BorderSize = 0;
             btnTab3.FlatAppearance.BorderSize = 0;
+            btnTab4.FlatAppearance.BorderSize = 0;
+            btnTab5.FlatAppearance.BorderSize = 0;
         }
 
         private void verPanel2() {
-            panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = false;
-            panel2.Width = 780;
+            pnlGeneral.Visible = false;
+            pnlDetalle.Visible = true;
+            pnlValores.Visible = false;
+            pnlSeguro.Visible = false;
+            pnlMantenimiento.Visible = false;
+            pnlDetalle.Width = 780;
             lblLinea1.Visible = false;
             lblLinea2.Visible = true;
             lblLinea3.Visible = false;
+            lblLinea4.Visible = false;
+            lblLinea5.Visible = false;
             btnTab1.FlatAppearance.BorderSize = 0;
             btnTab2.FlatAppearance.BorderSize = 1;
             btnTab3.FlatAppearance.BorderSize = 0;
+            btnTab4.FlatAppearance.BorderSize = 0;
+            btnTab5.FlatAppearance.BorderSize = 0;
         }
 
         private void verPanel3() {
-            panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = true;
-            panel3.Width = 780;
+            pnlGeneral.Visible = false;
+            pnlDetalle.Visible = false;
+            pnlValores.Visible = true;
+            pnlSeguro.Visible = false;
+            pnlMantenimiento.Visible = false;
+            pnlValores.Width = 780;
             lblLinea1.Visible = false;
             lblLinea2.Visible = false;
             lblLinea3.Visible = true;
+            lblLinea4.Visible = false;
+            lblLinea5.Visible = false;
             btnTab1.FlatAppearance.BorderSize = 0;
             btnTab2.FlatAppearance.BorderSize = 0;
             btnTab3.FlatAppearance.BorderSize = 1;
-        
+            btnTab4.FlatAppearance.BorderSize = 0;
+            btnTab5.FlatAppearance.BorderSize = 0;
+        }
+
+        private void verPanel4() {
+            pnlGeneral.Visible = false;
+            pnlDetalle.Visible = false;
+            pnlValores.Visible = false;
+            pnlMantenimiento.Visible = false;
+            pnlSeguro.Visible = true;
+            pnlSeguro.Width = 780;
+            lblLinea1.Visible = false;
+            lblLinea2.Visible = false;
+            lblLinea3.Visible = false;
+            lblLinea4.Visible = true;
+            lblLinea5.Visible = false;
+            btnTab1.FlatAppearance.BorderSize = 0;
+            btnTab2.FlatAppearance.BorderSize = 0;
+            btnTab3.FlatAppearance.BorderSize = 0;
+            btnTab4.FlatAppearance.BorderSize = 1;
+            btnTab5.FlatAppearance.BorderSize = 0;
+        }
+
+        private void verPanel5() {
+            pnlGeneral.Visible = false;
+            pnlDetalle.Visible = false;
+            pnlValores.Visible = false;
+            pnlSeguro.Visible = false;
+            pnlMantenimiento.Visible = true;
+            pnlMantenimiento.Width = 780;
+            lblLinea1.Visible = false;
+            lblLinea2.Visible = false;
+            lblLinea3.Visible = false;
+            lblLinea4.Visible = false;
+            lblLinea5.Visible = true;
+            btnTab1.FlatAppearance.BorderSize = 0;
+            btnTab2.FlatAppearance.BorderSize = 0;
+            btnTab3.FlatAppearance.BorderSize = 0;
+            btnTab4.FlatAppearance.BorderSize = 0;
+            btnTab5.FlatAppearance.BorderSize = 1;  
         }
 
         private void btnTab1_Click(object sender, EventArgs e)
@@ -95,20 +150,28 @@ namespace Aplicacion.Inventario
         private void btnTab3_Click(object sender, EventArgs e)
         {
             verPanel3();
+        }       
+
+        private void btnTab4_Click(object sender, EventArgs e)
+        {
+            verPanel4();
         }
 
+        private void btnTab5_Click(object sender, EventArgs e)
+        {
+            verPanel5();
+        }
         #endregion  
 
         #region Habilitar y Deshabilitar controles
 
         private void Habilitar()
         {
-            panel1.Enabled = true;
-            panel2.Enabled = true;
-            panel3.Enabled = true;
+            pnlGeneral.Enabled = true;
+            pnlDetalle.Enabled = true;
+            pnlValores.Enabled = true;
             lblGuardar.Enabled = true;
-            lblCancelar.Enabled = true;
-            //txtCodigo.Enabled = true;
+            lblCancelar.Enabled = true;            
             txtCodResp.Enabled = true;
             cboAreaResp.Enabled = true;
 
@@ -121,9 +184,9 @@ namespace Aplicacion.Inventario
 
         private void Deshabilitar()
         {
-            panel1.Enabled = false;
-            panel2.Enabled = false;
-            panel3.Enabled = false;
+            pnlGeneral.Enabled = false;
+            pnlDetalle.Enabled = false;
+            pnlValores.Enabled = false;
             lblGuardar.Enabled = false;
             lblCancelar.Enabled = false;
 
@@ -255,8 +318,6 @@ namespace Aplicacion.Inventario
                 cboAreaResp.DataSource = Areas;
             }
         }
-
-        
 
         private void lblCancelar_Click(object sender, EventArgs e)
         {            
@@ -728,6 +789,32 @@ namespace Aplicacion.Inventario
         private void txtvidaUtil_KeyPress(object sender, KeyPressEventArgs e)
         {
             UtilSystem.ValidarNumero(sender, e);
-        }            
+        }
+
+        private void chkPoliza_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPoliza.Checked == true) {
+                btnTab4.Enabled = true;
+            }
+            else
+            {
+                btnTab4.Enabled = false;
+            }
+        }
+
+        private void chkMantenimiento_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMantenimiento.Checked == true)
+            {
+                btnTab5.Enabled = true;
+            }
+            else {
+                btnTab5.Enabled = false;
+            }
+        }
+
+       
+
+                  
     }
 }

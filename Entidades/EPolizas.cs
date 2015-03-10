@@ -12,8 +12,9 @@ namespace Entidades
         public string fechaInicio { get; set; }
         public string fechaFinal { get; set; }
         public string empresa { get; set; }
-        public string responsable { get; set; }
-        public string telefono { get; set; }
-        public string valor { get; set; } // Valor asegurado
+        public string responsable { get; set; } // Agente de Contacto
+        public string telefono { get; set; }  // Telefono de Contacto
+        public double deducible { get; set; } 
+        public double valor { get; set; } // Valor asegurado
     }
 }
