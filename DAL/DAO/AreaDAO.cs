@@ -31,9 +31,9 @@ namespace DAL.DAO
                         reg = cmd.ExecuteNonQuery();
                         cnx.cerrarConexion();
                     }
-                }
-                return reg;
-            }           
+                }                
+            }
+            return reg;
         } 
 
         public  List<EArea> getAll (){

@@ -50,7 +50,9 @@
     <Compile Include="GenericaBLL.cs" />
     <Compile Include="GrupoBLL.cs" />
     <Compile Include="Inicializar.cs" />
+    <Compile Include="MantenimientoBLL.cs" />
     <Compile Include="ParametrosBLL.cs" />
+    <Compile Include="PolizaBLL.cs" />
     <Compile Include="PrincipalBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TerceroBLL.cs" />

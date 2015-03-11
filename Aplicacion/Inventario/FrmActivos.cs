@@ -24,6 +24,8 @@ namespace Aplicacion.Inventario
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         BLL.CentroCostoBLL bllCentro = new BLL.CentroCostoBLL();
         BLL.GrupoBLL bllGrupo = new BLL.GrupoBLL();
+        BLL.MantenimientoBLL bblMto = new BLL.MantenimientoBLL();
+        BLL.PolizaBLL bllPoliza = new BLL.PolizaBLL();
                 
         bool Encontro = false;   // Verificar si encontro datos de un activo
         
@@ -457,6 +459,12 @@ namespace Aplicacion.Inventario
             if (mensaje == "Exito")
             {
                 bllGrupo.updateConsecutivo(activo.grupo);
+                if (chkPoliza.Checked == true) {
+                    guardarPoliza();
+                }
+                if (chkMantenimiento.Checked == true) {
+                    guardarContratoMto();
+                }
                 guardarImagen();
                 MessageBox.Show("Datos Guardados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Deshabilitar();
@@ -474,8 +482,16 @@ namespace Aplicacion.Inventario
             activo = CrearActivo();
             string mensaje = bllAct.actualizar(activo);
             if (mensaje == "Exito")
-            {
+            {                               
                 guardarImagen();
+                if (chkPoliza.Checked == true)
+                {
+                    guardarPoliza();
+                }
+                if (chkMantenimiento.Checked == true)
+                {
+                    guardarContratoMto();
+                }
                 MessageBox.Show("Datos Actualizados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Deshabilitar();
                 verPanel1();
@@ -516,7 +532,7 @@ namespace Aplicacion.Inventario
             objAct.metodoDep = cboMetodo.SelectedValue.ToString();
 
             objAct.propiedad = cboPropiedad.Text;
-            objAct.fecha = dtpFecha.Value.ToShortDateString();
+            objAct.fecha = dtpFechaCpra.Value.ToShortDateString();
             objAct.area = cboAreaResp.SelectedValue.ToString();
             objAct.responsable = txtCodResp.Text;
             objAct.proveedor = txtcodProveedor.Text;
@@ -537,9 +553,37 @@ namespace Aplicacion.Inventario
             objAct.ctaGanancia = txtctaGanancia.Text;
             objAct.ctaMantenimiento = txtctaMantenimiento.Text;
             objAct.ctaPerdida = txtctaPerdida.Text;
+
+            objAct.fechaDep = UtilSystem.truncarCadena(dtpFechaCpra.Value.AddMonths(Convert.ToInt16(txtvidaUtil.Text)).ToString(),10);
+            objAct.mantenimiento = chkMantenimiento.Checked ? "SI" : "NO";
+            objAct.poliza = chkPoliza.Checked ? "SI" : "NO";
             return objAct;
         }
 
+        private void guardarPoliza() {
+            EPolizas objPol = new EPolizas();
+            objPol.codActivo = txtCodigo.Text;
+            objPol.deducible = UtilSystem.DIN(txtValDeducible.Text);
+            objPol.empresa = txtEmpresa.Text;
+            objPol.fechaInicio = UtilSystem.truncarCadena(dtpFInicioSeg.Value.ToString(),10);
+            objPol.fechaVence = UtilSystem.truncarCadena(dtpFVenceSeg.Value.ToString(),10);
+            objPol.responsable = txtAgente.Text;
+            objPol.telefono = txtTelSeguro.Text;
+            objPol.valor = UtilSystem.DIN(txtValAsegurado.Text);
+            objPol.nPoliza = txtPoliza.Text;
+            bllPoliza.insertar(objPol);
+        }
+
+        private void guardarContratoMto() {
+            EMantenimiento objMto = new EMantenimiento();
+            objMto.codActivo = txtCodigo.Text;
+            objMto.fInicio = UtilSystem.truncarCadena(dtpInicioMto.Value.ToString(),10);
+            objMto.fVence =UtilSystem.truncarCadena( dtpVenceMto.Value.ToString(),10);
+            objMto.nContrato = txtContrato.Text;
+            objMto.nVisitas =Convert.ToInt32(txtNVisitas.Text);
+            objMto.proveedor = txtProveedorMto.Text;
+            objMto.valor = UtilSystem.DIN("0");
+        }
         #endregion  
                     
         private void lblBuscar_Click(object sender, EventArgs e)
@@ -587,7 +631,7 @@ namespace Aplicacion.Inventario
                     cboMetodo.SelectedValue = activo.metodoDep;
 
                     cboPropiedad.Text = activo.propiedad;
-                    dtpFecha.Value = DateTime.Parse(activo.fecha);
+                    dtpFechaCpra.Value = DateTime.Parse(activo.fecha);
                     txtcodProveedor.Text = activo.proveedor;
                     txtcentro.Text = activo.centrocosto;                   
                     cboAreaResp.SelectedValue = activo.area;                    
@@ -811,6 +855,33 @@ namespace Aplicacion.Inventario
             else {
                 btnTab5.Enabled = false;
             }
+        }
+
+        private void txtVComprar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtVComprar.Text)){
+                txtVComprar.Text = "0";
+            }
+            txtVComprar.Text = UtilSystem.fMoneda(Convert.ToDouble(txtVComprar.Text));
+            txtvalComercial.Text = txtVComprar.Text;
+        }
+
+        private void txtValAsegurado_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtValAsegurado.Text))
+            {
+                txtValAsegurado.Text = "0";
+            }
+            txtValAsegurado.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValAsegurado.Text));
+        }
+
+        private void txtValDeducible_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtValDeducible.Text))
+            {
+                txtValDeducible.Text = "0";
+            }
+            txtValDeducible.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValDeducible.Text));
         }
 
        

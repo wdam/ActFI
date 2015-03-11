@@ -52,6 +52,13 @@
             this.lblNuevoSub = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.cboMetodo = new System.Windows.Forms.ComboBox();
+            this.txtEmpresa = new System.Windows.Forms.TextBox();
+            this.txtNomEmp = new System.Windows.Forms.TextBox();
+            this.txtAgente = new System.Windows.Forms.TextBox();
+            this.txtTelSeguro = new System.Windows.Forms.TextBox();
+            this.txtNVisitas = new System.Windows.Forms.TextBox();
+            this.txtProveedorMto = new System.Windows.Forms.TextBox();
+            this.txtNomMto = new System.Windows.Forms.TextBox();
             this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOperacion = new System.Windows.Forms.Label();
@@ -61,49 +68,41 @@
             this.btnTab1 = new System.Windows.Forms.Button();
             this.Label26 = new System.Windows.Forms.Label();
             this.pnlGeneral = new System.Windows.Forms.Panel();
+            this.groupbox2 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaCpra = new System.Windows.Forms.DateTimePicker();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtVComprar = new System.Windows.Forms.TextBox();
+            this.Label12 = new System.Windows.Forms.Label();
+            this.txtNFactura = new System.Windows.Forms.TextBox();
+            this.Label11 = new System.Windows.Forms.Label();
+            this.txtcodProveedor = new System.Windows.Forms.TextBox();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
             this.grbCrear = new System.Windows.Forms.GroupBox();
             this.chkPoliza = new System.Windows.Forms.CheckBox();
-            this.chkMantenimiento = new System.Windows.Forms.CheckBox();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.chkMantenimiento = new System.Windows.Forms.CheckBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.cboSubgrupo = new System.Windows.Forms.ComboBox();
             this.cboGrupo = new System.Windows.Forms.ComboBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.txtvidaUtil = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
-            this.txtReferencia = new System.Windows.Forms.TextBox();
-            this.txtNumSerie = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.Label3 = new System.Windows.Forms.Label();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.Label6 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.Label8 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
-            this.txtMarca = new System.Windows.Forms.TextBox();
-            this.txtModelo = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.groupbox2 = new System.Windows.Forms.GroupBox();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.label34 = new System.Windows.Forms.Label();
-            this.Label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Label11 = new System.Windows.Forms.Label();
-            this.txtcodProveedor = new System.Windows.Forms.TextBox();
-            this.txtProveedor = new System.Windows.Forms.TextBox();
             this.cboAreaResp = new System.Windows.Forms.ComboBox();
             this.txtResponsable = new System.Windows.Forms.TextBox();
             this.txtcentroNom = new System.Windows.Forms.TextBox();
             this.txtcentro = new System.Windows.Forms.TextBox();
             this.Label13 = new System.Windows.Forms.Label();
             this.Label17 = new System.Windows.Forms.Label();
-            this.Label15 = new System.Windows.Forms.Label();
             this.pnlValores = new System.Windows.Forms.Panel();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
             this.txtctaActivo = new System.Windows.Forms.TextBox();
@@ -132,35 +131,42 @@
             this.lblLinea3 = new System.Windows.Forms.Label();
             this.btnTab3 = new System.Windows.Forms.Button();
             this.pnlDetalle = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.txtReferencia = new System.Windows.Forms.TextBox();
+            this.txtNumSerie = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.Label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Label15 = new System.Windows.Forms.Label();
             this.cboPropiedad = new System.Windows.Forms.ComboBox();
             this.Label14 = new System.Windows.Forms.Label();
             this.abrirDialog = new System.Windows.Forms.OpenFileDialog();
             this.lblLinea4 = new System.Windows.Forms.Label();
             this.btnTab4 = new System.Windows.Forms.Button();
             this.pnlSeguro = new System.Windows.Forms.Panel();
-            this.label36 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtpFVenceSeg = new System.Windows.Forms.DateTimePicker();
+            this.dtpFInicioSeg = new System.Windows.Forms.DateTimePicker();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtPoliza = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.txtValDeducible = new System.Windows.Forms.TextBox();
+            this.txtValAsegurado = new System.Windows.Forms.TextBox();
             this.lblLinea5 = new System.Windows.Forms.Label();
             this.btnTab5 = new System.Windows.Forms.Button();
             this.pnlMantenimiento = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtpFInicio = new System.Windows.Forms.DateTimePicker();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtPoliza = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.txtEmpresa = new System.Windows.Forms.TextBox();
-            this.txtNomEmp = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.dtpFVence = new System.Windows.Forms.DateTimePicker();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dtpVenceMto = new System.Windows.Forms.DateTimePicker();
             this.dtpInicioMto = new System.Windows.Forms.DateTimePicker();
@@ -172,23 +178,21 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtValContrato = new System.Windows.Forms.TextBox();
-            this.txtNVisitas = new System.Windows.Forms.TextBox();
-            this.txtProveedorMto = new System.Windows.Forms.TextBox();
-            this.txtNomMto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
+            this.groupbox2.SuspendLayout();
             this.grbCrear.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
-            this.groupbox2.SuspendLayout();
             this.pnlValores.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.gbValores.SuspendLayout();
             this.pnlDetalle.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlSeguro.SuspendLayout();
-            this.pnlMantenimiento.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.pnlMantenimiento.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -464,7 +468,7 @@
             this.lblNuevoSub.BackColor = System.Drawing.Color.White;
             this.lblNuevoSub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblNuevoSub.Image = global::Aplicacion.Properties.Resources.subir;
-            this.lblNuevoSub.Location = new System.Drawing.Point(628, 207);
+            this.lblNuevoSub.Location = new System.Drawing.Point(628, 195);
             this.lblNuevoSub.Name = "lblNuevoSub";
             this.lblNuevoSub.Size = new System.Drawing.Size(32, 32);
             this.lblNuevoSub.TabIndex = 10;
@@ -476,7 +480,7 @@
             this.label30.BackColor = System.Drawing.Color.White;
             this.label30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label30.Image = global::Aplicacion.Properties.Resources.camera;
-            this.label30.Location = new System.Drawing.Point(678, 207);
+            this.label30.Location = new System.Drawing.Point(678, 195);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(32, 32);
             this.label30.TabIndex = 11;
@@ -485,11 +489,79 @@
             // cboMetodo
             // 
             this.cboMetodo.FormattingEnabled = true;
-            this.cboMetodo.Location = new System.Drawing.Point(429, 267);
+            this.cboMetodo.Location = new System.Drawing.Point(202, 169);
             this.cboMetodo.Name = "cboMetodo";
             this.cboMetodo.Size = new System.Drawing.Size(303, 30);
             this.cboMetodo.TabIndex = 9;
             this.toolTip1.SetToolTip(this.cboMetodo, "Seleccione el Metodo de Depreciacion");
+            // 
+            // txtEmpresa
+            // 
+            this.txtEmpresa.Location = new System.Drawing.Point(98, 117);
+            this.txtEmpresa.MaxLength = 15;
+            this.txtEmpresa.Name = "txtEmpresa";
+            this.txtEmpresa.Size = new System.Drawing.Size(140, 29);
+            this.txtEmpresa.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtEmpresa, "Nit Empresa Aseguradora");
+            // 
+            // txtNomEmp
+            // 
+            this.txtNomEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtNomEmp.Enabled = false;
+            this.txtNomEmp.Location = new System.Drawing.Point(244, 117);
+            this.txtNomEmp.Name = "txtNomEmp";
+            this.txtNomEmp.ReadOnly = true;
+            this.txtNomEmp.Size = new System.Drawing.Size(390, 29);
+            this.txtNomEmp.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtNomEmp, "Nombre Empresa");
+            // 
+            // txtAgente
+            // 
+            this.txtAgente.BackColor = System.Drawing.Color.White;
+            this.txtAgente.Location = new System.Drawing.Point(98, 155);
+            this.txtAgente.Name = "txtAgente";
+            this.txtAgente.Size = new System.Drawing.Size(405, 29);
+            this.txtAgente.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.txtAgente, "Nombre de Agente Responsable");
+            // 
+            // txtTelSeguro
+            // 
+            this.txtTelSeguro.Location = new System.Drawing.Point(98, 193);
+            this.txtTelSeguro.MaxLength = 15;
+            this.txtTelSeguro.Name = "txtTelSeguro";
+            this.txtTelSeguro.Size = new System.Drawing.Size(140, 29);
+            this.txtTelSeguro.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtTelSeguro, "Telefono Agente");
+            // 
+            // txtNVisitas
+            // 
+            this.txtNVisitas.Location = new System.Drawing.Point(122, 154);
+            this.txtNVisitas.MaxLength = 15;
+            this.txtNVisitas.Name = "txtNVisitas";
+            this.txtNVisitas.Size = new System.Drawing.Size(140, 29);
+            this.txtNVisitas.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.txtNVisitas, "Telefono Agente");
+            this.txtNVisitas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvidaUtil_KeyPress);
+            // 
+            // txtProveedorMto
+            // 
+            this.txtProveedorMto.Location = new System.Drawing.Point(122, 117);
+            this.txtProveedorMto.MaxLength = 15;
+            this.txtProveedorMto.Name = "txtProveedorMto";
+            this.txtProveedorMto.Size = new System.Drawing.Size(140, 29);
+            this.txtProveedorMto.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtProveedorMto, "Nit Empresa Aseguradora");
+            // 
+            // txtNomMto
+            // 
+            this.txtNomMto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtNomMto.Enabled = false;
+            this.txtNomMto.Location = new System.Drawing.Point(268, 117);
+            this.txtNomMto.Name = "txtNomMto";
+            this.txtNomMto.ReadOnly = true;
+            this.txtNomMto.Size = new System.Drawing.Size(366, 29);
+            this.txtNomMto.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtNomMto, "Nombre Empresa");
             // 
             // smsError
             // 
@@ -583,6 +655,7 @@
             // 
             // pnlGeneral
             // 
+            this.pnlGeneral.Controls.Add(this.groupbox2);
             this.pnlGeneral.Controls.Add(this.grbCrear);
             this.pnlGeneral.Enabled = false;
             this.pnlGeneral.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -591,39 +664,140 @@
             this.pnlGeneral.Size = new System.Drawing.Size(780, 380);
             this.pnlGeneral.TabIndex = 4;
             // 
+            // groupbox2
+            // 
+            this.groupbox2.Controls.Add(this.dtpFechaCpra);
+            this.groupbox2.Controls.Add(this.label46);
+            this.groupbox2.Controls.Add(this.label34);
+            this.groupbox2.Controls.Add(this.txtVComprar);
+            this.groupbox2.Controls.Add(this.Label12);
+            this.groupbox2.Controls.Add(this.txtNFactura);
+            this.groupbox2.Controls.Add(this.Label11);
+            this.groupbox2.Controls.Add(this.txtcodProveedor);
+            this.groupbox2.Controls.Add(this.txtProveedor);
+            this.groupbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.groupbox2.Location = new System.Drawing.Point(11, 243);
+            this.groupbox2.Name = "groupbox2";
+            this.groupbox2.Size = new System.Drawing.Size(760, 130);
+            this.groupbox2.TabIndex = 5;
+            this.groupbox2.TabStop = false;
+            this.groupbox2.Text = "Informacíon de Compra";
+            // 
+            // dtpFechaCpra
+            // 
+            this.dtpFechaCpra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaCpra.Location = new System.Drawing.Point(135, 29);
+            this.dtpFechaCpra.Name = "dtpFechaCpra";
+            this.dtpFechaCpra.Size = new System.Drawing.Size(140, 29);
+            this.dtpFechaCpra.TabIndex = 0;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.Black;
+            this.label46.Location = new System.Drawing.Point(425, 65);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(89, 22);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "V. Compra";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.ForeColor = System.Drawing.Color.Black;
+            this.label34.Location = new System.Drawing.Point(14, 65);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(90, 22);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "N° Factura";
+            // 
+            // txtVComprar
+            // 
+            this.txtVComprar.Location = new System.Drawing.Point(518, 62);
+            this.txtVComprar.MaxLength = 20;
+            this.txtVComprar.Name = "txtVComprar";
+            this.txtVComprar.Size = new System.Drawing.Size(170, 29);
+            this.txtVComprar.TabIndex = 2;
+            this.txtVComprar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVComprar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
+            this.txtVComprar.Leave += new System.EventHandler(this.txtVComprar_Leave);
+            // 
+            // Label12
+            // 
+            this.Label12.AutoSize = true;
+            this.Label12.ForeColor = System.Drawing.Color.Black;
+            this.Label12.Location = new System.Drawing.Point(14, 98);
+            this.Label12.Name = "Label12";
+            this.Label12.Size = new System.Drawing.Size(90, 22);
+            this.Label12.TabIndex = 0;
+            this.Label12.Text = "Proveedor";
+            // 
+            // txtNFactura
+            // 
+            this.txtNFactura.Location = new System.Drawing.Point(136, 62);
+            this.txtNFactura.MaxLength = 15;
+            this.txtNFactura.Name = "txtNFactura";
+            this.txtNFactura.Size = new System.Drawing.Size(140, 29);
+            this.txtNFactura.TabIndex = 1;
+            // 
+            // Label11
+            // 
+            this.Label11.AutoSize = true;
+            this.Label11.ForeColor = System.Drawing.Color.Black;
+            this.Label11.Location = new System.Drawing.Point(14, 32);
+            this.Label11.Name = "Label11";
+            this.Label11.Size = new System.Drawing.Size(114, 22);
+            this.Label11.TabIndex = 0;
+            this.Label11.Text = "F. Adquisición";
+            // 
+            // txtcodProveedor
+            // 
+            this.txtcodProveedor.Location = new System.Drawing.Point(136, 95);
+            this.txtcodProveedor.MaxLength = 15;
+            this.txtcodProveedor.Name = "txtcodProveedor";
+            this.txtcodProveedor.Size = new System.Drawing.Size(140, 29);
+            this.txtcodProveedor.TabIndex = 3;
+            this.txtcodProveedor.TextChanged += new System.EventHandler(this.txtcodProveedor_TextChanged);
+            this.txtcodProveedor.DoubleClick += new System.EventHandler(this.txtcodProveedor_DoubleClick);
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtProveedor.Enabled = false;
+            this.txtProveedor.Location = new System.Drawing.Point(283, 95);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.ReadOnly = true;
+            this.txtProveedor.Size = new System.Drawing.Size(405, 29);
+            this.txtProveedor.TabIndex = 8;
+            // 
             // grbCrear
             // 
             this.grbCrear.Controls.Add(this.chkPoliza);
-            this.grbCrear.Controls.Add(this.chkMantenimiento);
             this.grbCrear.Controls.Add(this.cboEstado);
             this.grbCrear.Controls.Add(this.label27);
+            this.grbCrear.Controls.Add(this.chkMantenimiento);
             this.grbCrear.Controls.Add(this.cboMetodo);
             this.grbCrear.Controls.Add(this.label35);
             this.grbCrear.Controls.Add(this.label30);
             this.grbCrear.Controls.Add(this.lblNuevoSub);
             this.grbCrear.Controls.Add(this.label32);
             this.grbCrear.Controls.Add(this.pbxImagen);
+            this.grbCrear.Controls.Add(this.label36);
             this.grbCrear.Controls.Add(this.txtCodigo);
             this.grbCrear.Controls.Add(this.cboSubgrupo);
             this.grbCrear.Controls.Add(this.cboGrupo);
             this.grbCrear.Controls.Add(this.Label2);
             this.grbCrear.Controls.Add(this.txtvidaUtil);
             this.grbCrear.Controls.Add(this.Label4);
-            this.grbCrear.Controls.Add(this.txtReferencia);
-            this.grbCrear.Controls.Add(this.txtNumSerie);
             this.grbCrear.Controls.Add(this.txtNombre);
-            this.grbCrear.Controls.Add(this.txtDescripcion);
-            this.grbCrear.Controls.Add(this.Label3);
-            this.grbCrear.Controls.Add(this.Label5);
-            this.grbCrear.Controls.Add(this.label36);
-            this.grbCrear.Controls.Add(this.Label6);
             this.grbCrear.Controls.Add(this.label29);
             this.grbCrear.Controls.Add(this.Label8);
             this.grbCrear.Controls.Add(this.Label7);
             this.grbCrear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
             this.grbCrear.Location = new System.Drawing.Point(10, 7);
             this.grbCrear.Name = "grbCrear";
-            this.grbCrear.Size = new System.Drawing.Size(760, 368);
+            this.grbCrear.Size = new System.Drawing.Size(760, 233);
             this.grbCrear.TabIndex = 3;
             this.grbCrear.TabStop = false;
             this.grbCrear.Text = "Datos Generales";
@@ -631,7 +805,9 @@
             // chkPoliza
             // 
             this.chkPoliza.AutoSize = true;
-            this.chkPoliza.Location = new System.Drawing.Point(620, 307);
+            this.chkPoliza.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPoliza.ForeColor = System.Drawing.Color.Black;
+            this.chkPoliza.Location = new System.Drawing.Point(291, 204);
             this.chkPoliza.Name = "chkPoliza";
             this.chkPoliza.Size = new System.Drawing.Size(83, 26);
             this.chkPoliza.TabIndex = 17;
@@ -639,25 +815,14 @@
             this.chkPoliza.UseVisualStyleBackColor = true;
             this.chkPoliza.CheckedChanged += new System.EventHandler(this.chkPoliza_CheckedChanged);
             // 
-            // chkMantenimiento
-            // 
-            this.chkMantenimiento.AutoSize = true;
-            this.chkMantenimiento.Location = new System.Drawing.Point(459, 307);
-            this.chkMantenimiento.Name = "chkMantenimiento";
-            this.chkMantenimiento.Size = new System.Drawing.Size(145, 26);
-            this.chkMantenimiento.TabIndex = 16;
-            this.chkMantenimiento.Text = "Mantenimiento";
-            this.chkMantenimiento.UseVisualStyleBackColor = true;
-            this.chkMantenimiento.CheckedChanged += new System.EventHandler(this.chkMantenimiento_CheckedChanged);
-            // 
             // cboEstado
             // 
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Items.AddRange(new object[] {
-            "En Funcionamiento",
-            "En Mantenimiento",
-            "En Contruccion"});
-            this.cboEstado.Location = new System.Drawing.Point(120, 305);
+            "FUNCIONANDO",
+            "MANTENIMIENTO",
+            "CONTRUCCION"});
+            this.cboEstado.Location = new System.Drawing.Point(388, 131);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(174, 30);
             this.cboEstado.TabIndex = 15;
@@ -666,17 +831,30 @@
             // 
             this.label27.AutoSize = true;
             this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(14, 309);
+            this.label27.Location = new System.Drawing.Point(320, 135);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(62, 22);
             this.label27.TabIndex = 14;
             this.label27.Text = "Estado";
             // 
+            // chkMantenimiento
+            // 
+            this.chkMantenimiento.AutoSize = true;
+            this.chkMantenimiento.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkMantenimiento.ForeColor = System.Drawing.Color.Black;
+            this.chkMantenimiento.Location = new System.Drawing.Point(130, 204);
+            this.chkMantenimiento.Name = "chkMantenimiento";
+            this.chkMantenimiento.Size = new System.Drawing.Size(146, 26);
+            this.chkMantenimiento.TabIndex = 16;
+            this.chkMantenimiento.Text = "Mantenimiento";
+            this.chkMantenimiento.UseVisualStyleBackColor = true;
+            this.chkMantenimiento.CheckedChanged += new System.EventHandler(this.chkMantenimiento_CheckedChanged);
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(241, 271);
+            this.label35.Location = new System.Drawing.Point(14, 173);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(182, 22);
             this.label35.TabIndex = 13;
@@ -686,7 +864,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.Black;
-            this.label32.Location = new System.Drawing.Point(635, 24);
+            this.label32.Location = new System.Drawing.Point(635, 15);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(66, 22);
             this.label32.TabIndex = 9;
@@ -697,23 +875,34 @@
             this.pbxImagen.BackColor = System.Drawing.Color.White;
             this.pbxImagen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pbxImagen.Image")));
-            this.pbxImagen.Location = new System.Drawing.Point(580, 46);
+            this.pbxImagen.Location = new System.Drawing.Point(580, 37);
             this.pbxImagen.Name = "pbxImagen";
             this.pbxImagen.Size = new System.Drawing.Size(175, 155);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbxImagen.TabIndex = 8;
             this.pbxImagen.TabStop = false;
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.ForeColor = System.Drawing.Color.Black;
+            this.label36.Location = new System.Drawing.Point(14, 206);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(101, 22);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "Contrato de";
+            // 
             // txtCodigo
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.White;
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.ForeColor = System.Drawing.Color.Black;
             this.txtCodigo.Location = new System.Drawing.Point(120, 95);
             this.txtCodigo.MaxLength = 10;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(125, 29);
+            this.txtCodigo.ReadOnly = true;
+            this.txtCodigo.Size = new System.Drawing.Size(100, 29);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
@@ -743,7 +932,7 @@
             // 
             this.Label2.AutoSize = true;
             this.Label2.ForeColor = System.Drawing.Color.Black;
-            this.Label2.Location = new System.Drawing.Point(14, 97);
+            this.Label2.Location = new System.Drawing.Point(14, 98);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(63, 22);
             this.Label2.TabIndex = 0;
@@ -752,7 +941,7 @@
             // txtvidaUtil
             // 
             this.txtvidaUtil.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtvidaUtil.Location = new System.Drawing.Point(150, 268);
+            this.txtvidaUtil.Location = new System.Drawing.Point(150, 131);
             this.txtvidaUtil.MaxLength = 3;
             this.txtvidaUtil.Name = "txtvidaUtil";
             this.txtvidaUtil.Size = new System.Drawing.Size(70, 29);
@@ -763,83 +952,22 @@
             // 
             this.Label4.AutoSize = true;
             this.Label4.ForeColor = System.Drawing.Color.Black;
-            this.Label4.Location = new System.Drawing.Point(14, 138);
+            this.Label4.Location = new System.Drawing.Point(226, 98);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(73, 22);
             this.Label4.TabIndex = 0;
             this.Label4.Text = "Nombre";
             // 
-            // txtReferencia
-            // 
-            this.txtReferencia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReferencia.Location = new System.Drawing.Point(406, 232);
-            this.txtReferencia.MaxLength = 20;
-            this.txtReferencia.Name = "txtReferencia";
-            this.txtReferencia.Size = new System.Drawing.Size(155, 29);
-            this.txtReferencia.TabIndex = 7;
-            // 
-            // txtNumSerie
-            // 
-            this.txtNumSerie.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumSerie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumSerie.Location = new System.Drawing.Point(120, 232);
-            this.txtNumSerie.MaxLength = 20;
-            this.txtNumSerie.Name = "txtNumSerie";
-            this.txtNumSerie.Size = new System.Drawing.Size(185, 29);
-            this.txtNumSerie.TabIndex = 6;
-            // 
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(120, 131);
+            this.txtNombre.Location = new System.Drawing.Point(301, 95);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(441, 29);
+            this.txtNombre.Size = new System.Drawing.Size(260, 29);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(120, 167);
-            this.txtDescripcion.MaxLength = 200;
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripcion.Size = new System.Drawing.Size(441, 57);
-            this.txtDescripcion.TabIndex = 3;
-            // 
-            // Label3
-            // 
-            this.Label3.AutoSize = true;
-            this.Label3.ForeColor = System.Drawing.Color.Black;
-            this.Label3.Location = new System.Drawing.Point(14, 173);
-            this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(100, 44);
-            this.Label3.TabIndex = 0;
-            this.Label3.Text = "Descripción\r\nDetallada";
-            // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.ForeColor = System.Drawing.Color.Black;
-            this.Label5.Location = new System.Drawing.Point(14, 235);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(94, 22);
-            this.Label5.TabIndex = 0;
-            this.Label5.Text = "N° de Serie";
-            // 
-            // Label6
-            // 
-            this.Label6.AutoSize = true;
-            this.Label6.ForeColor = System.Drawing.Color.Black;
-            this.Label6.Location = new System.Drawing.Point(310, 235);
-            this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(90, 22);
-            this.Label6.TabIndex = 0;
-            this.Label6.Text = "Referencia";
             // 
             // label29
             // 
@@ -855,7 +983,7 @@
             // 
             this.Label8.AutoSize = true;
             this.Label8.ForeColor = System.Drawing.Color.Black;
-            this.Label8.Location = new System.Drawing.Point(14, 271);
+            this.Label8.Location = new System.Drawing.Point(14, 134);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(133, 22);
             this.Label8.TabIndex = 0;
@@ -871,142 +999,15 @@
             this.Label7.TabIndex = 0;
             this.Label7.Text = "Grupo";
             // 
-            // txtMarca
-            // 
-            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(139, 25);
-            this.txtMarca.MaxLength = 30;
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(206, 29);
-            this.txtMarca.TabIndex = 4;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelo.Location = new System.Drawing.Point(432, 25);
-            this.txtModelo.MaxLength = 10;
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(148, 29);
-            this.txtModelo.TabIndex = 5;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.ForeColor = System.Drawing.Color.Black;
-            this.label33.Location = new System.Drawing.Point(362, 28);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(67, 22);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Modelo";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(33, 28);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(57, 22);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Marca";
-            // 
-            // groupbox2
-            // 
-            this.groupbox2.Controls.Add(this.dtpFecha);
-            this.groupbox2.Controls.Add(this.label34);
-            this.groupbox2.Controls.Add(this.Label12);
-            this.groupbox2.Controls.Add(this.textBox1);
-            this.groupbox2.Controls.Add(this.Label11);
-            this.groupbox2.Controls.Add(this.txtcodProveedor);
-            this.groupbox2.Controls.Add(this.txtProveedor);
-            this.groupbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.groupbox2.Location = new System.Drawing.Point(11, 205);
-            this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Size = new System.Drawing.Size(760, 112);
-            this.groupbox2.TabIndex = 4;
-            this.groupbox2.TabStop = false;
-            this.groupbox2.Text = "Datos de Adquisición";
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(192, 26);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(140, 29);
-            this.dtpFecha.TabIndex = 1;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.ForeColor = System.Drawing.Color.Black;
-            this.label34.Location = new System.Drawing.Point(397, 29);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(90, 22);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "N° Factura";
-            this.label34.Visible = false;
-            // 
-            // Label12
-            // 
-            this.Label12.AutoSize = true;
-            this.Label12.ForeColor = System.Drawing.Color.Black;
-            this.Label12.Location = new System.Drawing.Point(85, 72);
-            this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(90, 22);
-            this.Label12.TabIndex = 0;
-            this.Label12.Text = "Proveedor";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(490, 26);
-            this.textBox1.MaxLength = 15;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 29);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.txtcodProveedor_TextChanged);
-            this.textBox1.DoubleClick += new System.EventHandler(this.txtcodProveedor_DoubleClick);
-            // 
-            // Label11
-            // 
-            this.Label11.AutoSize = true;
-            this.Label11.ForeColor = System.Drawing.Color.Black;
-            this.Label11.Location = new System.Drawing.Point(6, 29);
-            this.Label11.Name = "Label11";
-            this.Label11.Size = new System.Drawing.Size(169, 22);
-            this.Label11.TabIndex = 0;
-            this.Label11.Text = "Fecha de Adquisición";
-            // 
-            // txtcodProveedor
-            // 
-            this.txtcodProveedor.Location = new System.Drawing.Point(192, 69);
-            this.txtcodProveedor.MaxLength = 15;
-            this.txtcodProveedor.Name = "txtcodProveedor";
-            this.txtcodProveedor.Size = new System.Drawing.Size(140, 29);
-            this.txtcodProveedor.TabIndex = 4;
-            this.txtcodProveedor.TextChanged += new System.EventHandler(this.txtcodProveedor_TextChanged);
-            this.txtcodProveedor.DoubleClick += new System.EventHandler(this.txtcodProveedor_DoubleClick);
-            // 
-            // txtProveedor
-            // 
-            this.txtProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtProveedor.Enabled = false;
-            this.txtProveedor.Location = new System.Drawing.Point(338, 69);
-            this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.ReadOnly = true;
-            this.txtProveedor.Size = new System.Drawing.Size(405, 29);
-            this.txtProveedor.TabIndex = 8;
-            // 
             // cboAreaResp
             // 
             this.cboAreaResp.FormattingEnabled = true;
             this.cboAreaResp.Items.AddRange(new object[] {
             "No ha Creado Areas"});
-            this.cboAreaResp.Location = new System.Drawing.Point(171, 30);
+            this.cboAreaResp.Location = new System.Drawing.Point(172, 29);
             this.cboAreaResp.Name = "cboAreaResp";
             this.cboAreaResp.Size = new System.Drawing.Size(272, 30);
-            this.cboAreaResp.TabIndex = 3;
+            this.cboAreaResp.TabIndex = 0;
             this.cboAreaResp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboAreaResp_KeyPress);
             // 
             // txtResponsable
@@ -1035,7 +1036,7 @@
             this.txtcentro.MaxLength = 15;
             this.txtcentro.Name = "txtcentro";
             this.txtcentro.Size = new System.Drawing.Size(160, 29);
-            this.txtcentro.TabIndex = 5;
+            this.txtcentro.TabIndex = 3;
             this.txtcentro.TextChanged += new System.EventHandler(this.txtcentro_TextChanged);
             this.txtcentro.DoubleClick += new System.EventHandler(this.txtcentro_DoubleClick);
             // 
@@ -1043,7 +1044,7 @@
             // 
             this.Label13.AutoSize = true;
             this.Label13.ForeColor = System.Drawing.Color.Black;
-            this.Label13.Location = new System.Drawing.Point(32, 110);
+            this.Label13.Location = new System.Drawing.Point(30, 110);
             this.Label13.Name = "Label13";
             this.Label13.Size = new System.Drawing.Size(133, 22);
             this.Label13.TabIndex = 0;
@@ -1053,21 +1054,11 @@
             // 
             this.Label17.AutoSize = true;
             this.Label17.ForeColor = System.Drawing.Color.Black;
-            this.Label17.Location = new System.Drawing.Point(58, 71);
+            this.Label17.Location = new System.Drawing.Point(56, 71);
             this.Label17.Name = "Label17";
             this.Label17.Size = new System.Drawing.Size(107, 22);
             this.Label17.TabIndex = 0;
             this.Label17.Text = "Responsable";
-            // 
-            // Label15
-            // 
-            this.Label15.AutoSize = true;
-            this.Label15.ForeColor = System.Drawing.Color.Black;
-            this.Label15.Location = new System.Drawing.Point(108, 34);
-            this.Label15.Name = "Label15";
-            this.Label15.Size = new System.Drawing.Size(45, 22);
-            this.Label15.TabIndex = 0;
-            this.Label15.Text = "Area";
             // 
             // pnlValores
             // 
@@ -1383,7 +1374,7 @@
             // 
             // pnlDetalle
             // 
-            this.pnlDetalle.Controls.Add(this.groupbox2);
+            this.pnlDetalle.Controls.Add(this.groupBox6);
             this.pnlDetalle.Controls.Add(this.groupBox1);
             this.pnlDetalle.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlDetalle.Location = new System.Drawing.Point(7, 107);
@@ -1391,29 +1382,156 @@
             this.pnlDetalle.Size = new System.Drawing.Size(780, 380);
             this.pnlDetalle.TabIndex = 176;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label31);
+            this.groupBox6.Controls.Add(this.label33);
+            this.groupBox6.Controls.Add(this.txtModelo);
+            this.groupBox6.Controls.Add(this.txtMarca);
+            this.groupBox6.Controls.Add(this.txtReferencia);
+            this.groupBox6.Controls.Add(this.txtNumSerie);
+            this.groupBox6.Controls.Add(this.txtDescripcion);
+            this.groupBox6.Controls.Add(this.Label3);
+            this.groupBox6.Controls.Add(this.Label5);
+            this.groupBox6.Controls.Add(this.Label6);
+            this.groupBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.groupBox6.Location = new System.Drawing.Point(10, 10);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(761, 166);
+            this.groupBox6.TabIndex = 9;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Detalles";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(133, 26);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(57, 22);
+            this.label31.TabIndex = 29;
+            this.label31.Text = "Marca";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.Color.Black;
+            this.label33.Location = new System.Drawing.Point(436, 26);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(67, 22);
+            this.label33.TabIndex = 30;
+            this.label33.Text = "Modelo";
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtModelo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelo.Location = new System.Drawing.Point(506, 23);
+            this.txtModelo.MaxLength = 10;
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(167, 29);
+            this.txtModelo.TabIndex = 1;
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarca.Location = new System.Drawing.Point(199, 23);
+            this.txtMarca.MaxLength = 30;
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(206, 29);
+            this.txtMarca.TabIndex = 0;
+            // 
+            // txtReferencia
+            // 
+            this.txtReferencia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReferencia.Location = new System.Drawing.Point(506, 60);
+            this.txtReferencia.MaxLength = 20;
+            this.txtReferencia.Name = "txtReferencia";
+            this.txtReferencia.Size = new System.Drawing.Size(167, 29);
+            this.txtReferencia.TabIndex = 3;
+            // 
+            // txtNumSerie
+            // 
+            this.txtNumSerie.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumSerie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumSerie.Location = new System.Drawing.Point(199, 60);
+            this.txtNumSerie.MaxLength = 20;
+            this.txtNumSerie.Name = "txtNumSerie";
+            this.txtNumSerie.Size = new System.Drawing.Size(206, 29);
+            this.txtNumSerie.TabIndex = 2;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(199, 97);
+            this.txtDescripcion.MaxLength = 200;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescripcion.Size = new System.Drawing.Size(474, 57);
+            this.txtDescripcion.TabIndex = 4;
+            // 
+            // Label3
+            // 
+            this.Label3.AutoSize = true;
+            this.Label3.ForeColor = System.Drawing.Color.Black;
+            this.Label3.Location = new System.Drawing.Point(14, 114);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(176, 22);
+            this.Label3.TabIndex = 23;
+            this.Label3.Text = "Descripción Detallada";
+            // 
+            // Label5
+            // 
+            this.Label5.AutoSize = true;
+            this.Label5.ForeColor = System.Drawing.Color.Black;
+            this.Label5.Location = new System.Drawing.Point(96, 63);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(94, 22);
+            this.Label5.TabIndex = 24;
+            this.Label5.Text = "N° de Serie";
+            // 
+            // Label6
+            // 
+            this.Label6.AutoSize = true;
+            this.Label6.ForeColor = System.Drawing.Color.Black;
+            this.Label6.Location = new System.Drawing.Point(411, 63);
+            this.Label6.Name = "Label6";
+            this.Label6.Size = new System.Drawing.Size(90, 22);
+            this.Label6.TabIndex = 25;
+            this.Label6.Text = "Referencia";
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Label15);
             this.groupBox1.Controls.Add(this.cboPropiedad);
             this.groupBox1.Controls.Add(this.cboAreaResp);
             this.groupBox1.Controls.Add(this.txtCodResp);
             this.groupBox1.Controls.Add(this.txtResponsable);
             this.groupBox1.Controls.Add(this.Label17);
             this.groupBox1.Controls.Add(this.txtcentroNom);
-            this.groupBox1.Controls.Add(this.Label15);
             this.groupBox1.Controls.Add(this.Label14);
             this.groupBox1.Controls.Add(this.txtcentro);
             this.groupBox1.Controls.Add(this.Label13);
-            this.groupBox1.Controls.Add(this.label31);
-            this.groupBox1.Controls.Add(this.label33);
-            this.groupBox1.Controls.Add(this.txtModelo);
-            this.groupBox1.Controls.Add(this.txtMarca);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.groupBox1.Location = new System.Drawing.Point(11, 13);
+            this.groupBox1.Location = new System.Drawing.Point(10, 182);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(760, 183);
+            this.groupBox1.Size = new System.Drawing.Size(760, 148);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Ubicación";
+            // 
+            // Label15
+            // 
+            this.Label15.AutoSize = true;
+            this.Label15.ForeColor = System.Drawing.Color.Black;
+            this.Label15.Location = new System.Drawing.Point(118, 34);
+            this.Label15.Name = "Label15";
+            this.Label15.Size = new System.Drawing.Size(45, 22);
+            this.Label15.TabIndex = 19;
+            this.Label15.Text = "Area";
             // 
             // cboPropiedad
             // 
@@ -1422,17 +1540,17 @@
             "PROPIO",
             "ARRENDADO",
             "LEASING"});
-            this.cboPropiedad.Location = new System.Drawing.Point(171, 146);
+            this.cboPropiedad.Location = new System.Drawing.Point(560, 30);
             this.cboPropiedad.Name = "cboPropiedad";
             this.cboPropiedad.Size = new System.Drawing.Size(178, 30);
-            this.cboPropiedad.TabIndex = 0;
+            this.cboPropiedad.TabIndex = 1;
             this.cboPropiedad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboAreaResp_KeyPress);
             // 
             // Label14
             // 
             this.Label14.AutoSize = true;
             this.Label14.ForeColor = System.Drawing.Color.Black;
-            this.Label14.Location = new System.Drawing.Point(76, 150);
+            this.Label14.Location = new System.Drawing.Point(467, 34);
             this.Label14.Name = "Label14";
             this.Label14.Size = new System.Drawing.Size(89, 22);
             this.Label14.TabIndex = 0;
@@ -1478,15 +1596,161 @@
             this.pnlSeguro.Size = new System.Drawing.Size(780, 380);
             this.pnlSeguro.TabIndex = 179;
             // 
-            // label36
+            // groupBox3
             // 
-            this.label36.AutoSize = true;
-            this.label36.ForeColor = System.Drawing.Color.Black;
-            this.label36.Location = new System.Drawing.Point(349, 309);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(101, 22);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Contrato de";
+            this.groupBox3.Controls.Add(this.dtpFVenceSeg);
+            this.groupBox3.Controls.Add(this.dtpFInicioSeg);
+            this.groupBox3.Controls.Add(this.label37);
+            this.groupBox3.Controls.Add(this.label44);
+            this.groupBox3.Controls.Add(this.label43);
+            this.groupBox3.Controls.Add(this.label42);
+            this.groupBox3.Controls.Add(this.label41);
+            this.groupBox3.Controls.Add(this.label38);
+            this.groupBox3.Controls.Add(this.txtPoliza);
+            this.groupBox3.Controls.Add(this.label40);
+            this.groupBox3.Controls.Add(this.label39);
+            this.groupBox3.Controls.Add(this.txtValDeducible);
+            this.groupBox3.Controls.Add(this.txtValAsegurado);
+            this.groupBox3.Controls.Add(this.txtTelSeguro);
+            this.groupBox3.Controls.Add(this.txtEmpresa);
+            this.groupBox3.Controls.Add(this.txtAgente);
+            this.groupBox3.Controls.Add(this.txtNomEmp);
+            this.groupBox3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.groupBox3.Location = new System.Drawing.Point(10, 7);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(760, 362);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Datos del Seguro";
+            // 
+            // dtpFVenceSeg
+            // 
+            this.dtpFVenceSeg.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFVenceSeg.Location = new System.Drawing.Point(494, 77);
+            this.dtpFVenceSeg.Name = "dtpFVenceSeg";
+            this.dtpFVenceSeg.Size = new System.Drawing.Size(140, 29);
+            this.dtpFVenceSeg.TabIndex = 2;
+            // 
+            // dtpFInicioSeg
+            // 
+            this.dtpFInicioSeg.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFInicioSeg.Location = new System.Drawing.Point(98, 77);
+            this.dtpFInicioSeg.Name = "dtpFInicioSeg";
+            this.dtpFInicioSeg.Size = new System.Drawing.Size(167, 29);
+            this.dtpFInicioSeg.TabIndex = 1;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(14, 40);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(81, 22);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "Poliza N° ";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.Black;
+            this.label44.Location = new System.Drawing.Point(358, 234);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(130, 22);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Valor Deducible";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.Black;
+            this.label43.Location = new System.Drawing.Point(351, 196);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(137, 22);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "Valor Asegurado";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.ForeColor = System.Drawing.Color.Black;
+            this.label42.Location = new System.Drawing.Point(14, 196);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(76, 22);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Telefono";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(14, 159);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(63, 22);
+            this.label41.TabIndex = 0;
+            this.label41.Text = "Agente";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.ForeColor = System.Drawing.Color.Black;
+            this.label38.Location = new System.Drawing.Point(14, 120);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(77, 22);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "Empresa";
+            // 
+            // txtPoliza
+            // 
+            this.txtPoliza.Location = new System.Drawing.Point(98, 37);
+            this.txtPoliza.MaxLength = 15;
+            this.txtPoliza.Name = "txtPoliza";
+            this.txtPoliza.Size = new System.Drawing.Size(167, 29);
+            this.txtPoliza.TabIndex = 0;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.ForeColor = System.Drawing.Color.Black;
+            this.label40.Location = new System.Drawing.Point(369, 80);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(121, 22);
+            this.label40.TabIndex = 0;
+            this.label40.Text = "F. Vencimiento";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.ForeColor = System.Drawing.Color.Black;
+            this.label39.Location = new System.Drawing.Point(14, 80);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(66, 22);
+            this.label39.TabIndex = 0;
+            this.label39.Text = "F. Inicio";
+            // 
+            // txtValDeducible
+            // 
+            this.txtValDeducible.Location = new System.Drawing.Point(494, 231);
+            this.txtValDeducible.MaxLength = 15;
+            this.txtValDeducible.Name = "txtValDeducible";
+            this.txtValDeducible.Size = new System.Drawing.Size(140, 29);
+            this.txtValDeducible.TabIndex = 7;
+            this.txtValDeducible.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValDeducible.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
+            this.txtValDeducible.Leave += new System.EventHandler(this.txtValDeducible_Leave);
+            // 
+            // txtValAsegurado
+            // 
+            this.txtValAsegurado.Location = new System.Drawing.Point(494, 193);
+            this.txtValAsegurado.MaxLength = 15;
+            this.txtValAsegurado.Name = "txtValAsegurado";
+            this.txtValAsegurado.Size = new System.Drawing.Size(140, 29);
+            this.txtValAsegurado.TabIndex = 6;
+            this.txtValAsegurado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValAsegurado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
+            this.txtValAsegurado.Leave += new System.EventHandler(this.txtValAsegurado_Leave);
             // 
             // lblLinea5
             // 
@@ -1521,195 +1785,6 @@
             this.pnlMantenimiento.Name = "pnlMantenimiento";
             this.pnlMantenimiento.Size = new System.Drawing.Size(780, 380);
             this.pnlMantenimiento.TabIndex = 182;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dtpFVence);
-            this.groupBox3.Controls.Add(this.dtpFInicio);
-            this.groupBox3.Controls.Add(this.label37);
-            this.groupBox3.Controls.Add(this.label44);
-            this.groupBox3.Controls.Add(this.label43);
-            this.groupBox3.Controls.Add(this.label42);
-            this.groupBox3.Controls.Add(this.label41);
-            this.groupBox3.Controls.Add(this.label38);
-            this.groupBox3.Controls.Add(this.txtPoliza);
-            this.groupBox3.Controls.Add(this.label40);
-            this.groupBox3.Controls.Add(this.label39);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.txtEmpresa);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.txtNomEmp);
-            this.groupBox3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.groupBox3.Location = new System.Drawing.Point(10, 7);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(760, 362);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Datos del Seguro";
-            // 
-            // dtpFInicio
-            // 
-            this.dtpFInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFInicio.Location = new System.Drawing.Point(98, 77);
-            this.dtpFInicio.Name = "dtpFInicio";
-            this.dtpFInicio.Size = new System.Drawing.Size(167, 29);
-            this.dtpFInicio.TabIndex = 1;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.ForeColor = System.Drawing.Color.Black;
-            this.label37.Location = new System.Drawing.Point(14, 40);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(81, 22);
-            this.label37.TabIndex = 0;
-            this.label37.Text = "Poliza N° ";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(14, 120);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(77, 22);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "Empresa";
-            // 
-            // txtPoliza
-            // 
-            this.txtPoliza.Location = new System.Drawing.Point(98, 37);
-            this.txtPoliza.MaxLength = 15;
-            this.txtPoliza.Name = "txtPoliza";
-            this.txtPoliza.Size = new System.Drawing.Size(167, 29);
-            this.txtPoliza.TabIndex = 0;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.ForeColor = System.Drawing.Color.Black;
-            this.label39.Location = new System.Drawing.Point(14, 80);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(66, 22);
-            this.label39.TabIndex = 0;
-            this.label39.Text = "F. Inicio";
-            // 
-            // txtEmpresa
-            // 
-            this.txtEmpresa.Location = new System.Drawing.Point(98, 117);
-            this.txtEmpresa.MaxLength = 15;
-            this.txtEmpresa.Name = "txtEmpresa";
-            this.txtEmpresa.Size = new System.Drawing.Size(140, 29);
-            this.txtEmpresa.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.txtEmpresa, "Nit Empresa Aseguradora");
-            // 
-            // txtNomEmp
-            // 
-            this.txtNomEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNomEmp.Enabled = false;
-            this.txtNomEmp.Location = new System.Drawing.Point(244, 117);
-            this.txtNomEmp.Name = "txtNomEmp";
-            this.txtNomEmp.ReadOnly = true;
-            this.txtNomEmp.Size = new System.Drawing.Size(390, 29);
-            this.txtNomEmp.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.txtNomEmp, "Nombre Empresa");
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.ForeColor = System.Drawing.Color.Black;
-            this.label40.Location = new System.Drawing.Point(369, 80);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(121, 22);
-            this.label40.TabIndex = 0;
-            this.label40.Text = "F. Vencimiento";
-            // 
-            // dtpFVence
-            // 
-            this.dtpFVence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFVence.Location = new System.Drawing.Point(494, 77);
-            this.dtpFVence.Name = "dtpFVence";
-            this.dtpFVence.Size = new System.Drawing.Size(140, 29);
-            this.dtpFVence.TabIndex = 2;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(14, 159);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(63, 22);
-            this.label41.TabIndex = 0;
-            this.label41.Text = "Agente";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.ForeColor = System.Drawing.Color.Black;
-            this.label42.Location = new System.Drawing.Point(14, 196);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(76, 22);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Telefono";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(98, 155);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(405, 29);
-            this.textBox2.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.textBox2, "Nombre de Agente Responsable");
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(98, 193);
-            this.textBox3.MaxLength = 15;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 29);
-            this.textBox3.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.textBox3, "Telefono Agente");
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.ForeColor = System.Drawing.Color.Black;
-            this.label43.Location = new System.Drawing.Point(351, 196);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(137, 22);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "Valor Asegurado";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(494, 193);
-            this.textBox4.MaxLength = 15;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(140, 29);
-            this.textBox4.TabIndex = 6;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.ForeColor = System.Drawing.Color.Black;
-            this.label44.Location = new System.Drawing.Point(358, 234);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(130, 22);
-            this.label44.TabIndex = 0;
-            this.label44.Text = "Valor Deducible";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(494, 231);
-            this.textBox5.MaxLength = 15;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(140, 29);
-            this.textBox5.TabIndex = 7;
             // 
             // groupBox5
             // 
@@ -1827,37 +1902,9 @@
             this.txtValContrato.MaxLength = 15;
             this.txtValContrato.Name = "txtValContrato";
             this.txtValContrato.Size = new System.Drawing.Size(140, 29);
-            this.txtValContrato.TabIndex = 6;
+            this.txtValContrato.TabIndex = 5;
             this.txtValContrato.Visible = false;
-            // 
-            // txtNVisitas
-            // 
-            this.txtNVisitas.Location = new System.Drawing.Point(122, 154);
-            this.txtNVisitas.MaxLength = 15;
-            this.txtNVisitas.Name = "txtNVisitas";
-            this.txtNVisitas.Size = new System.Drawing.Size(140, 29);
-            this.txtNVisitas.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.txtNVisitas, "Telefono Agente");
-            // 
-            // txtProveedorMto
-            // 
-            this.txtProveedorMto.Location = new System.Drawing.Point(122, 117);
-            this.txtProveedorMto.MaxLength = 15;
-            this.txtProveedorMto.Name = "txtProveedorMto";
-            this.txtProveedorMto.Size = new System.Drawing.Size(140, 29);
-            this.txtProveedorMto.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.txtProveedorMto, "Nit Empresa Aseguradora");
-            // 
-            // txtNomMto
-            // 
-            this.txtNomMto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNomMto.Enabled = false;
-            this.txtNomMto.Location = new System.Drawing.Point(268, 117);
-            this.txtNomMto.Name = "txtNomMto";
-            this.txtNomMto.ReadOnly = true;
-            this.txtNomMto.Size = new System.Drawing.Size(366, 29);
-            this.txtNomMto.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.txtNomMto, "Nombre Empresa");
+            this.txtValContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
             // FrmActivos
             // 
@@ -1883,11 +1930,11 @@
             this.Controls.Add(this.btnTab3);
             this.Controls.Add(this.btnTab4);
             this.Controls.Add(this.btnTab5);
-            this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlSeguro);
             this.Controls.Add(this.pnlGeneral);
-            this.Controls.Add(this.pnlDetalle);
             this.Controls.Add(this.pnlValores);
+            this.Controls.Add(this.pnlDetalle);
+            this.Controls.Add(this.pnlMantenimiento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;
@@ -1898,23 +1945,25 @@
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.FlowLayoutPanel1.PerformLayout();
             this.pnlGeneral.ResumeLayout(false);
+            this.groupbox2.ResumeLayout(false);
+            this.groupbox2.PerformLayout();
             this.grbCrear.ResumeLayout(false);
             this.grbCrear.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
-            this.groupbox2.ResumeLayout(false);
-            this.groupbox2.PerformLayout();
             this.pnlValores.ResumeLayout(false);
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
             this.gbValores.ResumeLayout(false);
             this.gbValores.PerformLayout();
             this.pnlDetalle.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pnlSeguro.ResumeLayout(false);
-            this.pnlMantenimiento.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.pnlMantenimiento.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -1936,30 +1985,18 @@
         private System.Windows.Forms.Label lblpdf;
         private System.Windows.Forms.Label lblSalir;
         private System.Windows.Forms.Label lblOperacion;
-        private System.Windows.Forms.GroupBox groupbox2;
         private System.Windows.Forms.ComboBox cboAreaResp;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Label Label12;
-        private System.Windows.Forms.Label Label11;
         private System.Windows.Forms.TextBox txtResponsable;
         private System.Windows.Forms.TextBox txtcentroNom;
-        private System.Windows.Forms.TextBox txtcodProveedor;
         private System.Windows.Forms.TextBox txtcentro;
-        private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.Label Label13;
-        private System.Windows.Forms.Label Label15;
         private System.Windows.Forms.Label Label17;
         private System.Windows.Forms.GroupBox grbCrear;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.ComboBox cboGrupo;
         private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.Label Label4;
-        private System.Windows.Forms.TextBox txtReferencia;
-        private System.Windows.Forms.TextBox txtNumSerie;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label Label3;
-        private System.Windows.Forms.Label Label6;
         private System.Windows.Forms.Label Label7;
         private System.Windows.Forms.TextBox txtCodResp;
         private System.Windows.Forms.Panel pnlGeneral;
@@ -2006,13 +2043,8 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label lblLinea3;
         private System.Windows.Forms.Button btnTab3;
-        private System.Windows.Forms.Label Label5;
         private System.Windows.Forms.PictureBox pbxImagen;
-        private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox txtModelo;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Panel pnlDetalle;
         private System.Windows.Forms.Label lblNuevoSub;
         private System.Windows.Forms.Label label30;
@@ -2021,8 +2053,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboPropiedad;
         private System.Windows.Forms.Label Label14;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboMetodo;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.OpenFileDialog abrirDialog;
@@ -2038,23 +2068,23 @@
         private System.Windows.Forms.Button btnTab5;
         private System.Windows.Forms.Panel pnlMantenimiento;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dtpFInicio;
+        private System.Windows.Forms.DateTimePicker dtpFInicioSeg;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TextBox txtPoliza;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtEmpresa;
         private System.Windows.Forms.TextBox txtNomEmp;
-        private System.Windows.Forms.DateTimePicker dtpFVence;
+        private System.Windows.Forms.DateTimePicker dtpFVenceSeg;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTelSeguro;
+        private System.Windows.Forms.TextBox txtAgente;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtValAsegurado;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtValDeducible;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DateTimePicker dtpVenceMto;
         private System.Windows.Forms.DateTimePicker dtpInicioMto;
@@ -2069,5 +2099,27 @@
         private System.Windows.Forms.TextBox txtNVisitas;
         private System.Windows.Forms.TextBox txtProveedorMto;
         private System.Windows.Forms.TextBox txtNomMto;
+        private System.Windows.Forms.Label Label15;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.TextBox txtReferencia;
+        private System.Windows.Forms.TextBox txtNumSerie;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label Label3;
+        private System.Windows.Forms.Label Label5;
+        private System.Windows.Forms.Label Label6;
+        private System.Windows.Forms.GroupBox groupbox2;
+        private System.Windows.Forms.DateTimePicker dtpFechaCpra;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label Label12;
+        private System.Windows.Forms.TextBox txtNFactura;
+        private System.Windows.Forms.Label Label11;
+        private System.Windows.Forms.TextBox txtcodProveedor;
+        private System.Windows.Forms.TextBox txtProveedor;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TextBox txtVComprar;
     }
 }

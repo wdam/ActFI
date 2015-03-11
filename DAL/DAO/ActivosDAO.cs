@@ -84,12 +84,12 @@ namespace DAL.DAO
                             " vidaUtil, propiedad, fechaCompra, AreaLoc, responsable, proveedor, ccosto, " +
                             " estado, valComercial, valSalvamento, valLibros, valMejoras, valHistorico, " +
                             "depajustada, depAcumulada, grupo, subgrupo, ctaActivo, ctadepreciacion, ctagastos, " +
-                            "ctaPerdida, ctaGanancia, ctaMantenimiento, metodoDep) VALUES  " +
-                            "(?codigo, ?nombre, ?descripcion, ?marca, ?modelo, ?numSerie, ?referecia, " +
+                            "ctaPerdida, ctaGanancia, ctaMantenimiento, metodoDep, fechamaxDep, mantenimiento, asegurado)   " +
+                            " VALUES (?codigo, ?nombre, ?descripcion, ?marca, ?modelo, ?numSerie, ?referecia, " +
                             " ?vidaUtil, ?propiedad, ?fechaCompra, ?AreaLoc, ?responsable, ?proveedor, ?ccosto, " +
                             " ?estado, ?valComercial, ?valSalvamento, ?valLibros, ?valMejoras, ?valHistorico, " +
                             " ?depajustada, ?depAcumulada, ?grupo, ?subgrupo, ?ctaActivo, ?ctadepreciacion, ?ctagastos, " +
-                            "?ctaPerdida, ?ctaGanancia, ?ctaMantenimiento, ?metodoDep)";
+                            "?ctaPerdida, ?ctaGanancia, ?ctaMantenimiento, ?metodoDep, ?fechamaxDep, ?mantenimiento, ?asegurado)";
 
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -132,11 +132,14 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?ctaGanancia", MySqlDbType.String).Value = act.ctaGanancia;
                     cmd.Parameters.Add("?ctaMantenimiento", MySqlDbType.String).Value = act.ctaMantenimiento;
 
+                    cmd.Parameters.Add("?fechamaxDep", MySqlDbType.VarChar).Value = act.fechaDep;
+                    cmd.Parameters.Add("?mantenimiento", MySqlDbType.String).Value = act.mantenimiento;
+                    cmd.Parameters.Add("?asegurado", MySqlDbType.String).Value = act.poliza;
+
                     if (cnx.abrirConexion()) {
                         reg = cmd.ExecuteNonQuery();
                         cnx.cerrarConexion();
                     }
-
                 }
                 return reg;
             }

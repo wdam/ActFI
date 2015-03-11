@@ -44,5 +44,9 @@ namespace Entidades
         public string ctaGanancia { get; set; }
         public string ctaPerdida { get; set; }
         public string ctaMantenimiento { get; set; }
+
+        public string fechaDep { get; set; }
+        public string poliza { get; set; }
+        public string mantenimiento { get; set; }
     }
 }
