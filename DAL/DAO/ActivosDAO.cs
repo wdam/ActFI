@@ -84,12 +84,12 @@ namespace DAL.DAO
                             " vidaUtil, propiedad, fechaCompra, AreaLoc, responsable, proveedor, ccosto, " +
                             " estado, valComercial, valSalvamento, valLibros, valMejoras, valHistorico, " +
                             "depajustada, depAcumulada, grupo, subgrupo, ctaActivo, ctadepreciacion, ctagastos, " +
-                            "ctaPerdida, ctaGanancia, ctaMantenimiento, metodoDep, fechamaxDep, mantenimiento, asegurado)   " +
+                            "ctaPerdida, ctaGanancia, ctaMantenimiento, metodoDep, fechamaxDep, mantenimiento, poliza, nFactura)   " +
                             " VALUES (?codigo, ?nombre, ?descripcion, ?marca, ?modelo, ?numSerie, ?referecia, " +
                             " ?vidaUtil, ?propiedad, ?fechaCompra, ?AreaLoc, ?responsable, ?proveedor, ?ccosto, " +
                             " ?estado, ?valComercial, ?valSalvamento, ?valLibros, ?valMejoras, ?valHistorico, " +
                             " ?depajustada, ?depAcumulada, ?grupo, ?subgrupo, ?ctaActivo, ?ctadepreciacion, ?ctagastos, " +
-                            "?ctaPerdida, ?ctaGanancia, ?ctaMantenimiento, ?metodoDep, ?fechamaxDep, ?mantenimiento, ?asegurado)";
+                            "?ctaPerdida, ?ctaGanancia, ?ctaMantenimiento, ?metodoDep, ?fechamaxDep, ?mantenimiento, ?poliza, ?nFactura)";
 
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -134,8 +134,9 @@ namespace DAL.DAO
 
                     cmd.Parameters.Add("?fechamaxDep", MySqlDbType.VarChar).Value = act.fechaDep;
                     cmd.Parameters.Add("?mantenimiento", MySqlDbType.String).Value = act.mantenimiento;
-                    cmd.Parameters.Add("?asegurado", MySqlDbType.String).Value = act.poliza;
-
+                    cmd.Parameters.Add("?poliza", MySqlDbType.String).Value = act.poliza;
+                    cmd.Parameters.Add("?nFactura", MySqlDbType.String).Value = act.nFactura;
+                    
                     if (cnx.abrirConexion()) {
                         reg = cmd.ExecuteNonQuery();
                         cnx.cerrarConexion();
@@ -341,6 +342,11 @@ namespace DAL.DAO
             act.ctaGanancia = fila.GetString("ctaGanancia");
             act.ctaMantenimiento = fila.GetString("ctaPerdida");
             act.ctaPerdida = fila.GetString("ctaMantenimiento");
+
+            act.fechaDep = fila.GetString("fechamaxDep");
+            act.mantenimiento = fila.GetString("mantenimiento");
+            act.poliza = fila.GetString("poliza");
+            act.nFactura = fila.GetString("nFactura");
             return act;
         }
 

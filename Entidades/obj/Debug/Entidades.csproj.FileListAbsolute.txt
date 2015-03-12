@@ -7,4 +7,3 @@ D:\Wendell\ActFI\Entidades\bin\Debug\Entidades.dll
 D:\Wendell\ActFI\Entidades\bin\Debug\Entidades.pdb
 D:\Wendell\ActFI\Entidades\obj\Debug\Entidades.dll
 D:\Wendell\ActFI\Entidades\obj\Debug\Entidades.pdb
-D:\Wendell\ActFI\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache

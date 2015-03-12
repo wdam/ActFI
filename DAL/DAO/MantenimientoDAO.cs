@@ -14,7 +14,7 @@ namespace DAL.DAO
         public int insertar(EMantenimiento obj)
         {
             int nReg = 0;
-            string sql = " INSERT INTO afmantenimiento (codActivo, nContrato, fInicio, fVence " +
+            string sql = " INSERT INTO afmantenimiento (codActivo, nContrato, fInicio, fVence, " +
                 " nVisitas, proveedor, valor)  VALUES (?codActivo, ?nContrato,  " +
                 " ?fInicio, ?fVence , ?nVisitas, ?proveedor,  ?valor)";
             using (conexion cnx = new conexion())
@@ -41,6 +41,46 @@ namespace DAL.DAO
                 }
             }
             return nReg;
+        }
+
+        public EMantenimiento buscar(string codigo) {
+            EMantenimiento obj = null;
+            string sql = "SELECT * FROM afmantenimiento WHERE codActivo=?codigo";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = codigo;
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.HasRows == true)
+                        {
+                            dr.Read();
+                            obj = mapearObjeto(dr);
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return obj;
+        }
+
+        protected EMantenimiento mapearObjeto(MySqlDataReader fila)
+        {
+            EMantenimiento objMto = new EMantenimiento();
+            objMto.idMto = fila.GetInt32("idMto");
+            objMto.codActivo = fila.GetString("codActivo");
+            objMto.nContrato = fila.GetString("nContrato");
+            objMto.fInicio = fila.GetString("fInicio");
+            objMto.fVence = fila.GetString("fVence");
+            objMto.nVisitas = fila.GetInt16("nVisitas");
+            objMto.proveedor = fila.GetString("proveedor");
+            objMto.valor = fila.GetDouble("valor");           
+            return objMto;
         }
     }
 }

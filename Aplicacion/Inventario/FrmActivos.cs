@@ -24,19 +24,23 @@ namespace Aplicacion.Inventario
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         BLL.CentroCostoBLL bllCentro = new BLL.CentroCostoBLL();
         BLL.GrupoBLL bllGrupo = new BLL.GrupoBLL();
-        BLL.MantenimientoBLL bblMto = new BLL.MantenimientoBLL();
+        BLL.MantenimientoBLL bllMto = new BLL.MantenimientoBLL();
         BLL.PolizaBLL bllPoliza = new BLL.PolizaBLL();
                 
         bool Encontro = false;   // Verificar si encontro datos de un activo
-        
+        // Declaracion de Objetos
         ETerceros user;
         ECentroCosto centro;        
         EActivos activo;
         EGrupo objGrupo;
+        EMantenimiento objMnto;
+        EPolizas objPoliza;
+
         // Declaracion de Listas
         List<EGrupo> lstGrupos;
         List<ESubgrupo> lstSubgrupo;
         double porSalvto = 0; // porcentaje de salvamento 
+
         public FrmActivos()
         {
             InitializeComponent();
@@ -172,6 +176,8 @@ namespace Aplicacion.Inventario
             pnlGeneral.Enabled = true;
             pnlDetalle.Enabled = true;
             pnlValores.Enabled = true;
+            pnlMantenimiento.Enabled = true;
+            pnlSeguro.Enabled = true;
             lblGuardar.Enabled = true;
             lblCancelar.Enabled = true;            
             txtCodResp.Enabled = true;
@@ -181,7 +187,11 @@ namespace Aplicacion.Inventario
             lblEditar.Enabled = false;
             lblNuevo.Enabled = false;
             lblpdf.Enabled = false;
-         
+            if (lblOperacion.Text == "Nuevo"){
+                chkMantenimiento.Checked = false;
+                chkPoliza.Checked = false;
+            }
+            
         }
 
         private void Deshabilitar()
@@ -189,6 +199,8 @@ namespace Aplicacion.Inventario
             pnlGeneral.Enabled = false;
             pnlDetalle.Enabled = false;
             pnlValores.Enabled = false;
+            pnlMantenimiento.Enabled = false;
+            pnlSeguro.Enabled = false;
             lblGuardar.Enabled = false;
             lblCancelar.Enabled = false;
 
@@ -196,6 +208,8 @@ namespace Aplicacion.Inventario
             lblEditar.Enabled = true;
             lblNuevo.Enabled = true;
             lblpdf.Enabled = true;
+            btnTab4.Enabled = false;
+            btnTab5.Enabled = false;
         }
 
         private void colocarEnCero()
@@ -206,6 +220,8 @@ namespace Aplicacion.Inventario
                 }
             }
             pbxImagen.Image = Properties.Resources.defaultIm;
+            chkMantenimiento.Checked = false;
+            chkPoliza.Checked = false;
         }
         #endregion
 
@@ -271,9 +287,148 @@ namespace Aplicacion.Inventario
         }      
 
         #endregion        
-        
-        
 
+        #region Proceso de Guardar y Modificar
+        private void guardar()
+        {
+            activo = CrearActivo();
+            string mensaje = bllAct.insertar(activo);
+            if (mensaje == "Exito")
+            {
+                bllGrupo.updateConsecutivo(activo.grupo);
+                if (chkPoliza.Checked == true)
+                {
+                    guardarPoliza();
+                }
+                if (chkMantenimiento.Checked == true)
+                {
+                    guardarContratoMto();
+                }
+                guardarImagen();
+                MessageBox.Show("Datos Guardados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Deshabilitar();
+                verPanel1();
+                lblOperacion.Text = "Consulta";
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void modificar()
+        {
+            activo = CrearActivo();
+            string mensaje = bllAct.actualizar(activo);
+            if (mensaje == "Exito")
+            {
+                guardarImagen();
+                //if (chkPoliza.Checked == true)
+                //{
+                //    guardarPoliza();
+                //}
+                //if (chkMantenimiento.Checked == true)
+                //{
+                //    guardarContratoMto();
+                //}
+                MessageBox.Show("Datos Actualizados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Deshabilitar();
+                verPanel1();
+                lblOperacion.Text = "Consulta";
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void guardarImagen()
+        {
+            if (pbxImagen.Image != null)
+            {
+                if (!System.IO.Directory.Exists(UtilSystem.rutaImagen))
+                {
+                    System.IO.Directory.CreateDirectory(UtilSystem.rutaImagen);
+                }
+                pbxImagen.Image.Save(UtilSystem.rutaImagen + txtCodigo.Text + ".jpg");
+            }
+
+        }
+
+        private EActivos CrearActivo()
+        {
+            EActivos objAct = new EActivos();
+            objAct.codigo = txtCodigo.Text;
+            objAct.nombre = txtNombre.Text;
+            objAct.descripcion = txtDescripcion.Text;
+            objAct.numSerie = txtNumSerie.Text;
+            objAct.referencia = txtReferencia.Text;
+            objAct.marca = txtMarca.Text;
+            objAct.modelo = txtModelo.Text;
+            objAct.grupo = cboGrupo.SelectedValue.ToString();
+            objAct.subGrupo = cboSubgrupo.SelectedValue.ToString();
+            objAct.vidaUtil = Convert.ToInt16(txtvidaUtil.Text);
+            objAct.metodoDep = cboMetodo.SelectedValue.ToString();
+
+            objAct.propiedad = cboPropiedad.Text;
+            objAct.fecha = dtpFechaCpra.Value.ToShortDateString();
+            objAct.area = cboAreaResp.SelectedValue.ToString();
+            objAct.responsable = txtCodResp.Text;
+            objAct.proveedor = txtcodProveedor.Text;
+            objAct.centrocosto = txtcentro.Text;
+            objAct.estado = cboEstado.Text;
+
+            objAct.valComercial = UtilSystem.DIN(txtvalComercial.Text);
+            objAct.valSalvamento = UtilSystem.DIN(txtvalSalvamento.Text);
+            objAct.valHistorico = UtilSystem.DIN(txtvalHistorico.Text);
+            objAct.valLibros = UtilSystem.DIN(txtvalLibros.Text);
+            objAct.valMejoras = UtilSystem.DIN(txtvalMejoras.Text);
+            objAct.depAjustada = UtilSystem.DIN(txtdepAjustada.Text);
+            objAct.depAcumulada = UtilSystem.DIN(txtdepAcumulada.Text);
+
+            objAct.ctaActivo = txtctaActivo.Text;
+            objAct.ctaDepreciacion = txtctaDepreciacion.Text;
+            objAct.ctaGastos = txtctaGastos.Text;
+            objAct.ctaGanancia = txtctaGanancia.Text;
+            objAct.ctaMantenimiento = txtctaMantenimiento.Text;
+            objAct.ctaPerdida = txtctaPerdida.Text;
+
+            objAct.fechaDep = UtilSystem.truncarCadena(dtpFechaCpra.Value.AddMonths(Convert.ToInt16(txtvidaUtil.Text)).ToString(), 10);
+            objAct.mantenimiento = chkMantenimiento.Checked ? "SI" : "NO";
+            objAct.poliza = chkPoliza.Checked ? "SI" : "NO";
+            objAct.nFactura = txtNFactura.Text;
+            return objAct;
+        }
+
+        private void guardarPoliza()
+        {
+            EPolizas objPol = new EPolizas();
+            objPol.codActivo = txtCodigo.Text;
+            objPol.deducible = UtilSystem.DIN(txtValDeducible.Text);
+            objPol.empresa = txtEmpresa.Text;
+            objPol.fechaInicio = UtilSystem.truncarCadena(dtpFInicioSeg.Value.ToString(), 10);
+            objPol.fechaVence = UtilSystem.truncarCadena(dtpFVenceSeg.Value.ToString(), 10);
+            objPol.responsable = txtAgente.Text;
+            objPol.telefono = txtTelSeguro.Text;
+            objPol.valor = UtilSystem.DIN(txtValAsegurado.Text);
+            objPol.nPoliza = txtPoliza.Text;
+            bllPoliza.insertar(objPol);
+        }
+
+        private void guardarContratoMto()
+        {
+            EMantenimiento objMto = new EMantenimiento();
+            objMto.codActivo = txtCodigo.Text;
+            objMto.fInicio = UtilSystem.truncarCadena(dtpInicioMto.Value.ToString(), 10);
+            objMto.fVence = UtilSystem.truncarCadena(dtpVenceMto.Value.ToString(), 10);
+            objMto.nContrato = txtContrato.Text;
+            objMto.nVisitas = Convert.ToInt32(txtNVisitas.Text);
+            objMto.proveedor = txtProveedorMto.Text;
+            objMto.valor = UtilSystem.DIN("0");
+            bllMto.insertar(objMto);
+        }
+        #endregion  
+        
         private void cargarGrupos() {
             lstGrupos = bllGrupo.getAll("Activo");
             cboGrupo.DataSource = lstGrupos;
@@ -342,7 +497,6 @@ namespace Aplicacion.Inventario
                 util.limpiarControles(this);
             }
             cboGrupo_SelectedIndexChanged(null, null);
-
             verPanel1();     
             Habilitar();                    
             colocarEnCero();                        
@@ -449,142 +603,7 @@ namespace Aplicacion.Inventario
             { 
                 MessageBox.Show("Datos Incorrectos .. Verifique", "SAE Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-
-        #region Proceso de Guardar y Modificar 
-        private void guardar()
-        {
-            activo = CrearActivo();
-            string mensaje = bllAct.insertar(activo);
-            if (mensaje == "Exito")
-            {
-                bllGrupo.updateConsecutivo(activo.grupo);
-                if (chkPoliza.Checked == true) {
-                    guardarPoliza();
-                }
-                if (chkMantenimiento.Checked == true) {
-                    guardarContratoMto();
-                }
-                guardarImagen();
-                MessageBox.Show("Datos Guardados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Deshabilitar();
-                verPanel1();
-                lblOperacion.Text = "Consulta";
-            }
-            else
-            {
-                MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void modificar()
-        {
-            activo = CrearActivo();
-            string mensaje = bllAct.actualizar(activo);
-            if (mensaje == "Exito")
-            {                               
-                guardarImagen();
-                if (chkPoliza.Checked == true)
-                {
-                    guardarPoliza();
-                }
-                if (chkMantenimiento.Checked == true)
-                {
-                    guardarContratoMto();
-                }
-                MessageBox.Show("Datos Actualizados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Deshabilitar();
-                verPanel1();
-                lblOperacion.Text = "Consulta";               
-            }
-            else
-            {
-                MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void guardarImagen()
-        {
-            if (pbxImagen.Image != null)
-            {
-                if (!System.IO.Directory.Exists(UtilSystem.rutaImagen))
-                {
-                    System.IO.Directory.CreateDirectory(UtilSystem.rutaImagen);
-                }
-                pbxImagen.Image.Save(UtilSystem.rutaImagen + txtCodigo.Text + ".jpg");
-            }
-           
-        }
-
-        private EActivos CrearActivo()
-        {
-            EActivos objAct = new EActivos();
-            objAct.codigo = txtCodigo.Text;
-            objAct.nombre = txtNombre.Text;
-            objAct.descripcion = txtDescripcion.Text;
-            objAct.numSerie = txtNumSerie.Text;
-            objAct.referencia = txtReferencia.Text;
-            objAct.marca = txtMarca.Text;
-            objAct.modelo = txtModelo.Text;
-            objAct.grupo = cboGrupo.SelectedValue.ToString();
-            objAct.subGrupo = cboSubgrupo.SelectedValue.ToString();
-            objAct.vidaUtil = Convert.ToInt16(txtvidaUtil.Text);
-            objAct.metodoDep = cboMetodo.SelectedValue.ToString();
-
-            objAct.propiedad = cboPropiedad.Text;
-            objAct.fecha = dtpFechaCpra.Value.ToShortDateString();
-            objAct.area = cboAreaResp.SelectedValue.ToString();
-            objAct.responsable = txtCodResp.Text;
-            objAct.proveedor = txtcodProveedor.Text;
-            objAct.centrocosto = txtcentro.Text;
-            objAct.estado = cboEstado.Text;
-
-            objAct.valComercial = UtilSystem.DIN(txtvalComercial.Text);
-            objAct.valSalvamento = UtilSystem.DIN(txtvalSalvamento.Text);
-            objAct.valHistorico = UtilSystem.DIN(txtvalHistorico.Text);
-            objAct.valLibros = UtilSystem.DIN(txtvalLibros.Text);
-            objAct.valMejoras = UtilSystem.DIN(txtvalMejoras.Text);
-            objAct.depAjustada = UtilSystem.DIN(txtdepAjustada.Text);
-            objAct.depAcumulada = UtilSystem.DIN(txtdepAcumulada.Text);
-
-            objAct.ctaActivo = txtctaActivo.Text;
-            objAct.ctaDepreciacion = txtctaDepreciacion.Text;
-            objAct.ctaGastos = txtctaGastos.Text;
-            objAct.ctaGanancia = txtctaGanancia.Text;
-            objAct.ctaMantenimiento = txtctaMantenimiento.Text;
-            objAct.ctaPerdida = txtctaPerdida.Text;
-
-            objAct.fechaDep = UtilSystem.truncarCadena(dtpFechaCpra.Value.AddMonths(Convert.ToInt16(txtvidaUtil.Text)).ToString(),10);
-            objAct.mantenimiento = chkMantenimiento.Checked ? "SI" : "NO";
-            objAct.poliza = chkPoliza.Checked ? "SI" : "NO";
-            return objAct;
-        }
-
-        private void guardarPoliza() {
-            EPolizas objPol = new EPolizas();
-            objPol.codActivo = txtCodigo.Text;
-            objPol.deducible = UtilSystem.DIN(txtValDeducible.Text);
-            objPol.empresa = txtEmpresa.Text;
-            objPol.fechaInicio = UtilSystem.truncarCadena(dtpFInicioSeg.Value.ToString(),10);
-            objPol.fechaVence = UtilSystem.truncarCadena(dtpFVenceSeg.Value.ToString(),10);
-            objPol.responsable = txtAgente.Text;
-            objPol.telefono = txtTelSeguro.Text;
-            objPol.valor = UtilSystem.DIN(txtValAsegurado.Text);
-            objPol.nPoliza = txtPoliza.Text;
-            bllPoliza.insertar(objPol);
-        }
-
-        private void guardarContratoMto() {
-            EMantenimiento objMto = new EMantenimiento();
-            objMto.codActivo = txtCodigo.Text;
-            objMto.fInicio = UtilSystem.truncarCadena(dtpInicioMto.Value.ToString(),10);
-            objMto.fVence =UtilSystem.truncarCadena( dtpVenceMto.Value.ToString(),10);
-            objMto.nContrato = txtContrato.Text;
-            objMto.nVisitas =Convert.ToInt32(txtNVisitas.Text);
-            objMto.proveedor = txtProveedorMto.Text;
-            objMto.valor = UtilSystem.DIN("0");
-        }
-        #endregion  
+        }     
                     
         private void lblBuscar_Click(object sender, EventArgs e)
         {
@@ -607,17 +626,25 @@ namespace Aplicacion.Inventario
                 txtCodigo.Enabled = false;
                 txtCodResp.Enabled = false;
                 cboAreaResp.Enabled = false;
+                if (chkPoliza.Enabled == true) {
+                    btnTab4.Enabled = true;
+                }
+                if (chkMantenimiento.Enabled == true) {
+                    btnTab5.Enabled = true;
+                }
             }
             else {
                 MessageBox.Show("Debe Seleccionar un Activo.. ", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        
         private  void mostrarDatos(){
             Encontro = false;
             if (!string.IsNullOrWhiteSpace(txtCodigo.Text)){
-                activo = bllAct.buscar(txtCodigo.Text);
-                if (activo != null) {
+                activo = bllAct.buscar(txtCodigo.Text);               
+                colocarEnCero();
+                if (activo != null) {                                                                                
+                    txtCodigo.Text = activo.codigo;
                     txtNombre.Text = activo.nombre;
                     txtNumSerie.Text = activo.numSerie;
                     txtReferencia.Text = activo.referencia;
@@ -645,6 +672,7 @@ namespace Aplicacion.Inventario
                     txtvalSalvamento.Text = UtilSystem.fMoneda(activo.valSalvamento);
                     txtdepAcumulada.Text =UtilSystem.fMoneda( activo.depAcumulada);
                     txtdepAjustada.Text = UtilSystem.fMoneda(activo.depAjustada);
+                    txtVComprar.Text = UtilSystem.fMoneda(activo.valComercial);
 
                     txtctaActivo.Text = activo.ctaActivo;
                     txtctaMantenimiento.Text = activo.ctaMantenimiento;
@@ -657,10 +685,49 @@ namespace Aplicacion.Inventario
                         pbxImagen.ImageLocation = UtilSystem.rutaImagen + activo.codigo + ".jpg";
                         pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
+                    txtNFactura.Text = activo.nFactura;
+                    if (activo.poliza == "SI"){
+                        chkPoliza.Checked = true;
+                        mostrarPoliza(activo.codigo);
+                    }
+                    
+                    if (activo.mantenimiento == "SI"){
+                        chkMantenimiento.Checked = true;
+                        mostrarCtoMto(activo.codigo);
+                    }                   
                     Encontro = true;
+                    verPanel1(); 
                 }
             }   
 
+        }
+
+        private void mostrarPoliza(string codigo) {
+            objPoliza = bllPoliza.buscar(codigo);
+            if (objPoliza != null) {
+                txtPoliza.Text = objPoliza.nPoliza;    
+                txtValDeducible.Text = UtilSystem.fMoneda(objPoliza.deducible);
+                txtEmpresa.Text = objPoliza.empresa ;
+                dtpFInicioSeg.Value = Convert.ToDateTime(objPoliza.fechaInicio);
+                dtpFVenceSeg.Value = Convert.ToDateTime(objPoliza.fechaVence);
+                txtAgente.Text = objPoliza.responsable;
+                txtTelSeguro.Text = objPoliza.telefono;
+                txtValAsegurado.Text = UtilSystem.fMoneda(objPoliza.valor);
+                lblIDPoliza.Text = objPoliza.idPoliza.ToString();
+            }
+        }
+
+        private void mostrarCtoMto(string codigo) {
+            objMnto = bllMto.buscar(codigo);
+            if (objMnto != null) {
+                dtpInicioMto.Value = Convert.ToDateTime( objMnto.fInicio);
+                dtpVenceMto.Value = Convert.ToDateTime(objMnto.fVence);
+                txtContrato.Text = objMnto.nContrato;
+                txtNVisitas.Text = objMnto.nVisitas.ToString();
+                txtProveedorMto.Text = objMnto.proveedor;
+                txtValContrato.Text = UtilSystem.fMoneda(objMnto.valor);
+                lblIDContMant.Text = objMnto.idMto.ToString();
+            }
         }
 
         private void txtcentro_TextChanged(object sender, EventArgs e)
@@ -685,7 +752,6 @@ namespace Aplicacion.Inventario
                 txtcodProveedor.Text =  tercero.nit;
                 txtProveedor.Text = tercero.nombre;
             }
-
         }
 
         private void txtcodProveedor_DoubleClick(object sender, EventArgs e)
@@ -884,8 +950,49 @@ namespace Aplicacion.Inventario
             txtValDeducible.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValDeducible.Text));
         }
 
-       
+        private void txtProveedorMto_TextChanged(object sender, EventArgs e)
+        {
+            ETerceros tercero = bllTer.buscar(txtProveedorMto.Text);
+            if (tercero == null)
+            {
+                txtNomMto.Text = "";
+            }
+            else
+            {
+                txtProveedorMto.Text = tercero.nit;
+                txtNomMto.Text = tercero.nombre;
+            }
+        }
 
+        private void txtProveedorMto_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelTercero Frm = new FrmSelTercero();
+            Frm.tipo = "PROVEEDOR";
+            Frm.ShowDialog(this);  
+        }
+
+        private void txtEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            ETerceros tercero = bllTer.buscar(txtEmpresa.Text);
+            if (tercero == null)
+            {
+                txtNomEmp.Text = "";
+            }
+            else
+            {
+                txtEmpresa.Text = tercero.nit;
+                txtNomEmp.Text = tercero.nombre;
+            }
+        }
+
+        private void txtEmpresa_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelTercero Frm = new FrmSelTercero();
+            Frm.tipo = "PROVEEDOR";
+            Frm.ShowDialog(this);  
+        }       
                   
     }
 }

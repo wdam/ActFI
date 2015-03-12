@@ -31,5 +31,12 @@ namespace BLL
                 return "Error Al Guardar datos del Contrato de Mantenimiento";
             }
         }
+
+        public EMantenimiento buscar(string codigo) {
+            if (string.IsNullOrEmpty(codigo)) {
+                return null;
+            }
+            return mDao.buscar(codigo);
+        }
     }
 }

@@ -57,14 +57,7 @@ namespace DAL.DAO
                 return lista;
             }
         }
-
-        protected EArea mapearObjeto(MySqlDataReader fila){
-           EArea area  = new EArea();
-            area.codigo =  fila.GetString ("codigo");
-            area.nombre = fila.GetString ("nombre");
-            area.responsable = fila.GetString ("responsable");
-            return area;
-        }
+        
 
         public int actualizar(EArea obj)
         {
@@ -112,10 +105,19 @@ namespace DAL.DAO
                         }
                         cnx.cerrarConexion();
                     }
-                }
-                return obj;
+                }               
             }
-        }              
+            return obj;
+        }
+
+        protected EArea mapearObjeto(MySqlDataReader fila)
+        {
+            EArea area = new EArea();
+            area.codigo = fila.GetString("codigo");
+            area.nombre = fila.GetString("nombre");
+            area.responsable = fila.GetString("responsable");
+            return area;
+        }
         
     }
 }

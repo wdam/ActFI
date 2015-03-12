@@ -27,5 +27,12 @@ namespace BLL
                 return "Error Al Guardar datos de la Poliza de Seguros";
             }
         }
+
+        public EPolizas buscar(string codigo) {
+            if (string.IsNullOrEmpty(codigo)) {
+                return null;
+            }
+            return pDao.buscar(codigo);
+        }
     }
 }

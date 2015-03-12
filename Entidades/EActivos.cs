@@ -48,5 +48,6 @@ namespace Entidades
         public string fechaDep { get; set; }
         public string poliza { get; set; }
         public string mantenimiento { get; set; }
+        public string nFactura { get; set; }
     }
 }

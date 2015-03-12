@@ -30,7 +30,7 @@ namespace Aplicacion.Principal
                                 else if (control is ComboBox)
                                 {
                                     control.Text = "";
-                                }
+                                }                               
                             }
                         }
                     }
@@ -51,19 +51,13 @@ namespace Aplicacion.Principal
                 }
             }
         }
+
+        
+
+       
         #endregion  
 
-        public void ValidarNumero(object sender, System.Windows.Forms.KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) & !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;                             
-            }
-            if (e.KeyChar == (Char)Keys.Enter)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
+       
 
         #region Implementacion de IDisposable
         private bool disposed = false;

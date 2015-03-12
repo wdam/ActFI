@@ -167,7 +167,7 @@
             this.lblLinea5 = new System.Windows.Forms.Label();
             this.btnTab5 = new System.Windows.Forms.Button();
             this.pnlMantenimiento = new System.Windows.Forms.Panel();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.grbMantenimiento = new System.Windows.Forms.GroupBox();
             this.dtpVenceMto = new System.Windows.Forms.DateTimePicker();
             this.dtpInicioMto = new System.Windows.Forms.DateTimePicker();
             this.label45 = new System.Windows.Forms.Label();
@@ -178,6 +178,8 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtValContrato = new System.Windows.Forms.TextBox();
+            this.lblIDPoliza = new System.Windows.Forms.Label();
+            this.lblIDContMant = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
@@ -193,7 +195,7 @@
             this.pnlSeguro.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlMantenimiento.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.grbMantenimiento.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
@@ -503,6 +505,8 @@
             this.txtEmpresa.Size = new System.Drawing.Size(140, 29);
             this.txtEmpresa.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtEmpresa, "Nit Empresa Aseguradora");
+            this.txtEmpresa.TextChanged += new System.EventHandler(this.txtEmpresa_TextChanged);
+            this.txtEmpresa.DoubleClick += new System.EventHandler(this.txtEmpresa_DoubleClick);
             // 
             // txtNomEmp
             // 
@@ -518,6 +522,7 @@
             // txtAgente
             // 
             this.txtAgente.BackColor = System.Drawing.Color.White;
+            this.txtAgente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAgente.Location = new System.Drawing.Point(98, 155);
             this.txtAgente.Name = "txtAgente";
             this.txtAgente.Size = new System.Drawing.Size(405, 29);
@@ -536,7 +541,7 @@
             // txtNVisitas
             // 
             this.txtNVisitas.Location = new System.Drawing.Point(122, 154);
-            this.txtNVisitas.MaxLength = 15;
+            this.txtNVisitas.MaxLength = 3;
             this.txtNVisitas.Name = "txtNVisitas";
             this.txtNVisitas.Size = new System.Drawing.Size(140, 29);
             this.txtNVisitas.TabIndex = 4;
@@ -551,6 +556,8 @@
             this.txtProveedorMto.Size = new System.Drawing.Size(140, 29);
             this.txtProveedorMto.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtProveedorMto, "Nit Empresa Aseguradora");
+            this.txtProveedorMto.TextChanged += new System.EventHandler(this.txtProveedorMto_TextChanged);
+            this.txtProveedorMto.DoubleClick += new System.EventHandler(this.txtProveedorMto_DoubleClick);
             // 
             // txtNomMto
             // 
@@ -1380,7 +1387,7 @@
             this.pnlDetalle.Location = new System.Drawing.Point(7, 107);
             this.pnlDetalle.Name = "pnlDetalle";
             this.pnlDetalle.Size = new System.Drawing.Size(780, 380);
-            this.pnlDetalle.TabIndex = 176;
+            this.pnlDetalle.TabIndex = 0;
             // 
             // groupBox6
             // 
@@ -1398,7 +1405,7 @@
             this.groupBox6.Location = new System.Drawing.Point(10, 10);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(761, 166);
-            this.groupBox6.TabIndex = 9;
+            this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Detalles";
             // 
@@ -1519,7 +1526,7 @@
             this.groupBox1.Location = new System.Drawing.Point(10, 182);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(760, 148);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Ubicación";
             // 
@@ -1598,6 +1605,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblIDPoliza);
             this.groupBox3.Controls.Add(this.dtpFVenceSeg);
             this.groupBox3.Controls.Add(this.dtpFInicioSeg);
             this.groupBox3.Controls.Add(this.label37);
@@ -1780,35 +1788,36 @@
             // 
             // pnlMantenimiento
             // 
-            this.pnlMantenimiento.Controls.Add(this.groupBox5);
+            this.pnlMantenimiento.Controls.Add(this.grbMantenimiento);
             this.pnlMantenimiento.Location = new System.Drawing.Point(7, 107);
             this.pnlMantenimiento.Name = "pnlMantenimiento";
             this.pnlMantenimiento.Size = new System.Drawing.Size(780, 380);
             this.pnlMantenimiento.TabIndex = 182;
             // 
-            // groupBox5
+            // grbMantenimiento
             // 
-            this.groupBox5.Controls.Add(this.dtpVenceMto);
-            this.groupBox5.Controls.Add(this.dtpInicioMto);
-            this.groupBox5.Controls.Add(this.label45);
-            this.groupBox5.Controls.Add(this.label47);
-            this.groupBox5.Controls.Add(this.label48);
-            this.groupBox5.Controls.Add(this.label50);
-            this.groupBox5.Controls.Add(this.txtContrato);
-            this.groupBox5.Controls.Add(this.label51);
-            this.groupBox5.Controls.Add(this.label52);
-            this.groupBox5.Controls.Add(this.txtValContrato);
-            this.groupBox5.Controls.Add(this.txtNVisitas);
-            this.groupBox5.Controls.Add(this.txtProveedorMto);
-            this.groupBox5.Controls.Add(this.txtNomMto);
-            this.groupBox5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.groupBox5.Location = new System.Drawing.Point(10, 9);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(760, 362);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Información Contrato de Mantenimiento";
+            this.grbMantenimiento.Controls.Add(this.lblIDContMant);
+            this.grbMantenimiento.Controls.Add(this.dtpVenceMto);
+            this.grbMantenimiento.Controls.Add(this.dtpInicioMto);
+            this.grbMantenimiento.Controls.Add(this.label45);
+            this.grbMantenimiento.Controls.Add(this.label47);
+            this.grbMantenimiento.Controls.Add(this.label48);
+            this.grbMantenimiento.Controls.Add(this.label50);
+            this.grbMantenimiento.Controls.Add(this.txtContrato);
+            this.grbMantenimiento.Controls.Add(this.label51);
+            this.grbMantenimiento.Controls.Add(this.label52);
+            this.grbMantenimiento.Controls.Add(this.txtValContrato);
+            this.grbMantenimiento.Controls.Add(this.txtNVisitas);
+            this.grbMantenimiento.Controls.Add(this.txtProveedorMto);
+            this.grbMantenimiento.Controls.Add(this.txtNomMto);
+            this.grbMantenimiento.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbMantenimiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.grbMantenimiento.Location = new System.Drawing.Point(10, 9);
+            this.grbMantenimiento.Name = "grbMantenimiento";
+            this.grbMantenimiento.Size = new System.Drawing.Size(760, 362);
+            this.grbMantenimiento.TabIndex = 6;
+            this.grbMantenimiento.TabStop = false;
+            this.grbMantenimiento.Text = "Información Contrato de Mantenimiento";
             // 
             // dtpVenceMto
             // 
@@ -1906,6 +1915,26 @@
             this.txtValContrato.Visible = false;
             this.txtValContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
+            // lblIDPoliza
+            // 
+            this.lblIDPoliza.AutoSize = true;
+            this.lblIDPoliza.Location = new System.Drawing.Point(366, 40);
+            this.lblIDPoliza.Name = "lblIDPoliza";
+            this.lblIDPoliza.Size = new System.Drawing.Size(55, 22);
+            this.lblIDPoliza.TabIndex = 9;
+            this.lblIDPoliza.Text = "00001";
+            this.lblIDPoliza.Visible = false;
+            // 
+            // lblIDContMant
+            // 
+            this.lblIDContMant.AutoSize = true;
+            this.lblIDContMant.Location = new System.Drawing.Point(384, 40);
+            this.lblIDContMant.Name = "lblIDContMant";
+            this.lblIDContMant.Size = new System.Drawing.Size(64, 22);
+            this.lblIDContMant.TabIndex = 9;
+            this.lblIDContMant.Text = "label49";
+            this.lblIDContMant.Visible = false;
+            // 
             // FrmActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1930,11 +1959,11 @@
             this.Controls.Add(this.btnTab3);
             this.Controls.Add(this.btnTab4);
             this.Controls.Add(this.btnTab5);
-            this.Controls.Add(this.pnlSeguro);
             this.Controls.Add(this.pnlGeneral);
+            this.Controls.Add(this.pnlSeguro);
+            this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlValores);
             this.Controls.Add(this.pnlDetalle);
-            this.Controls.Add(this.pnlMantenimiento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;
@@ -1964,8 +1993,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.pnlMantenimiento.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.grbMantenimiento.ResumeLayout(false);
+            this.grbMantenimiento.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2085,7 +2114,7 @@
         private System.Windows.Forms.TextBox txtValAsegurado;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox txtValDeducible;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox grbMantenimiento;
         private System.Windows.Forms.DateTimePicker dtpVenceMto;
         private System.Windows.Forms.DateTimePicker dtpInicioMto;
         private System.Windows.Forms.Label label45;
@@ -2121,5 +2150,7 @@
         private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox txtVComprar;
+        private System.Windows.Forms.Label lblIDPoliza;
+        private System.Windows.Forms.Label lblIDContMant;
     }
 }
