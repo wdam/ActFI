@@ -54,6 +54,16 @@ namespace BLL
             }
         }
 
+        /// <summary>
+        /// Validacion de Cuentas del Activo
+        /// </summary>
+        /// <param name="ctaActivo">Cuenta del Activo</param>
+        /// <param name="ctaDepreciacion">Cuenta Depreciacion</param>
+        /// <param name="ctaGastos">Cuenta Gastos</param>
+        /// <param name="ctaPerdida">Cuenta de Perdida</param>
+        /// <param name="ctaGanancia">Cuenta de Gananacia</param>
+        /// <returns></returns>
+
         private string validarCuentas(string ctaActivo, string ctaDepreciacion, string ctaGastos, string ctaPerdida, string ctaGanancia)
         {
             ECuentas cta = null;
@@ -98,10 +108,24 @@ namespace BLL
             return aDao.buscar(codigo);
         }
 
+        /// <summary>
+        /// Trasladar Activo
+        /// </summary>
+        /// <param name="codigo">Codigo del Activo</param>
+        /// <param name="area">Area o Ubicacion</param>
+        /// <param name="responsable">Responsable del Activo</param>
+        /// <returns></returns>
         public int trasladar(string codigo, string area, string responsable) {            
             return aDao.trasladar(codigo,area, responsable);
         }
 
+        /// <summary>
+        /// Actualizacion de Valores
+        /// </summary>
+        /// <param name="valLibro">Valor en Libros</param>
+        /// <param name="valDepAjus">Valor Depreciacion Ajustada</param>
+        /// <param name="valDeprAcum">Valor Depreciacion Acumulada</param>
+        /// <param name="codigo">Codigo del Activo</param>
         public void UpdateValores(double valLibro, double valDepAjus, double valDeprAcum, string codigo){
             if (string.IsNullOrEmpty(codigo)){
                 return;

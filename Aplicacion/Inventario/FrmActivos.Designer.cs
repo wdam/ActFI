@@ -49,16 +49,16 @@
             this.txtctaMantenimiento = new System.Windows.Forms.TextBox();
             this.txtctaGanancia = new System.Windows.Forms.TextBox();
             this.txtctaPerdida = new System.Windows.Forms.TextBox();
-            this.lblNuevoSub = new System.Windows.Forms.Label();
+            this.lblSubirImg = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.cboMetodo = new System.Windows.Forms.ComboBox();
             this.txtEmpresa = new System.Windows.Forms.TextBox();
-            this.txtNomEmp = new System.Windows.Forms.TextBox();
+            this.txtNomEmpSeg = new System.Windows.Forms.TextBox();
             this.txtAgente = new System.Windows.Forms.TextBox();
             this.txtTelSeguro = new System.Windows.Forms.TextBox();
             this.txtNVisitas = new System.Windows.Forms.TextBox();
             this.txtProveedorMto = new System.Windows.Forms.TextBox();
-            this.txtNomMto = new System.Windows.Forms.TextBox();
+            this.txtNomProvMto = new System.Windows.Forms.TextBox();
             this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOperacion = new System.Windows.Forms.Label();
@@ -151,6 +151,7 @@
             this.btnTab4 = new System.Windows.Forms.Button();
             this.pnlSeguro = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblIDPoliza = new System.Windows.Forms.Label();
             this.dtpFVenceSeg = new System.Windows.Forms.DateTimePicker();
             this.dtpFInicioSeg = new System.Windows.Forms.DateTimePicker();
             this.label37 = new System.Windows.Forms.Label();
@@ -168,6 +169,7 @@
             this.btnTab5 = new System.Windows.Forms.Button();
             this.pnlMantenimiento = new System.Windows.Forms.Panel();
             this.grbMantenimiento = new System.Windows.Forms.GroupBox();
+            this.lblIDContMant = new System.Windows.Forms.Label();
             this.dtpVenceMto = new System.Windows.Forms.DateTimePicker();
             this.dtpInicioMto = new System.Windows.Forms.DateTimePicker();
             this.label45 = new System.Windows.Forms.Label();
@@ -178,8 +180,6 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtValContrato = new System.Windows.Forms.TextBox();
-            this.lblIDPoliza = new System.Windows.Forms.Label();
-            this.lblIDContMant = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
@@ -465,17 +465,17 @@
             this.toolTip1.SetToolTip(this.txtctaPerdida, "Cuenta de Perdida");
             this.txtctaPerdida.DoubleClick += new System.EventHandler(this.formCuenta);
             // 
-            // lblNuevoSub
+            // lblSubirImg
             // 
-            this.lblNuevoSub.BackColor = System.Drawing.Color.White;
-            this.lblNuevoSub.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblNuevoSub.Image = global::Aplicacion.Properties.Resources.subir;
-            this.lblNuevoSub.Location = new System.Drawing.Point(628, 195);
-            this.lblNuevoSub.Name = "lblNuevoSub";
-            this.lblNuevoSub.Size = new System.Drawing.Size(32, 32);
-            this.lblNuevoSub.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.lblNuevoSub, "Subir Imagen");
-            this.lblNuevoSub.Click += new System.EventHandler(this.lblNuevoSub_Click);
+            this.lblSubirImg.BackColor = System.Drawing.Color.White;
+            this.lblSubirImg.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblSubirImg.Image = global::Aplicacion.Properties.Resources.subir;
+            this.lblSubirImg.Location = new System.Drawing.Point(628, 195);
+            this.lblSubirImg.Name = "lblSubirImg";
+            this.lblSubirImg.Size = new System.Drawing.Size(32, 32);
+            this.lblSubirImg.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.lblSubirImg, "Subir Imagen");
+            this.lblSubirImg.Click += new System.EventHandler(this.lblSubirImg_Click);
             // 
             // label30
             // 
@@ -508,16 +508,16 @@
             this.txtEmpresa.TextChanged += new System.EventHandler(this.txtEmpresa_TextChanged);
             this.txtEmpresa.DoubleClick += new System.EventHandler(this.txtEmpresa_DoubleClick);
             // 
-            // txtNomEmp
+            // txtNomEmpSeg
             // 
-            this.txtNomEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNomEmp.Enabled = false;
-            this.txtNomEmp.Location = new System.Drawing.Point(244, 117);
-            this.txtNomEmp.Name = "txtNomEmp";
-            this.txtNomEmp.ReadOnly = true;
-            this.txtNomEmp.Size = new System.Drawing.Size(390, 29);
-            this.txtNomEmp.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.txtNomEmp, "Nombre Empresa");
+            this.txtNomEmpSeg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtNomEmpSeg.Enabled = false;
+            this.txtNomEmpSeg.Location = new System.Drawing.Point(244, 117);
+            this.txtNomEmpSeg.Name = "txtNomEmpSeg";
+            this.txtNomEmpSeg.ReadOnly = true;
+            this.txtNomEmpSeg.Size = new System.Drawing.Size(390, 29);
+            this.txtNomEmpSeg.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtNomEmpSeg, "Nombre Empresa");
             // 
             // txtAgente
             // 
@@ -559,16 +559,16 @@
             this.txtProveedorMto.TextChanged += new System.EventHandler(this.txtProveedorMto_TextChanged);
             this.txtProveedorMto.DoubleClick += new System.EventHandler(this.txtProveedorMto_DoubleClick);
             // 
-            // txtNomMto
+            // txtNomProvMto
             // 
-            this.txtNomMto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNomMto.Enabled = false;
-            this.txtNomMto.Location = new System.Drawing.Point(268, 117);
-            this.txtNomMto.Name = "txtNomMto";
-            this.txtNomMto.ReadOnly = true;
-            this.txtNomMto.Size = new System.Drawing.Size(366, 29);
-            this.txtNomMto.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.txtNomMto, "Nombre Empresa");
+            this.txtNomProvMto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtNomProvMto.Enabled = false;
+            this.txtNomProvMto.Location = new System.Drawing.Point(268, 117);
+            this.txtNomProvMto.Name = "txtNomProvMto";
+            this.txtNomProvMto.ReadOnly = true;
+            this.txtNomProvMto.Size = new System.Drawing.Size(366, 29);
+            this.txtNomProvMto.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtNomProvMto, "Nombre Empresa");
             // 
             // smsError
             // 
@@ -787,7 +787,7 @@
             this.grbCrear.Controls.Add(this.cboMetodo);
             this.grbCrear.Controls.Add(this.label35);
             this.grbCrear.Controls.Add(this.label30);
-            this.grbCrear.Controls.Add(this.lblNuevoSub);
+            this.grbCrear.Controls.Add(this.lblSubirImg);
             this.grbCrear.Controls.Add(this.label32);
             this.grbCrear.Controls.Add(this.pbxImagen);
             this.grbCrear.Controls.Add(this.label36);
@@ -814,7 +814,7 @@
             this.chkPoliza.AutoSize = true;
             this.chkPoliza.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkPoliza.ForeColor = System.Drawing.Color.Black;
-            this.chkPoliza.Location = new System.Drawing.Point(291, 204);
+            this.chkPoliza.Location = new System.Drawing.Point(322, 204);
             this.chkPoliza.Name = "chkPoliza";
             this.chkPoliza.Size = new System.Drawing.Size(83, 26);
             this.chkPoliza.TabIndex = 17;
@@ -1622,7 +1622,7 @@
             this.groupBox3.Controls.Add(this.txtTelSeguro);
             this.groupBox3.Controls.Add(this.txtEmpresa);
             this.groupBox3.Controls.Add(this.txtAgente);
-            this.groupBox3.Controls.Add(this.txtNomEmp);
+            this.groupBox3.Controls.Add(this.txtNomEmpSeg);
             this.groupBox3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
             this.groupBox3.Location = new System.Drawing.Point(10, 7);
@@ -1631,6 +1631,16 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del Seguro";
+            // 
+            // lblIDPoliza
+            // 
+            this.lblIDPoliza.AutoSize = true;
+            this.lblIDPoliza.Location = new System.Drawing.Point(366, 40);
+            this.lblIDPoliza.Name = "lblIDPoliza";
+            this.lblIDPoliza.Size = new System.Drawing.Size(55, 22);
+            this.lblIDPoliza.TabIndex = 9;
+            this.lblIDPoliza.Text = "00001";
+            this.lblIDPoliza.Visible = false;
             // 
             // dtpFVenceSeg
             // 
@@ -1809,7 +1819,7 @@
             this.grbMantenimiento.Controls.Add(this.txtValContrato);
             this.grbMantenimiento.Controls.Add(this.txtNVisitas);
             this.grbMantenimiento.Controls.Add(this.txtProveedorMto);
-            this.grbMantenimiento.Controls.Add(this.txtNomMto);
+            this.grbMantenimiento.Controls.Add(this.txtNomProvMto);
             this.grbMantenimiento.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbMantenimiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
             this.grbMantenimiento.Location = new System.Drawing.Point(10, 9);
@@ -1818,6 +1828,16 @@
             this.grbMantenimiento.TabIndex = 6;
             this.grbMantenimiento.TabStop = false;
             this.grbMantenimiento.Text = "Información Contrato de Mantenimiento";
+            // 
+            // lblIDContMant
+            // 
+            this.lblIDContMant.AutoSize = true;
+            this.lblIDContMant.Location = new System.Drawing.Point(384, 40);
+            this.lblIDContMant.Name = "lblIDContMant";
+            this.lblIDContMant.Size = new System.Drawing.Size(64, 22);
+            this.lblIDContMant.TabIndex = 9;
+            this.lblIDContMant.Text = "label49";
+            this.lblIDContMant.Visible = false;
             // 
             // dtpVenceMto
             // 
@@ -1915,26 +1935,6 @@
             this.txtValContrato.Visible = false;
             this.txtValContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
-            // lblIDPoliza
-            // 
-            this.lblIDPoliza.AutoSize = true;
-            this.lblIDPoliza.Location = new System.Drawing.Point(366, 40);
-            this.lblIDPoliza.Name = "lblIDPoliza";
-            this.lblIDPoliza.Size = new System.Drawing.Size(55, 22);
-            this.lblIDPoliza.TabIndex = 9;
-            this.lblIDPoliza.Text = "00001";
-            this.lblIDPoliza.Visible = false;
-            // 
-            // lblIDContMant
-            // 
-            this.lblIDContMant.AutoSize = true;
-            this.lblIDContMant.Location = new System.Drawing.Point(384, 40);
-            this.lblIDContMant.Name = "lblIDContMant";
-            this.lblIDContMant.Size = new System.Drawing.Size(64, 22);
-            this.lblIDContMant.TabIndex = 9;
-            this.lblIDContMant.Text = "label49";
-            this.lblIDContMant.Visible = false;
-            // 
             // FrmActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1961,9 +1961,9 @@
             this.Controls.Add(this.btnTab5);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.pnlSeguro);
-            this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlValores);
             this.Controls.Add(this.pnlDetalle);
+            this.Controls.Add(this.pnlMantenimiento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;
@@ -2075,7 +2075,7 @@
         private System.Windows.Forms.PictureBox pbxImagen;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Panel pnlDetalle;
-        private System.Windows.Forms.Label lblNuevoSub;
+        private System.Windows.Forms.Label lblSubirImg;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txtvidaUtil;
         private System.Windows.Forms.Label Label8;
@@ -2103,7 +2103,7 @@
         private System.Windows.Forms.TextBox txtPoliza;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtEmpresa;
-        private System.Windows.Forms.TextBox txtNomEmp;
+        private System.Windows.Forms.TextBox txtNomEmpSeg;
         private System.Windows.Forms.DateTimePicker dtpFVenceSeg;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label42;
@@ -2127,7 +2127,7 @@
         private System.Windows.Forms.TextBox txtValContrato;
         private System.Windows.Forms.TextBox txtNVisitas;
         private System.Windows.Forms.TextBox txtProveedorMto;
-        private System.Windows.Forms.TextBox txtNomMto;
+        private System.Windows.Forms.TextBox txtNomProvMto;
         private System.Windows.Forms.Label Label15;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label31;

@@ -26,6 +26,8 @@ namespace Aplicacion.Inventario
         BLL.GrupoBLL bllGrupo = new BLL.GrupoBLL();
         BLL.MantenimientoBLL bllMto = new BLL.MantenimientoBLL();
         BLL.PolizaBLL bllPoliza = new BLL.PolizaBLL();
+        BLL.DocumentosBLL bllDoc = new BLL.DocumentosBLL();
+        BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
                 
         bool Encontro = false;   // Verificar si encontro datos de un activo
         // Declaracion de Objetos
@@ -288,6 +290,369 @@ namespace Aplicacion.Inventario
 
         #endregion        
 
+        #region Eventos De Controles
+
+        //Evento Double_Click Para Seleccionar Cuentas Contables
+        private void formCuenta(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelCuentas frm = Application.OpenForms.OfType<FrmSelCuentas>().FirstOrDefault();
+            FrmSelCuentas form = frm ?? new FrmSelCuentas();
+            form.ShowDialog(this);
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (lblOperacion.Text == "Consulta")
+            {
+                mostrarDatos();
+            }
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if (lblOperacion.Text == "Nuevo")
+            {
+                mostrarDatos();
+                if (Encontro)
+                {
+                    lblOperacion.Text = "Editar";
+                }
+            }
+        }
+
+        private void txtvalComercial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UtilSystem.ValNumeroDecimal(sender, e);
+        }
+
+        private void txtcentro_TextChanged(object sender, EventArgs e)
+        {
+            centro = bllCentro.buscar(txtcentro.Text);
+            if (centro == null)
+            {
+                txtcentroNom.Text = "";
+            }
+            else
+            {
+                txtcentroNom.Text = centro.Nombre;
+                txtcentro.Text = centro.Codigo;
+            }
+        }
+
+        private void txtcodProveedor_TextChanged(object sender, EventArgs e)
+        {
+            ETerceros tercero = bllTer.buscar(txtcodProveedor.Text);
+            if (tercero == null)
+            {
+                txtProveedor.Text = string.Empty;
+            }
+            else
+            {
+                txtcodProveedor.Text = tercero.nit;
+                txtProveedor.Text = tercero.nombre;
+            }
+        }
+
+        private void txtcodProveedor_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelTercero Frm = new FrmSelTercero();
+            Frm.tipo = "PROVEEDOR";
+            Frm.ShowDialog(this);
+        }
+
+        private void txtcentro_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelCentroCostos frm = new FrmSelCentroCostos();
+            frm.ShowDialog(this);
+        }
+
+
+        private void cboAreaResp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txtCodResp_TextChanged(object sender, EventArgs e)
+        {
+            user = bllTer.buscar(txtCodResp.Text);
+            if (user == null)
+            {
+                txtResponsable.Text = string.Empty;
+            }
+            else
+            {
+                txtCodResp.Text = user.nit;
+                txtResponsable.Text = user.nombre;
+            }
+        }
+
+        private void txtCodResp_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelTercero Frm = new FrmSelTercero();
+            Frm.tipo = "Empleados";
+            Frm.ShowDialog(this);
+        }
+
+        private void txtProveedorMto_TextChanged(object sender, EventArgs e)
+        {
+            ETerceros tercero = bllTer.buscar(txtProveedorMto.Text);
+            if (tercero == null)
+            {
+                txtNomProvMto.Text = "";
+            }
+            else
+            {
+                txtProveedorMto.Text = tercero.nit;
+                txtNomProvMto.Text = tercero.nombre;
+            }
+        }
+
+        private void txtProveedorMto_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelTercero Frm = new FrmSelTercero();
+            Frm.tipo = "PROVEEDOR";
+            Frm.ShowDialog(this);
+        }
+
+        private void txtEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            ETerceros tercero = bllTer.buscar(txtEmpresa.Text);
+            if (tercero == null)
+            {
+                txtNomEmpSeg.Text = "";
+            }
+            else
+            {
+                txtEmpresa.Text = tercero.nit;
+                txtNomEmpSeg.Text = tercero.nombre;
+            }
+        }
+
+        private void txtEmpresa_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            FrmSelTercero Frm = new FrmSelTercero();
+            Frm.tipo = "PROVEEDOR";
+            Frm.ShowDialog(this);
+        }
+
+        private void cboEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarSubgrupos(cboGrupo.SelectedValue.ToString());
+            if (lblOperacion.Text == "Nuevo")
+            {
+                valoresGrupo(cboGrupo.SelectedValue.ToString());
+            }
+        }
+
+        private void txtvidaUtil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UtilSystem.ValidarNumero(sender, e);
+        }
+
+        private void chkPoliza_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPoliza.Checked == true)
+            {
+                btnTab4.Enabled = true;
+            }
+            else
+            {
+                btnTab4.Enabled = false;
+            }
+        }
+
+        private void chkMantenimiento_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMantenimiento.Checked == true)
+            {
+                btnTab5.Enabled = true;
+            }
+            else
+            {
+                btnTab5.Enabled = false;
+            }
+        }
+
+        //Eventos LEAVE
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text == "")
+            {
+                txtDescripcion.Text = txtNombre.Text;
+            }
+        }
+
+        private void txtvalComercial_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtvalComercial.Text))
+            {
+                txtvalComercial.Text = "0";
+            }
+            txtvalHistorico.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
+            txtvalLibros.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
+            txtvalComercial.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
+            txtvalSalvamento.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text) * porSalvto);
+        }
+
+        private void txtvalSalvamento_Leave(object sender, EventArgs e)
+        {
+            txtvalSalvamento.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalSalvamento.Text));
+        }
+
+
+        private void txtVComprar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtVComprar.Text))
+            {
+                txtVComprar.Text = "0";
+            }
+            txtVComprar.Text = UtilSystem.fMoneda(Convert.ToDouble(txtVComprar.Text));
+            txtvalComercial.Text = txtVComprar.Text;
+        }
+
+        private void txtValAsegurado_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtValAsegurado.Text))
+            {
+                txtValAsegurado.Text = "0";
+            }
+            txtValAsegurado.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValAsegurado.Text));
+        }
+
+        private void txtValDeducible_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtValDeducible.Text))
+            {
+                txtValDeducible.Text = "0";
+            }
+            txtValDeducible.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValDeducible.Text));
+        }
+
+
+        #endregion
+
+        #region Eventos Principales
+        private void lblNuevo_Click(object sender, EventArgs e)
+        {
+            this.smsError.Dispose();
+            lblOperacion.Text = "Nuevo";
+            using (Utilidades util = new Utilidades())
+            {
+                util.limpiarControles(this);
+            }
+            cboGrupo_SelectedIndexChanged(null, null);
+            verPanel1();
+            Habilitar();
+            colocarEnCero();
+            Encontro = false;
+        }
+
+        private void lblGuardar_Click(object sender, EventArgs e)
+        {
+            smsError.Dispose();
+            if (validar())
+            {
+                if (lblOperacion.Text == "Nuevo")
+                {
+                    guardar();
+                }
+                else if (lblOperacion.Text == "Editar")
+                {
+                    modificar();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Datos Incorrectos .. Verifique", "SAE Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void lblCancelar_Click(object sender, EventArgs e)
+        {
+            Deshabilitar();
+            verPanel1();
+            lblOperacion.Text = "Consulta";
+            smsError.Dispose();
+        }
+
+        private void lblEditar_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text != "" && Encontro == true)
+            {
+                lblOperacion.Text = "Editar";
+                Habilitar();
+                txtCodigo.Enabled = false;
+                txtCodResp.Enabled = false;
+                cboAreaResp.Enabled = false;
+                if (chkPoliza.Enabled == true)
+                {
+                    btnTab4.Enabled = true;
+                }
+                if (chkMantenimiento.Enabled == true)
+                {
+                    btnTab5.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Activo (Valido o Registrado).. ", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void lblBuscar_Click(object sender, EventArgs e)
+        {
+            lblOperacion.Text = "Consulta";
+            FrmSelActivos frm = new FrmSelActivos();
+            frm.ShowDialog(this);
+        }
+
+        private void lblpdf_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text) && lblOperacion.Text == "Consulta" && Encontro == true)
+            {
+                List<EActivos> lst = new List<EActivos>();
+                lst.Add(bllAct.buscar(txtCodigo.Text));
+                BLL.CompanyBLL bllComp = new BLL.CompanyBLL();
+                ECompany objC = bllComp.buscar();
+
+                Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
+                ReportDocument reporte = new ReportDocument();
+                string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\rptinfActBasico.rpt";
+                reporte.Load(ruta);
+                reporte.SetDataSource(lst);
+                // Asignacion de Parametros 
+                reporte.SetParameterValue("comp", objC.descripcion);
+                reporte.SetParameterValue("nit", objC.nit);
+                reporte.SetParameterValue("periodo", "Periodo Actual: " + BLL.Inicializar.periodo);
+
+                frm.CReporte.ReportSource = reporte;
+                frm.CReporte.Refresh();
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un Activo (Valido O Registrado en el Sistem)", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void lblSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose(true);
+        }
+
+        #endregion
+
         #region Proceso de Guardar y Modificar
         private void guardar()
         {
@@ -295,6 +660,7 @@ namespace Aplicacion.Inventario
             string mensaje = bllAct.insertar(activo);
             if (mensaje == "Exito")
             {
+                Encontro = true;
                 bllGrupo.updateConsecutivo(activo.grupo);
                 if (chkPoliza.Checked == true)
                 {
@@ -428,97 +794,14 @@ namespace Aplicacion.Inventario
             bllMto.insertar(objMto);
         }
         #endregion  
-        
-        private void cargarGrupos() {
-            lstGrupos = bllGrupo.getAll("Activo");
-            cboGrupo.DataSource = lstGrupos;
-            cboGrupo.DisplayMember = "descripcion";
-            cboGrupo.ValueMember = "sigla";
-            if (lstGrupos.Count > 0) {
-                cboGrupo_SelectedIndexChanged(null, null);
-            }
-        }
 
-        private void valoresGrupo(string sigla)
+        #region Validacion de Datos
+
+        private bool validar()
         {
-            objGrupo = bllGrupo.buscar(sigla);
-            if (objGrupo != null) {
-                txtvidaUtil.Text = objGrupo.vidaUtil.ToString();
-                cboMetodo.SelectedValue = objGrupo.metodoDep;
-                txtctaActivo.Text = objGrupo.ctaActivo;
-                txtctaDepreciacion.Text = objGrupo.ctaDepreciacion;
-                txtctaGanancia.Text = objGrupo.ctaGanancia;
-                txtctaGastos.Text = objGrupo.ctaGastos;
-                txtctaMantenimiento.Text = objGrupo.ctaMantenimiento;
-                txtctaPerdida.Text = objGrupo.ctaPerdida;
-                porSalvto = Math.Round(Convert.ToDouble(objGrupo.valSalvamento) / 100, 2);
-                txtCodigo.Text = sigla + UtilSystem.fConsActivo(objGrupo.consecutivo + 1);
-            }
-        }
-
-        private void cargarSubgrupos(string sigla) {
-            cboSubgrupo.Text = "";
-            lstSubgrupo = bllGrupo.getSubgrupo(sigla);
-            cboSubgrupo.DataSource = lstSubgrupo;
-            cboSubgrupo.DisplayMember = "descripcion";
-            cboSubgrupo.ValueMember = "codigo";
-        }
-
-        private void CargarAreas() {
-            BLL.AreaBLL  ctrArea = new BLL.AreaBLL();
-            List<EArea> Areas = null;
-            Areas = ctrArea.getAll();
-            if (Areas.Count > 0)
-            {
-                cboAreaResp.DisplayMember = "nombre";
-                cboAreaResp.ValueMember = "codigo";
-                cboAreaResp.DataSource = Areas;
-            }
-        }
-
-        private void lblCancelar_Click(object sender, EventArgs e)
-        {            
-            Deshabilitar();
-            verPanel1();
-            lblOperacion.Text = "Consulta";
-            smsError.Dispose();
-        }
-
-        private void lblSalir_Click(object sender, EventArgs e)
-        {
-            this.Dispose(true);
-        }
-
-        private void lblNuevo_Click(object sender, EventArgs e)
-        {
-            this.smsError.Dispose();
-            lblOperacion.Text = "Nuevo";                      
-            using (Utilidades util = new Utilidades()){
-                util.limpiarControles(this);
-            }
-            cboGrupo_SelectedIndexChanged(null, null);
-            verPanel1();     
-            Habilitar();                    
-            colocarEnCero();                        
-        }
-
-        private void FrmActivos_Load(object sender, EventArgs e)
-        {
-            objParametros = bllPar.getParametros();
-            smsError.Dispose();
-            Deshabilitar();
-            verPanel1();
-            CargarAreas();
-            cargarGrupos();
-            List<EtipoDepreciacion> lstTipos = UtilSystem.metodosDepreciacion();
-            cboMetodo.DisplayMember = "Descripcion";
-            cboMetodo.ValueMember = "sigla";
-            cboMetodo.DataSource = lstTipos;
-        }
-
-        private bool validar() {
             bool bandera = true;
-            using (BLL.ValidacionesBLL ctrVal = new BLL.ValidacionesBLL()) {
+            using (BLL.ValidacionesBLL ctrVal = new BLL.ValidacionesBLL())
+            {
                 if (!ctrVal.esCodigoValido(txtCodigo.Text))
                 {
                     smsError.SetError(txtCodigo, "Codigo Incorrecto");
@@ -543,13 +826,14 @@ namespace Aplicacion.Inventario
                     bandera = false;
                 }
 
-                if (cboAreaResp.Text =="" && lblOperacion.Text == "Nuevo")
+                if (cboAreaResp.Text == "" && lblOperacion.Text == "Nuevo")
                 {
                     smsError.SetError(cboAreaResp, "Seleccione el Area Responsable");
                     bandera = false;
                 }
 
-                if (cboGrupo.Text == "") {
+                if (cboGrupo.Text == "")
+                {
                     smsError.SetError(cboGrupo, "Seleccione el Grupo");
                     bandera = false;
                 }
@@ -576,74 +860,80 @@ namespace Aplicacion.Inventario
                     bandera = false;
                 }
 
-                if(!ctrVal.esValorValido(txtvalComercial.Text)){
+                if (!ctrVal.esValorValido(txtvalComercial.Text))
+                {
                     smsError.SetError(txtvalComercial, "EL Valor Comercial Debe Ser mayor a cero (0)");
                     bandera = false;
-                }               
-                
+                }
+            }
+            if (chkMantenimiento.Checked == true)
+            {
+                smsError.SetError(chkMantenimiento, "Ingrese los Datos del Contrato de Mantenimiento");
+                bandera = validarMto();
+            }
+            if (chkPoliza.Checked == true)
+            {
+                smsError.SetError(chkPoliza, "Ingrese los Datos del Seguro");
+                bandera = validarPoliza();
             }
             return bandera;
         }
 
-        private void lblGuardar_Click(object sender, EventArgs e)
+        private bool validarMto()
         {
-            smsError.Dispose();
-            if (validar())
+            bool correcto = true;
+            if (string.IsNullOrWhiteSpace(txtContrato.Text))
             {
-                if (lblOperacion.Text == "Nuevo")
-                {
-                    guardar();                   
-                }
-                else if (lblOperacion.Text == "Editar")
-                {
-                    modificar();                  
-                }
+                smsError.SetError(txtContrato, "Ingrese el Numero de Contrato de Mantenimiento");
+                correcto = false;
             }
-            else 
-            { 
-                MessageBox.Show("Datos Incorrectos .. Verifique", "SAE Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (string.IsNullOrWhiteSpace(txtNomProvMto.Text))
+            {
+                smsError.SetError(txtProveedorMto, "Ingrese el Proveedor Encargado del Mantenimiento");
+                correcto = false;
             }
-        }     
-                    
-        private void lblBuscar_Click(object sender, EventArgs e)
-        {
-            lblOperacion.Text = "Consulta";
-            FrmSelActivos frm = new FrmSelActivos();
-            frm.ShowDialog(this);
+            if (string.IsNullOrWhiteSpace(txtNVisitas.Text))
+            {
+                smsError.SetError(txtNVisitas, "Ingrese el Numero de Visitas");
+                correcto = false;
+            }
+            return correcto;
         }
 
-        private void txtvalComercial_KeyPress(object sender, KeyPressEventArgs e)
-        {            
-            UtilSystem.ValNumeroDecimal(sender, e);
-        }        
-
-        private void lblEditar_Click(object sender, EventArgs e)
+        private bool validarPoliza()
         {
-            if (txtCodigo.Text != "")
+            bool correcto = true;
+            if (string.IsNullOrWhiteSpace(txtPoliza.Text))
             {
-                lblOperacion.Text = "Editar";
-                Habilitar();
-                txtCodigo.Enabled = false;
-                txtCodResp.Enabled = false;
-                cboAreaResp.Enabled = false;
-                if (chkPoliza.Enabled == true) {
-                    btnTab4.Enabled = true;
-                }
-                if (chkMantenimiento.Enabled == true) {
-                    btnTab5.Enabled = true;
-                }
+                smsError.SetError(txtPoliza, "Ingrese el N° de Poliza");
+                correcto = false;
             }
-            else {
-                MessageBox.Show("Debe Seleccionar un Activo.. ", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (string.IsNullOrWhiteSpace(txtNomEmpSeg.Text))
+            {
+                smsError.SetError(txtEmpresa, "Ingrese el Nit De la Empresa (Valido)");
+                correcto = false;
             }
+
+            if (string.IsNullOrEmpty(txtValAsegurado.Text) || txtValAsegurado.Text == "0")
+            {
+                smsError.SetError(txtValAsegurado, "Ingrese el Valor del Seguro");
+                correcto = false;
+            }
+            return correcto;
         }
-        
-        private  void mostrarDatos(){
+        #endregion
+
+        #region Mostrar Datos de Un Activo
+
+        private void mostrarDatos()
+        {
             Encontro = false;
-            if (!string.IsNullOrWhiteSpace(txtCodigo.Text)){
-                activo = bllAct.buscar(txtCodigo.Text);               
+            if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
+            {
+                activo = bllAct.buscar(txtCodigo.Text);
                 colocarEnCero();
-                if (activo != null) {                                                                                
+                if (activo != null)
+                {
                     txtCodigo.Text = activo.codigo;
                     txtNombre.Text = activo.nombre;
                     txtNumSerie.Text = activo.numSerie;
@@ -660,17 +950,17 @@ namespace Aplicacion.Inventario
                     cboPropiedad.Text = activo.propiedad;
                     dtpFechaCpra.Value = DateTime.Parse(activo.fecha);
                     txtcodProveedor.Text = activo.proveedor;
-                    txtcentro.Text = activo.centrocosto;                   
-                    cboAreaResp.SelectedValue = activo.area;                    
+                    txtcentro.Text = activo.centrocosto;
+                    cboAreaResp.SelectedValue = activo.area;
                     txtCodResp.Text = activo.responsable;
                     cboEstado.Text = activo.estado;
 
-                    txtvalComercial.Text =UtilSystem.fMoneda(activo.valComercial);
+                    txtvalComercial.Text = UtilSystem.fMoneda(activo.valComercial);
                     txtvalHistorico.Text = UtilSystem.fMoneda(activo.valHistorico);
                     txtvalLibros.Text = UtilSystem.fMoneda(activo.valLibros);
                     txtvalMejoras.Text = UtilSystem.fMoneda(activo.valMejoras);
                     txtvalSalvamento.Text = UtilSystem.fMoneda(activo.valSalvamento);
-                    txtdepAcumulada.Text =UtilSystem.fMoneda( activo.depAcumulada);
+                    txtdepAcumulada.Text = UtilSystem.fMoneda(activo.depAcumulada);
                     txtdepAjustada.Text = UtilSystem.fMoneda(activo.depAjustada);
                     txtVComprar.Text = UtilSystem.fMoneda(activo.valComercial);
 
@@ -681,33 +971,38 @@ namespace Aplicacion.Inventario
                     txtctaGanancia.Text = activo.ctaGanancia;
                     txtctaPerdida.Text = activo.ctaPerdida;
                     string ruta = UtilSystem.rutaImagen + activo.codigo + ".jpg";
-                    if (System.IO.File.Exists(UtilSystem.rutaImagen + activo.codigo + ".jpg")) {
+                    if (System.IO.File.Exists(UtilSystem.rutaImagen + activo.codigo + ".jpg"))
+                    {
                         pbxImagen.ImageLocation = UtilSystem.rutaImagen + activo.codigo + ".jpg";
                         pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
                     txtNFactura.Text = activo.nFactura;
-                    if (activo.poliza == "SI"){
+                    if (activo.poliza == "SI")
+                    {
                         chkPoliza.Checked = true;
                         mostrarPoliza(activo.codigo);
                     }
-                    
-                    if (activo.mantenimiento == "SI"){
+
+                    if (activo.mantenimiento == "SI")
+                    {
                         chkMantenimiento.Checked = true;
                         mostrarCtoMto(activo.codigo);
-                    }                   
+                    }
                     Encontro = true;
-                    verPanel1(); 
+                    verPanel1();
                 }
-            }   
+            }
 
         }
 
-        private void mostrarPoliza(string codigo) {
+        private void mostrarPoliza(string codigo)
+        {
             objPoliza = bllPoliza.buscar(codigo);
-            if (objPoliza != null) {
-                txtPoliza.Text = objPoliza.nPoliza;    
+            if (objPoliza != null)
+            {
+                txtPoliza.Text = objPoliza.nPoliza;
                 txtValDeducible.Text = UtilSystem.fMoneda(objPoliza.deducible);
-                txtEmpresa.Text = objPoliza.empresa ;
+                txtEmpresa.Text = objPoliza.empresa;
                 dtpFInicioSeg.Value = Convert.ToDateTime(objPoliza.fechaInicio);
                 dtpFVenceSeg.Value = Convert.ToDateTime(objPoliza.fechaVence);
                 txtAgente.Text = objPoliza.responsable;
@@ -717,10 +1012,12 @@ namespace Aplicacion.Inventario
             }
         }
 
-        private void mostrarCtoMto(string codigo) {
+        private void mostrarCtoMto(string codigo)
+        {
             objMnto = bllMto.buscar(codigo);
-            if (objMnto != null) {
-                dtpInicioMto.Value = Convert.ToDateTime( objMnto.fInicio);
+            if (objMnto != null)
+            {
+                dtpInicioMto.Value = Convert.ToDateTime(objMnto.fInicio);
                 dtpVenceMto.Value = Convert.ToDateTime(objMnto.fVence);
                 txtContrato.Text = objMnto.nContrato;
                 txtNVisitas.Text = objMnto.nVisitas.ToString();
@@ -729,270 +1026,112 @@ namespace Aplicacion.Inventario
                 lblIDContMant.Text = objMnto.idMto.ToString();
             }
         }
+        #endregion
+               
+        #region Grupos y Subrgrupos , Obtencion del Consecutivo
 
-        private void txtcentro_TextChanged(object sender, EventArgs e)
+        private void cargarGrupos()
         {
-                centro = bllCentro.buscar(txtcentro.Text); 
-                if (centro  == null){
-                   txtcentroNom.Text= "";
-                } else {
-                    txtcentroNom.Text = centro.Nombre;
-                    txtcentro.Text = centro.Codigo;
-                }
-        }
-
-        private void txtcodProveedor_TextChanged(object sender, EventArgs e)
-        {
-            ETerceros tercero = bllTer.buscar(txtcodProveedor.Text);
-            if (tercero == null)
+            lstGrupos = bllGrupo.getAll("Activo");
+            cboGrupo.DataSource = lstGrupos;
+            cboGrupo.DisplayMember = "descripcion";
+            cboGrupo.ValueMember = "sigla";
+            if (lstGrupos.Count > 0)
             {
-                txtProveedor.Text = "";
-            }
-            else { 
-                txtcodProveedor.Text =  tercero.nit;
-                txtProveedor.Text = tercero.nombre;
+                cboGrupo_SelectedIndexChanged(null, null);
             }
         }
-
-        private void txtcodProveedor_DoubleClick(object sender, EventArgs e)
+       
+        private void valoresGrupo(string sigla)
         {
-            texto = (TextBox)sender;
-            FrmSelTercero Frm = new FrmSelTercero();            
-            Frm.tipo = "PROVEEDOR";
-            Frm.ShowDialog(this);          
-        }
-        
-        private void txtcentro_DoubleClick(object sender, EventArgs e)
-        {
-            texto = (TextBox)sender;
-            FrmSelCentroCostos frm = new FrmSelCentroCostos();
-            frm.ShowDialog(this);
-        }
+            objGrupo = bllGrupo.buscar(sigla);
+            if (objGrupo != null)
+            {
+                txtvidaUtil.Text = objGrupo.vidaUtil.ToString();
+                cboMetodo.SelectedValue = objGrupo.metodoDep;
+                txtctaActivo.Text = objGrupo.ctaActivo;
+                txtctaDepreciacion.Text = objGrupo.ctaDepreciacion;
+                txtctaGanancia.Text = objGrupo.ctaGanancia;
+                txtctaGastos.Text = objGrupo.ctaGastos;
+                txtctaMantenimiento.Text = objGrupo.ctaMantenimiento;
+                txtctaPerdida.Text = objGrupo.ctaPerdida;
+                porSalvto = Math.Round(Convert.ToDouble(objGrupo.valSalvamento) / 100, 2);
+                // Obtener Numero Consecutivo deL Nuevo Codigo
+                txtCodigo.Text = sigla + UtilSystem.fConsActivo(objGrupo.consecutivo + 1);
+            }
+        }    
 
+        private void cargarSubgrupos(string sigla)
+        {
+            cboSubgrupo.Text = "";
+            lstSubgrupo = bllGrupo.getSubgrupo(sigla);
+            cboSubgrupo.DataSource = lstSubgrupo;
+            cboSubgrupo.DisplayMember = "descripcion";
+            cboSubgrupo.ValueMember = "codigo";            
+        }
+        #endregion
+       
+        #region Generar Proceso Contable
+        private void debitos() {
+            EDocumentos ObjDoc = new EDocumentos();
+            ObjDoc.item = 0;
+            ObjDoc.documento = Convert.ToInt32("0");
+            ObjDoc.tipo = "AA";
+            ObjDoc.periodo = BLL.Inicializar.periodo;
+            ObjDoc.dia = DateTime.Now.Day.ToString();
+            ObjDoc.centro = txtcentro.Text;
+            ObjDoc.descripcion =UtilSystem.truncarCadena("COMPRA DE " + cboSubgrupo.Text, 50) ;
+            ObjDoc.debito = UtilSystem.DIN(txtvalComercial.Text);
+            ObjDoc.credito = UtilSystem.DIN("0");
+            ObjDoc.codigo = txtctaActivo.Text;
+            ObjDoc.baseD = UtilSystem.DIN("0");
+            ObjDoc.diasv = 0;
+            ObjDoc.fecha = UtilSystem.truncarCadena(DateTime.Now.Date.ToShortDateString(), 10);
+            ObjDoc.cheque = "";
+            ObjDoc.nit = txtcodProveedor.Text;
+            ObjDoc.modulo = "ACTIVO";
+            bllDoc.insertar(ObjDoc);
+        }
+        #endregion
+
+        private void CargarAreas() {
+            BLL.AreaBLL  ctrArea = new BLL.AreaBLL();
+            List<EArea> Areas = null;
+            Areas = ctrArea.getAll();
+            if (Areas.Count > 0)
+            {
+                cboAreaResp.DisplayMember = "nombre";
+                cboAreaResp.ValueMember = "codigo";
+                cboAreaResp.DataSource = Areas;
+            }
+        }
+                                    
+        private void FrmActivos_Load(object sender, EventArgs e)
+        {
+            objParametros = bllPar.getParametros();
+            smsError.Dispose();
+            Deshabilitar();
+            verPanel1();
+            CargarAreas();
+            cargarGrupos();
+            // Cargar Metodo de >Depreciacion
+            List<EtipoDepreciacion> lstTipos = UtilSystem.metodosDepreciacion();
+            cboMetodo.DisplayMember = "Descripcion";
+            cboMetodo.ValueMember = "sigla";
+            cboMetodo.DataSource = lstTipos;
+        }
+                                              
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }    
-
-        private void formCuenta(object sender, EventArgs e)
-        {
-             texto= (TextBox)sender;
-             FrmSelCuentas frm = Application.OpenForms.OfType<FrmSelCuentas>().FirstOrDefault();
-             FrmSelCuentas form = frm ?? new FrmSelCuentas();
-             form.ShowDialog(this);
-        }
-
-        private void txtCodigo_TextChanged(object sender, EventArgs e)
-        {
-            if (lblOperacion.Text == "Consulta") {
-                mostrarDatos();
-            }
-        }
-
-        private void lblpdf_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtCodigo.Text) && lblOperacion.Text == "Consulta")
-            {
-                List<EActivos> lst = new List<EActivos>();
-                lst.Add(bllAct.buscar(txtCodigo.Text));
-                BLL.CompanyBLL bllComp = new BLL.CompanyBLL();
-                ECompany objC = bllComp.buscar();
-
-                Informes.FrmVerInforme frm = new Informes.FrmVerInforme();                
-                ReportDocument reporte = new ReportDocument();
-                string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\rptinfActBasico.rpt";
-                reporte.Load(ruta);
-                reporte.SetDataSource(lst);
-                // Asignacion de Parametros 
-                reporte.SetParameterValue("comp", objC.descripcion);
-                reporte.SetParameterValue("nit", objC.nit);
-                reporte.SetParameterValue("periodo", "Periodo Actual: "+ BLL.Inicializar.periodo);
-                
-                frm.CReporte.ReportSource = reporte;
-                frm.CReporte.Refresh();
-                frm.ShowDialog();
-            }
-            else {
-                MessageBox.Show("Seleccione El Activo", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            
-        }
-
-        private void txtCodigo_Leave(object sender, EventArgs e)
-        {
-            if (lblOperacion.Text == "Nuevo") {
-                mostrarDatos();
-                if (Encontro) {
-                    lblOperacion.Text = "Editar";
-                }
-            }            
-        }
-
-        private void cboAreaResp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void txtCodResp_TextChanged(object sender, EventArgs e)
-        {
-            user  = bllTer.buscar(txtCodResp.Text);
-            if (user == null)
-            {
-                txtResponsable.Text = "";
-            }
-            else {
-                txtCodResp.Text = user.nit;
-                txtResponsable.Text = user.nombre;
-            }
-        }
-
-        private void txtCodResp_DoubleClick(object sender, EventArgs e)
-        {
-            texto = (TextBox)sender;
-            FrmSelTercero Frm = new FrmSelTercero();
-            Frm.tipo = "Empleados";
-            Frm.ShowDialog(this);
-        }
-
-         private void txtNombre_Leave(object sender, EventArgs e)
-        {
-            if (txtDescripcion.Text == "") {
-                txtDescripcion.Text = txtNombre.Text;
-            }            
-        }
-
-        private void txtvalComercial_Leave(object sender, EventArgs e)
-        {            
-            if (string.IsNullOrWhiteSpace(txtvalComercial.Text)){
-                txtvalComercial.Text="0";
-            }
-            txtvalHistorico.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
-            txtvalLibros.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
-            txtvalComercial.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text));
-            txtvalSalvamento.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalComercial.Text) * porSalvto);
-        }
-
-        private void txtvalSalvamento_Leave(object sender, EventArgs e){
-             txtvalSalvamento.Text = UtilSystem.fMoneda(Convert.ToDouble(txtvalSalvamento.Text));
-        }
-
-        private void cboEstado_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void cboGrupo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cargarSubgrupos(cboGrupo.SelectedValue.ToString());
-            if (lblOperacion.Text == "Nuevo") {
-                valoresGrupo(cboGrupo.SelectedValue.ToString());
-            }        
-        }
-
-        private void lblNuevoSub_Click(object sender, EventArgs e)
+       
+        private void lblSubirImg_Click(object sender, EventArgs e)
         {
             abrirDialog.ShowDialog();
             pbxImagen.ImageLocation = abrirDialog.FileName;
-            pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;    
+            pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-
-        private void txtvidaUtil_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            UtilSystem.ValidarNumero(sender, e);
-        }
-
-        private void chkPoliza_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkPoliza.Checked == true) {
-                btnTab4.Enabled = true;
-            }
-            else
-            {
-                btnTab4.Enabled = false;
-            }
-        }
-
-        private void chkMantenimiento_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkMantenimiento.Checked == true)
-            {
-                btnTab5.Enabled = true;
-            }
-            else {
-                btnTab5.Enabled = false;
-            }
-        }
-
-        private void txtVComprar_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtVComprar.Text)){
-                txtVComprar.Text = "0";
-            }
-            txtVComprar.Text = UtilSystem.fMoneda(Convert.ToDouble(txtVComprar.Text));
-            txtvalComercial.Text = txtVComprar.Text;
-        }
-
-        private void txtValAsegurado_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtValAsegurado.Text))
-            {
-                txtValAsegurado.Text = "0";
-            }
-            txtValAsegurado.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValAsegurado.Text));
-        }
-
-        private void txtValDeducible_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtValDeducible.Text))
-            {
-                txtValDeducible.Text = "0";
-            }
-            txtValDeducible.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValDeducible.Text));
-        }
-
-        private void txtProveedorMto_TextChanged(object sender, EventArgs e)
-        {
-            ETerceros tercero = bllTer.buscar(txtProveedorMto.Text);
-            if (tercero == null)
-            {
-                txtNomMto.Text = "";
-            }
-            else
-            {
-                txtProveedorMto.Text = tercero.nit;
-                txtNomMto.Text = tercero.nombre;
-            }
-        }
-
-        private void txtProveedorMto_DoubleClick(object sender, EventArgs e)
-        {
-            texto = (TextBox)sender;
-            FrmSelTercero Frm = new FrmSelTercero();
-            Frm.tipo = "PROVEEDOR";
-            Frm.ShowDialog(this);  
-        }
-
-        private void txtEmpresa_TextChanged(object sender, EventArgs e)
-        {
-            ETerceros tercero = bllTer.buscar(txtEmpresa.Text);
-            if (tercero == null)
-            {
-                txtNomEmp.Text = "";
-            }
-            else
-            {
-                txtEmpresa.Text = tercero.nit;
-                txtNomEmp.Text = tercero.nombre;
-            }
-        }
-
-        private void txtEmpresa_DoubleClick(object sender, EventArgs e)
-        {
-            texto = (TextBox)sender;
-            FrmSelTercero Frm = new FrmSelTercero();
-            Frm.tipo = "PROVEEDOR";
-            Frm.ShowDialog(this);  
-        }       
-                  
+       
     }
 }
