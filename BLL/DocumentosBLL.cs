@@ -16,7 +16,7 @@ namespace BLL
         /// Retorna una lista Con un Documento Especifico
         /// </summary>
         /// <param name="codigo">Codigo O Numero de Documento Contable</param>
-        /// <param name="tipo">Tipo de Documento</param>
+        /// <param name="tipo">Tipo de Documento</param>        
         /// <returns></returns>
         public List<EDocumentos> buscarDocumento(int codigo, string tipo) {
             if (codigo == 0 || string.IsNullOrWhiteSpace(tipo)) {
@@ -24,6 +24,22 @@ namespace BLL
             }
             return dDao.buscarDocumento(codigo, tipo, BLL.Inicializar.Mes);
         }
+
+        /// <summary>
+        /// Verificar si existe un Documento Contable
+        /// </summary>
+        /// <param name="codigo">Codigo O Numero de Documento Contable</param>
+        /// <param name="tipo">Tipo de Documento</param>        
+        /// <returns></returns>
+        public int verificar(int codigo, string tipo)
+        {
+            if (codigo == 0 || string.IsNullOrWhiteSpace(tipo))
+            {
+                return 0;
+            }
+            return dDao.verificar(codigo, tipo, BLL.Inicializar.Mes);
+        }
+
 
         /// <summary>
         /// Retorna una lista con los Documentos Contable en Sistema

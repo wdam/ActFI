@@ -48,16 +48,16 @@ namespace BLL
                 return "La Cuenta de Depreciacion No Existe";
             }
 
-            cta = cDao.buscar(parametro.ctaGastos,"");
+            cta = cDao.buscar(parametro.ctaBanco,"");
             if (cta == null)
             {
-                return "La Cuenta de Gastos No Existe";
+                return "La Cuenta de Bancos No Existe";
             }
 
-            cta = cDao.buscar(parametro.ctaMonetaria,"");
+            cta = cDao.buscar(parametro.ctaProveedor,"");
             if (cta == null)
             {
-                return "La Cuenta Correccion Monetaria No   Existe";
+                return "La Cuenta de Proveedores No Existe";
             }
 
             cta = cDao.buscar(parametro.ctaDepMonetaria,"");

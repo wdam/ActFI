@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmActivos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenIzq = new System.Windows.Forms.Label();
@@ -180,6 +184,12 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtValContrato = new System.Windows.Forms.TextBox();
+            this.dgvContable = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDebitos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
@@ -196,6 +206,7 @@
             this.groupBox3.SuspendLayout();
             this.pnlMantenimiento.SuspendLayout();
             this.grbMantenimiento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContable)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExit
@@ -662,8 +673,8 @@
             // 
             // pnlGeneral
             // 
-            this.pnlGeneral.Controls.Add(this.groupbox2);
             this.pnlGeneral.Controls.Add(this.grbCrear);
+            this.pnlGeneral.Controls.Add(this.groupbox2);
             this.pnlGeneral.Enabled = false;
             this.pnlGeneral.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlGeneral.Location = new System.Drawing.Point(7, 107);
@@ -1806,6 +1817,7 @@
             // 
             // grbMantenimiento
             // 
+            this.grbMantenimiento.Controls.Add(this.dgvContable);
             this.grbMantenimiento.Controls.Add(this.lblIDContMant);
             this.grbMantenimiento.Controls.Add(this.dtpVenceMto);
             this.grbMantenimiento.Controls.Add(this.dtpInicioMto);
@@ -1935,6 +1947,69 @@
             this.txtValContrato.Visible = false;
             this.txtValContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
+            // dgvContable
+            // 
+            this.dgvContable.AllowUserToAddRows = false;
+            this.dgvContable.AllowUserToDeleteRows = false;
+            this.dgvContable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvContable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.dtDebitos,
+            this.dtDebito,
+            this.dtCuenta,
+            this.dtDase});
+            this.dgvContable.Location = new System.Drawing.Point(25, 207);
+            this.dgvContable.Name = "dgvContable";
+            this.dgvContable.ReadOnly = true;
+            this.dgvContable.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvContable.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvContable.Size = new System.Drawing.Size(618, 135);
+            this.dgvContable.TabIndex = 10;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Descripcion";
+            this.Column1.MinimumWidth = 200;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 200;
+            // 
+            // dtDebitos
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dtDebitos.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtDebitos.HeaderText = "Debito";
+            this.dtDebitos.Name = "dtDebitos";
+            this.dtDebitos.ReadOnly = true;
+            // 
+            // dtDebito
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtDebito.HeaderText = "Credito";
+            this.dtDebito.Name = "dtDebito";
+            this.dtDebito.ReadOnly = true;
+            // 
+            // dtCuenta
+            // 
+            this.dtCuenta.HeaderText = "Cuenta";
+            this.dtCuenta.Name = "dtCuenta";
+            this.dtCuenta.ReadOnly = true;
+            // 
+            // dtDase
+            // 
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dtDase.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtDase.HeaderText = "Base";
+            this.dtDase.Name = "dtDase";
+            this.dtDase.ReadOnly = true;
+            // 
             // FrmActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1959,11 +2034,11 @@
             this.Controls.Add(this.btnTab3);
             this.Controls.Add(this.btnTab4);
             this.Controls.Add(this.btnTab5);
+            this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.pnlSeguro);
             this.Controls.Add(this.pnlValores);
             this.Controls.Add(this.pnlDetalle);
-            this.Controls.Add(this.pnlMantenimiento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;
@@ -1995,6 +2070,7 @@
             this.pnlMantenimiento.ResumeLayout(false);
             this.grbMantenimiento.ResumeLayout(false);
             this.grbMantenimiento.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2152,5 +2228,11 @@
         private System.Windows.Forms.TextBox txtVComprar;
         private System.Windows.Forms.Label lblIDPoliza;
         private System.Windows.Forms.Label lblIDContMant;
+        private System.Windows.Forms.DataGridView dgvContable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtDebitos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtDebito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtDase;
     }
 }

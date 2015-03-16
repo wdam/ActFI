@@ -79,15 +79,15 @@ namespace Aplicacion.Inventario
                 valido = false;
             }
 
-            if (!bllVal.noEstaVacio(txtctaGastos.Text))
+            if (!bllVal.noEstaVacio(txtctaBanco.Text))
             {
-                msjError.SetError(txtctaGastos, "Ingrese la Cuenta de Gastos");
+                msjError.SetError(txtctaBanco, "Ingrese la Cuenta de Gastos");
                 valido = false;
             }
 
-            if (!bllVal.noEstaVacio(txtctaMonetaria.Text))
+            if (!bllVal.noEstaVacio(txtctaProveedor.Text))
             {
-                msjError.SetError(txtctaMonetaria, "Ingrese la Cuenta de Correccion Monetaria");
+                msjError.SetError(txtctaProveedor, "Ingrese la Cuenta de Correccion Monetaria");
                 valido = false;
             }
 
@@ -118,8 +118,8 @@ namespace Aplicacion.Inventario
             obj.Codigo = "1";
             obj.ctaActivo = txtctaActivo.Text;
             obj.ctaDepreciacion = txtctaDepreciacion.Text;
-            obj.ctaGastos = txtctaGastos.Text;
-            obj.ctaMonetaria = txtctaMonetaria.Text;
+            obj.ctaBanco = txtctaBanco.Text;
+            obj.ctaProveedor = txtctaProveedor.Text;
             obj.ctaDepMonetaria = txtctaDepMonetaria.Text;
             obj.compras = txtCompra.Text;
             obj.ventas = txtVentas.Text;
@@ -143,8 +143,8 @@ namespace Aplicacion.Inventario
             if (lstPar !=null ){
                 txtctaActivo.Text = lstPar.ctaActivo;
                 txtctaDepreciacion.Text = lstPar.ctaDepreciacion;
-                txtctaGastos.Text = lstPar.ctaGastos;
-                txtctaMonetaria.Text = lstPar.ctaMonetaria;
+                txtctaBanco.Text = lstPar.ctaBanco;
+                txtctaProveedor.Text = lstPar.ctaProveedor;
                 txtctaDepMonetaria.Text = lstPar.ctaDepMonetaria;
                 txtCompra.Text = lstPar.compras;
                 txtVentas.Text = lstPar.ventas;

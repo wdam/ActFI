@@ -20,12 +20,12 @@ namespace Aplicacion.Procesos
         BLL.DepreciacionBLL bllDep = new BLL.DepreciacionBLL();
 
         List<EPeriodo> lstPer;
-        List<EDocumentos> lstDocumentos;              
-        EParametros objParametros;
-        List<EActivos> lstActivos;
-        ETipoDocumento tipodoc;
+        List<EDocumentos> lstDocumentos;
+        List<EActivos> lstActivos;    
+        EParametros objParametros;      
+        ETipoDocumento objTipodoc;        
 
-        string Documento = "";
+        string tipoDoc = ""; // Tipo de Documento Contable 
 
         public FrmDepreciacion()
         {
@@ -65,7 +65,7 @@ namespace Aplicacion.Procesos
 
         #endregion
 
-        private void depreciar() {
+        private void depreciar() {            
             double depreciacion=0;
             double valorDep = 0;
             double depAcum = 0;
@@ -94,10 +94,9 @@ namespace Aplicacion.Procesos
             objParametros = bllPar.getParametros();
             if (objParametros != null)
             {
-                if (!string.IsNullOrWhiteSpace(objParametros.depreciacion))
-                {
+                if (!string.IsNullOrEmpty(objParametros.depreciacion)){
                     lblDepreciar.Enabled = true;
-                    Documento = objParametros.depreciacion;
+                    tipoDoc = objParametros.depreciacion;
                     Consecutivo();
                 }
                 else {
@@ -113,14 +112,14 @@ namespace Aplicacion.Procesos
 
         private void Consecutivo()
         {
-            tipodoc = bllTipo.buscarTipo(Documento);
-            if (tipodoc == null)
+            objTipodoc = bllTipo.buscarTipo(tipoDoc);
+            if (objTipodoc == null)
             {
                 txtNumero.Text = "";
             }
             else
             {
-                txtNumero.Text = UtilSystem.fConsecutivo(tipodoc.actual);
+                txtNumero.Text = UtilSystem.fConsecutivo(objTipodoc.actual);
             }
         }
     
@@ -135,12 +134,11 @@ namespace Aplicacion.Procesos
         }
 
         private void Contabilidad() {
-            lstDocumentos = bllDoc.buscarDocumento(Convert.ToInt32(txtNumero.Text.Trim()), Documento);
-            if (lstDocumentos.Count > 0)
-            {
+            int valCons = bllDoc.verificar(Convert.ToInt32(txtNumero.Text.Trim()), tipoDoc);
+            if (valCons > 0){
                 txtNumero.Text = UtilSystem.fConsecutivo(Convert.ToInt32(txtNumero.Text) + 1);
             }
-            bllTipo.updateConsecutivo(Convert.ToInt32(txtNumero.Text), Documento);    
+            bllTipo.updateConsecutivo(Convert.ToInt32(txtNumero.Text), tipoDoc);    
 
             var agruparDebito = from row in dgvDatos.Rows.Cast<DataGridViewRow>()
                                 group row by row.Cells["dtCtaGastos"].Value into
@@ -168,7 +166,7 @@ namespace Aplicacion.Procesos
                     EDocumentos ObjDoc = new EDocumentos();
                     ObjDoc.item = cont;
                     ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
-                    ObjDoc.tipo = Documento;
+                    ObjDoc.tipo = tipoDoc;
                     ObjDoc.periodo = BLL.Inicializar.periodo;
                     ObjDoc.dia = DateTime.Now.Day.ToString();
                     ObjDoc.centro = "0";
@@ -192,7 +190,7 @@ namespace Aplicacion.Procesos
                 EDocumentos ObjDoc = new EDocumentos();
                 ObjDoc.item = cont;
                 ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
-                ObjDoc.tipo = Documento;
+                ObjDoc.tipo = tipoDoc;
                 ObjDoc.periodo = BLL.Inicializar.periodo;
                 ObjDoc.dia = DateTime.Now.Day.ToString();
                 ObjDoc.centro = "0";
@@ -239,7 +237,7 @@ namespace Aplicacion.Procesos
             foreach (DataGridViewRow fila in dgvDatos.Rows)
             {
                 EDepreciacion objDep = new EDepreciacion();
-                objDep.documento = Documento + txtNumero.Text.ToString();
+                objDep.documento = tipoDoc + txtNumero.Text.ToString();
                 objDep.codigo = fila.Cells["dtCodigo"].Value.ToString();
                 objDep.periodo = fila.Cells["dtPeriodo"].Value.ToString().Substring(0,2);
                 objDep.valorDep = UtilSystem.DIN(fila.Cells["dtLibros"].Value.ToString() ?? "0");

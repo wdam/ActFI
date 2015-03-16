@@ -17,8 +17,7 @@ namespace Aplicacion.Inventario
 {
     public partial class FrmActivos : Form, ISeleccionar
     {
-        TextBox texto;
-        EParametros objParametros;
+        TextBox texto;        
         BLL.ParametrosBLL bllPar = new BLL.ParametrosBLL();
         BLL.TerceroBLL bllTer = new BLL.TerceroBLL();
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
@@ -37,11 +36,16 @@ namespace Aplicacion.Inventario
         EGrupo objGrupo;
         EMantenimiento objMnto;
         EPolizas objPoliza;
-
+        EParametros objParametros;
+        ETipoDocumento objTipodoc;
+            
         // Declaracion de Listas
         List<EGrupo> lstGrupos;
         List<ESubgrupo> lstSubgrupo;
+
         double porSalvto = 0; // porcentaje de salvamento 
+        string tipoDoc="";   // Tipo de Documento Contable
+        string numConsecutivo; //Numero Consecutivo Contable
 
         public FrmActivos()
         {
@@ -551,15 +555,18 @@ namespace Aplicacion.Inventario
             {
                 util.limpiarControles(this);
             }
+            obtenerTipoDoc();
             cboGrupo_SelectedIndexChanged(null, null);
             verPanel1();
             Habilitar();
             colocarEnCero();
             Encontro = false;
+            
         }
 
         private void lblGuardar_Click(object sender, EventArgs e)
         {
+
             smsError.Dispose();
             if (validar())
             {
@@ -688,15 +695,7 @@ namespace Aplicacion.Inventario
             string mensaje = bllAct.actualizar(activo);
             if (mensaje == "Exito")
             {
-                guardarImagen();
-                //if (chkPoliza.Checked == true)
-                //{
-                //    guardarPoliza();
-                //}
-                //if (chkMantenimiento.Checked == true)
-                //{
-                //    guardarContratoMto();
-                //}
+                guardarImagen();                
                 MessageBox.Show("Datos Actualizados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Deshabilitar();
                 verPanel1();
@@ -1072,9 +1071,48 @@ namespace Aplicacion.Inventario
         #endregion
        
         #region Generar Proceso Contable
-        private void debitos() {
+
+        private void obtenerTipoDoc() {
+            if (objParametros != null)
+            {
+                if (!string.IsNullOrEmpty(objParametros.compras)){                    
+                    tipoDoc = objParametros.compras;                  
+                }
+                else {
+                    MessageBox.Show("No se ha Selecciondo el Documento Contable para Compras.. Verifique", "Control de Información ActFI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else {
+                MessageBox.Show("Ho hay Documentos Contables Parametrizados.. Verifique", "Control de Información ActFI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }        
+        }
+        private void Consecutivo()
+        {
+            objTipodoc = bllTipo.buscarTipo(tipoDoc);
+            if (objTipodoc == null){
+                numConsecutivo = "0";
+            }
+            else {
+                numConsecutivo = UtilSystem.fConsecutivo(objTipodoc.actual);
+            }
+        }
+
+        private void movimientoContable() {
+            dgvContable.Rows.Add("COMPRA DE " + cboSubgrupo.Text, txtvalComercial.Text, 0, txtctaActivo.Text, 0);
+            dgvContable.Rows.Add("PROVEEDORES NACIONALES ", 0, txtvalComercial.Text, objParametros.ctaProveedor, 0);
+        }
+
+        private void guardarContable() {
+            movimientoContable();
+            Consecutivo();
+
+            int valCons = bllDoc.verificar(Convert.ToInt32(numConsecutivo), tipoDoc);
+            if (valCons > 0){
+                numConsecutivo = UtilSystem.fConsecutivo(Convert.ToInt32(numConsecutivo) + 1);
+            }
+            bllTipo.updateConsecutivo(Convert.ToInt32(numConsecutivo), tipoDoc);   
             EDocumentos ObjDoc = new EDocumentos();
-            ObjDoc.item = 0;
+            ObjDoc.item = 0; 
             ObjDoc.documento = Convert.ToInt32("0");
             ObjDoc.tipo = "AA";
             ObjDoc.periodo = BLL.Inicializar.periodo;
@@ -1107,11 +1145,18 @@ namespace Aplicacion.Inventario
         }
                                     
         private void FrmActivos_Load(object sender, EventArgs e)
-        {
-            objParametros = bllPar.getParametros();
-            smsError.Dispose();
+        {                        
             Deshabilitar();
             verPanel1();
+            objParametros = bllPar.getParametros();            
+            if (string.IsNullOrEmpty(objParametros.compras))
+            {
+                lblNuevo.Enabled = false;
+                MessageBox.Show("No se ha Selecciondo el Documento Contable para Compras.. Verifique", "Control de Información ActFI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                lblNuevo.Enabled = true;                                    
+            }
             CargarAreas();
             cargarGrupos();
             // Cargar Metodo de >Depreciacion

@@ -41,9 +41,12 @@
             this.lblGuardar = new System.Windows.Forms.Label();
             this.txtctaActivo = new System.Windows.Forms.TextBox();
             this.txtctaDepMonetaria = new System.Windows.Forms.TextBox();
-            this.txtctaGastos = new System.Windows.Forms.TextBox();
+            this.txtctaBanco = new System.Windows.Forms.TextBox();
             this.txtctaDepreciacion = new System.Windows.Forms.TextBox();
-            this.txtctaMonetaria = new System.Windows.Forms.TextBox();
+            this.txtctaProveedor = new System.Windows.Forms.TextBox();
+            this.txtCompra = new System.Windows.Forms.TextBox();
+            this.txtVentas = new System.Windows.Forms.TextBox();
+            this.txtDepreciacion = new System.Windows.Forms.TextBox();
             this.msjError = new System.Windows.Forms.ErrorProvider(this.components);
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.Label1 = new System.Windows.Forms.Label();
@@ -55,11 +58,8 @@
             this.Panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCompra = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtVentas = new System.Windows.Forms.TextBox();
-            this.txtDepreciacion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.msjError)).BeginInit();
             this.GroupBox1.SuspendLayout();
@@ -200,15 +200,15 @@
             this.toolTip1.SetToolTip(this.txtctaDepMonetaria, "Cuenta Monetaria (Depreciación)");
             this.txtctaDepMonetaria.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
-            // txtctaGastos
+            // txtctaBanco
             // 
-            this.txtctaGastos.Location = new System.Drawing.Point(89, 65);
-            this.txtctaGastos.MaxLength = 12;
-            this.txtctaGastos.Name = "txtctaGastos";
-            this.txtctaGastos.Size = new System.Drawing.Size(175, 29);
-            this.txtctaGastos.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.txtctaGastos, "Cuenta de Gastos");
-            this.txtctaGastos.DoubleClick += new System.EventHandler(this.seleccionar);
+            this.txtctaBanco.Location = new System.Drawing.Point(89, 65);
+            this.txtctaBanco.MaxLength = 12;
+            this.txtctaBanco.Name = "txtctaBanco";
+            this.txtctaBanco.Size = new System.Drawing.Size(175, 29);
+            this.txtctaBanco.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtctaBanco, "Cuenta de Gastos");
+            this.txtctaBanco.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaDepreciacion
             // 
@@ -220,15 +220,48 @@
             this.toolTip1.SetToolTip(this.txtctaDepreciacion, "Cuenta de Depreciación");
             this.txtctaDepreciacion.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
-            // txtctaMonetaria
+            // txtctaProveedor
             // 
-            this.txtctaMonetaria.Location = new System.Drawing.Point(501, 65);
-            this.txtctaMonetaria.MaxLength = 12;
-            this.txtctaMonetaria.Name = "txtctaMonetaria";
-            this.txtctaMonetaria.Size = new System.Drawing.Size(175, 29);
-            this.txtctaMonetaria.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.txtctaMonetaria, "Cuenta Corrección Monetaria");
-            this.txtctaMonetaria.DoubleClick += new System.EventHandler(this.seleccionar);
+            this.txtctaProveedor.Location = new System.Drawing.Point(501, 65);
+            this.txtctaProveedor.MaxLength = 12;
+            this.txtctaProveedor.Name = "txtctaProveedor";
+            this.txtctaProveedor.Size = new System.Drawing.Size(175, 29);
+            this.txtctaProveedor.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtctaProveedor, "Cuenta Corrección Monetaria");
+            this.txtctaProveedor.DoubleClick += new System.EventHandler(this.seleccionar);
+            // 
+            // txtCompra
+            // 
+            this.txtCompra.Location = new System.Drawing.Point(104, 28);
+            this.txtCompra.MaxLength = 2;
+            this.txtCompra.Name = "txtCompra";
+            this.txtCompra.Size = new System.Drawing.Size(60, 29);
+            this.txtCompra.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.txtCompra, "Cuenta de Activo");
+            this.txtCompra.DoubleClick += new System.EventHandler(this.seleccionarDoc);
+            this.txtCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
+            // 
+            // txtVentas
+            // 
+            this.txtVentas.Location = new System.Drawing.Point(356, 28);
+            this.txtVentas.MaxLength = 2;
+            this.txtVentas.Name = "txtVentas";
+            this.txtVentas.Size = new System.Drawing.Size(60, 29);
+            this.txtVentas.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtVentas, "Cuenta de Gastos");
+            this.txtVentas.DoubleClick += new System.EventHandler(this.seleccionarDoc);
+            this.txtVentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
+            // 
+            // txtDepreciacion
+            // 
+            this.txtDepreciacion.Location = new System.Drawing.Point(608, 28);
+            this.txtDepreciacion.MaxLength = 2;
+            this.txtDepreciacion.Name = "txtDepreciacion";
+            this.txtDepreciacion.Size = new System.Drawing.Size(60, 29);
+            this.txtDepreciacion.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtDepreciacion, "Cuenta de Depreciación");
+            this.txtDepreciacion.DoubleClick += new System.EventHandler(this.seleccionarDoc);
+            this.txtDepreciacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
             // 
             // msjError
             // 
@@ -242,9 +275,9 @@
             this.GroupBox1.Controls.Add(this.Label21);
             this.GroupBox1.Controls.Add(this.Label22);
             this.GroupBox1.Controls.Add(this.txtctaDepMonetaria);
-            this.GroupBox1.Controls.Add(this.txtctaGastos);
+            this.GroupBox1.Controls.Add(this.txtctaBanco);
             this.GroupBox1.Controls.Add(this.txtctaDepreciacion);
-            this.GroupBox1.Controls.Add(this.txtctaMonetaria);
+            this.GroupBox1.Controls.Add(this.txtctaProveedor);
             this.GroupBox1.Controls.Add(this.Label23);
             this.GroupBox1.Controls.Add(this.Label24);
             this.GroupBox1.Controls.Add(this.Label25);
@@ -292,11 +325,11 @@
             // 
             this.Label23.AutoSize = true;
             this.Label23.ForeColor = System.Drawing.Color.Black;
-            this.Label23.Location = new System.Drawing.Point(331, 68);
+            this.Label23.Location = new System.Drawing.Point(391, 68);
             this.Label23.Name = "Label23";
-            this.Label23.Size = new System.Drawing.Size(167, 22);
+            this.Label23.Size = new System.Drawing.Size(107, 22);
             this.Label23.TabIndex = 8;
-            this.Label23.Text = "Correción Monetaria";
+            this.Label23.Text = "Proveedores";
             // 
             // Label24
             // 
@@ -304,9 +337,9 @@
             this.Label24.ForeColor = System.Drawing.Color.Black;
             this.Label24.Location = new System.Drawing.Point(23, 68);
             this.Label24.Name = "Label24";
-            this.Label24.Size = new System.Drawing.Size(63, 22);
+            this.Label24.Size = new System.Drawing.Size(57, 22);
             this.Label24.TabIndex = 9;
-            this.Label24.Text = "Gastos";
+            this.Label24.Text = "Banco";
             // 
             // Label25
             // 
@@ -358,22 +391,11 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Doble Click Para Seleccionar Documentos";
             // 
-            // txtCompra
-            // 
-            this.txtCompra.Location = new System.Drawing.Point(565, 28);
-            this.txtCompra.MaxLength = 2;
-            this.txtCompra.Name = "txtCompra";
-            this.txtCompra.Size = new System.Drawing.Size(60, 29);
-            this.txtCompra.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.txtCompra, "Cuenta de Activo");
-            this.txtCompra.DoubleClick += new System.EventHandler(this.seleccionarDoc);
-            this.txtCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(484, 31);
+            this.label3.Location = new System.Drawing.Point(23, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 22);
             this.label3.TabIndex = 6;
@@ -383,39 +405,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(23, 31);
+            this.label4.Location = new System.Drawing.Point(497, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 22);
             this.label4.TabIndex = 7;
             this.label4.Text = "Depreciación";
             // 
-            // txtVentas
-            // 
-            this.txtVentas.Location = new System.Drawing.Point(350, 28);
-            this.txtVentas.MaxLength = 2;
-            this.txtVentas.Name = "txtVentas";
-            this.txtVentas.Size = new System.Drawing.Size(60, 29);
-            this.txtVentas.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.txtVentas, "Cuenta de Gastos");
-            this.txtVentas.DoubleClick += new System.EventHandler(this.seleccionarDoc);
-            this.txtVentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
-            // 
-            // txtDepreciacion
-            // 
-            this.txtDepreciacion.Location = new System.Drawing.Point(135, 28);
-            this.txtDepreciacion.MaxLength = 2;
-            this.txtDepreciacion.Name = "txtDepreciacion";
-            this.txtDepreciacion.Size = new System.Drawing.Size(60, 29);
-            this.txtDepreciacion.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.txtDepreciacion, "Cuenta de Depreciación");
-            this.txtDepreciacion.DoubleClick += new System.EventHandler(this.seleccionarDoc);
-            this.txtDepreciacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCompra_KeyPress);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(285, 31);
+            this.label6.Location = new System.Drawing.Point(291, 31);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 22);
             this.label6.TabIndex = 9;
@@ -469,9 +469,9 @@
         internal System.Windows.Forms.Label Label21;
         internal System.Windows.Forms.Label Label22;
         internal System.Windows.Forms.TextBox txtctaDepMonetaria;
-        internal System.Windows.Forms.TextBox txtctaGastos;
+        internal System.Windows.Forms.TextBox txtctaBanco;
         internal System.Windows.Forms.TextBox txtctaDepreciacion;
-        internal System.Windows.Forms.TextBox txtctaMonetaria;
+        internal System.Windows.Forms.TextBox txtctaProveedor;
         internal System.Windows.Forms.Label Label23;
         internal System.Windows.Forms.Label Label24;
         internal System.Windows.Forms.Label Label25;

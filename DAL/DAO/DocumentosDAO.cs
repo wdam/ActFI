@@ -89,8 +89,8 @@ namespace DAL.DAO
 
         public List<EDocumentos> buscarDocumento(int documento, string tipo, string  periodo){
             List<EDocumentos> lstDocumentos = new List<EDocumentos>();
-            EDocumentos objDoc = null;
-            string sql = "SELECT * FROM documentos" + periodo + "  WHERE  tipodoc='" + tipo + "' AND doc='" + documento + "' ORDER BY item";
+            EDocumentos objDoc = null;            
+            string sql = "SELECT * FROM documentos" + periodo + "  WHERE  tipodoc='" + tipo + "' AND doc='" + documento + "' ORDER BY item";                            
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -113,39 +113,31 @@ namespace DAL.DAO
             return lstDocumentos;
         }
 
-        protected EDocumentos mapearObjeto(MySqlDataReader fila) {
-            EDocumentos doc = new EDocumentos();
-            doc.baseD = fila.GetDouble("base");            
-            doc.centro = (fila.GetString("centro") != "0") ? fila.GetString("centro") : "" ;
-            doc.cheque = fila.GetString("cheque");
-            doc.codigo = fila.GetString("codigo");
-            doc.credito = fila.GetDouble("credito");
-            doc.debito = fila.GetDouble("debito");
-            doc.descripcion = fila.GetString("descri");
-            doc.dia = fila.GetString("dia");
-            doc.diasv = fila.GetInt16("diasv");
-            doc.documento = fila.GetInt32("doc");
-            doc.fecha = fila.GetString("fechaven");
-            doc.item = fila.GetInt16("item");
-            doc.modulo = fila.GetString("modulo");
-            doc.nit = fila.GetString("nit");
-            doc.periodo = fila.GetString("periodo");
-            doc.tipo = fila.GetString("tipodoc");            
-            return doc;
-        }
 
-        protected EDocumentos mapearObj(MySqlDataReader fila)
+        public int verificar(int documento, string tipo, string periodo)
         {
-            EDocumentos doc = new EDocumentos();                                                
-            doc.debito = fila.GetDouble("debito");
-            doc.fecha = fila.GetString("fecha");            
-            doc.documento = fila.GetInt32("doc");                        
-            doc.nit = fila.GetString("nit");
-            doc.modulo = fila.GetString("nombre");            
-            doc.tipo = fila.GetString("tipodoc");       
-            return doc;     
+            int nReg = 0;
+            string sql = "SELECT * FROM documentos" + periodo + "  WHERE  tipodoc='" + tipo + "' AND doc='" + documento + "' LIMIT 1";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();                       
+                        if (dr.HasRows == true){
+                            nReg = 1;
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return nReg;
         }
-
+       
         public void modificarCuenta(int documento, string tipo, string periodo)
         { 
             List<EDocumentos> lstDoc = buscarDocumento(documento, tipo, periodo);
@@ -234,6 +226,41 @@ namespace DAL.DAO
                 }
             }  
         }
+
+        protected EDocumentos mapearObjeto(MySqlDataReader fila)
+        {
+            EDocumentos doc = new EDocumentos();
+            doc.baseD = fila.GetDouble("base");
+            doc.centro = (fila.GetString("centro") != "0") ? fila.GetString("centro") : "";
+            doc.cheque = fila.GetString("cheque");
+            doc.codigo = fila.GetString("codigo");
+            doc.credito = fila.GetDouble("credito");
+            doc.debito = fila.GetDouble("debito");
+            doc.descripcion = fila.GetString("descri");
+            doc.dia = fila.GetString("dia");
+            doc.diasv = fila.GetInt16("diasv");
+            doc.documento = fila.GetInt32("doc");
+            doc.fecha = fila.GetString("fechaven");
+            doc.item = fila.GetInt16("item");
+            doc.modulo = fila.GetString("modulo");
+            doc.nit = fila.GetString("nit");
+            doc.periodo = fila.GetString("periodo");
+            doc.tipo = fila.GetString("tipodoc");
+            return doc;
+        }
+
+        protected EDocumentos mapearObj(MySqlDataReader fila)
+        {
+            EDocumentos doc = new EDocumentos();
+            doc.debito = fila.GetDouble("debito");
+            doc.fecha = fila.GetString("fecha");
+            doc.documento = fila.GetInt32("doc");
+            doc.nit = fila.GetString("nit");
+            doc.modulo = fila.GetString("nombre");
+            doc.tipo = fila.GetString("tipodoc");
+            return doc;
+        }
+
 
         public void insertObservacion(int documento, string tipo, string observacion, string periodo) {
             using (conexion cnx = new conexion())
