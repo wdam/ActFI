@@ -15,18 +15,22 @@ namespace BLL
             return aDao.getAll();
         }
 
-        public List<EActivos> getActivos(string tipo)
+        /// <summary>
+        /// Retorna una Lista con los Activos a Depreciar
+        /// </summary>
+        /// <returns></returns>
+        public List<EActivos> getDepreciar()
         {           
             return aDao.getAll(Inicializar.Mes);
         }        
 
-        public string insertar(EActivos obj) {        
-          
-            //string validar = bllCuenta.validarCuentas(parametro);
-            //if (validar != "Correcto")
-            //{
-            //    return validar;
-            //}
+        public string insertar(EActivos obj) {
+            string validar;
+            validar = validarCuentas(obj.ctaActivo, obj.ctaDepreciacion, obj.ctaGastos, obj.ctaPerdida, obj.ctaGanancia);
+            if (validar != "Correcto")
+            {
+                return validar;
+            }   
          
             if (aDao.insertar(obj) > 0)
             {
@@ -136,9 +140,14 @@ namespace BLL
         public DataTable informeGeneral() {
             return aDao.informeGeneral();
         }
-
-        public DataTable informeUbicacion(string codigo) {
-            return aDao.informeUbicacion(codigo);
+        /// <summary>
+        /// Retorna un Datatable con Datos Filtrado por Ubicacion
+        /// </summary>
+        /// <param name="codigo">Codigo de Area o Ubicacion</param>
+        /// <param name="propiedad">Tipo de Propiedad</param>
+        /// <returns></returns>
+        public DataTable informeUbicacion(string codigo, string propiedad) {
+            return aDao.informeUbicacion(codigo, propiedad);
         }
     }
 }

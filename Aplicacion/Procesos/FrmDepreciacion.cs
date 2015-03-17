@@ -216,7 +216,7 @@ namespace Aplicacion.Procesos
 
         private void lblDepreciar_Click(object sender, EventArgs e)
         {
-            lstActivos = bllAct.getActivos("");
+            lstActivos = bllAct.getDepreciar();
             if (lstActivos.Count > 0)
             {
                 this.Cursor = Cursors.WaitCursor;   

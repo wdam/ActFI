@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmActivos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenIzq = new System.Windows.Forms.Label();
@@ -72,16 +72,6 @@
             this.btnTab1 = new System.Windows.Forms.Button();
             this.Label26 = new System.Windows.Forms.Label();
             this.pnlGeneral = new System.Windows.Forms.Panel();
-            this.groupbox2 = new System.Windows.Forms.GroupBox();
-            this.dtpFechaCpra = new System.Windows.Forms.DateTimePicker();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.txtVComprar = new System.Windows.Forms.TextBox();
-            this.Label12 = new System.Windows.Forms.Label();
-            this.txtNFactura = new System.Windows.Forms.TextBox();
-            this.Label11 = new System.Windows.Forms.Label();
-            this.txtcodProveedor = new System.Windows.Forms.TextBox();
-            this.txtProveedor = new System.Windows.Forms.TextBox();
             this.grbCrear = new System.Windows.Forms.GroupBox();
             this.chkPoliza = new System.Windows.Forms.CheckBox();
             this.cboEstado = new System.Windows.Forms.ComboBox();
@@ -101,6 +91,16 @@
             this.label29 = new System.Windows.Forms.Label();
             this.Label8 = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
+            this.groupbox2 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaCpra = new System.Windows.Forms.DateTimePicker();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtVComprar = new System.Windows.Forms.TextBox();
+            this.Label12 = new System.Windows.Forms.Label();
+            this.txtNFactura = new System.Windows.Forms.TextBox();
+            this.Label11 = new System.Windows.Forms.Label();
+            this.txtcodProveedor = new System.Windows.Forms.TextBox();
+            this.txtProveedor = new System.Windows.Forms.TextBox();
             this.cboAreaResp = new System.Windows.Forms.ComboBox();
             this.txtResponsable = new System.Windows.Forms.TextBox();
             this.txtcentroNom = new System.Windows.Forms.TextBox();
@@ -173,6 +173,7 @@
             this.btnTab5 = new System.Windows.Forms.Button();
             this.pnlMantenimiento = new System.Windows.Forms.Panel();
             this.grbMantenimiento = new System.Windows.Forms.GroupBox();
+            this.dgvContable = new System.Windows.Forms.DataGridView();
             this.lblIDContMant = new System.Windows.Forms.Label();
             this.dtpVenceMto = new System.Windows.Forms.DateTimePicker();
             this.dtpInicioMto = new System.Windows.Forms.DateTimePicker();
@@ -184,18 +185,17 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtValContrato = new System.Windows.Forms.TextBox();
-            this.dgvContable = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDebitos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
-            this.groupbox2.SuspendLayout();
             this.grbCrear.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
+            this.groupbox2.SuspendLayout();
             this.pnlValores.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.gbValores.SuspendLayout();
@@ -682,113 +682,6 @@
             this.pnlGeneral.Size = new System.Drawing.Size(780, 380);
             this.pnlGeneral.TabIndex = 4;
             // 
-            // groupbox2
-            // 
-            this.groupbox2.Controls.Add(this.dtpFechaCpra);
-            this.groupbox2.Controls.Add(this.label46);
-            this.groupbox2.Controls.Add(this.label34);
-            this.groupbox2.Controls.Add(this.txtVComprar);
-            this.groupbox2.Controls.Add(this.Label12);
-            this.groupbox2.Controls.Add(this.txtNFactura);
-            this.groupbox2.Controls.Add(this.Label11);
-            this.groupbox2.Controls.Add(this.txtcodProveedor);
-            this.groupbox2.Controls.Add(this.txtProveedor);
-            this.groupbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
-            this.groupbox2.Location = new System.Drawing.Point(11, 243);
-            this.groupbox2.Name = "groupbox2";
-            this.groupbox2.Size = new System.Drawing.Size(760, 130);
-            this.groupbox2.TabIndex = 5;
-            this.groupbox2.TabStop = false;
-            this.groupbox2.Text = "Informacíon de Compra";
-            // 
-            // dtpFechaCpra
-            // 
-            this.dtpFechaCpra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaCpra.Location = new System.Drawing.Point(135, 29);
-            this.dtpFechaCpra.Name = "dtpFechaCpra";
-            this.dtpFechaCpra.Size = new System.Drawing.Size(140, 29);
-            this.dtpFechaCpra.TabIndex = 0;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.ForeColor = System.Drawing.Color.Black;
-            this.label46.Location = new System.Drawing.Point(425, 65);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(89, 22);
-            this.label46.TabIndex = 0;
-            this.label46.Text = "V. Compra";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.ForeColor = System.Drawing.Color.Black;
-            this.label34.Location = new System.Drawing.Point(14, 65);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(90, 22);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "N° Factura";
-            // 
-            // txtVComprar
-            // 
-            this.txtVComprar.Location = new System.Drawing.Point(518, 62);
-            this.txtVComprar.MaxLength = 20;
-            this.txtVComprar.Name = "txtVComprar";
-            this.txtVComprar.Size = new System.Drawing.Size(170, 29);
-            this.txtVComprar.TabIndex = 2;
-            this.txtVComprar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtVComprar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
-            this.txtVComprar.Leave += new System.EventHandler(this.txtVComprar_Leave);
-            // 
-            // Label12
-            // 
-            this.Label12.AutoSize = true;
-            this.Label12.ForeColor = System.Drawing.Color.Black;
-            this.Label12.Location = new System.Drawing.Point(14, 98);
-            this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(90, 22);
-            this.Label12.TabIndex = 0;
-            this.Label12.Text = "Proveedor";
-            // 
-            // txtNFactura
-            // 
-            this.txtNFactura.Location = new System.Drawing.Point(136, 62);
-            this.txtNFactura.MaxLength = 15;
-            this.txtNFactura.Name = "txtNFactura";
-            this.txtNFactura.Size = new System.Drawing.Size(140, 29);
-            this.txtNFactura.TabIndex = 1;
-            // 
-            // Label11
-            // 
-            this.Label11.AutoSize = true;
-            this.Label11.ForeColor = System.Drawing.Color.Black;
-            this.Label11.Location = new System.Drawing.Point(14, 32);
-            this.Label11.Name = "Label11";
-            this.Label11.Size = new System.Drawing.Size(114, 22);
-            this.Label11.TabIndex = 0;
-            this.Label11.Text = "F. Adquisición";
-            // 
-            // txtcodProveedor
-            // 
-            this.txtcodProveedor.Location = new System.Drawing.Point(136, 95);
-            this.txtcodProveedor.MaxLength = 15;
-            this.txtcodProveedor.Name = "txtcodProveedor";
-            this.txtcodProveedor.Size = new System.Drawing.Size(140, 29);
-            this.txtcodProveedor.TabIndex = 3;
-            this.txtcodProveedor.TextChanged += new System.EventHandler(this.txtcodProveedor_TextChanged);
-            this.txtcodProveedor.DoubleClick += new System.EventHandler(this.txtcodProveedor_DoubleClick);
-            // 
-            // txtProveedor
-            // 
-            this.txtProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtProveedor.Enabled = false;
-            this.txtProveedor.Location = new System.Drawing.Point(283, 95);
-            this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.ReadOnly = true;
-            this.txtProveedor.Size = new System.Drawing.Size(405, 29);
-            this.txtProveedor.TabIndex = 8;
-            // 
             // grbCrear
             // 
             this.grbCrear.Controls.Add(this.chkPoliza);
@@ -1016,6 +909,113 @@
             this.Label7.Size = new System.Drawing.Size(59, 22);
             this.Label7.TabIndex = 0;
             this.Label7.Text = "Grupo";
+            // 
+            // groupbox2
+            // 
+            this.groupbox2.Controls.Add(this.dtpFechaCpra);
+            this.groupbox2.Controls.Add(this.label46);
+            this.groupbox2.Controls.Add(this.label34);
+            this.groupbox2.Controls.Add(this.txtVComprar);
+            this.groupbox2.Controls.Add(this.Label12);
+            this.groupbox2.Controls.Add(this.txtNFactura);
+            this.groupbox2.Controls.Add(this.Label11);
+            this.groupbox2.Controls.Add(this.txtcodProveedor);
+            this.groupbox2.Controls.Add(this.txtProveedor);
+            this.groupbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.groupbox2.Location = new System.Drawing.Point(11, 243);
+            this.groupbox2.Name = "groupbox2";
+            this.groupbox2.Size = new System.Drawing.Size(760, 130);
+            this.groupbox2.TabIndex = 5;
+            this.groupbox2.TabStop = false;
+            this.groupbox2.Text = "Informacíon de Compra";
+            // 
+            // dtpFechaCpra
+            // 
+            this.dtpFechaCpra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaCpra.Location = new System.Drawing.Point(135, 29);
+            this.dtpFechaCpra.Name = "dtpFechaCpra";
+            this.dtpFechaCpra.Size = new System.Drawing.Size(140, 29);
+            this.dtpFechaCpra.TabIndex = 0;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.Black;
+            this.label46.Location = new System.Drawing.Point(425, 65);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(89, 22);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "V. Compra";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.ForeColor = System.Drawing.Color.Black;
+            this.label34.Location = new System.Drawing.Point(14, 65);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(90, 22);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "N° Factura";
+            // 
+            // txtVComprar
+            // 
+            this.txtVComprar.Location = new System.Drawing.Point(518, 62);
+            this.txtVComprar.MaxLength = 20;
+            this.txtVComprar.Name = "txtVComprar";
+            this.txtVComprar.Size = new System.Drawing.Size(170, 29);
+            this.txtVComprar.TabIndex = 2;
+            this.txtVComprar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVComprar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
+            this.txtVComprar.Leave += new System.EventHandler(this.txtVComprar_Leave);
+            // 
+            // Label12
+            // 
+            this.Label12.AutoSize = true;
+            this.Label12.ForeColor = System.Drawing.Color.Black;
+            this.Label12.Location = new System.Drawing.Point(14, 98);
+            this.Label12.Name = "Label12";
+            this.Label12.Size = new System.Drawing.Size(90, 22);
+            this.Label12.TabIndex = 0;
+            this.Label12.Text = "Proveedor";
+            // 
+            // txtNFactura
+            // 
+            this.txtNFactura.Location = new System.Drawing.Point(136, 62);
+            this.txtNFactura.MaxLength = 15;
+            this.txtNFactura.Name = "txtNFactura";
+            this.txtNFactura.Size = new System.Drawing.Size(140, 29);
+            this.txtNFactura.TabIndex = 1;
+            // 
+            // Label11
+            // 
+            this.Label11.AutoSize = true;
+            this.Label11.ForeColor = System.Drawing.Color.Black;
+            this.Label11.Location = new System.Drawing.Point(14, 32);
+            this.Label11.Name = "Label11";
+            this.Label11.Size = new System.Drawing.Size(114, 22);
+            this.Label11.TabIndex = 0;
+            this.Label11.Text = "F. Adquisición";
+            // 
+            // txtcodProveedor
+            // 
+            this.txtcodProveedor.Location = new System.Drawing.Point(136, 95);
+            this.txtcodProveedor.MaxLength = 15;
+            this.txtcodProveedor.Name = "txtcodProveedor";
+            this.txtcodProveedor.Size = new System.Drawing.Size(140, 29);
+            this.txtcodProveedor.TabIndex = 3;
+            this.txtcodProveedor.TextChanged += new System.EventHandler(this.txtcodProveedor_TextChanged);
+            this.txtcodProveedor.DoubleClick += new System.EventHandler(this.txtcodProveedor_DoubleClick);
+            // 
+            // txtProveedor
+            // 
+            this.txtProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtProveedor.Enabled = false;
+            this.txtProveedor.Location = new System.Drawing.Point(283, 95);
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.ReadOnly = true;
+            this.txtProveedor.Size = new System.Drawing.Size(405, 29);
+            this.txtProveedor.TabIndex = 8;
             // 
             // cboAreaResp
             // 
@@ -1841,6 +1841,28 @@
             this.grbMantenimiento.TabStop = false;
             this.grbMantenimiento.Text = "Información Contrato de Mantenimiento";
             // 
+            // dgvContable
+            // 
+            this.dgvContable.AllowUserToAddRows = false;
+            this.dgvContable.AllowUserToDeleteRows = false;
+            this.dgvContable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvContable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtDescripcion,
+            this.dtDebito,
+            this.dtCredito,
+            this.dtCuenta,
+            this.dtBase});
+            this.dgvContable.Location = new System.Drawing.Point(25, 207);
+            this.dgvContable.Name = "dgvContable";
+            this.dgvContable.ReadOnly = true;
+            this.dgvContable.RowHeadersVisible = false;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dgvContable.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvContable.Size = new System.Drawing.Size(618, 135);
+            this.dgvContable.TabIndex = 10;
+            // 
             // lblIDContMant
             // 
             this.lblIDContMant.AutoSize = true;
@@ -1947,53 +1969,31 @@
             this.txtValContrato.Visible = false;
             this.txtValContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
-            // dgvContable
+            // dtDescripcion
             // 
-            this.dgvContable.AllowUserToAddRows = false;
-            this.dgvContable.AllowUserToDeleteRows = false;
-            this.dgvContable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvContable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.dtDebitos,
-            this.dtDebito,
-            this.dtCuenta,
-            this.dtDase});
-            this.dgvContable.Location = new System.Drawing.Point(25, 207);
-            this.dgvContable.Name = "dgvContable";
-            this.dgvContable.ReadOnly = true;
-            this.dgvContable.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvContable.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvContable.Size = new System.Drawing.Size(618, 135);
-            this.dgvContable.TabIndex = 10;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Descripcion";
-            this.Column1.MinimumWidth = 200;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 200;
-            // 
-            // dtDebitos
-            // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dtDebitos.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dtDebitos.HeaderText = "Debito";
-            this.dtDebitos.Name = "dtDebitos";
-            this.dtDebitos.ReadOnly = true;
+            this.dtDescripcion.HeaderText = "Descripcion";
+            this.dtDescripcion.MinimumWidth = 200;
+            this.dtDescripcion.Name = "dtDescripcion";
+            this.dtDescripcion.ReadOnly = true;
+            this.dtDescripcion.Width = 200;
             // 
             // dtDebito
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtDebito.HeaderText = "Credito";
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtDebito.HeaderText = "Debito";
             this.dtDebito.Name = "dtDebito";
             this.dtDebito.ReadOnly = true;
+            // 
+            // dtCredito
+            // 
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dtCredito.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dtCredito.HeaderText = "Credito";
+            this.dtCredito.Name = "dtCredito";
+            this.dtCredito.ReadOnly = true;
             // 
             // dtCuenta
             // 
@@ -2001,14 +2001,14 @@
             this.dtCuenta.Name = "dtCuenta";
             this.dtCuenta.ReadOnly = true;
             // 
-            // dtDase
+            // dtBase
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dtDase.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtDase.HeaderText = "Base";
-            this.dtDase.Name = "dtDase";
-            this.dtDase.ReadOnly = true;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dtBase.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dtBase.HeaderText = "Base";
+            this.dtBase.Name = "dtBase";
+            this.dtBase.ReadOnly = true;
             // 
             // FrmActivos
             // 
@@ -2049,11 +2049,11 @@
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.FlowLayoutPanel1.PerformLayout();
             this.pnlGeneral.ResumeLayout(false);
-            this.groupbox2.ResumeLayout(false);
-            this.groupbox2.PerformLayout();
             this.grbCrear.ResumeLayout(false);
             this.grbCrear.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
+            this.groupbox2.ResumeLayout(false);
+            this.groupbox2.PerformLayout();
             this.pnlValores.ResumeLayout(false);
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
@@ -2229,10 +2229,10 @@
         private System.Windows.Forms.Label lblIDPoliza;
         private System.Windows.Forms.Label lblIDContMant;
         private System.Windows.Forms.DataGridView dgvContable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtDebitos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDebito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtCredito;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtCuenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtDase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtBase;
     }
 }

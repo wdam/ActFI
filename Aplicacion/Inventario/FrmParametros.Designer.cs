@@ -39,7 +39,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lblSalir = new System.Windows.Forms.Label();
             this.lblGuardar = new System.Windows.Forms.Label();
-            this.txtctaActivo = new System.Windows.Forms.TextBox();
+            this.txtctaCaja = new System.Windows.Forms.TextBox();
             this.txtctaDepMonetaria = new System.Windows.Forms.TextBox();
             this.txtctaBanco = new System.Windows.Forms.TextBox();
             this.txtctaDepreciacion = new System.Windows.Forms.TextBox();
@@ -180,15 +180,15 @@
             this.lblGuardar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
             this.lblGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
-            // txtctaActivo
+            // txtctaCaja
             // 
-            this.txtctaActivo.Location = new System.Drawing.Point(89, 28);
-            this.txtctaActivo.MaxLength = 12;
-            this.txtctaActivo.Name = "txtctaActivo";
-            this.txtctaActivo.Size = new System.Drawing.Size(175, 29);
-            this.txtctaActivo.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.txtctaActivo, "Cuenta de Activo");
-            this.txtctaActivo.DoubleClick += new System.EventHandler(this.seleccionar);
+            this.txtctaCaja.Location = new System.Drawing.Point(89, 28);
+            this.txtctaCaja.MaxLength = 12;
+            this.txtctaCaja.Name = "txtctaCaja";
+            this.txtctaCaja.Size = new System.Drawing.Size(175, 29);
+            this.txtctaCaja.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.txtctaCaja, "Cuenta de Caja");
+            this.txtctaCaja.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaDepMonetaria
             // 
@@ -207,12 +207,12 @@
             this.txtctaBanco.Name = "txtctaBanco";
             this.txtctaBanco.Size = new System.Drawing.Size(175, 29);
             this.txtctaBanco.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.txtctaBanco, "Cuenta de Gastos");
+            this.toolTip1.SetToolTip(this.txtctaBanco, "Cuenta de Bancos");
             this.txtctaBanco.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaDepreciacion
             // 
-            this.txtctaDepreciacion.Location = new System.Drawing.Point(501, 28);
+            this.txtctaDepreciacion.Location = new System.Drawing.Point(501, 65);
             this.txtctaDepreciacion.MaxLength = 12;
             this.txtctaDepreciacion.Name = "txtctaDepreciacion";
             this.txtctaDepreciacion.Size = new System.Drawing.Size(175, 29);
@@ -222,12 +222,12 @@
             // 
             // txtctaProveedor
             // 
-            this.txtctaProveedor.Location = new System.Drawing.Point(501, 65);
+            this.txtctaProveedor.Location = new System.Drawing.Point(501, 28);
             this.txtctaProveedor.MaxLength = 12;
             this.txtctaProveedor.Name = "txtctaProveedor";
             this.txtctaProveedor.Size = new System.Drawing.Size(175, 29);
             this.txtctaProveedor.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.txtctaProveedor, "Cuenta Corrección Monetaria");
+            this.toolTip1.SetToolTip(this.txtctaProveedor, "Cuenta de Proveedores");
             this.txtctaProveedor.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtCompra
@@ -271,7 +271,7 @@
             // GroupBox1
             // 
             this.GroupBox1.Controls.Add(this.Label1);
-            this.GroupBox1.Controls.Add(this.txtctaActivo);
+            this.GroupBox1.Controls.Add(this.txtctaCaja);
             this.GroupBox1.Controls.Add(this.Label21);
             this.GroupBox1.Controls.Add(this.Label22);
             this.GroupBox1.Controls.Add(this.txtctaDepMonetaria);
@@ -305,17 +305,17 @@
             // 
             this.Label21.AutoSize = true;
             this.Label21.ForeColor = System.Drawing.Color.Black;
-            this.Label21.Location = new System.Drawing.Point(22, 31);
+            this.Label21.Location = new System.Drawing.Point(23, 31);
             this.Label21.Name = "Label21";
-            this.Label21.Size = new System.Drawing.Size(56, 22);
+            this.Label21.Size = new System.Drawing.Size(42, 22);
             this.Label21.TabIndex = 6;
-            this.Label21.Text = "Activo";
+            this.Label21.Text = "Caja";
             // 
             // Label22
             // 
             this.Label22.AutoSize = true;
             this.Label22.ForeColor = System.Drawing.Color.Black;
-            this.Label22.Location = new System.Drawing.Point(388, 31);
+            this.Label22.Location = new System.Drawing.Point(388, 68);
             this.Label22.Name = "Label22";
             this.Label22.Size = new System.Drawing.Size(110, 22);
             this.Label22.TabIndex = 7;
@@ -325,7 +325,7 @@
             // 
             this.Label23.AutoSize = true;
             this.Label23.ForeColor = System.Drawing.Color.Black;
-            this.Label23.Location = new System.Drawing.Point(391, 68);
+            this.Label23.Location = new System.Drawing.Point(391, 31);
             this.Label23.Name = "Label23";
             this.Label23.Size = new System.Drawing.Size(107, 22);
             this.Label23.TabIndex = 8;
@@ -465,7 +465,7 @@
         private System.Windows.Forms.ErrorProvider msjError;
         internal System.Windows.Forms.GroupBox GroupBox1;
         internal System.Windows.Forms.Label Label1;
-        internal System.Windows.Forms.TextBox txtctaActivo;
+        internal System.Windows.Forms.TextBox txtctaCaja;
         internal System.Windows.Forms.Label Label21;
         internal System.Windows.Forms.Label Label22;
         internal System.Windows.Forms.TextBox txtctaDepMonetaria;

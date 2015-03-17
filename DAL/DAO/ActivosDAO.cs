@@ -132,7 +132,7 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?ctaGanancia", MySqlDbType.String).Value = act.ctaGanancia;
                     cmd.Parameters.Add("?ctaMantenimiento", MySqlDbType.String).Value = act.ctaMantenimiento;
 
-                    cmd.Parameters.Add("?fechamaxDep", MySqlDbType.VarChar).Value = act.fechaDep;
+                    cmd.Parameters.Add("?fechamaxDep", MySqlDbType.Date).Value = act.fechaDep;
                     cmd.Parameters.Add("?mantenimiento", MySqlDbType.String).Value = act.mantenimiento;
                     cmd.Parameters.Add("?poliza", MySqlDbType.String).Value = act.poliza;
                     cmd.Parameters.Add("?nFactura", MySqlDbType.String).Value = act.nFactura;
@@ -270,15 +270,19 @@ namespace DAL.DAO
             return dt;
         }
 
-        public DataTable informeUbicacion(string codigo) {
+        public DataTable informeUbicacion(string codigo, string propiedad) {
             string area ="";
+            string filtroP = ""; // filtro de Propiedad
             if (codigo !=""){
-               area = " WHERE af.AreaLoc = '"+codigo+"'";
+               area = " AND af.AreaLoc = '"+codigo+"'";
+            }
+            if (propiedad != "Todos") {
+                filtroP = "AND propiedad='" + propiedad + "'";
             }
             string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.fechaCompra AS fecha, " +
                  " af.estado,  CONCAT(t.nit, ' ', t.nombre,' ', t.apellidos) responsable,  " +
                  " af.AreaLoc as area, a.nombre AS referencia FROM  afactivos af INNER JOIN terceros " +
-                 " t ON af.responsable = t.nit INNER JOIN afarea a ON af.AreaLoc = a.codigo "+area+"";
+                 " t ON af.responsable = t.nit INNER JOIN afarea a ON af.AreaLoc = a.codigo WHERE estado <> 'BAJA' "+area +""+filtroP+"";
             DataTable dt = consultar(sql);
             return dt;
         }

@@ -17,7 +17,9 @@ namespace Aplicacion.Inventario
 {
     public partial class FrmActivos : Form, ISeleccionar
     {
-        TextBox texto;        
+        
+        #region Declaracion de Variables
+        TextBox texto;
         BLL.ParametrosBLL bllPar = new BLL.ParametrosBLL();
         BLL.TerceroBLL bllTer = new BLL.TerceroBLL();
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
@@ -27,26 +29,27 @@ namespace Aplicacion.Inventario
         BLL.PolizaBLL bllPoliza = new BLL.PolizaBLL();
         BLL.DocumentosBLL bllDoc = new BLL.DocumentosBLL();
         BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
-                
+
         bool Encontro = false;   // Verificar si encontro datos de un activo
         // Declaracion de Objetos
         ETerceros user;
-        ECentroCosto centro;        
+        ECentroCosto centro;
         EActivos activo;
         EGrupo objGrupo;
         EMantenimiento objMnto;
         EPolizas objPoliza;
         EParametros objParametros;
         ETipoDocumento objTipodoc;
-            
+
         // Declaracion de Listas
         List<EGrupo> lstGrupos;
         List<ESubgrupo> lstSubgrupo;
 
         double porSalvto = 0; // porcentaje de salvamento 
-        string tipoDoc="";   // Tipo de Documento Contable
+        string tipoDoc = "";   // Tipo de Documento Contable
         string numConsecutivo; //Numero Consecutivo Contable
-
+        #endregion
+        
         public FrmActivos()
         {
             InitializeComponent();
@@ -602,11 +605,11 @@ namespace Aplicacion.Inventario
                 txtCodigo.Enabled = false;
                 txtCodResp.Enabled = false;
                 cboAreaResp.Enabled = false;
-                if (chkPoliza.Enabled == true)
+                if (chkPoliza.Checked == true)
                 {
                     btnTab4.Enabled = true;
                 }
-                if (chkMantenimiento.Enabled == true)
+                if (chkMantenimiento.Checked == true)
                 {
                     btnTab5.Enabled = true;
                 }
@@ -677,6 +680,7 @@ namespace Aplicacion.Inventario
                 {
                     guardarContratoMto();
                 }
+                guardarContable();
                 guardarImagen();
                 MessageBox.Show("Datos Guardados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Deshabilitar();
@@ -1098,37 +1102,44 @@ namespace Aplicacion.Inventario
         }
 
         private void movimientoContable() {
+            dgvContable.Rows.Clear();
             dgvContable.Rows.Add("COMPRA DE " + cboSubgrupo.Text, txtvalComercial.Text, 0, txtctaActivo.Text, 0);
             dgvContable.Rows.Add("PROVEEDORES NACIONALES ", 0, txtvalComercial.Text, objParametros.ctaProveedor, 0);
         }
 
-        private void guardarContable() {
+        private void guardarContable() {            
             movimientoContable();
             Consecutivo();
-
             int valCons = bllDoc.verificar(Convert.ToInt32(numConsecutivo), tipoDoc);
             if (valCons > 0){
                 numConsecutivo = UtilSystem.fConsecutivo(Convert.ToInt32(numConsecutivo) + 1);
             }
-            bllTipo.updateConsecutivo(Convert.ToInt32(numConsecutivo), tipoDoc);   
-            EDocumentos ObjDoc = new EDocumentos();
-            ObjDoc.item = 0; 
-            ObjDoc.documento = Convert.ToInt32("0");
-            ObjDoc.tipo = "AA";
-            ObjDoc.periodo = BLL.Inicializar.periodo;
-            ObjDoc.dia = DateTime.Now.Day.ToString();
-            ObjDoc.centro = txtcentro.Text;
-            ObjDoc.descripcion =UtilSystem.truncarCadena("COMPRA DE " + cboSubgrupo.Text, 50) ;
-            ObjDoc.debito = UtilSystem.DIN(txtvalComercial.Text);
-            ObjDoc.credito = UtilSystem.DIN("0");
-            ObjDoc.codigo = txtctaActivo.Text;
-            ObjDoc.baseD = UtilSystem.DIN("0");
-            ObjDoc.diasv = 0;
-            ObjDoc.fecha = UtilSystem.truncarCadena(DateTime.Now.Date.ToShortDateString(), 10);
-            ObjDoc.cheque = "";
-            ObjDoc.nit = txtcodProveedor.Text;
-            ObjDoc.modulo = "ACTIVO";
-            bllDoc.insertar(ObjDoc);
+            bllTipo.updateConsecutivo(Convert.ToInt32(numConsecutivo), tipoDoc);
+            int cont = 0;
+            string fecha = UtilSystem.truncarCadena(DateTime.Now.Date.ToShortDateString(), 10);
+            foreach (DataGridViewRow item in dgvContable.Rows)
+            {
+                cont++;
+                EDocumentos ObjDoc = new EDocumentos();
+                ObjDoc.item = cont;
+                ObjDoc.documento = Convert.ToInt32(numConsecutivo);
+                ObjDoc.tipo = tipoDoc;
+                ObjDoc.periodo = BLL.Inicializar.periodo;
+                ObjDoc.dia = DateTime.Now.Day.ToString();
+                ObjDoc.centro =  string.IsNullOrEmpty(txtcentro.Text) ? "0" : txtcentro.Text;
+                ObjDoc.descripcion = UtilSystem.truncarCadena(item.Cells["dtDescripcion"].Value.ToString(), 50);
+                ObjDoc.debito = UtilSystem.DIN(item.Cells["dtDebito"].Value.ToString() ?? "0");
+                ObjDoc.credito = UtilSystem.DIN(item.Cells["dtCredito"].Value.ToString() ?? "0");
+                ObjDoc.codigo = item.Cells["dtCuenta"].Value.ToString();
+                ObjDoc.baseD = UtilSystem.DIN(item.Cells["dtBase"].Value.ToString() ?? "0"); 
+                ObjDoc.diasv = 0;
+                ObjDoc.fecha = fecha;
+                ObjDoc.cheque = "";
+                ObjDoc.nit = txtcodProveedor.Text;
+                ObjDoc.modulo = "ACTIVOS";
+                bllDoc.insertar(ObjDoc);
+            }
+           
         }
         #endregion
 

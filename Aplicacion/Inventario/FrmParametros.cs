@@ -61,9 +61,9 @@ namespace Aplicacion.Inventario
 
         private bool validar() {
             bool valido = true;
-            if (!bllVal.noEstaVacio(txtctaActivo.Text))
+            if (!bllVal.noEstaVacio(txtctaCaja.Text))
             {
-                msjError.SetError(txtctaActivo, "Ingrese la Cuenta de Activo");
+                msjError.SetError(txtctaCaja, "Ingrese la Cuenta de Activo");
                 valido = false;
             }
 
@@ -116,7 +116,7 @@ namespace Aplicacion.Inventario
         private void guardar() {
             EParametros obj = new EParametros();
             obj.Codigo = "1";
-            obj.ctaActivo = txtctaActivo.Text;
+            obj.ctaActivo = txtctaCaja.Text;
             obj.ctaDepreciacion = txtctaDepreciacion.Text;
             obj.ctaBanco = txtctaBanco.Text;
             obj.ctaProveedor = txtctaProveedor.Text;
@@ -141,7 +141,7 @@ namespace Aplicacion.Inventario
             lstPar = bllPar.getParametros();
 
             if (lstPar !=null ){
-                txtctaActivo.Text = lstPar.ctaActivo;
+                txtctaCaja.Text = lstPar.ctaActivo;
                 txtctaDepreciacion.Text = lstPar.ctaDepreciacion;
                 txtctaBanco.Text = lstPar.ctaBanco;
                 txtctaProveedor.Text = lstPar.ctaProveedor;

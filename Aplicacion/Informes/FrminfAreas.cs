@@ -16,6 +16,7 @@ namespace Aplicacion.Informes
     {
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         string codArea; // Codido de Area Seleccionada
+        string tPropiedad = "Todos"; // Tipo de Propiedad
         public FrminfAreas()
         {
             InitializeComponent();
@@ -98,7 +99,7 @@ namespace Aplicacion.Informes
             BLL.CompanyBLL bllComp = new BLL.CompanyBLL();
             ECompany objC = bllComp.buscar();
             DataTable dt = new DataTable();
-            dt = bllAct.informeUbicacion(codigo);
+            dt = bllAct.informeUbicacion(codigo, tPropiedad);
             Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
             ReportDocument reporte = new ReportDocument();
             string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\RptInfAreas.rpt";
@@ -117,6 +118,36 @@ namespace Aplicacion.Informes
         private void cboArea_SelectedIndexChanged(object sender, EventArgs e)
         {
             codArea = cboArea.SelectedValue.ToString();
+        }
+
+        private void rbTodPro_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTodProp.Checked) {
+                tPropiedad = "Todos";
+            }
+        }
+
+        private void rbLeasing_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbLeasing.Checked) {
+                tPropiedad = "LEASING";
+            }
+        }
+
+        private void rbArrendado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbArrendado.Checked)
+            {
+                tPropiedad = "ARRENDADO";
+            }
+        }
+
+        private void rbPropio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPropio.Checked)
+            {
+                tPropiedad = "PROPIO";
+            }
         }
     }
 }
