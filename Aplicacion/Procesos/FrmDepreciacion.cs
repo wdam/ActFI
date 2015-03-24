@@ -239,9 +239,10 @@ namespace Aplicacion.Procesos
                 EDepreciacion objDep = new EDepreciacion();
                 objDep.documento = tipoDoc + txtNumero.Text.ToString();
                 objDep.codigo = fila.Cells["dtCodigo"].Value.ToString();
-                objDep.periodo = fila.Cells["dtPeriodo"].Value.ToString().Substring(0,2);
-                objDep.valorDep = UtilSystem.DIN(fila.Cells["dtLibros"].Value.ToString() ?? "0");
+                objDep.periodo = fila.Cells["dtPeriodo"].Value.ToString();
+                objDep.valLibros = UtilSystem.DIN(fila.Cells["dtLibros"].Value.ToString() ?? "0");
                 objDep.depreciacion = UtilSystem.DIN(fila.Cells["dtDepreciacion"].Value.ToString() ?? "0");
+                objDep.depAcumulada = UtilSystem.DIN(fila.Cells["dtDepAcum"].Value.ToString() ?? "0"); 
                 lstDep.Add(objDep);
             }
             bllDep.insertar(lstDep);

@@ -149,5 +149,13 @@ namespace BLL
         public DataTable informeUbicacion(string codigo, string propiedad) {
             return aDao.informeUbicacion(codigo, propiedad);
         }
+
+        /// <summary>
+        /// Retorna un Datatable con Valores de Cada Activo
+        /// </summary>
+        /// <returns></returns>
+        public DataTable informeValores() {
+            return aDao.informeValores();
+        }
     }
 }

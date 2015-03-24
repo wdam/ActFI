@@ -303,7 +303,7 @@ namespace Aplicacion {
             
             private global::System.Data.DataColumn columnproveedor;
             
-            private global::System.Data.DataColumn columnccentro;
+            private global::System.Data.DataColumn columnccosto;
             
             private global::System.Data.DataColumn columnestado;
             
@@ -338,6 +338,8 @@ namespace Aplicacion {
             private global::System.Data.DataColumn columngrupo;
             
             private global::System.Data.DataColumn columnsubgrupo;
+            
+            private global::System.Data.DataColumn columnvalTotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -470,9 +472,9 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ccentroColumn {
+            public global::System.Data.DataColumn ccostoColumn {
                 get {
-                    return this.columnccentro;
+                    return this.columnccosto;
                 }
             }
             
@@ -614,6 +616,14 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn valTotalColumn {
+                get {
+                    return this.columnvalTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -662,7 +672,7 @@ namespace Aplicacion {
                         string areaLoc, 
                         string responsable, 
                         string proveedor, 
-                        string ccentro, 
+                        string ccosto, 
                         string estado, 
                         double valComercial, 
                         double valSalvamento, 
@@ -679,7 +689,8 @@ namespace Aplicacion {
                         string documento, 
                         string periodo, 
                         string grupo, 
-                        string subgrupo) {
+                        string subgrupo, 
+                        double valTotal) {
                 afactivosRow rowafactivosRow = ((afactivosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codigo,
@@ -694,7 +705,7 @@ namespace Aplicacion {
                         areaLoc,
                         responsable,
                         proveedor,
-                        ccentro,
+                        ccosto,
                         estado,
                         valComercial,
                         valSalvamento,
@@ -711,7 +722,8 @@ namespace Aplicacion {
                         documento,
                         periodo,
                         grupo,
-                        subgrupo};
+                        subgrupo,
+                        valTotal};
                 rowafactivosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowafactivosRow);
                 return rowafactivosRow;
@@ -746,7 +758,7 @@ namespace Aplicacion {
                 this.columnareaLoc = base.Columns["areaLoc"];
                 this.columnresponsable = base.Columns["responsable"];
                 this.columnproveedor = base.Columns["proveedor"];
-                this.columnccentro = base.Columns["ccentro"];
+                this.columnccosto = base.Columns["ccosto"];
                 this.columnestado = base.Columns["estado"];
                 this.columnvalComercial = base.Columns["valComercial"];
                 this.columnvalSalvamento = base.Columns["valSalvamento"];
@@ -764,6 +776,7 @@ namespace Aplicacion {
                 this.columnperiodo = base.Columns["periodo"];
                 this.columngrupo = base.Columns["grupo"];
                 this.columnsubgrupo = base.Columns["subgrupo"];
+                this.columnvalTotal = base.Columns["valTotal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -793,8 +806,8 @@ namespace Aplicacion {
                 base.Columns.Add(this.columnresponsable);
                 this.columnproveedor = new global::System.Data.DataColumn("proveedor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproveedor);
-                this.columnccentro = new global::System.Data.DataColumn("ccentro", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnccentro);
+                this.columnccosto = new global::System.Data.DataColumn("ccosto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnccosto);
                 this.columnestado = new global::System.Data.DataColumn("estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestado);
                 this.columnvalComercial = new global::System.Data.DataColumn("valComercial", typeof(double), null, global::System.Data.MappingType.Element);
@@ -829,6 +842,8 @@ namespace Aplicacion {
                 base.Columns.Add(this.columngrupo);
                 this.columnsubgrupo = new global::System.Data.DataColumn("subgrupo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsubgrupo);
+                this.columnvalTotal = new global::System.Data.DataColumn("valTotal", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalTotal);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1163,17 +1178,17 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ccentro {
+            public string ccosto {
                 get {
                     try {
-                        return ((string)(this[this.tableafactivos.ccentroColumn]));
+                        return ((string)(this[this.tableafactivos.ccostoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ccentro\' de la tabla \'afactivos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ccosto\' de la tabla \'afactivos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableafactivos.ccentroColumn] = value;
+                    this[this.tableafactivos.ccostoColumn] = value;
                 }
             }
             
@@ -1451,6 +1466,22 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double valTotal {
+                get {
+                    try {
+                        return ((double)(this[this.tableafactivos.valTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'valTotal\' de la tabla \'afactivos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableafactivos.valTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscodigoNull() {
                 return this.IsNull(this.tableafactivos.codigoColumn);
             }
@@ -1595,14 +1626,14 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsccentroNull() {
-                return this.IsNull(this.tableafactivos.ccentroColumn);
+            public bool IsccostoNull() {
+                return this.IsNull(this.tableafactivos.ccostoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetccentroNull() {
-                this[this.tableafactivos.ccentroColumn] = global::System.Convert.DBNull;
+            public void SetccostoNull() {
+                this[this.tableafactivos.ccostoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1807,6 +1838,18 @@ namespace Aplicacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetsubgrupoNull() {
                 this[this.tableafactivos.subgrupoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsvalTotalNull() {
+                return this.IsNull(this.tableafactivos.valTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetvalTotalNull() {
+                this[this.tableafactivos.valTotalColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -103,18 +103,14 @@ namespace Aplicacion.Informes
                 tipo = "Todos";
             }
              
-        }
-
-        private void comboBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
+        }       
 
         private void rbAunico_CheckedChanged(object sender, EventArgs e)
         {
             if (rbAunico.Checked == true)
             {
                 txtCodActivo.Enabled = true;
+                txtCodActivo.Text = "";
             }
             else {
                 txtCodActivo.Enabled = false;
@@ -137,6 +133,21 @@ namespace Aplicacion.Informes
 
         private void lblGenerar_Click(object sender, EventArgs e)
         {
+           // Validacion de datos 
+            if (rbAunico.Checked == true)
+            { // Un solo activo
+                if (string.IsNullOrWhiteSpace(txtCodActivo.Text))
+                {
+                    MessageBox.Show("Ingrese el Codigo del Activo", "Control de Informaión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtCodActivo.Focus();
+                    return;
+                }
+                activo = txtCodActivo.Text;
+            }
+            else {
+                activo = "Todos";
+            }
+            
             if (rbDocumentos.Checked == true)
             {
                 generarPorDocumento();
@@ -149,7 +160,7 @@ namespace Aplicacion.Informes
         private void generarPorDocumento() {           
             ECompany objC = bllComp.buscar();
             DataTable dt = new DataTable();
-            dt = bllMov.getAll(tipo, "Todos", cboInicial.Text + txtYear1.Text, cboFinal.Text + txtYear1.Text);
+            dt = bllMov.getAll(tipo, activo, cboInicial.Text + txtYear1.Text, cboFinal.Text + txtYear1.Text);
             Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
             ReportDocument reporte = new ReportDocument();
             string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\RptInfMovimiento.rpt";
@@ -173,14 +184,36 @@ namespace Aplicacion.Informes
         // Implementacion de interfaz
         public void SeleccionarDato(string dato)
         {
-            throw new NotImplementedException();
+            txtCodActivo.Text = dato;
         }
 
         private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tipo = cboTipo.SelectedValue.ToString();
+            if (rbDocUnico.Checked == true) {
+                tipo = cboTipo.SelectedValue.ToString();
+             }
+           
         }
 
-      
+        private void cboTipo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txtCodActivo_DoubleClick(object sender, EventArgs e)
+        {
+            Aplicacion.Inventario.FrmSelActivos frm = new Aplicacion.Inventario.FrmSelActivos();
+            frm.ShowDialog(this);
+        }
+
+        private void rbDoctodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDoctodos.Checked == true) {
+                tipo = "Todos";
+            }
+        }
+
+        
+          
     }
 }

@@ -37,7 +37,7 @@
             this.lblHistorial = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.lblMovimientos = new System.Windows.Forms.Label();
-            this.lblParametros = new System.Windows.Forms.Label();
+            this.lblDepreciacion = new System.Windows.Forms.Label();
             this.TableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +71,7 @@
             this.TableLayoutPanel1.Controls.Add(this.lblHistorial, 0, 0);
             this.TableLayoutPanel1.Controls.Add(this.Label2, 0, 2);
             this.TableLayoutPanel1.Controls.Add(this.lblMovimientos, 0, 1);
-            this.TableLayoutPanel1.Controls.Add(this.lblParametros, 2, 0);
+            this.TableLayoutPanel1.Controls.Add(this.lblDepreciacion, 2, 0);
             this.TableLayoutPanel1.Location = new System.Drawing.Point(42, 96);
             this.TableLayoutPanel1.Name = "TableLayoutPanel1";
             this.TableLayoutPanel1.RowCount = 3;
@@ -200,6 +200,7 @@
             this.lblMovimientos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblMovimientos.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMovimientos.ForeColor = System.Drawing.Color.White;
+            this.lblMovimientos.Image = global::Aplicacion.Properties.Resources.movimientos;
             this.lblMovimientos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblMovimientos.Location = new System.Drawing.Point(8, 125);
             this.lblMovimientos.Margin = new System.Windows.Forms.Padding(8);
@@ -208,25 +209,26 @@
             this.lblMovimientos.TabIndex = 132;
             this.lblMovimientos.Text = "Movimientos";
             this.lblMovimientos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblMovimientos.Visible = false;
+            this.lblMovimientos.Click += new System.EventHandler(this.lblMovimientos_Click);
             // 
-            // lblParametros
+            // lblDepreciacion
             // 
-            this.lblParametros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblDepreciacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblParametros.BackColor = System.Drawing.Color.Transparent;
-            this.lblParametros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblParametros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblParametros.ForeColor = System.Drawing.Color.White;
-            this.lblParametros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblParametros.Location = new System.Drawing.Point(492, 8);
-            this.lblParametros.Margin = new System.Windows.Forms.Padding(8);
-            this.lblParametros.Name = "lblParametros";
-            this.lblParametros.Size = new System.Drawing.Size(226, 100);
-            this.lblParametros.TabIndex = 132;
-            this.lblParametros.Text = "Funcionario";
-            this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblParametros.Click += new System.EventHandler(this.lblParametros_Click);
+            this.lblDepreciacion.BackColor = System.Drawing.Color.Transparent;
+            this.lblDepreciacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblDepreciacion.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepreciacion.ForeColor = System.Drawing.Color.White;
+            this.lblDepreciacion.Image = global::Aplicacion.Properties.Resources.depreciacion;
+            this.lblDepreciacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblDepreciacion.Location = new System.Drawing.Point(492, 8);
+            this.lblDepreciacion.Margin = new System.Windows.Forms.Padding(8);
+            this.lblDepreciacion.Name = "lblDepreciacion";
+            this.lblDepreciacion.Size = new System.Drawing.Size(226, 100);
+            this.lblDepreciacion.TabIndex = 132;
+            this.lblDepreciacion.Text = "Depreciación";
+            this.lblDepreciacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblDepreciacion.Click += new System.EventHandler(this.lblDepreciacion_Click);
             // 
             // FrmInformes
             // 
@@ -252,7 +254,7 @@
         internal System.Windows.Forms.Label lblTerceros;
         internal System.Windows.Forms.Label lblTraslados;
         internal System.Windows.Forms.Label lblAreas;
-        internal System.Windows.Forms.Label lblParametros;
+        internal System.Windows.Forms.Label lblDepreciacion;
         internal System.Windows.Forms.Label lblCerrar;
         internal System.Windows.Forms.Label lblHistorial;
         internal System.Windows.Forms.Label Label2;

@@ -42,10 +42,10 @@ namespace DAL.DAO
         public List<EActivos> getAll(string periodo) {
          
             List<EActivos> lista = new List<EActivos>();
-            string sql = " SELECT af.codigo, af.valComercial, af.valSalvamento, af.depAcumulada, af.tipo, "+
+            string sql = " SELECT af.codigo, af.valComercial, af.valSalvamento, af.depAcumulada,  "+
                   " af.ctadepreciacion, af.ctagastos , af.vidaUtil, af.valLibros FROM afactivos af WHERE  " +
                   "  af.codigo NOT IN  (SELECT codigo FROM afdepreciacion WHERE periodo='" + periodo + "') " +
-                  " AND af.valLibros > af.valSalvamento AND af.propiedad='PROPIO'";
+                  " AND af.valLibros > af.valSalvamento AND af.propiedad='PROPIO' AND af.metodoDep <>'NDP'";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -61,7 +61,7 @@ namespace DAL.DAO
                             EActivos act = new EActivos();
                             act.codigo = dr.GetString("codigo");                        
                             act.vidaUtil = dr.GetInt32("vidaUtil");
-                            act.grupo = dr.GetString("grupo");
+                           // act.grupo = dr.GetString("grupo");
                             act.valComercial = dr.GetDouble("valComercial");
                             act.valSalvamento = dr.GetDouble("valSalvamento");
                             act.valLibros = dr.GetDouble("valLibros");                            
@@ -269,6 +269,12 @@ namespace DAL.DAO
             DataTable dt = consultar(sql);
             return dt;
         }
+
+        public DataTable informeValores() {
+            string sql = "SELECT codigo, nombre, fechaCompra As fecha, valComercial, valLibros, "+
+                " valSalvamento, depAcumulada FROM afactivos WHERE estado<>'BAJA' ";
+            return consultar(sql);            
+            }
 
         public DataTable informeUbicacion(string codigo, string propiedad) {
             string area ="";

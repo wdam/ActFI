@@ -16,9 +16,9 @@ namespace DAL.DAO
         {
             int reg = 0; // Obtiene el numero de Registros afectados
             string sql = "INSERT INTO afmovimientos (idMovimiento, documento, tipodoc,periodo," +
-                        " fecha, tipoMov, descripcion, codActivo, valor, estado, ccosto, nitc)  " +
+                        " fecha, tipoMov, descripcion, codActivo, valTotal, estado, ccosto, nitc)  " +
                         " VALUES (null, ?documento, ?tipodoc, ?periodo, ?fecha, ?tipoMov,"+
-                        " ?descripcion, ?codActivo, ?valor, ?estado, ?ccosto, ?nitc)";
+                        " ?descripcion, ?codActivo, ?valTotal, ?estado, ?ccosto, ?nitc)";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -32,8 +32,8 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?fecha", MySqlDbType.DateTime).Value = obj.fecha;
                     cmd.Parameters.Add("?tipoMov", MySqlDbType.String).Value = obj.tipoMov;
                     cmd.Parameters.Add("?codActivo", MySqlDbType.String).Value = obj.codActivo;
-                    cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = obj.descripcion;                 
-                    cmd.Parameters.Add("?valor", MySqlDbType.String).Value = obj.valor;
+                    cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = obj.descripcion;
+                    cmd.Parameters.Add("?valTotal", MySqlDbType.String).Value = obj.valor;
                     cmd.Parameters.Add("?estado", MySqlDbType.String).Value = obj.estado;
                     cmd.Parameters.Add("?ccosto", MySqlDbType.String).Value = obj.cCosto;
                     cmd.Parameters.Add("?nitc", MySqlDbType.String).Value = obj.nit;
@@ -69,9 +69,9 @@ namespace DAL.DAO
             }
 
              sql =" SELECT documento, tipodoc, periodo, fecha, codActivo as codigo, af.nombre,  "+
-                  " af.grupo, af.subgrupo, af.ccosto, aa.nombre  AS areaLoc FROM afmovimientos am " +
-                  " INNER JOIN afactivos af ON am.codActivo=af.codigo INNER JOIN afarea aa "+
-                  " ON af.AreaLoc=aa.codigo WHERE am.periodo BETWEEN '" + perInicial + "'"+
+                  " af.grupo, af.subgrupo, af.ccosto,  am.valTotal FROM afmovimientos am " +
+                  " INNER JOIN afactivos af ON am.codActivo=af.codigo "+
+                  "  WHERE am.periodo BETWEEN '" + perInicial + "'"+
                   " AND '" + perFinal + "' " + tipodoc + " " + codigo + " ORDER BY tipodoc,documento";            
             return  consultar(sql);
         }

@@ -64,6 +64,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
+          
             // 
             // lblGenerar
             // 
@@ -142,8 +143,8 @@
             this.cboFinal.Name = "cboFinal";
             this.cboFinal.Size = new System.Drawing.Size(59, 28);
             this.cboFinal.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.cboFinal, "Seleccione Rango Final");
-            this.cboFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox2_KeyPress);
+            this.toolTip1.SetToolTip(this.cboFinal, "Seleccione Rango Final");            
+            this.cboFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboTipo_KeyPress);
             // 
             // cboInicial
             // 
@@ -168,7 +169,7 @@
             this.cboInicial.TabIndex = 3;
             this.toolTip1.SetToolTip(this.cboInicial, "Seleccione Rango Inicial");
             this.cboInicial.SelectedIndexChanged += new System.EventHandler(this.cboInicial_SelectedIndexChanged);
-            this.cboInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox2_KeyPress);
+            this.cboInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboTipo_KeyPress);
             // 
             // txtCodActivo
             // 
@@ -177,8 +178,8 @@
             this.txtCodActivo.Name = "txtCodActivo";
             this.txtCodActivo.Size = new System.Drawing.Size(132, 29);
             this.txtCodActivo.TabIndex = 2;
-            this.txtCodActivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtCodActivo, "Ingrese el Codigo del Activo");
+            this.toolTip1.SetToolTip(this.txtCodActivo, "Ingrese el Codigo del Activo");            
+            this.txtCodActivo.DoubleClick += new System.EventHandler(this.txtCodActivo_DoubleClick);
             // 
             // cboTipo
             // 
@@ -190,7 +191,7 @@
             this.cboTipo.TabIndex = 2;
             this.toolTip1.SetToolTip(this.cboTipo, "Seleccione un Tipo de Documento");
             this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
-            this.cboTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox2_KeyPress);
+            this.cboTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboTipo_KeyPress);
             // 
             // groupBox2
             // 
@@ -207,7 +208,7 @@
             this.groupBox2.Size = new System.Drawing.Size(513, 83);
             this.groupBox2.TabIndex = 235;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Rango de Periodos";
+            this.groupBox2.Text = "Rango de Periodos";            
             // 
             // txtYear2
             // 
@@ -216,6 +217,7 @@
             this.txtYear2.Name = "txtYear2";
             this.txtYear2.Size = new System.Drawing.Size(61, 29);
             this.txtYear2.TabIndex = 5;
+          
             // 
             // label2
             // 
@@ -225,7 +227,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 22);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Final";
+            this.label2.Text = "Final";            
             // 
             // txtYear1
             // 
@@ -234,6 +236,7 @@
             this.txtYear1.Name = "txtYear1";
             this.txtYear1.Size = new System.Drawing.Size(61, 29);
             this.txtYear1.TabIndex = 2;
+          
             // 
             // label1
             // 
@@ -244,6 +247,7 @@
             this.label1.Size = new System.Drawing.Size(53, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Inicial";
+           
             // 
             // FlowLayoutPanel1
             // 
@@ -256,6 +260,7 @@
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(529, 66);
             this.FlowLayoutPanel1.TabIndex = 234;
+
             // 
             // rbAunico
             // 
@@ -281,6 +286,7 @@
             this.rbAtodos.TabStop = true;
             this.rbAtodos.Text = "Todos";
             this.rbAtodos.UseVisualStyleBackColor = true;
+         
             // 
             // groupBox1
             // 
@@ -295,6 +301,7 @@
             this.groupBox1.TabIndex = 233;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione Activo";
+            
             // 
             // lblMargenInf
             // 
@@ -304,6 +311,7 @@
             this.lblMargenInf.Name = "lblMargenInf";
             this.lblMargenInf.Size = new System.Drawing.Size(529, 2);
             this.lblMargenInf.TabIndex = 232;
+          
             // 
             // lblTituloPrinc
             // 
@@ -317,7 +325,7 @@
             this.lblTituloPrinc.Size = new System.Drawing.Size(529, 45);
             this.lblTituloPrinc.TabIndex = 230;
             this.lblTituloPrinc.Text = " SAE  >> Informe de Movimientos";
-            this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPrinc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;        
             this.lblTituloPrinc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseDown);
             this.lblTituloPrinc.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseMove);
             this.lblTituloPrinc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloPrinc_MouseUp);
@@ -330,6 +338,7 @@
             this.lblMargenIzq.Name = "lblMargenIzq";
             this.lblMargenIzq.Size = new System.Drawing.Size(2, 473);
             this.lblMargenIzq.TabIndex = 229;
+         
             // 
             // lblMargenDer
             // 
@@ -338,7 +347,7 @@
             this.lblMargenDer.Location = new System.Drawing.Point(0, 2);
             this.lblMargenDer.Name = "lblMargenDer";
             this.lblMargenDer.Size = new System.Drawing.Size(2, 473);
-            this.lblMargenDer.TabIndex = 228;
+            this.lblMargenDer.TabIndex = 228;         
             // 
             // lblMargenTop
             // 
@@ -347,7 +356,7 @@
             this.lblMargenTop.Location = new System.Drawing.Point(0, 0);
             this.lblMargenTop.Name = "lblMargenTop";
             this.lblMargenTop.Size = new System.Drawing.Size(533, 2);
-            this.lblMargenTop.TabIndex = 227;
+            this.lblMargenTop.TabIndex = 227;         
             // 
             // groupBox3
             // 
@@ -362,7 +371,7 @@
             this.groupBox3.Size = new System.Drawing.Size(511, 97);
             this.groupBox3.TabIndex = 236;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Seleccione Documento";
+            this.groupBox3.Text = "Seleccione Documento";          
             // 
             // cboMostrar
             // 
@@ -372,7 +381,7 @@
             this.cboMostrar.Location = new System.Drawing.Point(196, 60);
             this.cboMostrar.Name = "cboMostrar";
             this.cboMostrar.Size = new System.Drawing.Size(299, 30);
-            this.cboMostrar.TabIndex = 3;
+            this.cboMostrar.TabIndex = 3;         
             // 
             // rbDocUnico
             // 
@@ -398,6 +407,7 @@
             this.rbDoctodos.TabStop = true;
             this.rbDoctodos.Text = "Todos";
             this.rbDoctodos.UseVisualStyleBackColor = true;
+            this.rbDoctodos.CheckedChanged += new System.EventHandler(this.rbDoctodos_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -410,7 +420,7 @@
             this.groupBox4.Size = new System.Drawing.Size(513, 57);
             this.groupBox4.TabIndex = 237;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Agrupar Por";
+            this.groupBox4.Text = "Agrupar Por";           
             // 
             // rbActivo
             // 
@@ -422,7 +432,7 @@
             this.rbActivo.TabIndex = 0;
             this.rbActivo.TabStop = true;
             this.rbActivo.Text = "Activos";
-            this.rbActivo.UseVisualStyleBackColor = true;
+            this.rbActivo.UseVisualStyleBackColor = true;         
             // 
             // rbDocumentos
             // 
@@ -435,7 +445,7 @@
             this.rbDocumentos.TabIndex = 0;
             this.rbDocumentos.TabStop = true;
             this.rbDocumentos.Text = "Documentos";
-            this.rbDocumentos.UseVisualStyleBackColor = true;
+            this.rbDocumentos.UseVisualStyleBackColor = true;           
             // 
             // FrmInfMovimiento
             // 
@@ -459,6 +469,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmInfMovimiento";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInfMantenimiento";
             this.Load += new System.EventHandler(this.FrmInfMantenimiento_Load);

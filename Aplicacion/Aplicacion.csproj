@@ -96,6 +96,12 @@
       <DependentUpon>RptInfAreas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="bin\Debug\Reportes\RptInfDepreciacion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptInfDepreciacion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="bin\Debug\Reportes\RptInfMovimiento1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +113,12 @@
     </Compile>
     <Compile Include="Informes\FrminfAreas.Designer.cs">
       <DependentUpon>FrminfAreas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\FrmInfDepreciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informes\FrmInfDepreciacion.Designer.cs">
+      <DependentUpon>FrmInfDepreciacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Informes\FrmInfMovimiento.cs">
       <SubType>Form</SubType>
@@ -290,6 +302,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptInfAreas.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Reportes\RptInfDepreciacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptInfDepreciacion.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="bin\Debug\Reportes\RptInfMovimiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptInfMovimiento1.cs</LastGenOutput>
@@ -299,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrminfAreas.resx">
       <DependentUpon>FrminfAreas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\FrmInfDepreciacion.resx">
+      <DependentUpon>FrmInfDepreciacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInfMovimiento.resx">
       <DependentUpon>FrmInfMovimiento.cs</DependentUpon>
@@ -527,6 +546,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="af.ico" />
+    <None Include="Resources\64x64\movimientos.png" />
     <None Include="Resources\letra.png" />
     <None Include="Resources\64x64\grupo.png" />
     <None Include="Resources\48x48\subir.png" />

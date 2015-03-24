@@ -12,8 +12,9 @@ namespace Entidades
         public string documento { get; set; }
         public string codigo { get; set; }
         public string periodo { get; set; }
-        public double valorDep { get; set; }
+        public double valLibros { get; set; } // Valor en Libros
         public double depreciacion { get; set; }
+        public double depAcumulada { get; set; }
         public DateTime fecha { get; set; }
     }
 }

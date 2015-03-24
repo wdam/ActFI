@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenInf = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.lblMensaje = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.dgvActivos = new System.Windows.Forms.DataGridView();
-            this.lblRegistro = new System.Windows.Forms.Label();
             this.dtcodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtPropiedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +53,7 @@
             this.dtValCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDepreciacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtValLibros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblRegistro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActivos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             // 
             // lblTituloPrinc
             // 
-            this.lblTituloPrinc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.lblTituloPrinc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.lblTituloPrinc.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTituloPrinc.Font = new System.Drawing.Font("Open Sans", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
@@ -191,21 +191,21 @@
             this.dgvActivos.AllowUserToDeleteRows = false;
             this.dgvActivos.AllowUserToResizeColumns = false;
             this.dgvActivos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.dgvActivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.dgvActivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvActivos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvActivos.BackgroundColor = System.Drawing.Color.White;
             this.dgvActivos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvActivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvActivos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(120)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvActivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(140)))), ((int)(((byte)(120)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Open Sans", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvActivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvActivos.ColumnHeadersHeight = 30;
             this.dgvActivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvActivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -224,27 +224,16 @@
             this.dgvActivos.ReadOnly = true;
             this.dgvActivos.RowHeadersVisible = false;
             this.dgvActivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvActivos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvActivos.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvActivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvActivos.Size = new System.Drawing.Size(908, 381);
             this.dgvActivos.TabIndex = 187;
             this.dgvActivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActivos_CellContentClick);
             this.dgvActivos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActivos_CellDoubleClick);
-            // 
-            // lblRegistro
-            // 
-            this.lblRegistro.AutoSize = true;
-            this.lblRegistro.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.ForeColor = System.Drawing.Color.Crimson;
-            this.lblRegistro.Location = new System.Drawing.Point(269, 100);
-            this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(266, 22);
-            this.lblRegistro.TabIndex = 223;
-            this.lblRegistro.Text = "Cerca de 0  registros Encontrados";
             // 
             // dtcodigo
             // 
@@ -286,9 +275,9 @@
             // dtValCom
             // 
             this.dtValCom.DataPropertyName = "valComercial";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dtValCom.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dtValCom.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtValCom.HeaderText = "Val. Comercial";
             this.dtValCom.MinimumWidth = 100;
             this.dtValCom.Name = "dtValCom";
@@ -299,9 +288,9 @@
             // dtDepreciacion
             // 
             this.dtDepreciacion.DataPropertyName = "depAjustada";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dtDepreciacion.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dtDepreciacion.DefaultCellStyle = dataGridViewCellStyle10;
             this.dtDepreciacion.HeaderText = "Depreciacion";
             this.dtDepreciacion.Name = "dtDepreciacion";
             this.dtDepreciacion.ReadOnly = true;
@@ -310,20 +299,31 @@
             // dtValLibros
             // 
             this.dtValLibros.DataPropertyName = "valLibros";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dtValLibros.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.dtValLibros.DefaultCellStyle = dataGridViewCellStyle11;
             this.dtValLibros.HeaderText = "Val Libros";
             this.dtValLibros.MinimumWidth = 100;
             this.dtValLibros.Name = "dtValLibros";
             this.dtValLibros.ReadOnly = true;
             this.dtValLibros.Width = 120;
             // 
+            // lblRegistro
+            // 
+            this.lblRegistro.AutoSize = true;
+            this.lblRegistro.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistro.ForeColor = System.Drawing.Color.Crimson;
+            this.lblRegistro.Location = new System.Drawing.Point(269, 100);
+            this.lblRegistro.Name = "lblRegistro";
+            this.lblRegistro.Size = new System.Drawing.Size(266, 22);
+            this.lblRegistro.TabIndex = 223;
+            this.lblRegistro.Text = "Cerca de 0  registros Encontrados";
+            // 
             // FrmSelActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(928, 538);
             this.Controls.Add(this.lblRegistro);
