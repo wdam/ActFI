@@ -27,8 +27,8 @@ namespace DAL.DAO
 
                     cmd.Parameters.Add("?codActivo", MySqlDbType.VarChar).Value = obj.codActivo;
                     cmd.Parameters.Add("?nContrato", MySqlDbType.String).Value = obj.nContrato;
-                    cmd.Parameters.Add("?fInicio", MySqlDbType.String).Value = obj.fInicio;
-                    cmd.Parameters.Add("?fVence", MySqlDbType.String).Value = obj.fVence;
+                    cmd.Parameters.Add("?fInicio", MySqlDbType.Date).Value = obj.fInicio;
+                    cmd.Parameters.Add("?fVence", MySqlDbType.Date).Value = obj.fVence;
                     cmd.Parameters.Add("?nVisitas", MySqlDbType.Int16).Value = obj.nVisitas;
                     cmd.Parameters.Add("?proveedor", MySqlDbType.String).Value = obj.proveedor;
                     cmd.Parameters.Add("?valor", MySqlDbType.Double).Value = obj.valor;

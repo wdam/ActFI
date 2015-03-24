@@ -174,6 +174,11 @@
             this.pnlMantenimiento = new System.Windows.Forms.Panel();
             this.grbMantenimiento = new System.Windows.Forms.GroupBox();
             this.dgvContable = new System.Windows.Forms.DataGridView();
+            this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblIDContMant = new System.Windows.Forms.Label();
             this.dtpVenceMto = new System.Windows.Forms.DateTimePicker();
             this.dtpInicioMto = new System.Windows.Forms.DateTimePicker();
@@ -185,11 +190,6 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.txtValContrato = new System.Windows.Forms.TextBox();
-            this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
             this.FlowLayoutPanel1.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
@@ -1862,6 +1862,48 @@
             this.dgvContable.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvContable.Size = new System.Drawing.Size(618, 135);
             this.dgvContable.TabIndex = 10;
+            this.dgvContable.Visible = false;
+            // 
+            // dtDescripcion
+            // 
+            this.dtDescripcion.HeaderText = "Descripcion";
+            this.dtDescripcion.MinimumWidth = 200;
+            this.dtDescripcion.Name = "dtDescripcion";
+            this.dtDescripcion.ReadOnly = true;
+            this.dtDescripcion.Width = 200;
+            // 
+            // dtDebito
+            // 
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtDebito.HeaderText = "Debito";
+            this.dtDebito.Name = "dtDebito";
+            this.dtDebito.ReadOnly = true;
+            // 
+            // dtCredito
+            // 
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dtCredito.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dtCredito.HeaderText = "Credito";
+            this.dtCredito.Name = "dtCredito";
+            this.dtCredito.ReadOnly = true;
+            // 
+            // dtCuenta
+            // 
+            this.dtCuenta.HeaderText = "Cuenta";
+            this.dtCuenta.Name = "dtCuenta";
+            this.dtCuenta.ReadOnly = true;
+            // 
+            // dtBase
+            // 
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dtBase.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dtBase.HeaderText = "Base";
+            this.dtBase.Name = "dtBase";
+            this.dtBase.ReadOnly = true;
             // 
             // lblIDContMant
             // 
@@ -1969,47 +2011,6 @@
             this.txtValContrato.Visible = false;
             this.txtValContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvalComercial_KeyPress);
             // 
-            // dtDescripcion
-            // 
-            this.dtDescripcion.HeaderText = "Descripcion";
-            this.dtDescripcion.MinimumWidth = 200;
-            this.dtDescripcion.Name = "dtDescripcion";
-            this.dtDescripcion.ReadOnly = true;
-            this.dtDescripcion.Width = 200;
-            // 
-            // dtDebito
-            // 
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dtDebito.HeaderText = "Debito";
-            this.dtDebito.Name = "dtDebito";
-            this.dtDebito.ReadOnly = true;
-            // 
-            // dtCredito
-            // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dtCredito.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtCredito.HeaderText = "Credito";
-            this.dtCredito.Name = "dtCredito";
-            this.dtCredito.ReadOnly = true;
-            // 
-            // dtCuenta
-            // 
-            this.dtCuenta.HeaderText = "Cuenta";
-            this.dtCuenta.Name = "dtCuenta";
-            this.dtCuenta.ReadOnly = true;
-            // 
-            // dtBase
-            // 
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dtBase.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dtBase.HeaderText = "Base";
-            this.dtBase.Name = "dtBase";
-            this.dtBase.ReadOnly = true;
-            // 
             // FrmActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2034,8 +2035,8 @@
             this.Controls.Add(this.btnTab3);
             this.Controls.Add(this.btnTab4);
             this.Controls.Add(this.btnTab5);
-            this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlGeneral);
+            this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlSeguro);
             this.Controls.Add(this.pnlValores);
             this.Controls.Add(this.pnlDetalle);

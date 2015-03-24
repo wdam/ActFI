@@ -373,6 +373,16 @@ namespace Aplicacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap letra {
+            get {
+                object obj = ResourceManager.GetObject("letra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logonuevoultimo {
             get {
                 object obj = ResourceManager.GetObject("logonuevoultimo", resourceCulture);

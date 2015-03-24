@@ -33,11 +33,11 @@
             this.lblTerceros = new System.Windows.Forms.Label();
             this.lblTraslados = new System.Windows.Forms.Label();
             this.lblAreas = new System.Windows.Forms.Label();
-            this.lblParametros = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
             this.lblHistorial = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
-            this.lblActivos = new System.Windows.Forms.Label();
+            this.lblMovimientos = new System.Windows.Forms.Label();
+            this.lblParametros = new System.Windows.Forms.Label();
             this.TableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,11 +67,11 @@
             this.TableLayoutPanel1.Controls.Add(this.lblTerceros, 2, 1);
             this.TableLayoutPanel1.Controls.Add(this.lblTraslados, 1, 1);
             this.TableLayoutPanel1.Controls.Add(this.lblAreas, 1, 0);
-            this.TableLayoutPanel1.Controls.Add(this.lblParametros, 2, 0);
             this.TableLayoutPanel1.Controls.Add(this.lblCerrar, 2, 2);
             this.TableLayoutPanel1.Controls.Add(this.lblHistorial, 0, 0);
             this.TableLayoutPanel1.Controls.Add(this.Label2, 0, 2);
-            this.TableLayoutPanel1.Controls.Add(this.lblActivos, 0, 1);
+            this.TableLayoutPanel1.Controls.Add(this.lblMovimientos, 0, 1);
+            this.TableLayoutPanel1.Controls.Add(this.lblParametros, 2, 0);
             this.TableLayoutPanel1.Location = new System.Drawing.Point(42, 96);
             this.TableLayoutPanel1.Name = "TableLayoutPanel1";
             this.TableLayoutPanel1.RowCount = 3;
@@ -136,24 +136,6 @@
             this.lblAreas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblAreas.Click += new System.EventHandler(this.lblAreas_Click);
             // 
-            // lblParametros
-            // 
-            this.lblParametros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblParametros.BackColor = System.Drawing.Color.Transparent;
-            this.lblParametros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblParametros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblParametros.ForeColor = System.Drawing.Color.White;
-            this.lblParametros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblParametros.Location = new System.Drawing.Point(492, 8);
-            this.lblParametros.Margin = new System.Windows.Forms.Padding(8);
-            this.lblParametros.Name = "lblParametros";
-            this.lblParametros.Size = new System.Drawing.Size(226, 100);
-            this.lblParametros.TabIndex = 132;
-            this.lblParametros.Text = "Funcionario";
-            this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblParametros.Visible = false;
-            // 
             // lblCerrar
             // 
             this.lblCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -210,23 +192,41 @@
             this.Label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Label2.Visible = false;
             // 
-            // lblActivos
+            // lblMovimientos
             // 
-            this.lblActivos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblMovimientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblActivos.BackColor = System.Drawing.Color.Transparent;
-            this.lblActivos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblActivos.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivos.ForeColor = System.Drawing.Color.White;
-            this.lblActivos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblActivos.Location = new System.Drawing.Point(8, 125);
-            this.lblActivos.Margin = new System.Windows.Forms.Padding(8);
-            this.lblActivos.Name = "lblActivos";
-            this.lblActivos.Size = new System.Drawing.Size(226, 100);
-            this.lblActivos.TabIndex = 132;
-            this.lblActivos.Text = "Libro Diario";
-            this.lblActivos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblActivos.Visible = false;
+            this.lblMovimientos.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovimientos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMovimientos.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovimientos.ForeColor = System.Drawing.Color.White;
+            this.lblMovimientos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMovimientos.Location = new System.Drawing.Point(8, 125);
+            this.lblMovimientos.Margin = new System.Windows.Forms.Padding(8);
+            this.lblMovimientos.Name = "lblMovimientos";
+            this.lblMovimientos.Size = new System.Drawing.Size(226, 100);
+            this.lblMovimientos.TabIndex = 132;
+            this.lblMovimientos.Text = "Movimientos";
+            this.lblMovimientos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblMovimientos.Visible = false;
+            // 
+            // lblParametros
+            // 
+            this.lblParametros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblParametros.BackColor = System.Drawing.Color.Transparent;
+            this.lblParametros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblParametros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblParametros.ForeColor = System.Drawing.Color.White;
+            this.lblParametros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblParametros.Location = new System.Drawing.Point(492, 8);
+            this.lblParametros.Margin = new System.Windows.Forms.Padding(8);
+            this.lblParametros.Name = "lblParametros";
+            this.lblParametros.Size = new System.Drawing.Size(226, 100);
+            this.lblParametros.TabIndex = 132;
+            this.lblParametros.Text = "Funcionario";
+            this.lblParametros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblParametros.Click += new System.EventHandler(this.lblParametros_Click);
             // 
             // FrmInformes
             // 
@@ -256,6 +256,6 @@
         internal System.Windows.Forms.Label lblCerrar;
         internal System.Windows.Forms.Label lblHistorial;
         internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.Label lblActivos;
+        internal System.Windows.Forms.Label lblMovimientos;
     }
 }

@@ -520,12 +520,12 @@ namespace Aplicacion.Inventario
 
         private void txtVComprar_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtVComprar.Text))
-            {
+            if (string.IsNullOrWhiteSpace(txtVComprar.Text)){
                 txtVComprar.Text = "0";
             }
             txtVComprar.Text = UtilSystem.fMoneda(Convert.ToDouble(txtVComprar.Text));
             txtvalComercial.Text = txtVComprar.Text;
+            txtvalComercial_Leave(null, null);
         }
 
         private void txtValAsegurado_Leave(object sender, EventArgs e)
@@ -740,7 +740,7 @@ namespace Aplicacion.Inventario
             objAct.metodoDep = cboMetodo.SelectedValue.ToString();
 
             objAct.propiedad = cboPropiedad.Text;
-            objAct.fecha = dtpFechaCpra.Value.ToShortDateString();
+            objAct.fecha = UtilSystem.fFecha(dtpFechaCpra.Value);
             objAct.area = cboAreaResp.SelectedValue.ToString();
             objAct.responsable = txtCodResp.Text;
             objAct.proveedor = txtcodProveedor.Text;
@@ -762,7 +762,7 @@ namespace Aplicacion.Inventario
             objAct.ctaMantenimiento = txtctaMantenimiento.Text;
             objAct.ctaPerdida = txtctaPerdida.Text;
 
-            objAct.fechaDep = UtilSystem.truncarCadena(dtpFechaCpra.Value.AddMonths(Convert.ToInt16(txtvidaUtil.Text)).ToString(), 10);
+            objAct.fechaDep = UtilSystem.fFecha(dtpFechaCpra.Value.AddMonths(Convert.ToInt16(txtvidaUtil.Text)));
             objAct.mantenimiento = chkMantenimiento.Checked ? "SI" : "NO";
             objAct.poliza = chkPoliza.Checked ? "SI" : "NO";
             objAct.nFactura = txtNFactura.Text;
@@ -775,8 +775,8 @@ namespace Aplicacion.Inventario
             objPol.codActivo = txtCodigo.Text;
             objPol.deducible = UtilSystem.DIN(txtValDeducible.Text);
             objPol.empresa = txtEmpresa.Text;
-            objPol.fechaInicio = UtilSystem.truncarCadena(dtpFInicioSeg.Value.ToString(), 10);
-            objPol.fechaVence = UtilSystem.truncarCadena(dtpFVenceSeg.Value.ToString(), 10);
+            objPol.fechaInicio = UtilSystem.fFecha(dtpFInicioSeg.Value);
+            objPol.fechaVence = UtilSystem.fFecha(dtpFVenceSeg.Value);
             objPol.responsable = txtAgente.Text;
             objPol.telefono = txtTelSeguro.Text;
             objPol.valor = UtilSystem.DIN(txtValAsegurado.Text);
@@ -788,14 +788,14 @@ namespace Aplicacion.Inventario
         {
             EMantenimiento objMto = new EMantenimiento();
             objMto.codActivo = txtCodigo.Text;
-            objMto.fInicio = UtilSystem.truncarCadena(dtpInicioMto.Value.ToString(), 10);
-            objMto.fVence = UtilSystem.truncarCadena(dtpVenceMto.Value.ToString(), 10);
+            objMto.fInicio = UtilSystem.fFecha(dtpInicioMto.Value);
+            objMto.fVence = UtilSystem.fFecha(dtpVenceMto.Value);
             objMto.nContrato = txtContrato.Text;
             objMto.nVisitas = Convert.ToInt32(txtNVisitas.Text);
             objMto.proveedor = txtProveedorMto.Text;
             objMto.valor = UtilSystem.DIN("0");
             bllMto.insertar(objMto);
-        }
+        }       
         #endregion  
 
         #region Validacion de Datos
@@ -1139,7 +1139,25 @@ namespace Aplicacion.Inventario
                 ObjDoc.modulo = "ACTIVOS";
                 bllDoc.insertar(ObjDoc);
             }
-           
+            guardarMovimiento();
+        }
+
+        private void guardarMovimiento()
+        {
+            BLL.MovimientoBLL bllMov = new BLL.MovimientoBLL();
+            EMovimientos objMov = new EMovimientos();
+            objMov.cCosto = txtcentro.Text;
+            objMov.codActivo = txtCodigo.Text;
+            objMov.descripcion = "COMPRA DE ACTIVOS";
+            objMov.documento = tipoDoc + numConsecutivo;
+            objMov.estado = "AP";
+            objMov.fecha = DateTime.Now;
+            objMov.nit = "0";
+            objMov.periodo = BLL.Inicializar.periodo;
+            objMov.tipoDoc = tipoDoc;
+            objMov.tipoMov = "COMPRA";
+            objMov.valor = UtilSystem.DIN(txtvalComercial.Text);
+            bllMov.insertar(objMov);
         }
         #endregion
 

@@ -56,6 +56,7 @@
     <Compile Include="DAO\GenericaDAO.cs" />
     <Compile Include="DAO\GrupoDAO.cs" />
     <Compile Include="DAO\MantenimientoDAO.cs" />
+    <Compile Include="DAO\MovimientoDAO.cs" />
     <Compile Include="DAO\ParametrosDAO.cs" />
     <Compile Include="DAO\PolizaDAO.cs" />
     <Compile Include="DAO\TerceroDAO.cs" />

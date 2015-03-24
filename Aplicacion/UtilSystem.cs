@@ -63,6 +63,15 @@ namespace Aplicacion
         }
 
         /// <summary>
+        /// Convertir Fecha para guardar en MySQL
+        /// </summary>
+        /// <param name="fecha">Fecha a Convertir</param>
+        /// <returns></returns>
+        public static string fFecha(DateTime fecha) {
+            return string.Format("{0:yyyy-MM-dd}", fecha);
+        }
+
+        /// <summary>
         /// Validar la entrada de datos  de tipo Numerico  y De Control
         /// </summary>
         /// <param name="sender">Objeto a Validar</param>

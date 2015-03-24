@@ -7,12 +7,12 @@ C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\BLL\bin\Debug\Entidade
 C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\BLL\obj\Debug\BLL.dll
 C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\BLL\obj\Debug\BLL.pdb
-D:\Wendell\ActFI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\Wendell\ActFI\BLL\bin\Debug\BLL.dll
 D:\Wendell\ActFI\BLL\bin\Debug\BLL.pdb
 D:\Wendell\ActFI\BLL\bin\Debug\DAL.dll
 D:\Wendell\ActFI\BLL\bin\Debug\Entidades.dll
 D:\Wendell\ActFI\BLL\bin\Debug\DAL.pdb
 D:\Wendell\ActFI\BLL\bin\Debug\Entidades.pdb
+D:\Wendell\ActFI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\Wendell\ActFI\BLL\obj\Debug\BLL.dll
 D:\Wendell\ActFI\BLL\obj\Debug\BLL.pdb

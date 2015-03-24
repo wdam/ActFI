@@ -96,11 +96,23 @@
       <DependentUpon>RptInfAreas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="bin\Debug\Reportes\RptInfMovimiento1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptInfMovimiento.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Informes\FrminfAreas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Informes\FrminfAreas.Designer.cs">
       <DependentUpon>FrminfAreas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\FrmInfMovimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informes\FrmInfMovimiento.Designer.cs">
+      <DependentUpon>FrmInfMovimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\FrmSelDocumentos.cs">
       <SubType>Form</SubType>
@@ -278,11 +290,18 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptInfAreas.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Reportes\RptInfMovimiento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptInfMovimiento1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInfActivos.resx">
       <DependentUpon>FrmInfActivos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrminfAreas.resx">
       <DependentUpon>FrminfAreas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\FrmInfMovimiento.resx">
+      <DependentUpon>FrmInfMovimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInformes.resx">
       <DependentUpon>FrmInformes.cs</DependentUpon>
@@ -508,6 +527,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="af.ico" />
+    <None Include="Resources\letra.png" />
     <None Include="Resources\64x64\grupo.png" />
     <None Include="Resources\48x48\subir.png" />
     <None Include="Resources\48x48\camera.png" />

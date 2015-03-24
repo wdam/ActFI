@@ -15,10 +15,10 @@ namespace DAL.DAO
         public List<EActivos> getAll() {
             EActivos objActivo = null;
             List<EActivos> lista = new List<EActivos>();
-            string sql = "SELECT ac.codigo, ac.nombre, ac.descripcion, ar.nombre AS AreaLoc, ac.estado, " +
+            string sql = "SELECT ac.codigo, ac.nombre, ac.descripcion, ar.nombre AS areaLoc, ac.estado, " +
                 " ac.valComercial, ac.valLibros, ac.depajustada,  ac.proveedor, " +
                 " ac.propiedad, ac.vidaUtil, ac.responsable FROM afactivos ac " +
-                " INNER JOIN afarea ar ON ac.AreaLoc = ar.codigo ";                
+                " INNER JOIN afarea ar ON ac.areaLoc = ar.codigo ";                
 
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -81,12 +81,12 @@ namespace DAL.DAO
         public int insertar(EActivos act) {
             int reg=0;
             string sql = "INSERT INTO afactivos (codigo, nombre, descripcion,marca, modelo,  numSerie, referecia, " +
-                            " vidaUtil, propiedad, fechaCompra, AreaLoc, responsable, proveedor, ccosto, " +
+                            " vidaUtil, propiedad, fechaCompra, areaLoc, responsable, proveedor, ccosto, " +
                             " estado, valComercial, valSalvamento, valLibros, valMejoras, valHistorico, " +
                             "depajustada, depAcumulada, grupo, subgrupo, ctaActivo, ctadepreciacion, ctagastos, " +
                             "ctaPerdida, ctaGanancia, ctaMantenimiento, metodoDep, fechamaxDep, mantenimiento, poliza, nFactura)   " +
                             " VALUES (?codigo, ?nombre, ?descripcion, ?marca, ?modelo, ?numSerie, ?referecia, " +
-                            " ?vidaUtil, ?propiedad, ?fechaCompra, ?AreaLoc, ?responsable, ?proveedor, ?ccosto, " +
+                            " ?vidaUtil, ?propiedad, ?fechaCompra, ?areaLoc, ?responsable, ?proveedor, ?ccosto, " +
                             " ?estado, ?valComercial, ?valSalvamento, ?valLibros, ?valMejoras, ?valHistorico, " +
                             " ?depajustada, ?depAcumulada, ?grupo, ?subgrupo, ?ctaActivo, ?ctadepreciacion, ?ctagastos, " +
                             "?ctaPerdida, ?ctaGanancia, ?ctaMantenimiento, ?metodoDep, ?fechamaxDep, ?mantenimiento, ?poliza, ?nFactura)";
@@ -110,8 +110,8 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?metodoDep", MySqlDbType.VarChar).Value = act.metodoDep;
 
                     cmd.Parameters.Add("?propiedad", MySqlDbType.String).Value = act.propiedad;
-                    cmd.Parameters.Add("?fechaCompra", MySqlDbType.String).Value = act.fecha;
-                    cmd.Parameters.Add("?AreaLoc", MySqlDbType.String).Value = act.area;
+                    cmd.Parameters.Add("?fechaCompra", MySqlDbType.Date).Value = act.fecha;
+                    cmd.Parameters.Add("?areaLoc", MySqlDbType.String).Value = act.area;
                     cmd.Parameters.Add("?responsable", MySqlDbType.String).Value = act.responsable;
                     cmd.Parameters.Add("?proveedor", MySqlDbType.String).Value = act.proveedor;
                     cmd.Parameters.Add("?ccosto", MySqlDbType.String).Value = act.centrocosto;
@@ -170,7 +170,7 @@ namespace DAL.DAO
 
         public int trasladar(string codigo, string area, string responsable) { 
             int reg = 0;
-            string sql = "UPDATE afactivos SET AreaLoc=?area, responsable=?responsable WHERE codigo=?codigo";
+            string sql = "UPDATE afactivos SET areaLoc=?area, responsable=?responsable WHERE codigo=?codigo";
             using (conexion cnx = new conexion()) {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
                 using (MySqlCommand cmd = new MySqlCommand()) {
@@ -274,15 +274,15 @@ namespace DAL.DAO
             string area ="";
             string filtroP = ""; // filtro de Propiedad
             if (codigo !=""){
-               area = " AND af.AreaLoc = '"+codigo+"'";
+               area = " AND af.areaLoc = '"+codigo+"'";
             }
             if (propiedad != "Todos") {
                 filtroP = "AND propiedad='" + propiedad + "'";
             }
-            string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.fechaCompra AS fecha, " +
+            string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad,  af.fechaCompra AS fecha, " +
                  " af.estado,  CONCAT(t.nit, ' ', t.nombre,' ', t.apellidos) responsable,  " +
-                 " af.AreaLoc as area, a.nombre AS referencia FROM  afactivos af INNER JOIN terceros " +
-                 " t ON af.responsable = t.nit INNER JOIN afarea a ON af.AreaLoc = a.codigo WHERE estado <> 'BAJA' "+area +""+filtroP+"";
+                 " af.areaLoc, a.nombre AS referencia FROM  afactivos af INNER JOIN terceros " +
+                 " t ON af.responsable = t.nit INNER JOIN afarea a ON af.areaLoc = a.codigo WHERE estado <> 'BAJA' "+area +""+filtroP+"";
             DataTable dt = consultar(sql);
             return dt;
         }
@@ -326,7 +326,7 @@ namespace DAL.DAO
 
             act.propiedad = fila.GetString("propiedad");
             act.fecha = fila.GetString("fechaCompra");
-            act.area = fila.GetString("AreaLoc");
+            act.area = fila.GetString("areaLoc");
             act.responsable = fila.GetString("responsable");
             act.proveedor = fila.GetString("proveedor");
             act.centrocosto = fila.GetString("ccosto");
@@ -362,7 +362,7 @@ namespace DAL.DAO
             act.vidaUtil = fila.GetInt32("vidaUtil");
             
             act.propiedad = fila.GetString("propiedad");
-            act.area = fila.GetString("AreaLoc");
+            act.area = fila.GetString("areaLoc");
             act.responsable = fila.GetString("responsable");
             act.proveedor = fila.GetString("proveedor");            
             act.estado = fila.GetString("estado");

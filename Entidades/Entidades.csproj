@@ -50,6 +50,7 @@
     <Compile Include="EGenerica.cs" />
     <Compile Include="EGrupo.cs" />
     <Compile Include="EMantenimiento.cs" />
+    <Compile Include="EMovimientos.cs" />
     <Compile Include="EParametros.cs" />
     <Compile Include="EPeriodo.cs" />
     <Compile Include="EPolizas.cs" />

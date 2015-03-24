@@ -38,5 +38,15 @@ namespace Aplicacion.Informes
             frm.ShowDialog();
             this.Show();
         }
+
+        private void lblParametros_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmInfMovimiento frm = new FrmInfMovimiento();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+      
     }
 }

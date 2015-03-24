@@ -51,6 +51,7 @@
     <Compile Include="GrupoBLL.cs" />
     <Compile Include="Inicializar.cs" />
     <Compile Include="MantenimientoBLL.cs" />
+    <Compile Include="MovimientoBLL.cs" />
     <Compile Include="ParametrosBLL.cs" />
     <Compile Include="PolizaBLL.cs" />
     <Compile Include="PrincipalBLL.cs" />
