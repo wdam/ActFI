@@ -89,15 +89,15 @@
             this.lblTerceros.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTerceros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTerceros.ForeColor = System.Drawing.Color.White;
+            this.lblTerceros.Image = global::Aplicacion.Properties.Resources.grupo;
             this.lblTerceros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblTerceros.Location = new System.Drawing.Point(492, 125);
             this.lblTerceros.Margin = new System.Windows.Forms.Padding(8);
             this.lblTerceros.Name = "lblTerceros";
             this.lblTerceros.Size = new System.Drawing.Size(226, 100);
             this.lblTerceros.TabIndex = 132;
-            this.lblTerceros.Text = "Proveedores";
+            this.lblTerceros.Text = "Grupos y Subgrupos";
             this.lblTerceros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblTerceros.Visible = false;
             // 
             // lblTraslados
             // 

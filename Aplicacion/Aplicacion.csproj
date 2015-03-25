@@ -102,6 +102,18 @@
       <DependentUpon>RptInfDepreciacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="bin\Debug\Reportes\RptInfDepreTabla.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptInfDepreTabla.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="bin\Debug\Reportes\RptInfGrupos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptInfGrupos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="bin\Debug\Reportes\RptInfMovimiento1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +131,12 @@
     </Compile>
     <Compile Include="Informes\FrmInfDepreciacion.Designer.cs">
       <DependentUpon>FrmInfDepreciacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\FrmInfGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informes\FrmInfGrupos.Designer.cs">
+      <DependentUpon>FrmInfGrupos.cs</DependentUpon>
     </Compile>
     <Compile Include="Informes\FrmInfMovimiento.cs">
       <SubType>Form</SubType>
@@ -306,6 +324,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptInfDepreciacion.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Reportes\RptInfDepreTabla.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptInfDepreTabla.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Reportes\RptInfGrupos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptInfGrupos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="bin\Debug\Reportes\RptInfMovimiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptInfMovimiento1.cs</LastGenOutput>
@@ -318,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInfDepreciacion.resx">
       <DependentUpon>FrmInfDepreciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informes\FrmInfGrupos.resx">
+      <DependentUpon>FrmInfGrupos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes\FrmInfMovimiento.resx">
       <DependentUpon>FrmInfMovimiento.cs</DependentUpon>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entidades;
 using MySql.Data.MySqlClient;
 using DAL.Conexion;
+using System.Data;
 
 namespace DAL.DAO
 {
@@ -41,6 +42,51 @@ namespace DAL.DAO
                 }
             }
             return nReg;
+        }
+
+        public DataTable tablaDepreciacion(string codigo, string perInicial, string perFinal) {
+            string condicion = "";
+            if (perInicial != "Todos") {
+                condicion = " AND periodo BETWEEN '" + perInicial + "' AND '" + perFinal + "'";
+            }
+            string sql = " SELECT d.codigo, af.nombre, af.ccosto, af.fechaCompra AS fecha, " +
+                " af.valComercial, d.periodo, d.valLibros, d.depreciacion AS depajustada, " +
+                " d.depAcumulada FROM afdepreciacion d INNER JOIN afactivos " +
+                " af ON d.codigo = af.codigo WHERE d.codigo='"+codigo+"' "+condicion+" ORDER BY periodo ";
+
+            return consultar(sql);
+        }
+
+        public DataTable activosPorDepreciar() {
+            string sql = " SELECT af.codigo, af.fechamaxDep, MAX(d.fecha) AS fecha, " +
+                " af.valComercial, af.valLibros, af.valSalvamento, af.depAcumulada, " +
+                " TIMESTAMPDIFF(MONTH,MAX(d.fecha),af.fechamaxDep ) meses " +
+                " FROM afactivos af  INNER JOIN afdepreciacion d ON af.codigo = d.codigo " +
+                " GROUP BY codigo  HAVING meses > 0";
+
+            return consultar(sql);
+        }
+
+        private DataTable consultar(string sql)
+        {
+            DataTable dt = null;
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataAdapter DA = new MySqlDataAdapter(cmd);
+                        dt = new DataTable();
+                        DA.Fill(dt);
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return dt;
         }
     }
 }

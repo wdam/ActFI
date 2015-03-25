@@ -32,7 +32,9 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.rbAunico = new System.Windows.Forms.RadioButton();
             this.rbAtodos = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbPeriodo = new System.Windows.Forms.GroupBox();
+            this.rbRango = new System.Windows.Forms.RadioButton();
+            this.rbTodosPer = new System.Windows.Forms.RadioButton();
             this.cboFinal = new System.Windows.Forms.ComboBox();
             this.txtYear2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,7 +52,7 @@
             this.lblMargenDer = new System.Windows.Forms.Label();
             this.lblMargenTop = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox2.SuspendLayout();
+            this.gbPeriodo.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -100,25 +102,56 @@
             this.rbAtodos.Text = "Todos";
             this.rbAtodos.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gbPeriodo
             // 
-            this.groupBox2.Controls.Add(this.cboFinal);
-            this.groupBox2.Controls.Add(this.txtYear2);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.cboInicial);
-            this.groupBox2.Controls.Add(this.txtYear1);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.groupBox2.Location = new System.Drawing.Point(12, 159);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(513, 83);
-            this.groupBox2.TabIndex = 246;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Rango de Periodos";
+            this.gbPeriodo.Controls.Add(this.rbRango);
+            this.gbPeriodo.Controls.Add(this.rbTodosPer);
+            this.gbPeriodo.Controls.Add(this.cboFinal);
+            this.gbPeriodo.Controls.Add(this.txtYear2);
+            this.gbPeriodo.Controls.Add(this.label2);
+            this.gbPeriodo.Controls.Add(this.cboInicial);
+            this.gbPeriodo.Controls.Add(this.txtYear1);
+            this.gbPeriodo.Controls.Add(this.label1);
+            this.gbPeriodo.Enabled = false;
+            this.gbPeriodo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPeriodo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
+            this.gbPeriodo.Location = new System.Drawing.Point(12, 159);
+            this.gbPeriodo.Name = "gbPeriodo";
+            this.gbPeriodo.Size = new System.Drawing.Size(513, 120);
+            this.gbPeriodo.TabIndex = 246;
+            this.gbPeriodo.TabStop = false;
+            this.gbPeriodo.Text = "Rango de Periodos";
+            // 
+            // rbRango
+            // 
+            this.rbRango.AutoSize = true;
+            this.rbRango.Checked = true;
+            this.rbRango.ForeColor = System.Drawing.Color.Black;
+            this.rbRango.Location = new System.Drawing.Point(19, 75);
+            this.rbRango.Name = "rbRango";
+            this.rbRango.Size = new System.Drawing.Size(76, 26);
+            this.rbRango.TabIndex = 7;
+            this.rbRango.TabStop = true;
+            this.rbRango.Text = "Rango";
+            this.rbRango.UseVisualStyleBackColor = true;
+            this.rbRango.CheckedChanged += new System.EventHandler(this.rbRango_CheckedChanged);
+            // 
+            // rbTodosPer
+            // 
+            this.rbTodosPer.AutoSize = true;
+            this.rbTodosPer.Checked = true;
+            this.rbTodosPer.ForeColor = System.Drawing.Color.Black;
+            this.rbTodosPer.Location = new System.Drawing.Point(19, 33);
+            this.rbTodosPer.Name = "rbTodosPer";
+            this.rbTodosPer.Size = new System.Drawing.Size(75, 26);
+            this.rbTodosPer.TabIndex = 7;
+            this.rbTodosPer.TabStop = true;
+            this.rbTodosPer.Text = "Todos";
+            this.rbTodosPer.UseVisualStyleBackColor = true;
             // 
             // cboFinal
             // 
+            this.cboFinal.Enabled = false;
             this.cboFinal.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFinal.FormattingEnabled = true;
             this.cboFinal.Items.AddRange(new object[] {
@@ -134,16 +167,17 @@
             "10",
             "11",
             "12"});
-            this.cboFinal.Location = new System.Drawing.Point(374, 38);
+            this.cboFinal.Location = new System.Drawing.Point(377, 74);
             this.cboFinal.Name = "cboFinal";
             this.cboFinal.Size = new System.Drawing.Size(59, 28);
             this.cboFinal.TabIndex = 6;
             this.toolTip1.SetToolTip(this.cboFinal, "Seleccione Rango Final");
+            this.cboFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboInicial_KeyPress);
             // 
             // txtYear2
             // 
             this.txtYear2.Enabled = false;
-            this.txtYear2.Location = new System.Drawing.Point(436, 38);
+            this.txtYear2.Location = new System.Drawing.Point(439, 74);
             this.txtYear2.Name = "txtYear2";
             this.txtYear2.Size = new System.Drawing.Size(61, 29);
             this.txtYear2.TabIndex = 5;
@@ -152,7 +186,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(325, 41);
+            this.label2.Location = new System.Drawing.Point(328, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 22);
             this.label2.TabIndex = 4;
@@ -160,6 +194,7 @@
             // 
             // cboInicial
             // 
+            this.cboInicial.Enabled = false;
             this.cboInicial.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboInicial.FormattingEnabled = true;
             this.cboInicial.Items.AddRange(new object[] {
@@ -175,17 +210,18 @@
             "10",
             "11",
             "12"});
-            this.cboInicial.Location = new System.Drawing.Point(147, 38);
+            this.cboInicial.Location = new System.Drawing.Point(172, 74);
             this.cboInicial.Name = "cboInicial";
             this.cboInicial.Size = new System.Drawing.Size(59, 28);
             this.cboInicial.TabIndex = 3;
             this.toolTip1.SetToolTip(this.cboInicial, "Seleccione Rango Inicial");
             this.cboInicial.SelectedIndexChanged += new System.EventHandler(this.cboInicial_SelectedIndexChanged);
+            this.cboInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboInicial_KeyPress);
             // 
             // txtYear1
             // 
             this.txtYear1.Enabled = false;
-            this.txtYear1.Location = new System.Drawing.Point(209, 38);
+            this.txtYear1.Location = new System.Drawing.Point(234, 74);
             this.txtYear1.Name = "txtYear1";
             this.txtYear1.Size = new System.Drawing.Size(61, 29);
             this.txtYear1.TabIndex = 2;
@@ -194,7 +230,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(89, 41);
+            this.label1.Location = new System.Drawing.Point(114, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 22);
             this.label1.TabIndex = 0;
@@ -206,7 +242,7 @@
             this.FlowLayoutPanel1.Controls.Add(this.lblGenerar);
             this.FlowLayoutPanel1.Controls.Add(this.lblSalir);
             this.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 249);
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(2, 285);
             this.FlowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(533, 66);
@@ -276,7 +312,7 @@
             // 
             this.lblMargenInf.BackColor = System.Drawing.Color.Black;
             this.lblMargenInf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMargenInf.Location = new System.Drawing.Point(2, 315);
+            this.lblMargenInf.Location = new System.Drawing.Point(2, 351);
             this.lblMargenInf.Name = "lblMargenInf";
             this.lblMargenInf.Size = new System.Drawing.Size(533, 2);
             this.lblMargenInf.TabIndex = 243;
@@ -304,7 +340,7 @@
             this.lblMargenIzq.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMargenIzq.Location = new System.Drawing.Point(535, 2);
             this.lblMargenIzq.Name = "lblMargenIzq";
-            this.lblMargenIzq.Size = new System.Drawing.Size(2, 315);
+            this.lblMargenIzq.Size = new System.Drawing.Size(2, 351);
             this.lblMargenIzq.TabIndex = 240;
             // 
             // lblMargenDer
@@ -313,7 +349,7 @@
             this.lblMargenDer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblMargenDer.Location = new System.Drawing.Point(0, 2);
             this.lblMargenDer.Name = "lblMargenDer";
-            this.lblMargenDer.Size = new System.Drawing.Size(2, 315);
+            this.lblMargenDer.Size = new System.Drawing.Size(2, 351);
             this.lblMargenDer.TabIndex = 239;
             // 
             // lblMargenTop
@@ -331,9 +367,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(537, 317);
+            this.ClientSize = new System.Drawing.Size(537, 353);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbPeriodo);
             this.Controls.Add(this.FlowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblMargenInf);
@@ -347,8 +383,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInfDepreciacion";
             this.Load += new System.EventHandler(this.FrmInfDepreciacion_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbPeriodo.ResumeLayout(false);
+            this.gbPeriodo.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -362,7 +398,7 @@
         internal System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.RadioButton rbAunico;
         private System.Windows.Forms.RadioButton rbAtodos;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbPeriodo;
         private System.Windows.Forms.ComboBox cboFinal;
         private System.Windows.Forms.TextBox txtYear2;
         private System.Windows.Forms.Label label2;
@@ -379,5 +415,7 @@
         internal System.Windows.Forms.Label lblMargenIzq;
         internal System.Windows.Forms.Label lblMargenDer;
         internal System.Windows.Forms.Label lblMargenTop;
+        private System.Windows.Forms.RadioButton rbTodosPer;
+        private System.Windows.Forms.RadioButton rbRango;
     }
 }

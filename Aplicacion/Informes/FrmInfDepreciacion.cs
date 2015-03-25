@@ -18,6 +18,7 @@ namespace Aplicacion.Informes
 
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         BLL.CompanyBLL bllComp = new BLL.CompanyBLL();
+        BLL.DepreciacionBLL bllDep = new BLL.DepreciacionBLL();
         public FrmInfDepreciacion()
         {
             InitializeComponent();
@@ -95,10 +96,12 @@ namespace Aplicacion.Informes
             {
                 txtCodActivo.Enabled = true;
                 txtCodActivo.Text = "";
+                gbPeriodo.Enabled = true;
             }
             else
             {
                 txtCodActivo.Enabled = false;
+                gbPeriodo.Enabled = false;
             }
         }
 
@@ -123,6 +126,7 @@ namespace Aplicacion.Informes
             ECompany objC = bllComp.buscar();
             DataTable dt = new DataTable();
             dt = bllAct.informeValores();
+           
             Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
             ReportDocument reporte = new ReportDocument();
             string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\RptInfDepreciacion.rpt";
@@ -140,7 +144,28 @@ namespace Aplicacion.Informes
 
         private void generarUno()
         {
-                
+            ECompany objC = bllComp.buscar();
+            DataTable dt = new DataTable();
+            if (rbTodosPer.Checked == true) {
+                dt = bllDep.tablaDepreciacion(txtCodActivo.Text,"Todos","Todos");
+            }
+            else {
+                dt = bllDep.tablaDepreciacion(txtCodActivo.Text, cboInicial.Text, cboFinal.Text);
+            }
+          
+            Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
+            ReportDocument reporte = new ReportDocument();
+            string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\RptInfDepreTabla.rpt";
+            reporte.Load(ruta);
+            reporte.SetDataSource(dt);
+            // Asignacion de Parametros 
+            reporte.SetParameterValue("comp", objC.descripcion);
+            reporte.SetParameterValue("nit", objC.nit);
+            reporte.SetParameterValue("periodo", "Periodo Actual: " + BLL.Inicializar.periodo);
+
+            frm.CReporte.ReportSource = reporte;
+            frm.CReporte.Refresh();
+            frm.ShowDialog(); 
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -153,6 +178,21 @@ namespace Aplicacion.Informes
             this.Dispose(true);
         }
 
-       
+        private void rbRango_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbRango.Checked == true){
+                cboFinal.Enabled = true;
+                cboInicial.Enabled = true;
+            }
+            else {
+                cboFinal.Enabled = false;
+                cboInicial.Enabled = false;
+            }
+        }
+
+        private void cboInicial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }             
     }
 }
