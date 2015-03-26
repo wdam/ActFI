@@ -157,5 +157,23 @@ namespace BLL
         public DataTable informeValores() {
             return aDao.informeValores();
         }
+
+        /// <summary>
+        /// Retorna Datos Filtrados por Grupo y Subgrupo
+        /// </summary>
+        /// <param name="grupo">Codigo del Grupo</param>
+        /// <param name="subgrupo">Codigo del Subgrupo</param>
+        /// <param name="fInicio">Rango de Fecha Inicial</param>
+        /// <param name="fFinal">Rango de Fecha Final</param>
+        /// <returns></returns>
+        public DataTable informeGrupo(string grupo, string subgrupo, string fInicio, string fFinal) {
+            if (string.IsNullOrEmpty(grupo) || string.IsNullOrEmpty(subgrupo)) {
+                return null;
+            }
+            if (string.IsNullOrEmpty(fInicio)) {
+                return null;
+            }
+            return aDao.informePorGrupo(grupo, subgrupo, fInicio, fFinal);
+        }
     }
 }

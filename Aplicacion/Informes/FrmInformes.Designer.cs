@@ -30,7 +30,7 @@
         {
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTerceros = new System.Windows.Forms.Label();
+            this.lblGrupos = new System.Windows.Forms.Label();
             this.lblTraslados = new System.Windows.Forms.Label();
             this.lblAreas = new System.Windows.Forms.Label();
             this.lblCerrar = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.TableLayoutPanel1.Controls.Add(this.lblTerceros, 2, 1);
+            this.TableLayoutPanel1.Controls.Add(this.lblGrupos, 2, 1);
             this.TableLayoutPanel1.Controls.Add(this.lblTraslados, 1, 1);
             this.TableLayoutPanel1.Controls.Add(this.lblAreas, 1, 0);
             this.TableLayoutPanel1.Controls.Add(this.lblCerrar, 2, 2);
@@ -81,23 +81,24 @@
             this.TableLayoutPanel1.Size = new System.Drawing.Size(726, 353);
             this.TableLayoutPanel1.TabIndex = 171;
             // 
-            // lblTerceros
+            // lblGrupos
             // 
-            this.lblTerceros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTerceros.BackColor = System.Drawing.Color.Transparent;
-            this.lblTerceros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTerceros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTerceros.ForeColor = System.Drawing.Color.White;
-            this.lblTerceros.Image = global::Aplicacion.Properties.Resources.grupo;
-            this.lblTerceros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTerceros.Location = new System.Drawing.Point(492, 125);
-            this.lblTerceros.Margin = new System.Windows.Forms.Padding(8);
-            this.lblTerceros.Name = "lblTerceros";
-            this.lblTerceros.Size = new System.Drawing.Size(226, 100);
-            this.lblTerceros.TabIndex = 132;
-            this.lblTerceros.Text = "Grupos y Subgrupos";
-            this.lblTerceros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGrupos.BackColor = System.Drawing.Color.Transparent;
+            this.lblGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblGrupos.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupos.ForeColor = System.Drawing.Color.White;
+            this.lblGrupos.Image = global::Aplicacion.Properties.Resources.grupo;
+            this.lblGrupos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblGrupos.Location = new System.Drawing.Point(492, 125);
+            this.lblGrupos.Margin = new System.Windows.Forms.Padding(8);
+            this.lblGrupos.Name = "lblGrupos";
+            this.lblGrupos.Size = new System.Drawing.Size(226, 100);
+            this.lblGrupos.TabIndex = 132;
+            this.lblGrupos.Text = "Grupos y Subgrupos";
+            this.lblGrupos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblGrupos.Click += new System.EventHandler(this.lblGrupos_Click);
             // 
             // lblTraslados
             // 
@@ -251,7 +252,7 @@
 
         internal System.Windows.Forms.Label lblTituloPrinc;
         internal System.Windows.Forms.TableLayoutPanel TableLayoutPanel1;
-        internal System.Windows.Forms.Label lblTerceros;
+        internal System.Windows.Forms.Label lblGrupos;
         internal System.Windows.Forms.Label lblTraslados;
         internal System.Windows.Forms.Label lblAreas;
         internal System.Windows.Forms.Label lblDepreciacion;

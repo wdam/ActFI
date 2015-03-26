@@ -57,6 +57,14 @@ namespace Aplicacion.Informes
             this.Show();
         }
 
+        private void lblGrupos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmInfGrupos frm = new FrmInfGrupos();
+            frm.ShowDialog();
+            this.Show();
+        }
+
       
     }
 }

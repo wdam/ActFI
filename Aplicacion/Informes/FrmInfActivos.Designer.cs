@@ -42,11 +42,12 @@
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblGenerar = new System.Windows.Forms.Label();
             this.lblSalir = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbTodProp = new System.Windows.Forms.RadioButton();
+            this.rbLeasing = new System.Windows.Forms.RadioButton();
+            this.rbArrendado = new System.Windows.Forms.RadioButton();
+            this.rbPropio = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -219,52 +220,64 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.rbTodProp);
+            this.groupBox2.Controls.Add(this.rbLeasing);
+            this.groupBox2.Controls.Add(this.rbArrendado);
+            this.groupBox2.Controls.Add(this.rbPropio);
             this.groupBox2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.groupBox2.Location = new System.Drawing.Point(11, 163);
+            this.groupBox2.Location = new System.Drawing.Point(11, 164);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(511, 69);
-            this.groupBox2.TabIndex = 226;
+            this.groupBox2.TabIndex = 236;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Propiedad";
             // 
-            // checkBox3
+            // rbTodProp
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.ForeColor = System.Drawing.Color.Black;
-            this.checkBox3.Location = new System.Drawing.Point(385, 29);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(86, 26);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Leasing";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.rbTodProp.AutoSize = true;
+            this.rbTodProp.Checked = true;
+            this.rbTodProp.ForeColor = System.Drawing.Color.Black;
+            this.rbTodProp.Location = new System.Drawing.Point(421, 28);
+            this.rbTodProp.Name = "rbTodProp";
+            this.rbTodProp.Size = new System.Drawing.Size(75, 26);
+            this.rbTodProp.TabIndex = 0;
+            this.rbTodProp.TabStop = true;
+            this.rbTodProp.Text = "Todos";
+            this.rbTodProp.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // rbLeasing
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.Color.Black;
-            this.checkBox2.Location = new System.Drawing.Point(194, 29);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(111, 26);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Arrendado";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.rbLeasing.AutoSize = true;
+            this.rbLeasing.ForeColor = System.Drawing.Color.Black;
+            this.rbLeasing.Location = new System.Drawing.Point(296, 28);
+            this.rbLeasing.Name = "rbLeasing";
+            this.rbLeasing.Size = new System.Drawing.Size(85, 26);
+            this.rbLeasing.TabIndex = 0;
+            this.rbLeasing.Text = "Leasing";
+            this.rbLeasing.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // rbArrendado
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.ForeColor = System.Drawing.Color.Black;
-            this.checkBox1.Location = new System.Drawing.Point(34, 29);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 26);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Propio";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.rbArrendado.AutoSize = true;
+            this.rbArrendado.ForeColor = System.Drawing.Color.Black;
+            this.rbArrendado.Location = new System.Drawing.Point(146, 28);
+            this.rbArrendado.Name = "rbArrendado";
+            this.rbArrendado.Size = new System.Drawing.Size(110, 26);
+            this.rbArrendado.TabIndex = 0;
+            this.rbArrendado.Text = "Arrendado";
+            this.rbArrendado.UseVisualStyleBackColor = true;
+            // 
+            // rbPropio
+            // 
+            this.rbPropio.AutoSize = true;
+            this.rbPropio.ForeColor = System.Drawing.Color.Black;
+            this.rbPropio.Location = new System.Drawing.Point(27, 28);
+            this.rbPropio.Name = "rbPropio";
+            this.rbPropio.Size = new System.Drawing.Size(79, 26);
+            this.rbPropio.TabIndex = 0;
+            this.rbPropio.Text = "Propio";
+            this.rbPropio.UseVisualStyleBackColor = true;
             // 
             // FrmInfActivos
             // 
@@ -311,10 +324,11 @@
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel1;
         private System.Windows.Forms.Label lblGenerar;
         private System.Windows.Forms.Label lblSalir;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbTodProp;
+        private System.Windows.Forms.RadioButton rbLeasing;
+        private System.Windows.Forms.RadioButton rbArrendado;
+        private System.Windows.Forms.RadioButton rbPropio;
     }
 }

@@ -80,12 +80,12 @@ namespace DAL.DAO
 
         public int insertar(EActivos act) {
             int reg=0;
-            string sql = "INSERT INTO afactivos (codigo, nombre, descripcion,marca, modelo,  numSerie, referecia, " +
+            string sql = "INSERT INTO afactivos (codigo, nombre, descripcion,marca, modelo,  numSerie, referencia, " +
                             " vidaUtil, propiedad, fechaCompra, areaLoc, responsable, proveedor, ccosto, " +
                             " estado, valComercial, valSalvamento, valLibros, valMejoras, valHistorico, " +
                             "depajustada, depAcumulada, grupo, subgrupo, ctaActivo, ctadepreciacion, ctagastos, " +
                             "ctaPerdida, ctaGanancia, ctaMantenimiento, metodoDep, fechamaxDep, mantenimiento, poliza, nFactura)   " +
-                            " VALUES (?codigo, ?nombre, ?descripcion, ?marca, ?modelo, ?numSerie, ?referecia, " +
+                            " VALUES (?codigo, ?nombre, ?descripcion, ?marca, ?modelo, ?numSerie, ?referencia, " +
                             " ?vidaUtil, ?propiedad, ?fechaCompra, ?areaLoc, ?responsable, ?proveedor, ?ccosto, " +
                             " ?estado, ?valComercial, ?valSalvamento, ?valLibros, ?valMejoras, ?valHistorico, " +
                             " ?depajustada, ?depAcumulada, ?grupo, ?subgrupo, ?ctaActivo, ?ctadepreciacion, ?ctagastos, " +
@@ -103,7 +103,7 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?marca", MySqlDbType.String).Value = act.marca;
                     cmd.Parameters.Add("?modelo", MySqlDbType.String).Value = act.modelo;
                     cmd.Parameters.Add("?numSerie", MySqlDbType.String).Value = act.numSerie;
-                    cmd.Parameters.Add("?referecia", MySqlDbType.String).Value = act.referencia;
+                    cmd.Parameters.Add("?referencia", MySqlDbType.String).Value = act.referencia;
                     cmd.Parameters.Add("?grupo", MySqlDbType.String).Value = act.grupo;
                     cmd.Parameters.Add("?subgrupo", MySqlDbType.String).Value = act.subGrupo;
                     cmd.Parameters.Add("?vidaUtil", MySqlDbType.Int32).Value = act.vidaUtil;
@@ -192,7 +192,7 @@ namespace DAL.DAO
         public int actualizar(EActivos act) {
             int reg = 0;
             string sql = "UPDATE afactivos SET nombre=?nombre, descripcion=?descripcion, numSerie=?numSerie, " +
-                       "  referecia=?referecia, propiedad=?propiedad, ccosto=?ccosto, valComercial=?valComercial, " +
+                       "  referencia=?referencia, propiedad=?propiedad, ccosto=?ccosto, valComercial=?valComercial, " +
                        " valSalvamento=?valSalvamento, ctaActivo=?ctaActivo, ctadepreciacion=?ctadepreciacion, " +
                        " ctagastos=?ctagastos, ctaPerdida=?ctaPerdida, ctaGanancia=?ctaGanancia, " +
                        " ctaMantenimiento=?ctaMantenimiento, estado=?estado WHERE codigo=?codigo ";
@@ -210,7 +210,7 @@ namespace DAL.DAO
                     cmd.Parameters.Add("?nombre", MySqlDbType.String).Value = act.nombre;
                     cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = act.descripcion;
                     cmd.Parameters.Add("?numSerie", MySqlDbType.String).Value = act.numSerie;
-                    cmd.Parameters.Add("?referecia", MySqlDbType.String).Value = act.referencia;                   
+                    cmd.Parameters.Add("?referencia", MySqlDbType.String).Value = act.referencia;                   
                     cmd.Parameters.Add("?propiedad", MySqlDbType.String).Value = act.propiedad;                   
                     cmd.Parameters.Add("?ccosto", MySqlDbType.String).Value = act.centrocosto;
                     cmd.Parameters.Add("?estado", MySqlDbType.String).Value = act.estado;
@@ -262,6 +262,34 @@ namespace DAL.DAO
             return nReg;
         }
 
+
+        #region Proceso para Informes
+
+        public DataTable informePorGrupo(string grupo, string subgrupo, string fInicio, string fFinal) {
+            string condG = "";
+            string condSub = "";
+            string condF = "";
+
+            if (grupo != "Todos") {
+                condG = " AND af.grupo='" + grupo + "'";
+            }
+            if (subgrupo != "Todos") {
+                condSub = " AND af.subgrupo = '"+subgrupo+"'";
+            }
+
+            if (fInicio != "Todos") {
+                condF = " AND af.fechaCompra  BETWEEN '" + fInicio + "' AND '" + fFinal + "' ";
+            }
+
+            string sql = "SELECT  af.codigo, af.nombre, af.fechaCompra As fecha, af.ctaActivo, af.valComercial, "+
+                    " af.valLibros, af.depAcumulada, af.grupo, g.descripcion AS referencia, "+
+                    " af.subgrupo, s.descripcion AS numSerie FROM afactivos af INNER JOIN "+
+                    " afgrupo g ON af.grupo = g.sigla INNER JOIN afsubgrupo s ON af.subgrupo = s.codigo" +
+                    " WHERE  af.ctaActivo<>'' " + condG + " " + condSub + " "+condF+"";
+            return consultar(sql); 
+        }
+
+        
         public DataTable informeGeneral() {
             string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.fechaCompra AS fecha, " +
                " af.estado,  CONCAT(t.nit, ' ', t.nombre,' ', t.apellidos) responsable FROM " +
@@ -274,7 +302,7 @@ namespace DAL.DAO
             string sql = "SELECT codigo, nombre, fechaCompra As fecha, valComercial, valLibros, "+
                 " valSalvamento, depAcumulada FROM afactivos WHERE estado<>'BAJA' ";
             return consultar(sql);            
-            }
+       }
 
         public DataTable informeUbicacion(string codigo, string propiedad) {
             string area ="";
@@ -314,7 +342,7 @@ namespace DAL.DAO
             }
             return dt;
         }
-
+        #endregion
         protected EActivos mapearObjeto(MySqlDataReader fila)
         {
             EActivos act = new EActivos();
@@ -324,7 +352,7 @@ namespace DAL.DAO
             act.marca = fila.GetString("marca");
             act.modelo = fila.GetString("modelo");    
             act.numSerie = fila.GetString("numSerie") ?? "NO";
-            act.referencia = fila.GetString("referecia") ?? "NO";
+            act.referencia = fila.GetString("referencia") ?? "NO";
             act.vidaUtil = fila.GetInt32("vidaUtil");
             act.grupo = fila.GetString("grupo");
             act.subGrupo = fila.GetString("subgrupo");
