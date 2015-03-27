@@ -290,12 +290,28 @@ namespace DAL.DAO
         }
 
         
-        public DataTable informeGeneral() {
+        public DataTable informeGeneral(string filtro) {
+            string cond = "";
+            if (filtro != "TODOS")
+            {
+                cond = " WHERE af.propiedad='" + filtro + "'";
+            }
             string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.fechaCompra AS fecha, " +
-               " af.estado,  CONCAT(t.nit, ' ', t.nombre,' ', t.apellidos) responsable FROM " +
-               " afactivos af INNER JOIN terceros t ON af.responsable = t.nit";           
-            DataTable dt = consultar(sql);
-            return dt;
+               " af.estado,  CONCAT(t.nit, ' ', t.nombre,' ', t.apellidos) responsable , " +
+               " af.valComercial, af.valLibros, af.depAcumulada, af.valMejoras  FROM " +
+               " afactivos af INNER JOIN terceros t ON af.responsable = t.nit "+cond+"";           
+           return consultar(sql);            
+        }
+
+        public DataTable informeGeneral(string filtro, string agrupar)
+        {
+            string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.estado, af.ccosto, " +
+                    "CONCAT(af.areaLoc,' ', aa.nombre)AS  areaLoc, "+
+                    " af.fechaCompra AS fecha, CONCAT(t.nombre,' ', t.apellidos) AS documento,  "+
+                    " t.nit AS responsable,  af.valComercial, af.valLibros, af.depAcumulada, af.valMejoras"+
+                    " FROM  afactivos af INNER JOIN terceros t ON af.responsable = t.nit "+
+                    " INNER JOIN afarea aa ON af.areaLoc = aa.codigo";
+            return consultar(sql);    
         }
 
         public DataTable informeValores() {

@@ -137,9 +137,33 @@ namespace BLL
             aDao.UpdateValores(valLibro, valDepAjus, valDeprAcum, codigo);
         }
 
-        public DataTable informeGeneral() {
-            return aDao.informeGeneral();
+        /// <summary>
+        /// Retorna una Lista de Activos 
+        /// </summary>
+        /// <param name="filtro">Tipo de Propiedad</param>
+        /// <returns></returns>
+        public DataTable informeGeneral(string filtro) {
+            if (string.IsNullOrEmpty(filtro)) {
+                return null;
+            }
+            return aDao.informeGeneral(filtro);
         }
+
+        /// <summary>
+        /// Retorna una Lista de Activos
+        /// </summary>
+        /// <param name="filtro">Tipo de Propiedad</param>
+        /// <param name="agrupar">Campo por el Cual se van a Agrupar los datos</param>
+        /// <returns></returns>
+        public DataTable informeGeneral(string filtro, string agrupar)
+        {
+            if (string.IsNullOrEmpty(filtro))
+            {
+                return null;
+            }
+            return aDao.informeGeneral(filtro, agrupar);
+        }
+        
         /// <summary>
         /// Retorna un Datatable con Datos Filtrado por Ubicacion
         /// </summary>
