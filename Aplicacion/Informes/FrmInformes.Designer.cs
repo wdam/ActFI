@@ -171,7 +171,7 @@
             this.lblHistorial.Name = "lblHistorial";
             this.lblHistorial.Size = new System.Drawing.Size(226, 100);
             this.lblHistorial.TabIndex = 133;
-            this.lblHistorial.Text = "Historial de Activos";
+            this.lblHistorial.Text = "General de Activos";
             this.lblHistorial.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblHistorial.Click += new System.EventHandler(this.lblHistorial_Click);
             // 

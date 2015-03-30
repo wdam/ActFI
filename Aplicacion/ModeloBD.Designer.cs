@@ -666,7 +666,7 @@ namespace Aplicacion {
                         string numSerie, 
                         string referencia, 
                         string tipodoc, 
-                        short vidaUtil, 
+                        int vidaUtil, 
                         string propiedad, 
                         System.DateTime fecha, 
                         string areaLoc, 
@@ -794,7 +794,7 @@ namespace Aplicacion {
                 base.Columns.Add(this.columnreferencia);
                 this.columntipodoc = new global::System.Data.DataColumn("tipodoc", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntipodoc);
-                this.columnvidaUtil = new global::System.Data.DataColumn("vidaUtil", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnvidaUtil = new global::System.Data.DataColumn("vidaUtil", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvidaUtil);
                 this.columnpropiedad = new global::System.Data.DataColumn("propiedad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpropiedad);
@@ -1082,10 +1082,10 @@ namespace Aplicacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public short vidaUtil {
+            public int vidaUtil {
                 get {
                     try {
-                        return ((short)(this[this.tableafactivos.vidaUtilColumn]));
+                        return ((int)(this[this.tableafactivos.vidaUtilColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'vidaUtil\' de la tabla \'afactivos\' es DBNull.", e);

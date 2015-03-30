@@ -45,15 +45,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbRango = new System.Windows.Forms.RadioButton();
+            this.rbFecha = new System.Windows.Forms.RadioButton();
+            this.dtpFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblGenerar = new System.Windows.Forms.Label();
             this.lblSalir = new System.Windows.Forms.Label();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.dtpFinal = new System.Windows.Forms.DateTimePicker();
-            this.rbFecha = new System.Windows.Forms.RadioButton();
-            this.rbRango = new System.Windows.Forms.RadioButton();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -250,6 +250,53 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rango de Fecha de Compra";
             // 
+            // rbRango
+            // 
+            this.rbRango.AutoSize = true;
+            this.rbRango.ForeColor = System.Drawing.Color.Black;
+            this.rbRango.Location = new System.Drawing.Point(21, 69);
+            this.rbRango.Name = "rbRango";
+            this.rbRango.Size = new System.Drawing.Size(76, 26);
+            this.rbRango.TabIndex = 7;
+            this.rbRango.Text = "Rango";
+            this.rbRango.UseVisualStyleBackColor = true;
+            this.rbRango.CheckedChanged += new System.EventHandler(this.rbRango_CheckedChanged);
+            // 
+            // rbFecha
+            // 
+            this.rbFecha.AutoSize = true;
+            this.rbFecha.Checked = true;
+            this.rbFecha.ForeColor = System.Drawing.Color.Black;
+            this.rbFecha.Location = new System.Drawing.Point(21, 28);
+            this.rbFecha.Name = "rbFecha";
+            this.rbFecha.Size = new System.Drawing.Size(75, 26);
+            this.rbFecha.TabIndex = 7;
+            this.rbFecha.TabStop = true;
+            this.rbFecha.Text = "Todos";
+            this.rbFecha.UseVisualStyleBackColor = true;
+            // 
+            // dtpFinal
+            // 
+            this.dtpFinal.Enabled = false;
+            this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFinal.Location = new System.Drawing.Point(366, 68);
+            this.dtpFinal.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
+            this.dtpFinal.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.dtpFinal.Name = "dtpFinal";
+            this.dtpFinal.Size = new System.Drawing.Size(132, 29);
+            this.dtpFinal.TabIndex = 6;
+            // 
+            // dtpInicio
+            // 
+            this.dtpInicio.Enabled = false;
+            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpInicio.Location = new System.Drawing.Point(167, 68);
+            this.dtpInicio.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
+            this.dtpInicio.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.dtpInicio.Name = "dtpInicio";
+            this.dtpInicio.Size = new System.Drawing.Size(132, 29);
+            this.dtpInicio.TabIndex = 5;
+            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -318,53 +365,6 @@
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(531, 66);
             this.FlowLayoutPanel1.TabIndex = 245;
             // 
-            // dtpInicio
-            // 
-            this.dtpInicio.Enabled = false;
-            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInicio.Location = new System.Drawing.Point(167, 68);
-            this.dtpInicio.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            this.dtpInicio.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
-            this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(132, 29);
-            this.dtpInicio.TabIndex = 5;
-            // 
-            // dtpFinal
-            // 
-            this.dtpFinal.Enabled = false;
-            this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFinal.Location = new System.Drawing.Point(366, 68);
-            this.dtpFinal.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            this.dtpFinal.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
-            this.dtpFinal.Name = "dtpFinal";
-            this.dtpFinal.Size = new System.Drawing.Size(132, 29);
-            this.dtpFinal.TabIndex = 6;
-            // 
-            // rbFecha
-            // 
-            this.rbFecha.AutoSize = true;
-            this.rbFecha.Checked = true;
-            this.rbFecha.ForeColor = System.Drawing.Color.Black;
-            this.rbFecha.Location = new System.Drawing.Point(21, 28);
-            this.rbFecha.Name = "rbFecha";
-            this.rbFecha.Size = new System.Drawing.Size(75, 26);
-            this.rbFecha.TabIndex = 7;
-            this.rbFecha.TabStop = true;
-            this.rbFecha.Text = "Todos";
-            this.rbFecha.UseVisualStyleBackColor = true;
-            // 
-            // rbRango
-            // 
-            this.rbRango.AutoSize = true;
-            this.rbRango.ForeColor = System.Drawing.Color.Black;
-            this.rbRango.Location = new System.Drawing.Point(21, 69);
-            this.rbRango.Name = "rbRango";
-            this.rbRango.Size = new System.Drawing.Size(76, 26);
-            this.rbRango.TabIndex = 7;
-            this.rbRango.Text = "Rango";
-            this.rbRango.UseVisualStyleBackColor = true;
-            this.rbRango.CheckedChanged += new System.EventHandler(this.rbRango_CheckedChanged);
-            // 
             // FrmInfGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,6 +384,7 @@
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmInfGrupos";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInfGrupos";
             this.Load += new System.EventHandler(this.FrmInfGrupos_Load);

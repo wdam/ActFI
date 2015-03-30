@@ -149,5 +149,10 @@ namespace Aplicacion.Informes
                 tPropiedad = "PROPIO";
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

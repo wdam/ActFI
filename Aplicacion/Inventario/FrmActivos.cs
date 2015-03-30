@@ -630,17 +630,16 @@ namespace Aplicacion.Inventario
         private void lblpdf_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtCodigo.Text) && lblOperacion.Text == "Consulta" && Encontro == true)
-            {
-                List<EActivos> lst = new List<EActivos>();
-                lst.Add(bllAct.buscar(txtCodigo.Text));
+            {               
                 BLL.CompanyBLL bllComp = new BLL.CompanyBLL();
                 ECompany objC = bllComp.buscar();
-
+                DataTable dt = new DataTable();
+                dt = bllAct.informeBasico(txtCodigo.Text);
                 Informes.FrmVerInforme frm = new Informes.FrmVerInforme();
                 ReportDocument reporte = new ReportDocument();
                 string ruta = AppDomain.CurrentDomain.BaseDirectory + "Reportes\\rptinfActBasico.rpt";
                 reporte.Load(ruta);
-                reporte.SetDataSource(lst);
+                reporte.SetDataSource(dt);
                 // Asignacion de Parametros 
                 reporte.SetParameterValue("comp", objC.descripcion);
                 reporte.SetParameterValue("nit", objC.nit);

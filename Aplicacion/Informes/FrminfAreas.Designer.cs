@@ -106,6 +106,7 @@
             this.btnExit.Text = "X";
             this.toolTip1.SetToolTip(this.btnExit, "ESC");
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // groupBox2
             // 
@@ -288,6 +289,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(544, 366);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExit);
@@ -300,6 +302,7 @@
             this.Controls.Add(this.lblMargenTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrminfAreas";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrminfAreas";
             this.Load += new System.EventHandler(this.FrminfAreas_Load);

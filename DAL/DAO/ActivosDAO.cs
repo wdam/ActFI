@@ -265,6 +265,20 @@ namespace DAL.DAO
 
         #region Proceso para Informes
 
+        public DataTable informeBasico(string codigo) { 
+          string sql = "SELECT af.codigo, af.nombre, af.descripcion, af.marca, af.modelo, af.numSerie, "+
+                        " IFNULL(CONCAT(af.ccosto, ' ', cc.nombre),'NO DEFINIDO') ccosto, "+
+                        " af.estado, af.ctaActivo, af.ctaActivo, af.ctaDepreciacion, af.ctaGastos, "+
+                        " af.valComercial, af.valLibros, af.depAcumulada, af.depajustada, af.vidaUtil, " +
+                        " af.fechaCompra as fecha, af.propiedad, af.numSerie, af.referencia, af.valSalvamento, af.valMejoras, " +
+                        " CONCAT(af.AreaLoc, ' ',aa.nombre) AS areaLoc, CONCAT(af.proveedor,' ',tt.nombre)  "+
+                        " AS proveedor , CONCAT(af.responsable,' ', t.nombre) responsable, af.valHistorico " +
+                        " FROM afactivos af INNER JOIN afarea aa  ON af.areaLoc = aa.codigo "+
+                        " INNER JOIN terceros t ON  af.responsable  = t.nit  INNER JOIN terceros tt ON  af.proveedor=tt.nit "+
+                        " LEFT JOIN centrocostos cc ON af.ccosto = cc.centro WHERE af.codigo='"+codigo+"'";
+          return consultar(sql); 
+        }
+
         public DataTable informePorGrupo(string grupo, string subgrupo, string fInicio, string fFinal) {
             string condG = "";
             string condSub = "";
@@ -305,12 +319,28 @@ namespace DAL.DAO
 
         public DataTable informeGeneral(string filtro, string agrupar)
         {
-            string sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.estado, af.ccosto, " +
-                    "CONCAT(af.areaLoc,' ', aa.nombre)AS  areaLoc, "+
-                    " af.fechaCompra AS fecha, CONCAT(t.nombre,' ', t.apellidos) AS documento,  "+
-                    " t.nit AS responsable,  af.valComercial, af.valLibros, af.depAcumulada, af.valMejoras"+
-                    " FROM  afactivos af INNER JOIN terceros t ON af.responsable = t.nit "+
-                    " INNER JOIN afarea aa ON af.areaLoc = aa.codigo";
+            string sql = ""; 
+            if (agrupar == "responsable")
+            {
+                sql = " SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.estado, af.ccosto, " +
+                        "CONCAT(af.areaLoc,' ', aa.nombre)AS  areaLoc, " +
+                        " af.fechaCompra AS fecha, CONCAT(t.nombre,' ', t.apellidos) AS documento,  " +
+                        " t.nit AS responsable,  af.valComercial, af.valLibros, af.depAcumulada, af.valMejoras" +
+                        " FROM  afactivos af INNER JOIN terceros t ON af.responsable = t.nit " +
+                        " INNER JOIN afarea aa ON af.areaLoc = aa.codigo  ";
+            }
+            else { 
+                sql =" SELECT af.codigo, af.nombre, af.numSerie, af.propiedad, af.estado,"+
+                     " af.fechaCompra AS fecha, CONCAT(af.areaLoc,' ', aa.nombre)AS  areaLoc, "+
+                     " af.ccosto, cc.nombre AS documento, af.responsable, af.valComercial, af.valLibros, " +
+                     " af.depAcumulada, af.valMejoras FROM  afactivos af INNER JOIN "+
+                     " centrocostos cc ON af.ccosto = cc.centro INNER JOIN afarea aa ON af.areaLoc = aa.codigo ";
+            }
+
+            if (filtro != "TODOS") {
+                sql += "WHERE af.propiedad='" + filtro + "'";
+            }
+
             return consultar(sql);    
         }
 

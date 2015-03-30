@@ -5,6 +5,5 @@ C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\Entidades\obj\Debug\En
 C:\Users\FEWL\documents\visual studio 2012\Projects\ActFI\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 D:\Wendell\ActFI\Entidades\bin\Debug\Entidades.dll
 D:\Wendell\ActFI\Entidades\bin\Debug\Entidades.pdb
-D:\Wendell\ActFI\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 D:\Wendell\ActFI\Entidades\obj\Debug\Entidades.dll
 D:\Wendell\ActFI\Entidades\obj\Debug\Entidades.pdb

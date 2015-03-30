@@ -150,6 +150,18 @@ namespace BLL
         }
 
         /// <summary>
+        /// Retorna DataTable con los datos Generales de un Activo
+        /// </summary>
+        /// <param name="codigo">Codigo del Activo</param>
+        /// <returns></returns>
+        public DataTable informeBasico(string codigo) {
+            if (string.IsNullOrEmpty(codigo)){
+                return null;
+            }
+            return aDao.informeBasico(codigo);            
+        }
+
+        /// <summary>
         /// Retorna una Lista de Activos
         /// </summary>
         /// <param name="filtro">Tipo de Propiedad</param>
@@ -157,7 +169,7 @@ namespace BLL
         /// <returns></returns>
         public DataTable informeGeneral(string filtro, string agrupar)
         {
-            if (string.IsNullOrEmpty(filtro))
+            if (string.IsNullOrEmpty(agrupar))
             {
                 return null;
             }
