@@ -57,7 +57,7 @@
             this.txtclaveUsua.Name = "txtclaveUsua";
             this.txtclaveUsua.Size = new System.Drawing.Size(160, 29);
             this.txtclaveUsua.TabIndex = 2;
-            this.txtclaveUsua.Text = "root";
+            this.txtclaveUsua.Text = "Clave Usuario";
             this.toolTip1.SetToolTip(this.txtclaveUsua, "Clave Usuario");
             this.txtclaveUsua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtusuario_KeyPress);
             // 
@@ -113,7 +113,7 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(160, 29);
             this.txtusuario.TabIndex = 1;
-            this.txtusuario.Text = "sae";
+            this.txtusuario.Text = "Usuario";
             this.toolTip1.SetToolTip(this.txtusuario, "Usuario");
             this.txtusuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtusuario_KeyPress);
             // 

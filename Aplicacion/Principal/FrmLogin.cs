@@ -190,12 +190,26 @@ namespace Aplicacion.Principal
         #endregion              
 
         private void FrmLogin_Load(object sender, EventArgs e) {
+
+            // Leer Si existen datos de Acceso
+            string datoArc = "";
+            string ruta ="C:\\ActFI\\datos.txt";
+            if (System.IO.File.Exists(ruta)){
+                datoArc = System.IO.File.ReadAllText(ruta);
+            }
+
+            if (!string.IsNullOrWhiteSpace(datoArc)) { 
+                string[] datos = datoArc.Split(',');
+                txtusuario.Text = datos[0];
+                txtclaveUsua.Text = datos[1];
+                this.btnEntrar_Click(null, null);
+            }
             // Agregar Eventros a Controles 
             this.txtclaveUsua.LostFocus += new EventHandler(this.txtclaveUsua_LostFocus);
             this.txtclaveUsua.GotFocus += new EventHandler(this.txtclaveUsua_GotFocus);
             this.txtpasswC.LostFocus += new EventHandler(this.txtpasswC_LostFocus);
             this.txtpasswC.GotFocus += new EventHandler(this.txtpasswC_GotFocus);
-            this.btnEntrar_Click(null, null);
+           
         }
 
     }

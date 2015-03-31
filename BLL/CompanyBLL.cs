@@ -59,10 +59,10 @@ namespace BLL
                     // Crear Archivo con el periodo actual 
                     try
                     {
-                        string ruta = AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";
+                        string ruta = AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";                        
                         StreamWriter swEscritor = new StreamWriter(ruta, false);
                         swEscritor.Write(Inicializar.periodo.Trim());
-                        swEscritor.Close();
+                        swEscritor.Close();                       
                     }
                     catch (Exception ex)
                     {
@@ -80,9 +80,8 @@ namespace BLL
         }
 
         private string llenarPeriodo() {           
-            string ruta =  AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";
-            if (System.IO.File.Exists(ruta))
-            {
+            string ruta =  AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";            
+            if (System.IO.File.Exists(ruta)) {
                 return System.IO.File.ReadAllText(ruta);                
             }
             else {
