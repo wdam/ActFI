@@ -56,7 +56,6 @@ namespace Aplicacion.Inventario
             else {
                 MessageBox.Show("Verifique la Informacion", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
         }
 
         private bool validar() {
@@ -67,9 +66,9 @@ namespace Aplicacion.Inventario
                 valido = false;
             }
 
-            if (!bllVal.noEstaVacio(txtctaDepreciacion.Text))
+            if (!bllVal.noEstaVacio(txtctaIva.Text))
             {
-                msjError.SetError(txtctaDepreciacion, "Ingrese la Cuenta de Depreciacion");
+                msjError.SetError(txtctaIva, "Ingrese la Cuenta de Depreciacion");
                 valido = false;
             }
 
@@ -116,8 +115,8 @@ namespace Aplicacion.Inventario
         private void guardar() {
             EParametros obj = new EParametros();
             obj.Codigo = "1";
-            obj.ctaActivo = txtctaCaja.Text;
-            obj.ctaDepreciacion = txtctaDepreciacion.Text;
+            obj.ctaCaja = txtctaCaja.Text;
+            obj.ctaIVA = txtctaIva.Text;
             obj.ctaBanco = txtctaBanco.Text;
             obj.ctaProveedor = txtctaProveedor.Text;
             obj.ctaDepMonetaria = txtctaDepMonetaria.Text;
@@ -141,8 +140,8 @@ namespace Aplicacion.Inventario
             lstPar = bllPar.getParametros();
 
             if (lstPar !=null ){
-                txtctaCaja.Text = lstPar.ctaActivo;
-                txtctaDepreciacion.Text = lstPar.ctaDepreciacion;
+                txtctaCaja.Text = lstPar.ctaCaja;
+                txtctaIva.Text = lstPar.ctaIVA;
                 txtctaBanco.Text = lstPar.ctaBanco;
                 txtctaProveedor.Text = lstPar.ctaProveedor;
                 txtctaDepMonetaria.Text = lstPar.ctaDepMonetaria;
@@ -175,14 +174,7 @@ namespace Aplicacion.Inventario
         {
             setTexto.Text = dato;
         }
-
-        public void SeleccionarDato(string dato, string descripcion)
-        {
-            throw new NotImplementedException();
-        }
-
-       
-
+     
         private void txtCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)

@@ -40,8 +40,8 @@ namespace DAL.DAO
 
         public int actualizar(EParametros parametro) {
             int reg = 0;
-            string sql = "REPLACE INTO afparametros (codigo, ctaActivo,ctadepreciacion,ctaBanco, ctaProveedor,ctadepreMon, " +
-                         " ventas, compras , depreciacion ) VALUES (?codigo, ?ctaActivo, ?ctadepreciacion, " +
+            string sql = "REPLACE INTO afparametros (codigo, ctaCaja,ctaIVA,ctaBanco, ctaProveedor,ctadepreMon, " +
+                         " ventas, compras , depreciacion ) VALUES (?codigo, ?ctaCaja, ?ctaIVA, " +
                          " ?ctaBanco, ?ctaProveedor , ?ctadepreMon, ?ventas, ?compras, ?depreciacion)";
                            
             using (conexion cnx = new conexion()) {
@@ -50,8 +50,8 @@ namespace DAL.DAO
                     cmd.CommandText = sql;
                     cmd.Connection = cnx.getConexion();
                     cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = parametro.Codigo;
-                    cmd.Parameters.Add("?ctaActivo", MySqlDbType.String).Value = parametro.ctaActivo;
-                    cmd.Parameters.Add("?ctadepreciacion", MySqlDbType.String).Value = parametro.ctaDepreciacion;
+                    cmd.Parameters.Add("?ctaCaja", MySqlDbType.String).Value = parametro.ctaCaja;
+                    cmd.Parameters.Add("?ctaIVA", MySqlDbType.String).Value = parametro.ctaIVA;
                     cmd.Parameters.Add("?ctaBanco", MySqlDbType.String).Value = parametro.ctaBanco;
                     cmd.Parameters.Add("?ctaProveedor", MySqlDbType.String).Value = parametro.ctaProveedor;
                     cmd.Parameters.Add("?ctadepreMon", MySqlDbType.String).Value = parametro.ctaDepMonetaria;
@@ -71,8 +71,8 @@ namespace DAL.DAO
         public EParametros mapearObjeto(MySqlDataReader fila) {
             EParametros objPar = new EParametros();
             objPar.Codigo = fila.GetString("codigo");
-            objPar.ctaActivo = fila.GetString("ctaActivo");
-            objPar.ctaDepreciacion = fila.GetString("ctadepreciacion");
+            objPar.ctaCaja = fila.GetString("ctaCaja");
+            objPar.ctaIVA = fila.GetString("ctaIVA");
             objPar.ctaBanco = fila.GetString("ctaBanco");
             objPar.ctaProveedor = fila.GetString("ctaProveedor");
             objPar.ctaDepMonetaria = fila.GetString("ctadepreMon");

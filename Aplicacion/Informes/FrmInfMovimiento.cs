@@ -211,9 +211,6 @@ namespace Aplicacion.Informes
             if (rbDoctodos.Checked == true) {
                 tipo = "Todos";
             }
-        }
-
-        
-          
+        }                  
     }
 }

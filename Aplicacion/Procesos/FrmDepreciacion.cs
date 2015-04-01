@@ -19,8 +19,7 @@ namespace Aplicacion.Procesos
         BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
         BLL.DepreciacionBLL bllDep = new BLL.DepreciacionBLL();
 
-        List<EPeriodo> lstPer;
-        List<EDocumentos> lstDocumentos;
+        List<EPeriodo> lstPer;       
         List<EActivos> lstActivos;    
         EParametros objParametros;      
         ETipoDocumento objTipodoc;        
@@ -176,7 +175,7 @@ namespace Aplicacion.Procesos
                     ObjDoc.codigo = item.cuenta.ToString();
                     ObjDoc.baseD = UtilSystem.DIN("0");
                     ObjDoc.diasv = 0;
-                    ObjDoc.fecha = UtilSystem.truncarCadena(DateTime.Now.Date.ToShortDateString(), 10);
+                    ObjDoc.fecha = UtilSystem.fFecha(DateTime.Now.Date);
                     ObjDoc.cheque = "";
                     ObjDoc.nit = "0";
                     ObjDoc.modulo = "DEPRECIACION";
@@ -200,7 +199,7 @@ namespace Aplicacion.Procesos
                 ObjDoc.codigo = item.cuenta.ToString();
                 ObjDoc.baseD = UtilSystem.DIN("0");
                 ObjDoc.diasv = 0;
-                ObjDoc.fecha = UtilSystem.truncarCadena(DateTime.Now.Date.ToShortDateString(), 10);
+                ObjDoc.fecha = UtilSystem.fFecha(DateTime.Now.Date);
                 ObjDoc.cheque = "";
                 ObjDoc.nit = "0";
                 ObjDoc.modulo = "DEPRECIACION";

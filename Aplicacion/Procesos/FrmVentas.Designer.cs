@@ -59,20 +59,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gbVenta = new System.Windows.Forms.GroupBox();
+            this.lblCtaDepreciacion = new System.Windows.Forms.Label();
+            this.lblCtaActivo = new System.Windows.Forms.Label();
             this.txtUtilidad = new System.Windows.Forms.TextBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
             this.txtValVenta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvContable = new System.Windows.Forms.DataGridView();
-            this.lblCtaActivo = new System.Windows.Forms.Label();
-            this.lblCtaDepreciacion = new System.Windows.Forms.Label();
-            this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtNumero = new System.Windows.Forms.TextBox();
             this.dtCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDebito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtNit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
             this.FlowLayoutPanel1.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.gbVenta.SuspendLayout();
@@ -463,6 +463,24 @@
             this.gbVenta.TabIndex = 175;
             this.gbVenta.TabStop = false;
             // 
+            // lblCtaDepreciacion
+            // 
+            this.lblCtaDepreciacion.AutoSize = true;
+            this.lblCtaDepreciacion.Location = new System.Drawing.Point(29, 77);
+            this.lblCtaDepreciacion.Name = "lblCtaDepreciacion";
+            this.lblCtaDepreciacion.Size = new System.Drawing.Size(96, 13);
+            this.lblCtaDepreciacion.TabIndex = 3;
+            this.lblCtaDepreciacion.Text = "lblCtaDepreciacion";
+            // 
+            // lblCtaActivo
+            // 
+            this.lblCtaActivo.AutoSize = true;
+            this.lblCtaActivo.Location = new System.Drawing.Point(29, 58);
+            this.lblCtaActivo.Name = "lblCtaActivo";
+            this.lblCtaActivo.Size = new System.Drawing.Size(63, 13);
+            this.lblCtaActivo.TabIndex = 2;
+            this.lblCtaActivo.Text = "lblCtaActivo";
+            // 
             // txtUtilidad
             // 
             this.txtUtilidad.BackColor = System.Drawing.Color.White;
@@ -473,6 +491,17 @@
             this.txtUtilidad.Size = new System.Drawing.Size(172, 29);
             this.txtUtilidad.TabIndex = 1;
             this.txtUtilidad.TextChanged += new System.EventHandler(this.txtUtilidad_TextChanged);
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumero.Location = new System.Drawing.Point(314, 16);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(104, 29);
+            this.txtNumero.TabIndex = 0;
+            this.txtNumero.Visible = false;
+            this.txtNumero.TextChanged += new System.EventHandler(this.txtValVenta_TextChanged);
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValVenta_KeyPress);
             // 
             // txtValVenta
             // 
@@ -523,39 +552,6 @@
             this.dgvContable.Size = new System.Drawing.Size(561, 94);
             this.dgvContable.TabIndex = 176;
             // 
-            // lblCtaActivo
-            // 
-            this.lblCtaActivo.AutoSize = true;
-            this.lblCtaActivo.Location = new System.Drawing.Point(29, 58);
-            this.lblCtaActivo.Name = "lblCtaActivo";
-            this.lblCtaActivo.Size = new System.Drawing.Size(63, 13);
-            this.lblCtaActivo.TabIndex = 2;
-            this.lblCtaActivo.Text = "lblCtaActivo";
-            // 
-            // lblCtaDepreciacion
-            // 
-            this.lblCtaDepreciacion.AutoSize = true;
-            this.lblCtaDepreciacion.Location = new System.Drawing.Point(29, 77);
-            this.lblCtaDepreciacion.Name = "lblCtaDepreciacion";
-            this.lblCtaDepreciacion.Size = new System.Drawing.Size(96, 13);
-            this.lblCtaDepreciacion.TabIndex = 3;
-            this.lblCtaDepreciacion.Text = "lblCtaDepreciacion";
-            // 
-            // smsError
-            // 
-            this.smsError.ContainerControl = this;
-            this.smsError.Icon = ((System.Drawing.Icon)(resources.GetObject("smsError.Icon")));
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero.Location = new System.Drawing.Point(314, 16);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(104, 29);
-            this.txtNumero.TabIndex = 0;
-            this.txtNumero.TextChanged += new System.EventHandler(this.txtValVenta_TextChanged);
-            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValVenta_KeyPress);
-            // 
             // dtCuenta
             // 
             this.dtCuenta.HeaderText = "Cuenta";
@@ -585,6 +581,11 @@
             this.dtNit.HeaderText = "Nit";
             this.dtNit.Name = "dtNit";
             this.dtNit.ReadOnly = true;
+            // 
+            // smsError
+            // 
+            this.smsError.ContainerControl = this;
+            this.smsError.Icon = ((System.Drawing.Icon)(resources.GetObject("smsError.Icon")));
             // 
             // FrmVentas
             // 

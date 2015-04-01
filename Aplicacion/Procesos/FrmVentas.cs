@@ -17,8 +17,16 @@ namespace Aplicacion.Procesos
 
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         BLL.DocumentosBLL bllDoc = new BLL.DocumentosBLL();
-        EActivos activo;
+        BLL.ParametrosBLL bllPar = new BLL.ParametrosBLL();
+        BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
+       
 
+        EActivos activo;
+        EParametros objParametros;
+        ETipoDocumento objTipodoc;
+        string tipoDoc = ""; // Tipo de Documento Contable 
+
+       
         public FrmVentas()
         {
             InitializeComponent();
@@ -121,10 +129,44 @@ namespace Aplicacion.Procesos
             this.Dispose(true);
         }
 
-
+       
         private void FrmVentas_Load(object sender, EventArgs e)
         {
+            objParametros = bllPar.getParametros();
+            if (objParametros != null)
+            {
+                if (!string.IsNullOrEmpty(objParametros.ventas)) {
 
+                    if (string.IsNullOrEmpty(objParametros.ctaCaja)) {
+                        MessageBox.Show("No se ha Parametrizado la cuenta de Caja.. ","Control de Informacion.. ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        lblNuevo.Enabled = false;
+                        return;
+                    }
+                    tipoDoc = objParametros.depreciacion;
+                    Consecutivo();
+                }
+                else {                    
+                    MessageBox.Show("No se ha Selecciondo el Documento Contable para Ventas.. Verifique", "Control de Información ActFI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lblNuevo.Enabled = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha Selecciondo el Documento Contable para Ventas.. Verifique", "Control de Información ActFI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void Consecutivo()
+        {
+            objTipodoc = bllTipo.buscarTipo(tipoDoc);
+            if (objTipodoc == null)
+            {
+                txtNumero.Text = "";
+            }
+            else
+            {
+                txtNumero.Text = UtilSystem.fConsecutivo(objTipodoc.actual);
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -225,13 +267,21 @@ namespace Aplicacion.Procesos
         {
             if (validar())
             {
-                GuardarContabilidad();
+                guardar();
+                Deshabilitar();
             }
             else {
                 MessageBox.Show("Datos Incorrectos. Verifique", "Control de Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }           
         }
 
+        /// <summary>
+        ///  Movimiento Contable
+        /// </summary>
+        /// <param name="tipo">Tipo de Operacion</param>
+        /// <param name="cuenta">Cuenta Contable</param>
+        /// <param name="Descripcion">Descripcion del Movimiento</param>
+        /// <param name="nit">Nit quien realiza el movimiento</param>
         private void MovimientoContable(string tipo, string cuenta, string Descripcion, string nit) {
             if (string.IsNullOrWhiteSpace(cuenta))
                 return;
@@ -278,17 +328,17 @@ namespace Aplicacion.Procesos
             return correcto;
         }
 
-        private void GuardarContabilidad()
+        private void guardar()
         {
             dgvContable.Rows.Clear();
-            MovimientoContable("Caja", "110505001", "VENTA DE ACTIVO " + txtCodigo.Text, "0");
-            MovimientoContable("Depreciacion", lblCtaDepreciacion.Text, "DEPRECIACION  ACUMULADA", "0");
-            MovimientoContable("Articulo", lblCtaActivo.Text, "VALOR ADQUISICION", "0");
+            MovimientoContable("Caja", objParametros.ctaCaja, "VENTA DE ACTIVO " + txtCodigo.Text, "0");
+            MovimientoContable("Depreciacion", activo.ctaDepreciacion, "DEPRECIACION  ACUMULADA", "0");
+            MovimientoContable("Articulo", activo.ctaActivo, "VALOR ADQUISICION", "0");
             if (Convert.ToDouble(txtUtilidad.Text) > 0) {
-                MovimientoContable("Ganancia", "42454001", "UTILIDAD POR VENTA", "0");
+                MovimientoContable("Ganancia", activo.ctaGanancia, "UTILIDAD POR VENTA", "0");
             }
             else {
-                MovimientoContable("Perdida", "531015001q", "PERDIDA POR VENTA", "0");
+                MovimientoContable("Perdida", activo.ctaPerdida, "PERDIDA POR VENTA", "0");
             }
 
             int cont = 0;
@@ -299,7 +349,7 @@ namespace Aplicacion.Procesos
                     EDocumentos ObjDoc = new EDocumentos();
                     ObjDoc.item = cont;
                     ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
-                    ObjDoc.tipo = "VV";
+                    ObjDoc.tipo =objParametros.ventas;
                     ObjDoc.periodo = BLL.Inicializar.Mes;
                     ObjDoc.dia = DateTime.Now.Day.ToString();
                     ObjDoc.centro = "0";

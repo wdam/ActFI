@@ -42,7 +42,7 @@
             this.txtctaCaja = new System.Windows.Forms.TextBox();
             this.txtctaDepMonetaria = new System.Windows.Forms.TextBox();
             this.txtctaBanco = new System.Windows.Forms.TextBox();
-            this.txtctaDepreciacion = new System.Windows.Forms.TextBox();
+            this.txtctaIva = new System.Windows.Forms.TextBox();
             this.txtctaProveedor = new System.Windows.Forms.TextBox();
             this.txtCompra = new System.Windows.Forms.TextBox();
             this.txtVentas = new System.Windows.Forms.TextBox();
@@ -210,15 +210,15 @@
             this.toolTip1.SetToolTip(this.txtctaBanco, "Cuenta de Bancos");
             this.txtctaBanco.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
-            // txtctaDepreciacion
+            // txtctaIva
             // 
-            this.txtctaDepreciacion.Location = new System.Drawing.Point(501, 65);
-            this.txtctaDepreciacion.MaxLength = 12;
-            this.txtctaDepreciacion.Name = "txtctaDepreciacion";
-            this.txtctaDepreciacion.Size = new System.Drawing.Size(175, 29);
-            this.txtctaDepreciacion.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.txtctaDepreciacion, "Cuenta de Depreciación");
-            this.txtctaDepreciacion.DoubleClick += new System.EventHandler(this.seleccionar);
+            this.txtctaIva.Location = new System.Drawing.Point(501, 65);
+            this.txtctaIva.MaxLength = 12;
+            this.txtctaIva.Name = "txtctaIva";
+            this.txtctaIva.Size = new System.Drawing.Size(175, 29);
+            this.txtctaIva.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtctaIva, "Cuenta de IVA");
+            this.txtctaIva.DoubleClick += new System.EventHandler(this.seleccionar);
             // 
             // txtctaProveedor
             // 
@@ -276,7 +276,7 @@
             this.GroupBox1.Controls.Add(this.Label22);
             this.GroupBox1.Controls.Add(this.txtctaDepMonetaria);
             this.GroupBox1.Controls.Add(this.txtctaBanco);
-            this.GroupBox1.Controls.Add(this.txtctaDepreciacion);
+            this.GroupBox1.Controls.Add(this.txtctaIva);
             this.GroupBox1.Controls.Add(this.txtctaProveedor);
             this.GroupBox1.Controls.Add(this.Label23);
             this.GroupBox1.Controls.Add(this.Label24);
@@ -315,17 +315,17 @@
             // 
             this.Label22.AutoSize = true;
             this.Label22.ForeColor = System.Drawing.Color.Black;
-            this.Label22.Location = new System.Drawing.Point(388, 68);
+            this.Label22.Location = new System.Drawing.Point(455, 68);
             this.Label22.Name = "Label22";
-            this.Label22.Size = new System.Drawing.Size(110, 22);
+            this.Label22.Size = new System.Drawing.Size(42, 22);
             this.Label22.TabIndex = 7;
-            this.Label22.Text = "Depreciación";
+            this.Label22.Text = "I.V.A";
             // 
             // Label23
             // 
             this.Label23.AutoSize = true;
             this.Label23.ForeColor = System.Drawing.Color.Black;
-            this.Label23.Location = new System.Drawing.Point(391, 31);
+            this.Label23.Location = new System.Drawing.Point(390, 31);
             this.Label23.Name = "Label23";
             this.Label23.Size = new System.Drawing.Size(107, 22);
             this.Label23.TabIndex = 8;
@@ -470,7 +470,7 @@
         internal System.Windows.Forms.Label Label22;
         internal System.Windows.Forms.TextBox txtctaDepMonetaria;
         internal System.Windows.Forms.TextBox txtctaBanco;
-        internal System.Windows.Forms.TextBox txtctaDepreciacion;
+        internal System.Windows.Forms.TextBox txtctaIva;
         internal System.Windows.Forms.TextBox txtctaProveedor;
         internal System.Windows.Forms.Label Label23;
         internal System.Windows.Forms.Label Label24;

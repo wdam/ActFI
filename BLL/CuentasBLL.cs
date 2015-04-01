@@ -36,16 +36,16 @@ namespace BLL
         public string validarCuentas(EParametros parametro){
             ECuentas cta = null;
             CuentasDAO cDao = new CuentasDAO();
-            cta = cDao.buscar(parametro.ctaActivo,"");
+            cta = cDao.buscar(parametro.ctaCaja, "");
             if (cta == null)
             {
-                return "La Cuenta de Activos No Existe";
+                return "La Cuenta de Caja No Existe";
             }
 
-            cta = cDao.buscar(parametro.ctaDepreciacion,"");
+            cta = cDao.buscar(parametro.ctaIVA, "");
             if (cta == null)
             {
-                return "La Cuenta de Depreciacion No Existe";
+                return "La Cuenta de I.V.A no Existe";
             }
 
             cta = cDao.buscar(parametro.ctaBanco,"");
