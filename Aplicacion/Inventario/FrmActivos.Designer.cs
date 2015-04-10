@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmActivos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenIzq = new System.Windows.Forms.Label();
@@ -1857,9 +1857,9 @@
             this.dgvContable.Name = "dgvContable";
             this.dgvContable.ReadOnly = true;
             this.dgvContable.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dgvContable.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvContable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvContable.Size = new System.Drawing.Size(618, 135);
             this.dgvContable.TabIndex = 10;
             this.dgvContable.Visible = false;
@@ -1874,18 +1874,18 @@
             // 
             // dtDebito
             // 
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dtDebito.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtDebito.HeaderText = "Debito";
             this.dtDebito.Name = "dtDebito";
             this.dtDebito.ReadOnly = true;
             // 
             // dtCredito
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dtCredito.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dtCredito.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtCredito.HeaderText = "Credito";
             this.dtCredito.Name = "dtCredito";
             this.dtCredito.ReadOnly = true;
@@ -1898,9 +1898,9 @@
             // 
             // dtBase
             // 
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dtBase.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dtBase.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtBase.HeaderText = "Base";
             this.dtBase.Name = "dtBase";
             this.dtBase.ReadOnly = true;
@@ -2035,11 +2035,11 @@
             this.Controls.Add(this.btnTab3);
             this.Controls.Add(this.btnTab4);
             this.Controls.Add(this.btnTab5);
+            this.Controls.Add(this.pnlValores);
+            this.Controls.Add(this.pnlDetalle);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlSeguro);
-            this.Controls.Add(this.pnlValores);
-            this.Controls.Add(this.pnlDetalle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;

@@ -199,17 +199,16 @@ namespace Aplicacion.Principal
             }
 
             if (!string.IsNullOrWhiteSpace(datoArc)) { 
-                string[] datos = datoArc.Split(',');
-                txtusuario.Text = datos[0];
-                txtclaveUsua.Text = datos[1];
+                string[] datos = datoArc.Split(' ');
+                txtusuario.Text = bllPrin.desencriptar(datos[0], "sae2015");
+                txtclaveUsua.Text = bllPrin.desencriptar(datos[1], "sae2015");
                 this.btnEntrar_Click(null, null);
             }
             // Agregar Eventros a Controles 
             this.txtclaveUsua.LostFocus += new EventHandler(this.txtclaveUsua_LostFocus);
             this.txtclaveUsua.GotFocus += new EventHandler(this.txtclaveUsua_GotFocus);
             this.txtpasswC.LostFocus += new EventHandler(this.txtpasswC_LostFocus);
-            this.txtpasswC.GotFocus += new EventHandler(this.txtpasswC_GotFocus);
-           
+            this.txtpasswC.GotFocus += new EventHandler(this.txtpasswC_GotFocus);           
         }
 
     }

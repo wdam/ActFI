@@ -196,7 +196,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTerceros.BackColor = System.Drawing.Color.Transparent;
             this.lblTerceros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTerceros.Enabled = false;
             this.lblTerceros.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTerceros.ForeColor = System.Drawing.Color.White;
             this.lblTerceros.Image = global::Aplicacion.Properties.Resources.terceros;

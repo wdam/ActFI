@@ -44,6 +44,9 @@ namespace BLL
             decStream.FlushFinalBlock();            
             return System.Text.Encoding.Unicode.GetString(ms.ToArray());
         }
+
+       
+
        
     }
 }

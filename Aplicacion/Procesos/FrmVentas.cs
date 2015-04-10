@@ -241,7 +241,7 @@ namespace Aplicacion.Procesos
         private void txtValVenta_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtValVenta.Text)) {                
-                txtUtilidad.Text = (Convert.ToDouble(txtValVenta.Text) - Convert.ToDouble(txtValLibros.Text)).ToString();
+                txtUtilidad.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValVenta.Text) - Convert.ToDouble(txtValLibros.Text));
             }
             else
             {
@@ -341,6 +341,13 @@ namespace Aplicacion.Procesos
                 MovimientoContable("Perdida", activo.ctaPerdida, "PERDIDA POR VENTA", "0");
             }
 
+            int valCons = bllDoc.verificar(Convert.ToInt32(txtNumero.Text.Trim()), tipoDoc);
+            if (valCons > 0)
+            {
+                txtNumero.Text = UtilSystem.fConsecutivo(Convert.ToInt32(txtNumero.Text) + 1);
+            }
+            bllTipo.updateConsecutivo(Convert.ToInt32(txtNumero.Text), tipoDoc); 
+
             int cont = 0;
             foreach (DataGridViewRow item in dgvContable.Rows)
             {
@@ -349,7 +356,7 @@ namespace Aplicacion.Procesos
                     EDocumentos ObjDoc = new EDocumentos();
                     ObjDoc.item = cont;
                     ObjDoc.documento = Convert.ToInt32(txtNumero.Text);
-                    ObjDoc.tipo =objParametros.ventas;
+                    ObjDoc.tipo = tipoDoc;
                     ObjDoc.periodo = BLL.Inicializar.Mes;
                     ObjDoc.dia = DateTime.Now.Day.ToString();
                     ObjDoc.centro = "0";
@@ -365,6 +372,16 @@ namespace Aplicacion.Procesos
                     ObjDoc.modulo = "Venta AF";                    
                     bllDoc.insertar(ObjDoc);                
             }
+        }
+
+        private void txtValVenta_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtValVenta.Text))
+            {
+                txtValVenta.Text = "0";
+            }
+            txtValVenta.Text = UtilSystem.fMoneda(Convert.ToDouble(txtValVenta.Text));
+            
         }       
     }
 }

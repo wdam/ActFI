@@ -499,7 +499,6 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(104, 29);
             this.txtNumero.TabIndex = 0;
-            this.txtNumero.Visible = false;
             this.txtNumero.TextChanged += new System.EventHandler(this.txtValVenta_TextChanged);
             this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValVenta_KeyPress);
             // 
@@ -512,6 +511,7 @@
             this.txtValVenta.TabIndex = 0;
             this.txtValVenta.TextChanged += new System.EventHandler(this.txtValVenta_TextChanged);
             this.txtValVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValVenta_KeyPress);
+            this.txtValVenta.Leave += new System.EventHandler(this.txtValVenta_Leave);
             // 
             // label9
             // 

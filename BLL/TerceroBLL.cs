@@ -52,5 +52,24 @@ namespace BLL
             TerceroDAO tDao = new TerceroDAO();
             return tDao.getPorTipo(tipo);
         }
+
+        public string insert(ETerceros obj) {
+            TerceroDAO tDao = new TerceroDAO();
+            if (string.IsNullOrWhiteSpace(obj.nit)) {
+                return "Nit o Cedula Esta  Vacia";
+            }
+
+            if (string.IsNullOrWhiteSpace(obj.nit)) {
+                return "Falta el Nombre ";
+            }
+
+            if (tDao.insertar(obj) > 0) {
+                return "Exito"; // Datos Guardados 
+            }
+            else
+            {
+                return "Error al Guardar los Datos";
+            }
+        }
     }
 }
