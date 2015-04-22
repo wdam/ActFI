@@ -10,6 +10,12 @@ namespace BLL
 {
     public class UsuarioBLL
     {
+        /// <summary>
+        /// Buscar Usuario 
+        /// </summary>
+        /// <param name="login">Login o Nombre de Usuario</param>
+        /// <param name="clave">Clave de Usuario</param>
+        /// <returns></returns>
         public EUsuario buscar(string login, string clave) {
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(clave))
             {
@@ -17,12 +23,6 @@ namespace BLL
             }
             UsuarioDAO uDao = new UsuarioDAO();
             return uDao.buscar(login, clave);
-        }
-
-
-        
-        
-
-       
+        }                       
     }
 }

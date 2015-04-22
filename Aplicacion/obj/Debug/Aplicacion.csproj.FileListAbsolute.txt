@@ -36,6 +36,7 @@ D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.csprojResolveAssemblyReference.
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrmInfActivos.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrminfAreas.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrmInfDepreciacion.resources
+D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrmInfGrupos.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrmInfMovimiento.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrmInformes.resources
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrmVerInforme.resources
@@ -74,4 +75,3 @@ D:\Wendell\ActFI\Aplicacion\bin\Debug\Entidades.pdb
 D:\Wendell\ActFI\Aplicacion\bin\Debug\DAL.pdb
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.exe
 D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.pdb
-D:\Wendell\ActFI\Aplicacion\obj\Debug\Aplicacion.Informes.FrmInfGrupos.resources

@@ -11,21 +11,40 @@ namespace BLL
 {
     public class CompanyBLL
     {
+        /// <summary>
+        /// Devuelve los datos de la Compañia Actualmente Seleccionada
+        /// </summary>
+        /// <returns></returns>
         public ECompany buscar() {
             CompanyDAO cDao = new CompanyDAO();
             return cDao.buscar(Inicializar.company);
         }
 
+        /// <summary>
+        /// Retorna los Datos de una Compañia
+        /// </summary>
+        /// <param name="login">Login de la Compañia</param>
+        /// <param name="clave">Clave Compañia</param>
+        /// <returns></returns>
         public ECompany buscar(string login, string clave) {
             CompanyDAO cDao = new CompanyDAO();
             return cDao.buscar(login, clave);
         }
 
+        /// <summary>
+        /// Retorna una lista de todas las Compañias
+        /// </summary>
+        /// <returns></returns>
         public List<ECompany> getAll() { 
             CompanyDAO  cDao = new CompanyDAO();
             return cDao.getAll();
         }
 
+        /// <summary>
+        /// Obtiene el Periodo de Actual de la Compañia
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
         public EPeriodo getPeriodo(int codigo) {
             CompanyDAO cDao = new CompanyDAO();
             return cDao.getPeriodo(codigo);
@@ -79,6 +98,10 @@ namespace BLL
             return mensaje;
         }
 
+        /// <summary>
+        /// Obtiene el Periodo actual del Archivo .txt de la Compañia Seleccionada
+        /// </summary>
+        /// <returns></returns>
         private string llenarPeriodo() {           
             string ruta =  AppDomain.CurrentDomain.BaseDirectory + "\\" + Inicializar.company + ".txt";            
             if (System.IO.File.Exists(ruta)) {
@@ -89,6 +112,11 @@ namespace BLL
             }                                                
         }
 
+        /// <summary>
+        /// Devuelve una Lista Con los Periodos Bloqueados de una Compañia
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         public List<EPeriodo> getPerBloqueado(string dato) {
             CompanyDAO cDao = new CompanyDAO();
             return cDao.getPerBloqueado(dato);

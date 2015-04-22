@@ -16,7 +16,7 @@ namespace DAL.DAO
         {
             ETerceros objTercero = null;
             List<ETerceros> lista = new List<ETerceros>();
-            string sql = "SELECT nit,TRIM(CONCAT(apellidos,' ',nombre))AS nombres FROM terceros ORDER BY nombres Limit 60";            
+            string sql = "SELECT nit,TRIM(CONCAT(nombre,' ',apellidos)) AS nombres FROM terceros ORDER BY nombres Limit 60";            
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();                
@@ -42,7 +42,7 @@ namespace DAL.DAO
         public List<ETerceros> getPorFiltro(string campo, string dato) {
             ETerceros objTercero = null;
             List<ETerceros> lista = new List<ETerceros>();
-            string sql = "SELECT nit, TRIM(CONCAT(apellidos,' ',nombre))AS nombres FROM terceros WHERE "+ campo + " LIKE '"+ dato + "%'";
+            string sql = "SELECT nit, TRIM(CONCAT(nombre,' ',apellidos)) AS nombres FROM terceros WHERE " + campo + " LIKE '%" + dato + "%'";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -95,7 +95,7 @@ namespace DAL.DAO
         public ETerceros buscar(string codigo)
         {
             ETerceros objTercero = null;
-            string sql = "SELECT nit,TRIM(CONCAT(apellidos,' ',nombre))AS nombres FROM terceros WHERE nit=?codigo";
+            string sql = "SELECT nit, TRIM(CONCAT(nombre,' ',apellidos)) AS nombres FROM terceros WHERE nit=?codigo";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();
@@ -121,7 +121,7 @@ namespace DAL.DAO
 
         public DataTable getTodos() {
             DataTable dt = new DataTable();
-            string sql = "SELECT nit,TRIM(CONCAT(apellidos,' ',nombre))AS nombres FROM terceros ORDER BY nombres ";
+            string sql = "SELECT nit,TRIM(CONCAT(nombre,' ',apellidos)) AS nombres FROM terceros ORDER BY nombres ";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = Configuracion.Instanciar.conexionBD();

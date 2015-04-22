@@ -2035,11 +2035,11 @@
             this.Controls.Add(this.btnTab3);
             this.Controls.Add(this.btnTab4);
             this.Controls.Add(this.btnTab5);
-            this.Controls.Add(this.pnlValores);
-            this.Controls.Add(this.pnlDetalle);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.pnlMantenimiento);
             this.Controls.Add(this.pnlSeguro);
+            this.Controls.Add(this.pnlValores);
+            this.Controls.Add(this.pnlDetalle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmActivos";
             this.ShowInTaskbar = false;

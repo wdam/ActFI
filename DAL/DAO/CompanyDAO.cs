@@ -11,7 +11,10 @@ namespace DAL.DAO
 {
     public class CompanyDAO
     {
-
+        /// <summary>
+        /// Retorna una lista de todas las Compañias
+        /// </summary>
+        /// <returns></returns>
         public List<ECompany> getAll()
         {
             ECompany objComp = null;
@@ -39,6 +42,11 @@ namespace DAL.DAO
             }
         }
 
+        /// <summary>
+        /// Buscar Compañia
+        /// </summary>
+        /// <param name="login">Nombre o Sigla de la Compañia</param>
+        /// <returns></returns>
         public ECompany buscar(string login)
         {
             ECompany objComp = null;
@@ -66,6 +74,12 @@ namespace DAL.DAO
             }
         }
 
+        /// <summary>
+        /// Buscar Compañia
+        /// </summary>
+        /// <param name="login">Nombre o Sigla de la Compañia</param>
+        /// <param name="clave">Clave de la Compañia</param>
+        /// <returns></returns>
         public ECompany buscar(string login, string clave) {
             ECompany objComp = null;
             string sql = "SELECT * FROM companias WHERE login='" + login + "' AND clave='"+clave+"'";

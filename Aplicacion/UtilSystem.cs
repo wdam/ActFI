@@ -89,6 +89,16 @@ namespace Aplicacion
         }
 
         /// <summary>
+        /// Validar Cedula o Nit del Tercero 
+        /// </summary>
+        /// <param name="cedula">Cedula del Tercero</param>
+        /// <returns></returns>
+        public static bool validarCedula(string cedula)
+        {
+            return cedula.Trim().Length >= 7 && cedula.Trim().Length <= 12;
+        }
+
+        /// <summary>
         /// Validar la entrada de datos  de tipo Numerico, caracter  Decimal y teclas de Control
         /// </summary>
         /// <param name="sender">Objeto</param>

@@ -23,5 +23,6 @@ namespace Entidades
         public string direccion {get; set; }
         public string cuenta {get; set; }
         public string banco {get; set; }
+        public string dv { get; set; } // Digito de Verificacion
     }
 }

@@ -44,7 +44,6 @@
     <Compile Include="ECentroCosto.cs" />
     <Compile Include="ECompany.cs" />
     <Compile Include="ECuentas.cs" />
-    <Compile Include="EDepartamentos.cs" />
     <Compile Include="EDepreciacion.cs" />
     <Compile Include="EDocumentos.cs" />
     <Compile Include="EGenerica.cs" />

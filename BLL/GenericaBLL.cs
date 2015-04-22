@@ -22,5 +22,26 @@ namespace BLL
             }
             return false;
         }
+
+        /// <summary>
+        /// Obtiene una lista de los Departamentos
+        /// </summary>
+        /// <returns>Lista</returns>
+        public List<EDepartamentos> getDepartamentos() {
+            DepartamentoDAO dDao = new DepartamentoDAO();
+            return dDao.getDepartamentos();
+        }
+        /// <summary>
+        /// Obtiene Una lista de Municipios por Departamentos
+        /// </summary>
+        /// <param name="codigo">Codigo del Departamento</param>
+        /// <returns></returns>
+        public List<EDepartamentos> getMunicipio(string codigo) {
+            if (string.IsNullOrEmpty(codigo)) {
+                return null;
+            }
+            DepartamentoDAO dDao = new DepartamentoDAO();
+            return dDao.getMunicipios(codigo);
+        }
     }
 }

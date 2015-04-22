@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    // Clase Generica que representara diferentes tablas de la BD... 
+    
+    /// <summary>
+    /// Clase Generica que representara diferentes tablas de la BD... 
+    /// Principalmente tablas que guardan los parametros de SAE
+    /// </summary>
     public class EGenerica
     {
         public int longitud { get; set; }
@@ -15,6 +19,9 @@ namespace Entidades
         public string descripcion { get; set; }
     }
 
+    /// <summary>
+    /// Clase Encargada de los Tipo de Depreciacion que Manejara la Aplicacion
+    /// </summary>
     public class EtipoDepreciacion {
         public string sigla { get; set;}
         public string Descripcion { get; set; }
@@ -23,5 +30,14 @@ namespace Entidades
         {
             return Descripcion;
         }
+    }
+
+    /// <summary>
+    /// Clase que representa la tabla  de Departamentos y Municipios de SAE
+    /// </summary>
+    public class EDepartamentos
+    {
+        public string codigo { get; set; }
+        public string descripcion { get; set; }
     }
 }

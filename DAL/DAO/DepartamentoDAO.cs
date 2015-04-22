@@ -14,7 +14,7 @@ namespace DAL.DAO
         {
             EDepartamentos objDepart = null;
             List<EDepartamentos> lista = new List<EDepartamentos>();
-            string sql = "SELECT * FROM dptos";
+            string sql = "SELECT  codigo, UPPER(descripcion) AS descripcion FROM dptos";
             using (conexion cnx = new conexion())
             {
                 cnx.cadena = ConfigSAE.Instanciar.cadenaSAE();
