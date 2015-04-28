@@ -37,8 +37,7 @@ namespace Aplicacion.Inventario
             this.lblEditar.Enabled = false;
             this.lblBuscar.Enabled = false;
             this.lblNuevo.Enabled = false;            
-            this.txtNit.Focus();
-            lblOperacion.Text = "Nuevo";
+            this.txtNit.Focus();           
         }
 
         protected void Deshabilitar()
@@ -142,6 +141,8 @@ namespace Aplicacion.Inventario
         private void lblNuevo_Click(object sender, EventArgs e)
         {
             Habilitar();
+            limpiar();
+            lblOperacion.Text = "Nuevo";
         }
 
         private void FrmTerceros_Load(object sender, EventArgs e)
@@ -155,6 +156,7 @@ namespace Aplicacion.Inventario
         {
             smsError.Dispose();
             Deshabilitar();
+            lblOperacion.Text = "Consulta";
         }
 
         private void cboDepartamento_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,6 +176,9 @@ namespace Aplicacion.Inventario
             {
                 if (lblOperacion.Text == "Nuevo") {
                     guardar();
+                }
+                else if (lblOperacion.Text == "Editar") {
+                    modificar();
                 }
             }
             else {
@@ -208,7 +213,6 @@ namespace Aplicacion.Inventario
                 smsError.SetError(txtCelular, "Por Favor Especifique un Numero Telefonico");
             }
 
-
             if (string.IsNullOrWhiteSpace(cboTipo.Text))
             {
                 correcto = false;
@@ -224,9 +228,8 @@ namespace Aplicacion.Inventario
             return correcto;
         }
 
-        private void guardar() {
+        private ETerceros crearObjeto() {
             ETerceros objTer = new ETerceros();
-
             objTer.apellidos = txtApellidos.Text;
             objTer.celular = txtCelular.Text;
             objTer.cuenta = txtCuenta.Text;
@@ -242,9 +245,27 @@ namespace Aplicacion.Inventario
             objTer.persona = cboPersona.Text;
             objTer.telefono = txtTelefono.Text;
             objTer.tipo = cboTipo.Text;
-            
+            return objTer;
+        }
 
-            string mensaje = bllTer.insert(objTer);
+        private void modificar() {
+            objTercero = crearObjeto();
+            string mensaje = bllTer.actualizar(objTercero);
+            if (mensaje == "Exito")
+            {
+                MessageBox.Show("Datos Modificados Correctamente .. !!", "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Deshabilitar();
+                lblOperacion.Text = "Consulta";
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "SAE Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void guardar() {
+            objTercero = crearObjeto();
+            string mensaje = bllTer.insert(objTercero);
 
             if (mensaje == "Exito")
             {
@@ -277,7 +298,7 @@ namespace Aplicacion.Inventario
         }
 
         private void mostrarDatos(string codigo) {
-            objTercero = bllTer.buscar(codigo);
+            objTercero = bllTer.buscarTercero(codigo);
             if (objTercero != null) {
                 txtApellidos.Text = objTercero.apellidos;
                 txtBanco.Text = objTercero.banco;
@@ -292,9 +313,22 @@ namespace Aplicacion.Inventario
                 cboMunicipio.SelectedValue = objTercero.municipio;
                 txtNombres.Text = objTercero.nombre;
                 txtTelefono.Text = objTercero.telefono;
-                cboPais.Text = objTercero.pais;
+                //cboPais.Text = objTercero.pais;
                 cboPersona.Text = objTercero.persona;
-                cboTipo.Text = objTercero.tipo;            
+                cboTipo.Text = objTercero.tipo;
+                cboPais.Text = "COLOMBIA";
+            }
+        }
+
+        private void lblEditar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtNit.Text))
+            {
+                lblOperacion.Text = "Editar";
+                Habilitar();
+            }
+            else {
+                MessageBox.Show("No ha seleccionado Ningun Tercero.. !!", "Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

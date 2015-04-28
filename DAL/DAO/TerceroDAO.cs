@@ -119,6 +119,35 @@ namespace DAL.DAO
             }
         }
 
+        public ETerceros buscarTercero(string codigo)
+        {
+            ETerceros objTercero = null;
+            string sql = "SELECT nit, dv, tipo, persona, nombre, apellidos, telefono, "+
+                         " celular, dept, mun, fax, correo, dir, cta_banco1, "+
+                         " cbanco FROM terceros WHERE nit=?codigo";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+                    cmd.Parameters.Add("?codigo", MySqlDbType.String).Value = codigo;
+                    if (cnx.abrirConexion())
+                    {
+                        MySqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.HasRows == true)
+                        {
+                            dr.Read();
+                            objTercero = mapObjeto(dr);
+                        }
+                        cnx.cerrarConexion();
+                    }
+                }
+                return objTercero;
+            }
+        }
+
         public DataTable getTodos() {
             DataTable dt = new DataTable();
             string sql = "SELECT nit,TRIM(CONCAT(nombre,' ',apellidos)) AS nombres FROM terceros ORDER BY nombres ";
@@ -143,6 +172,27 @@ namespace DAL.DAO
             ETerceros tercero = new ETerceros();
             tercero.nit = fila.GetString("nit");
             tercero.nombre = fila.GetString("nombres");
+            return tercero;            
+        }
+
+        private ETerceros mapObjeto(MySql.Data.MySqlClient.MySqlDataReader fila)
+        {
+            ETerceros tercero = new ETerceros();
+            tercero.nit = fila.GetString("nit");
+            tercero.dv = fila.GetString("dv");
+            tercero.nombre = fila.GetString("nombre");
+            tercero.departamento = fila.GetString("dept");
+            tercero.municipio = fila.GetString("mun");
+            tercero.cuenta = fila.GetString("cta_banco1");
+            tercero.apellidos = fila.GetString("apellidos");
+            tercero.banco = fila.GetString("cbanco");
+            tercero.tipo = fila.GetString("tipo");
+            tercero.telefono = fila.GetString("telefono");
+            tercero.celular = fila.GetString("celular");
+            tercero.Fax = fila.GetString("fax");
+            tercero.email = fila.GetString("correo");
+            tercero.direccion = fila.GetString("dir");
+            tercero.persona = fila.GetString("persona");
             return tercero;
         }
 
@@ -181,8 +231,49 @@ namespace DAL.DAO
                      cnx.cerrarConexion();
                  }
                }
-                return reg;
-            }            
+            }
+            return reg;
+        }
+
+        public int actualizar(ETerceros ter) {
+            int reg = 0; // Obtener el numero de registros afectados 
+            string sql = "UPDATE  terceros SET nombre=?nombre, apellidos=?apellidos, tipo=?tipo, " +
+                            " mun=?mun, telefono=?telefono, celular=?celular, fax=?fax, correo=?correo,  " +
+                            " persona=?persona, dir=?dir, pais=?pais, dept=?dept, " +
+                            " cta_banco1=?ctabanco1, cbanco=?cbanco WHERE nit=?nit";
+
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+
+                    cmd.Parameters.Add("?nit", MySqlDbType.String).Value = ter.nit;                   
+                    cmd.Parameters.Add("?nombre", MySqlDbType.String).Value = ter.nombre;
+                    cmd.Parameters.Add("?apellidos", MySqlDbType.String).Value = ter.apellidos;
+                    cmd.Parameters.Add("?tipo", MySqlDbType.String).Value = ter.tipo;
+                    cmd.Parameters.Add("?persona", MySqlDbType.String).Value = ter.persona;
+                    cmd.Parameters.Add("?dir", MySqlDbType.String).Value = ter.direccion;
+                    cmd.Parameters.Add("?pais", MySqlDbType.String).Value = ter.pais;
+                    cmd.Parameters.Add("?dept", MySqlDbType.String).Value = ter.departamento;
+                    cmd.Parameters.Add("?mun", MySqlDbType.String).Value = ter.municipio;
+                    cmd.Parameters.Add("?telefono", MySqlDbType.String).Value = ter.telefono;
+                    cmd.Parameters.Add("?celular", MySqlDbType.String).Value = ter.celular;
+                    cmd.Parameters.Add("?fax", MySqlDbType.String).Value = ter.Fax;
+                    cmd.Parameters.Add("?correo", MySqlDbType.String).Value = ter.email;
+                    cmd.Parameters.Add("?ctabanco1", MySqlDbType.String).Value = ter.cuenta;
+                    cmd.Parameters.Add("?cbanco", MySqlDbType.String).Value = ter.banco;
+
+                    if (cnx.abrirConexion())
+                    {
+                        reg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return reg;        
         }
     }
 }

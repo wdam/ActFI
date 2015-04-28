@@ -238,6 +238,7 @@
             this.lblEditar.TabIndex = 3;
             this.lblEditar.Text = "&Editar";
             this.lblEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblEditar.Click += new System.EventHandler(this.lblEditar_Click);
             this.lblEditar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
             this.lblEditar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 

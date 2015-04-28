@@ -35,7 +35,8 @@
             this.lblMargenDer = new System.Windows.Forms.Label();
             this.lblMargenTop = new System.Windows.Forms.Label();
             this.lblMargenInf = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbActivo = new System.Windows.Forms.GroupBox();
+            this.txtNomActivo = new System.Windows.Forms.TextBox();
             this.txtCodActivo = new System.Windows.Forms.TextBox();
             this.rbUnico = new System.Windows.Forms.RadioButton();
             this.rbTodos = new System.Windows.Forms.RadioButton();
@@ -44,25 +45,24 @@
             this.lblSalir = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboPropiedad = new System.Windows.Forms.ComboBox();
+            this.gbResponsable = new System.Windows.Forms.GroupBox();
+            this.txtNomResp = new System.Windows.Forms.TextBox();
+            this.txtResponsable = new System.Windows.Forms.TextBox();
             this.rbRUno = new System.Windows.Forms.RadioButton();
             this.rbRTodos = new System.Windows.Forms.RadioButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.gbCentro = new System.Windows.Forms.GroupBox();
+            this.txtCCosto = new System.Windows.Forms.TextBox();
+            this.txtCentro = new System.Windows.Forms.TextBox();
             this.rbCUno = new System.Windows.Forms.RadioButton();
             this.rbCTodos = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.cboPropiedad = new System.Windows.Forms.ComboBox();
             this.cboAgrupar = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.gbActivo.SuspendLayout();
             this.FlowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.gbResponsable.SuspendLayout();
+            this.gbCentro.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,20 +136,28 @@
             this.lblMargenInf.Size = new System.Drawing.Size(533, 2);
             this.lblMargenInf.TabIndex = 170;
             // 
-            // groupBox1
+            // gbActivo
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.txtCodActivo);
-            this.groupBox1.Controls.Add(this.rbUnico);
-            this.groupBox1.Controls.Add(this.rbTodos);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.groupBox1.Location = new System.Drawing.Point(10, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(517, 95);
-            this.groupBox1.TabIndex = 171;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione Activo";
+            this.gbActivo.Controls.Add(this.txtNomActivo);
+            this.gbActivo.Controls.Add(this.txtCodActivo);
+            this.gbActivo.Controls.Add(this.rbUnico);
+            this.gbActivo.Controls.Add(this.rbTodos);
+            this.gbActivo.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbActivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
+            this.gbActivo.Location = new System.Drawing.Point(10, 50);
+            this.gbActivo.Name = "gbActivo";
+            this.gbActivo.Size = new System.Drawing.Size(517, 95);
+            this.gbActivo.TabIndex = 171;
+            this.gbActivo.TabStop = false;
+            this.gbActivo.Text = "Seleccione Activo";
+            // 
+            // txtNomActivo
+            // 
+            this.txtNomActivo.Enabled = false;
+            this.txtNomActivo.Location = new System.Drawing.Point(172, 57);
+            this.txtNomActivo.Name = "txtNomActivo";
+            this.txtNomActivo.Size = new System.Drawing.Size(275, 29);
+            this.txtNomActivo.TabIndex = 2;
             // 
             // txtCodActivo
             // 
@@ -158,6 +166,7 @@
             this.txtCodActivo.Name = "txtCodActivo";
             this.txtCodActivo.Size = new System.Drawing.Size(132, 29);
             this.txtCodActivo.TabIndex = 2;
+            this.txtCodActivo.DoubleClick += new System.EventHandler(this.txtCodActivo_DoubleClick);
             // 
             // rbUnico
             // 
@@ -244,28 +253,51 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Propiedad";
             // 
-            // groupBox3
+            // cboPropiedad
             // 
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.rbRUno);
-            this.groupBox3.Controls.Add(this.rbRTodos);
-            this.groupBox3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.groupBox3.Location = new System.Drawing.Point(10, 147);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(517, 97);
-            this.groupBox3.TabIndex = 237;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Seleccione Responsable";
+            this.cboPropiedad.FormattingEnabled = true;
+            this.cboPropiedad.Items.AddRange(new object[] {
+            "TODOS",
+            "PROPIO",
+            "ARRENDADO",
+            "LEASING"});
+            this.cboPropiedad.Location = new System.Drawing.Point(33, 38);
+            this.cboPropiedad.Name = "cboPropiedad";
+            this.cboPropiedad.Size = new System.Drawing.Size(189, 30);
+            this.cboPropiedad.TabIndex = 1;
+            this.cboPropiedad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboPropiedad_KeyPress);
             // 
-            // textBox1
+            // gbResponsable
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(34, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 29);
-            this.textBox1.TabIndex = 2;
+            this.gbResponsable.Controls.Add(this.txtNomResp);
+            this.gbResponsable.Controls.Add(this.txtResponsable);
+            this.gbResponsable.Controls.Add(this.rbRUno);
+            this.gbResponsable.Controls.Add(this.rbRTodos);
+            this.gbResponsable.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbResponsable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
+            this.gbResponsable.Location = new System.Drawing.Point(10, 147);
+            this.gbResponsable.Name = "gbResponsable";
+            this.gbResponsable.Size = new System.Drawing.Size(517, 97);
+            this.gbResponsable.TabIndex = 237;
+            this.gbResponsable.TabStop = false;
+            this.gbResponsable.Text = "Seleccione Responsable";
+            // 
+            // txtNomResp
+            // 
+            this.txtNomResp.Enabled = false;
+            this.txtNomResp.Location = new System.Drawing.Point(172, 59);
+            this.txtNomResp.Name = "txtNomResp";
+            this.txtNomResp.Size = new System.Drawing.Size(275, 29);
+            this.txtNomResp.TabIndex = 3;
+            // 
+            // txtResponsable
+            // 
+            this.txtResponsable.Enabled = false;
+            this.txtResponsable.Location = new System.Drawing.Point(34, 59);
+            this.txtResponsable.Name = "txtResponsable";
+            this.txtResponsable.Size = new System.Drawing.Size(132, 29);
+            this.txtResponsable.TabIndex = 2;
+            this.txtResponsable.DoubleClick += new System.EventHandler(this.txtResponsable_DoubleClick);
             // 
             // rbRUno
             // 
@@ -277,6 +309,7 @@
             this.rbRUno.TabIndex = 1;
             this.rbRUno.Text = "Un Responsable";
             this.rbRUno.UseVisualStyleBackColor = true;
+            this.rbRUno.CheckedChanged += new System.EventHandler(this.rbRUno_CheckedChanged);
             // 
             // rbRTodos
             // 
@@ -291,28 +324,37 @@
             this.rbRTodos.Text = "Todos";
             this.rbRTodos.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // gbCentro
             // 
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Controls.Add(this.rbCUno);
-            this.groupBox4.Controls.Add(this.rbCTodos);
-            this.groupBox4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
-            this.groupBox4.Location = new System.Drawing.Point(10, 246);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(517, 97);
-            this.groupBox4.TabIndex = 238;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Seleccione Centro de Costo";
+            this.gbCentro.Controls.Add(this.txtCCosto);
+            this.gbCentro.Controls.Add(this.txtCentro);
+            this.gbCentro.Controls.Add(this.rbCUno);
+            this.gbCentro.Controls.Add(this.rbCTodos);
+            this.gbCentro.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCentro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(169)))));
+            this.gbCentro.Location = new System.Drawing.Point(10, 246);
+            this.gbCentro.Name = "gbCentro";
+            this.gbCentro.Size = new System.Drawing.Size(517, 97);
+            this.gbCentro.TabIndex = 238;
+            this.gbCentro.TabStop = false;
+            this.gbCentro.Text = "Seleccione Centro de Costo";
             // 
-            // textBox2
+            // txtCCosto
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(34, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 29);
-            this.textBox2.TabIndex = 2;
+            this.txtCCosto.Enabled = false;
+            this.txtCCosto.Location = new System.Drawing.Point(172, 58);
+            this.txtCCosto.Name = "txtCCosto";
+            this.txtCCosto.Size = new System.Drawing.Size(275, 29);
+            this.txtCCosto.TabIndex = 3;
+            // 
+            // txtCentro
+            // 
+            this.txtCentro.Enabled = false;
+            this.txtCentro.Location = new System.Drawing.Point(34, 58);
+            this.txtCentro.Name = "txtCentro";
+            this.txtCentro.Size = new System.Drawing.Size(132, 29);
+            this.txtCentro.TabIndex = 2;
+            this.txtCentro.DoubleClick += new System.EventHandler(this.txtCentro_DoubleClick);
             // 
             // rbCUno
             // 
@@ -324,6 +366,7 @@
             this.rbCUno.TabIndex = 1;
             this.rbCUno.Text = "Un Centro";
             this.rbCUno.UseVisualStyleBackColor = true;
+            this.rbCUno.CheckedChanged += new System.EventHandler(this.rbCUno_CheckedChanged);
             // 
             // rbCTodos
             // 
@@ -350,20 +393,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Agrupar Por";
             // 
-            // cboPropiedad
-            // 
-            this.cboPropiedad.FormattingEnabled = true;
-            this.cboPropiedad.Items.AddRange(new object[] {
-            "TODOS",
-            "PROPIO",
-            "ARRENDADO",
-            "LEASING"});
-            this.cboPropiedad.Location = new System.Drawing.Point(33, 38);
-            this.cboPropiedad.Name = "cboPropiedad";
-            this.cboPropiedad.Size = new System.Drawing.Size(189, 30);
-            this.cboPropiedad.TabIndex = 1;
-            this.cboPropiedad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboPropiedad_KeyPress);
-            // 
             // cboAgrupar
             // 
             this.cboAgrupar.FormattingEnabled = true;
@@ -377,30 +406,6 @@
             this.cboAgrupar.TabIndex = 1;
             this.cboAgrupar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboPropiedad_KeyPress);
             // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(172, 57);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(275, 29);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(172, 59);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(275, 29);
-            this.textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(172, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(275, 29);
-            this.textBox5.TabIndex = 3;
-            // 
             // FrmInfActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,11 +414,11 @@
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(537, 504);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.gbCentro);
+            this.Controls.Add(this.gbResponsable);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.FlowLayoutPanel1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbActivo);
             this.Controls.Add(this.lblMargenInf);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblTituloPrinc);
@@ -426,14 +431,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInfActivos";
             this.Load += new System.EventHandler(this.FrmInfActivos_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbActivo.ResumeLayout(false);
+            this.gbActivo.PerformLayout();
             this.FlowLayoutPanel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gbResponsable.ResumeLayout(false);
+            this.gbResponsable.PerformLayout();
+            this.gbCentro.ResumeLayout(false);
+            this.gbCentro.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -447,7 +452,7 @@
         internal System.Windows.Forms.Label lblMargenDer;
         internal System.Windows.Forms.Label lblMargenTop;
         internal System.Windows.Forms.Label lblMargenInf;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbActivo;
         private System.Windows.Forms.RadioButton rbUnico;
         private System.Windows.Forms.RadioButton rbTodos;
         private System.Windows.Forms.TextBox txtCodActivo;
@@ -456,19 +461,19 @@
         private System.Windows.Forms.Label lblSalir;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox gbResponsable;
+        private System.Windows.Forms.TextBox txtResponsable;
         private System.Windows.Forms.RadioButton rbRUno;
         private System.Windows.Forms.RadioButton rbRTodos;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox gbCentro;
+        private System.Windows.Forms.TextBox txtCentro;
         private System.Windows.Forms.RadioButton rbCUno;
         private System.Windows.Forms.RadioButton rbCTodos;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox cboPropiedad;
         private System.Windows.Forms.ComboBox cboAgrupar;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtNomActivo;
+        private System.Windows.Forms.TextBox txtNomResp;
+        private System.Windows.Forms.TextBox txtCCosto;
     }
 }

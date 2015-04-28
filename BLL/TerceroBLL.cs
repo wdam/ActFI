@@ -33,6 +33,15 @@ namespace BLL
             return tdao.buscar(codigo);
         }
 
+        public ETerceros buscarTercero(string codigo) {
+            if (string.IsNullOrWhiteSpace(codigo))
+            {
+                return null;
+            }
+            TerceroDAO tdao = new TerceroDAO();
+            return tdao.buscarTercero(codigo);
+        }
+
         public List<ETerceros> buscar(string campo, string dato) {
             if (campo == "Nombre")
             {
@@ -69,6 +78,29 @@ namespace BLL
             else
             {
                 return "Error al Guardar los Datos";
+            }
+        }
+
+        public string actualizar(ETerceros obj)
+        {
+            TerceroDAO tDao = new TerceroDAO();
+            if (string.IsNullOrWhiteSpace(obj.nit))
+            {
+                return "Nit o Cedula Esta  Vacia";
+            }
+
+            if (string.IsNullOrWhiteSpace(obj.nit))
+            {
+                return "Falta el Nombre ";
+            }
+
+            if (tDao.actualizar(obj) > 0)
+            {
+                return "Exito"; // Datos Guardados 
+            }
+            else
+            {
+                return "Error al modificar los Datos";
             }
         }
     }

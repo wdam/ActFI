@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using CrystalDecisions.CrystalReports.Engine;
+using Aplicacion.Interfaces;
 
 namespace Aplicacion.Informes
 {
-    public partial class FrmInfActivos : Form
+    public partial class FrmInfActivos : Form,  ISeleccionar
     {
         BLL.ActivosBLL bllAct = new BLL.ActivosBLL();
         BLL.CompanyBLL bllComp = new BLL.CompanyBLL();
+
+        TextBox texto;
 
         public FrmInfActivos()
         {
@@ -98,9 +101,7 @@ namespace Aplicacion.Informes
 
         private void informeAgrupado(string campo) {
 
-            FieldDefinition fielDef;
-            
-           
+            FieldDefinition fielDef;                        
             ECompany objC = bllComp.buscar();
             DataTable dt = new DataTable();
             dt = bllAct.informeGeneral(cboPropiedad.Text,campo);
@@ -127,9 +128,13 @@ namespace Aplicacion.Informes
             {
                 txtCodActivo.Enabled = true;
                 txtCodActivo.Focus();
+                gbCentro.Enabled = false;
+                gbResponsable.Enabled = false;
             }
             else {
                 txtCodActivo.Enabled = false;
+                gbCentro.Enabled = true;
+                gbResponsable.Enabled = true;
             }
         }
 
@@ -144,6 +149,56 @@ namespace Aplicacion.Informes
             cboPropiedad.SelectedIndex = 0;
         }
 
-      
+        private void rbRUno_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbRUno.Checked == true)
+            {
+                txtResponsable.Enabled = true;
+                txtResponsable.Focus();
+            }
+            else {
+                txtResponsable.Enabled = false;
+            }
+        }
+
+        private void rbCUno_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCUno.Checked == true) {
+                txtCentro.Enabled = true;
+                txtCentro.Focus();
+            }
+            else {
+                txtCentro.Enabled = false;
+            }
+        }
+
+
+
+        public void SeleccionarDato(string dato)
+        {
+            texto.Text = dato;
+        }
+
+        private void txtCodActivo_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            Inventario.FrmSelActivos frmS = new Inventario.FrmSelActivos();
+            frmS.ShowDialog(this);
+        }
+
+        private void txtResponsable_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            Inventario.FrmSelTercero frmt = new Inventario.FrmSelTercero();
+            frmt.tipo = "Empleados";
+            frmt.ShowDialog(this);
+        }
+
+        private void txtCentro_DoubleClick(object sender, EventArgs e)
+        {
+            texto = (TextBox)sender;
+            Inventario.FrmSelCentroCostos frmC = new Inventario.FrmSelCentroCostos();            
+            frmC.ShowDialog(this);
+        }
     }
 }
