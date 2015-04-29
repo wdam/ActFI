@@ -43,5 +43,24 @@ namespace BLL
              }
             tDao.updateConsecutivo(numero, tipo, Inicializar.Mes);
         }
+
+        public string insertar(ETipoDocumento objTipo) {
+            if (string.IsNullOrWhiteSpace(objTipo.tipoDoc)) {
+                return "Ingrese la Sigla o tipo de Documneto";
+            }
+
+            if (string.IsNullOrWhiteSpace(objTipo.descripcion)) {
+                return "Ingrese la Descripcion del Tipo de Documento";
+            }
+
+            if (tDao.insertar(objTipo) > 0)
+            {
+                return "Exito";
+            }
+            else {
+                return "Error al Guardar Datos";
+            }
+            
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Entidades
     /// <summary>
     /// Clase Encargada de los Tipo de Depreciacion que Manejara la Aplicacion
     /// </summary>
-    public class EtipoDepreciacion {
+    public class EtiposGenericos {
         public string sigla { get; set;}
         public string Descripcion { get; set; }
 

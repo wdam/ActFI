@@ -1,6 +1,6 @@
 ﻿namespace Aplicacion.Inventario
 {
-    partial class FrmTipoDocumento
+    partial class FrmSelTipoDocumento
     {
         /// <summary>
         /// Required designer variable.

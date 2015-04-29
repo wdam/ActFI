@@ -166,7 +166,7 @@ namespace Aplicacion.Inventario
         private void seleccionarDoc(object sender, EventArgs e)
         {
             setTexto = (TextBox)sender;
-            FrmTipoDocumento frm = new FrmTipoDocumento();
+            FrmSelTipoDocumento frm = new FrmSelTipoDocumento();
             frm.ShowDialog(this);
         }
 

@@ -136,6 +136,12 @@ namespace Aplicacion.Principal
             frmP.ShowDialog();
         }
 
+        private void definirDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTipoDocumento frmT = new FrmTipoDocumento();
+            frmT.ShowDialog();
+        }
+
         
     }
 }

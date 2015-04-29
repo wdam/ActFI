@@ -747,7 +747,7 @@ namespace Aplicacion.Inventario
         {
             busGrilla = false;
             textoSel = (TextBox)sender;
-            FrmTipoDocumento FRM = new FrmTipoDocumento();
+            FrmSelTipoDocumento FRM = new FrmSelTipoDocumento();
             FRM.ShowDialog(this);
         }
 

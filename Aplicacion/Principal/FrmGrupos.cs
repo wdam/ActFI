@@ -168,7 +168,7 @@ namespace Aplicacion.Principal
             ocultarPanel2();
             dgvGrupo.AutoGenerateColumns = false;
             dgvSubGrupo.AutoGenerateColumns = false;
-            List<EtipoDepreciacion> lstTipos = UtilSystem.metodosDepreciacion();
+            List<EtiposGenericos> lstTipos = UtilSystem.metodosDepreciacion();
             cboMetodo.DisplayMember = "Descripcion";
             cboMetodo.ValueMember = "sigla";            
             cboMetodo.DataSource = lstTipos;

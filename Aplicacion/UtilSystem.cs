@@ -117,14 +117,32 @@ namespace Aplicacion
         }
 
         /// <summary>
-        /// Estable y Recupera los metodos de Depreciacion a Utilizar
+        /// Establece y Recupera los metodos de Depreciacion a Utilizar
         /// </summary>
         /// <returns></returns>
-        public static List<Entidades.EtipoDepreciacion> metodosDepreciacion() {
-            List<Entidades.EtipoDepreciacion> lstTipos = new List<Entidades.EtipoDepreciacion>();
-            lstTipos.Add(new Entidades.EtipoDepreciacion { sigla = "NDP", Descripcion = "NDP > NO DEPRECIACBLE" });
-            lstTipos.Add(new Entidades.EtipoDepreciacion { sigla = "DLR", Descripcion = "DLR > DEPRECIACION LINEA RECTA" });
+        public static List<Entidades.EtiposGenericos> metodosDepreciacion() {
+            List<Entidades.EtiposGenericos> lstTipos = new List<Entidades.EtiposGenericos>();
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "NDP", Descripcion = "NDP > NO DEPRECIACBLE" });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "DLR", Descripcion = "DLR > DEPRECIACION LINEA RECTA" });
             return lstTipos;
-        }       
+        }
+
+        /// <summary>
+        /// Retorna una lista con los Grupos de Documentos que se pueden utilizar
+        /// </summary>
+        /// <returns>Lista de Grupos de Documentos</returns>
+        public static List<Entidades.EtiposGenericos> gruposDocumentos()
+        {            
+            List<Entidades.EtiposGenericos> lstTipos = new List<Entidades.EtiposGenericos>();
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "AF", Descripcion = "AF > ACTIVOS FIJOS" });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "AJ", Descripcion = "AJ > AJUSTE DE CONTABILIDAD" });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "CE", Descripcion = "CE > COMPROBANTES DE EGRESOS" });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "CG", Descripcion = "CG > COMPROBANTES DE GASTOS " });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "CI", Descripcion = "CI > COMPROBANTES DE INGRESOS" });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "EN", Descripcion = "EN > ENTRADA DE MERCANCIAS" });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "FC", Descripcion = "FC > FACTURA DE VENTA" });
+            lstTipos.Add(new Entidades.EtiposGenericos { sigla = "FP", Descripcion = "FP > FACTURA DE PROVEEDORES" });                      
+            return lstTipos;
+        }
     }
 }

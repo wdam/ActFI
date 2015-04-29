@@ -47,6 +47,7 @@
             this.lblCompania = new System.Windows.Forms.ToolStripMenuItem();
             this.lblPeriodo = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.definirDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.SpContenedor)).BeginInit();
             this.SpContenedor.Panel1.SuspendLayout();
             this.SpContenedor.SuspendLayout();
@@ -234,7 +235,8 @@
             // GeneralesToolStripMenuItem
             // 
             this.GeneralesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmCambiarPer});
+            this.tsmCambiarPer,
+            this.definirDocumentosToolStripMenuItem});
             this.GeneralesToolStripMenuItem.Name = "GeneralesToolStripMenuItem";
             this.GeneralesToolStripMenuItem.Size = new System.Drawing.Size(108, 29);
             this.GeneralesToolStripMenuItem.Text = "Generales";
@@ -244,8 +246,8 @@
             this.tsmCambiarPer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tsmCambiarPer.Image = global::Aplicacion.Properties.Resources.calendar;
             this.tsmCambiarPer.Name = "tsmCambiarPer";
-            this.tsmCambiarPer.Size = new System.Drawing.Size(226, 30);
-            this.tsmCambiarPer.Text = "Cambiar Periodo";
+            this.tsmCambiarPer.Size = new System.Drawing.Size(252, 30);
+            this.tsmCambiarPer.Text = "Cambiar &Periodo";
             this.tsmCambiarPer.Click += new System.EventHandler(this.tsmCambiarPer_Click);
             // 
             // AcercadeoolStripMenuItem
@@ -282,6 +284,13 @@
             this.ToolTip1.AutoPopDelay = 5000;
             this.ToolTip1.InitialDelay = 300;
             this.ToolTip1.ReshowDelay = 100;
+            // 
+            // definirDocumentosToolStripMenuItem
+            // 
+            this.definirDocumentosToolStripMenuItem.Name = "definirDocumentosToolStripMenuItem";
+            this.definirDocumentosToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.definirDocumentosToolStripMenuItem.Text = "Definir &Documentos";
+            this.definirDocumentosToolStripMenuItem.Click += new System.EventHandler(this.definirDocumentosToolStripMenuItem_Click);
             // 
             // MDIPrincipal
             // 
@@ -335,6 +344,7 @@
         private System.Windows.Forms.ToolStripMenuItem lblCompania;
         private System.Windows.Forms.ToolStripMenuItem lblPeriodo;
         private System.Windows.Forms.ToolStripMenuItem tsmCambiarPer;
+        private System.Windows.Forms.ToolStripMenuItem definirDocumentosToolStripMenuItem;
     }
 }
 

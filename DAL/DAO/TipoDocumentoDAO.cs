@@ -91,5 +91,33 @@ namespace DAL.DAO
             }
             return nReg;
         }
+
+        public int insertar(ETipoDocumento obj)
+        {
+
+            int reg = 0; // Obtiene el numero de Registros afectados
+            string sql = "INSERT INTO tipdoc (tipodoc, grupo, descripcion, inicio01, actual01) VALUES (?tipodoc, ?grupo, ?descripcion, 0, 0)";
+
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.CommandText = sql;
+                    cmd.Connection = cnx.getConexion();
+
+                    cmd.Parameters.Add("?tipodoc", MySqlDbType.String).Value = obj.tipoDoc;
+                    cmd.Parameters.Add("?grupo", MySqlDbType.String).Value = obj.grupo;
+                    cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = obj.descripcion;
+
+                    if (cnx.abrirConexion())
+                    {
+                        reg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return reg;
+        } 
     }
 }

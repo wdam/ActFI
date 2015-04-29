@@ -12,13 +12,13 @@ using Aplicacion.Interfaces;
 
 namespace Aplicacion.Inventario
 {
-    public partial class FrmTipoDocumento : Form
+    public partial class FrmSelTipoDocumento : Form
     {
         public string tipo;
         BLL.TipoDocumentoBLL blltipo = new BLL.TipoDocumentoBLL();
         List<ETipoDocumento> lstTipos;
 
-        public FrmTipoDocumento()
+        public FrmSelTipoDocumento()
         {
             InitializeComponent();
         }

@@ -70,7 +70,7 @@
             // 
             // FlowLayoutPanel1
             // 
-            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(130)))));
+            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(130)))), ((int)(((byte)(120)))));
             this.FlowLayoutPanel1.Controls.Add(this.lblNuevo);
             this.FlowLayoutPanel1.Controls.Add(this.lblGuardar);
             this.FlowLayoutPanel1.Controls.Add(this.lblCancelar);
@@ -203,13 +203,13 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
+            this.lblEstado.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(459, 0);
+            this.lblEstado.Location = new System.Drawing.Point(459, 43);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(61, 21);
             this.lblEstado.TabIndex = 6;
             this.lblEstado.Text = "Estado";
-            this.lblEstado.Visible = false;
             // 
             // btnExit
             // 

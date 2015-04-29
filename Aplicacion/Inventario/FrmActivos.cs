@@ -1188,7 +1188,7 @@ namespace Aplicacion.Inventario
             CargarAreas();
             cargarGrupos();
             // Cargar Metodo de >Depreciacion
-            List<EtipoDepreciacion> lstTipos = UtilSystem.metodosDepreciacion();
+            List<EtiposGenericos> lstTipos = UtilSystem.metodosDepreciacion();
             cboMetodo.DisplayMember = "Descripcion";
             cboMetodo.ValueMember = "sigla";
             cboMetodo.DataSource = lstTipos;
