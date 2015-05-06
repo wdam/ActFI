@@ -33,10 +33,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblMargenDer = new System.Windows.Forms.Label();
-            this.lblMargenIzq = new System.Windows.Forms.Label();
-            this.lblMargenTop = new System.Windows.Forms.Label();
-            this.lblMargenInf = new System.Windows.Forms.Label();
             this.lblNuevo = new System.Windows.Forms.Label();
             this.lblGuardar = new System.Windows.Forms.Label();
             this.lblCancelar = new System.Windows.Forms.Label();
@@ -44,18 +40,19 @@
             this.lblBuscar = new System.Windows.Forms.Label();
             this.lblSalir = new System.Windows.Forms.Label();
             this.lblOperacion = new System.Windows.Forms.Label();
+            this.lblMargenDer = new System.Windows.Forms.Label();
+            this.lblMargenIzq = new System.Windows.Forms.Label();
+            this.lblMargenTop = new System.Windows.Forms.Label();
+            this.lblMargenInf = new System.Windows.Forms.Label();
             this.gbTipos = new System.Windows.Forms.GroupBox();
             this.cboGrupo = new System.Windows.Forms.ComboBox();
             this.Label12 = new System.Windows.Forms.Label();
-            this.txtInicial = new System.Windows.Forms.TextBox();
             this.txtActual = new System.Windows.Forms.TextBox();
             this.Label11 = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
             this.lblPerActual = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblPerInicio = new System.Windows.Forms.Label();
-            this.Label5 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.smsError = new System.Windows.Forms.ErrorProvider(this.components);
@@ -68,6 +65,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
@@ -113,42 +111,6 @@
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
             this.FlowLayoutPanel1.Size = new System.Drawing.Size(536, 66);
             this.FlowLayoutPanel1.TabIndex = 234;
-            // 
-            // lblMargenDer
-            // 
-            this.lblMargenDer.BackColor = System.Drawing.Color.Black;
-            this.lblMargenDer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblMargenDer.Location = new System.Drawing.Point(0, 0);
-            this.lblMargenDer.Name = "lblMargenDer";
-            this.lblMargenDer.Size = new System.Drawing.Size(2, 290);
-            this.lblMargenDer.TabIndex = 230;
-            // 
-            // lblMargenIzq
-            // 
-            this.lblMargenIzq.BackColor = System.Drawing.Color.Black;
-            this.lblMargenIzq.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblMargenIzq.Location = new System.Drawing.Point(538, 0);
-            this.lblMargenIzq.Name = "lblMargenIzq";
-            this.lblMargenIzq.Size = new System.Drawing.Size(2, 290);
-            this.lblMargenIzq.TabIndex = 231;
-            // 
-            // lblMargenTop
-            // 
-            this.lblMargenTop.BackColor = System.Drawing.Color.Black;
-            this.lblMargenTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblMargenTop.Location = new System.Drawing.Point(2, 0);
-            this.lblMargenTop.Name = "lblMargenTop";
-            this.lblMargenTop.Size = new System.Drawing.Size(536, 2);
-            this.lblMargenTop.TabIndex = 235;
-            // 
-            // lblMargenInf
-            // 
-            this.lblMargenInf.BackColor = System.Drawing.Color.Black;
-            this.lblMargenInf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMargenInf.Location = new System.Drawing.Point(2, 288);
-            this.lblMargenInf.Name = "lblMargenInf";
-            this.lblMargenInf.Size = new System.Drawing.Size(536, 2);
-            this.lblMargenInf.TabIndex = 236;
             // 
             // lblNuevo
             // 
@@ -274,19 +236,52 @@
             this.lblOperacion.TabIndex = 16;
             this.lblOperacion.Text = "Consulta";
             // 
+            // lblMargenDer
+            // 
+            this.lblMargenDer.BackColor = System.Drawing.Color.Black;
+            this.lblMargenDer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblMargenDer.Location = new System.Drawing.Point(0, 0);
+            this.lblMargenDer.Name = "lblMargenDer";
+            this.lblMargenDer.Size = new System.Drawing.Size(2, 290);
+            this.lblMargenDer.TabIndex = 230;
+            // 
+            // lblMargenIzq
+            // 
+            this.lblMargenIzq.BackColor = System.Drawing.Color.Black;
+            this.lblMargenIzq.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblMargenIzq.Location = new System.Drawing.Point(538, 0);
+            this.lblMargenIzq.Name = "lblMargenIzq";
+            this.lblMargenIzq.Size = new System.Drawing.Size(2, 290);
+            this.lblMargenIzq.TabIndex = 231;
+            // 
+            // lblMargenTop
+            // 
+            this.lblMargenTop.BackColor = System.Drawing.Color.Black;
+            this.lblMargenTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMargenTop.Location = new System.Drawing.Point(2, 0);
+            this.lblMargenTop.Name = "lblMargenTop";
+            this.lblMargenTop.Size = new System.Drawing.Size(536, 2);
+            this.lblMargenTop.TabIndex = 235;
+            // 
+            // lblMargenInf
+            // 
+            this.lblMargenInf.BackColor = System.Drawing.Color.Black;
+            this.lblMargenInf.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMargenInf.Location = new System.Drawing.Point(2, 288);
+            this.lblMargenInf.Name = "lblMargenInf";
+            this.lblMargenInf.Size = new System.Drawing.Size(536, 2);
+            this.lblMargenInf.TabIndex = 236;
+            // 
             // gbTipos
             // 
             this.gbTipos.Controls.Add(this.cboGrupo);
             this.gbTipos.Controls.Add(this.Label12);
-            this.gbTipos.Controls.Add(this.txtInicial);
             this.gbTipos.Controls.Add(this.txtActual);
             this.gbTipos.Controls.Add(this.Label11);
             this.gbTipos.Controls.Add(this.Label10);
             this.gbTipos.Controls.Add(this.Label9);
             this.gbTipos.Controls.Add(this.lblPerActual);
             this.gbTipos.Controls.Add(this.txtDescripcion);
-            this.gbTipos.Controls.Add(this.lblPerInicio);
-            this.gbTipos.Controls.Add(this.Label5);
             this.gbTipos.Controls.Add(this.txtTipo);
             this.gbTipos.Enabled = false;
             this.gbTipos.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -321,25 +316,11 @@
             this.Label12.TabIndex = 24;
             this.Label12.Text = "Grupo de Documento";
             // 
-            // txtInicial
-            // 
-            this.txtInicial.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtInicial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInicial.Location = new System.Drawing.Point(150, 134);
-            this.txtInicial.MaxLength = 6;
-            this.txtInicial.Name = "txtInicial";
-            this.txtInicial.Size = new System.Drawing.Size(71, 29);
-            this.txtInicial.TabIndex = 16;
-            this.txtInicial.Text = "0";
-            this.txtInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInicial_KeyPress);
-            this.txtInicial.Leave += new System.EventHandler(this.txtInicial_Leave);
-            // 
             // txtActual
             // 
             this.txtActual.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtActual.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActual.Location = new System.Drawing.Point(427, 134);
+            this.txtActual.Location = new System.Drawing.Point(193, 130);
             this.txtActual.MaxLength = 6;
             this.txtActual.Name = "txtActual";
             this.txtActual.Size = new System.Drawing.Size(71, 29);
@@ -367,11 +348,11 @@
             this.Label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Label10.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label10.ForeColor = System.Drawing.Color.Black;
-            this.Label10.Location = new System.Drawing.Point(288, 137);
+            this.Label10.Location = new System.Drawing.Point(11, 133);
             this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(58, 22);
+            this.Label10.Size = new System.Drawing.Size(104, 22);
             this.Label10.TabIndex = 22;
-            this.Label10.Text = "Actual";
+            this.Label10.Text = "Consecutivo";
             // 
             // Label9
             // 
@@ -391,7 +372,7 @@
             this.lblPerActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblPerActual.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPerActual.ForeColor = System.Drawing.Color.Black;
-            this.lblPerActual.Location = new System.Drawing.Point(353, 137);
+            this.lblPerActual.Location = new System.Drawing.Point(119, 133);
             this.lblPerActual.Name = "lblPerActual";
             this.lblPerActual.Size = new System.Drawing.Size(70, 22);
             this.lblPerActual.TabIndex = 20;
@@ -407,30 +388,6 @@
             this.txtDescripcion.Size = new System.Drawing.Size(305, 29);
             this.txtDescripcion.TabIndex = 15;
             // 
-            // lblPerInicio
-            // 
-            this.lblPerInicio.AutoSize = true;
-            this.lblPerInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblPerInicio.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerInicio.ForeColor = System.Drawing.Color.Black;
-            this.lblPerInicio.Location = new System.Drawing.Point(76, 137);
-            this.lblPerInicio.Name = "lblPerInicio";
-            this.lblPerInicio.Size = new System.Drawing.Size(70, 22);
-            this.lblPerInicio.TabIndex = 19;
-            this.lblPerInicio.Text = "00/0000";
-            // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Label5.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label5.ForeColor = System.Drawing.Color.Black;
-            this.Label5.Location = new System.Drawing.Point(14, 137);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(51, 22);
-            this.Label5.TabIndex = 18;
-            this.Label5.Text = "Inicio";
-            // 
             // txtTipo
             // 
             this.txtTipo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -441,6 +398,7 @@
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(56, 29);
             this.txtTipo.TabIndex = 14;
+            this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
             // 
             // lblMensaje
             // 
@@ -511,15 +469,12 @@
         private System.Windows.Forms.GroupBox gbTipos;
         internal System.Windows.Forms.ComboBox cboGrupo;
         internal System.Windows.Forms.Label Label12;
-        internal System.Windows.Forms.TextBox txtInicial;
         internal System.Windows.Forms.TextBox txtActual;
         internal System.Windows.Forms.Label Label11;
         internal System.Windows.Forms.Label Label10;
         internal System.Windows.Forms.Label Label9;
         internal System.Windows.Forms.Label lblPerActual;
         internal System.Windows.Forms.TextBox txtDescripcion;
-        internal System.Windows.Forms.Label lblPerInicio;
-        internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.ErrorProvider smsError;

@@ -92,6 +92,8 @@ namespace DAL.DAO
             return nReg;
         }
 
+
+
         public int insertar(ETipoDocumento obj)
         {
 
@@ -118,6 +120,31 @@ namespace DAL.DAO
                 }
             }
             return reg;
-        } 
+        }
+
+        public int actualizar(ETipoDocumento obj, string periodo)
+        {
+            int nReg = 0;
+            string sql = " Update tipdoc set actual" + periodo + "=?actual, " +
+                    " descripcion=?descripcion WHERE tipodoc=?tipodoc  ";
+            using (conexion cnx = new conexion())
+            {
+                cnx.cadena = Configuracion.Instanciar.conexionBD();
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    cmd.Connection = cnx.getConexion();
+                    if (cnx.abrirConexion())
+                    {
+                        cmd.Parameters.Add("?tipodoc", MySqlDbType.String).Value = obj.tipoDoc;                        
+                        cmd.Parameters.Add("?descripcion", MySqlDbType.String).Value = obj.descripcion;
+                        cmd.Parameters.Add("?actual", MySqlDbType.Int16).Value = obj.actual;
+                        cmd.CommandText = sql;
+                        nReg = cmd.ExecuteNonQuery();
+                        cnx.cerrarConexion();
+                    }
+                }
+            }
+            return nReg;
+        }
     }
 }

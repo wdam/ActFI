@@ -62,5 +62,24 @@ namespace BLL
             }
             
         }
+
+
+        public string  actualizar(ETipoDocumento objTipo)
+        {
+            if (string.IsNullOrWhiteSpace(objTipo.tipoDoc))
+            {
+                return "Ingrese la Sigla o tipo de Documneto";
+            }
+
+            if (tDao.actualizar(objTipo, Inicializar.Mes) > 0)
+            {
+                return "Exito";
+            }
+            else
+            {
+                return "Error al Guardar Datos";
+            }
+
+        }
     }
 }

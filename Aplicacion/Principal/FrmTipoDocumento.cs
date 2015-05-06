@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using Aplicacion.Interfaces;
 
 namespace Aplicacion.Principal
 {
-    public partial class FrmTipoDocumento : Form
+    public partial class FrmTipoDocumento : Form, ISeleccionar
     {
         BLL.TipoDocumentoBLL bllTipo = new BLL.TipoDocumentoBLL();
-        
+        ETipoDocumento objTipoDoc;
+
+
         public FrmTipoDocumento()
         {
             InitializeComponent();
@@ -54,6 +57,7 @@ namespace Aplicacion.Principal
             lblNuevo.Enabled = false;
             lblEditar.Enabled = false;
             lblBuscar.Enabled = false;
+            txtTipo.Enabled = true;
             smsError.Dispose();
         }
 
@@ -61,11 +65,10 @@ namespace Aplicacion.Principal
             gbTipos.Enabled = false;
             lblGuardar.Enabled = false;
             lblCancelar.Enabled = false;
-
             lblNuevo.Enabled = true;
             lblEditar.Enabled = true;
             lblBuscar.Enabled = true;
-            lblOperacion.Text = "Consulta";
+            lblOperacion.Text = "Consulta";            
         }
 
         private void limpiar() {
@@ -95,8 +98,7 @@ namespace Aplicacion.Principal
             cboGrupo.DisplayMember = "Descripcion";
             cboGrupo.ValueMember = "sigla";
             cboGrupo.DataSource = lstTipos;
-            lblPerActual.Text = BLL.Inicializar.periodo;
-            lblPerInicio.Text = BLL.Inicializar.periodo;
+            lblPerActual.Text = BLL.Inicializar.periodo;            
             deshabilitar();
         }
 
@@ -120,8 +122,9 @@ namespace Aplicacion.Principal
 
         private void lblEditar_Click(object sender, EventArgs e)
         {
-            habilitar();           
             lblOperacion.Text = "Editar";
+            habilitar();
+            txtTipo.Enabled = false;  
         }
 
         private void lblGuardar_Click(object sender, EventArgs e)
@@ -131,6 +134,10 @@ namespace Aplicacion.Principal
             {
                 if (lblOperacion.Text == "Nuevo") {
                     guardar();
+                }
+                else if (lblOperacion.Text == "Editar")
+                {
+                    modificar();
                 }
             }
             else {
@@ -162,8 +169,7 @@ namespace Aplicacion.Principal
             ETipoDocumento obj = new ETipoDocumento();
             obj.actual = Convert.ToInt16(txtActual.Text);
             obj.descripcion = txtDescripcion.Text;
-            obj.grupo = cboGrupo.SelectedValue.ToString();
-            obj.inicio = Convert.ToInt16(txtInicial.Text);
+            obj.grupo = cboGrupo.SelectedValue.ToString();            
             obj.tipoDoc = txtTipo.Text;
 
             string mensaje = bllTipo.insertar(obj);
@@ -175,7 +181,25 @@ namespace Aplicacion.Principal
             {
                 MessageBox.Show(mensaje, "Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
 
+        private void modificar() {
+            ETipoDocumento obj = new ETipoDocumento();
+            obj.actual = Convert.ToInt16(txtActual.Text);
+            obj.descripcion = txtDescripcion.Text;
+            obj.grupo = cboGrupo.SelectedValue.ToString();
+            obj.tipoDoc = txtTipo.Text;
+
+            string mensaje = bllTipo.actualizar(obj);
+            if (mensaje == "Exito")
+            {
+                MessageBox.Show("Datos Guardados Correctamente ", "Control de informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                deshabilitar();
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Control de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
        
         private void txtActual_Leave(object sender, EventArgs e)
@@ -183,14 +207,7 @@ namespace Aplicacion.Principal
             if (string.IsNullOrWhiteSpace(txtActual.Text)) {
                 txtActual.Text = "0";
             }
-        }
-
-        private void txtInicial_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtInicial.Text)) {
-                txtInicial.Text = "0";
-            }
-        }
+        }       
 
         private void cboGrupo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -205,7 +222,28 @@ namespace Aplicacion.Principal
         private void lblBuscar_Click(object sender, EventArgs e)
         {
             Inventario.FrmSelTipoDocumento frmD = new Inventario.FrmSelTipoDocumento();
-            frmD.ShowDialog();
+            frmD.ShowDialog(this);
+        }
+
+        public void SeleccionarDato(string dato)
+        {
+            txtTipo.Text = dato;
+        }
+
+        private void txtTipo_TextChanged(object sender, EventArgs e)
+        {
+            if (lblOperacion.Text == "Consulta") {
+                mostrarDatos();
+            }
+        }
+
+        private void mostrarDatos() {
+            objTipoDoc = bllTipo.buscarTipo(txtTipo.Text);
+            if (objTipoDoc != null) {
+                txtDescripcion.Text = objTipoDoc.descripcion;
+                txtActual.Text = (objTipoDoc.actual - 1).ToString();
+                cboGrupo.SelectedValue = objTipoDoc.grupo;
+            }
         }
 
 
