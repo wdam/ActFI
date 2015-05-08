@@ -16,7 +16,7 @@ namespace Aplicacion.Inventario
 {
     public partial class FrmAreaResp : Form, ISeleccionar
     {
-        string ultimo = string.Format("000");
+        string ultimo = string.Format("0000");
        
         BLL.AreaBLL bllArea = new BLL.AreaBLL();
         BLL.TerceroBLL bllTer = new BLL.TerceroBLL();
@@ -97,7 +97,7 @@ namespace Aplicacion.Inventario
         private void QuitarColorFondo(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            lbl.BackColor = Color.FromArgb(30, 150, 130);
+            lbl.BackColor = Color.FromArgb(30, 130, 120);
         }
         #endregion  
 
@@ -116,7 +116,7 @@ namespace Aplicacion.Inventario
             lista = bllArea.getAll();
             dgvArea.DataSource = lista;
             dgvArea.Refresh();
-            ultimo = string.Format("{0:000}", Convert.ToInt32(lista.Count + 1));
+            ultimo = string.Format("{0:0000}", Convert.ToInt32(lista.Count + 1));
         }
 
         private void FrmAreaResp_Load(object sender, EventArgs e)
@@ -155,7 +155,7 @@ namespace Aplicacion.Inventario
 
         private void lblEditar_Click(object sender, EventArgs e)
         {
-            if (txtCodigo.Text == "000" || txtCodigo.Text == "")
+            if (txtCodigo.Text == "0000" || txtCodigo.Text == "")
             {
                 MessageBox.Show("Seleccione un Area de la tabla para modificar", "SAE Control",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

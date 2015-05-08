@@ -174,6 +174,12 @@
     <Compile Include="Principal\FrmTipoDocumento.Designer.cs">
       <DependentUpon>FrmTipoDocumento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procesos\FrmTransaccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FrmTransaccion.Designer.cs">
+      <DependentUpon>FrmTransaccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UtilSystem.cs" />
     <Compile Include="Informes\FrmInfActivos.cs">
       <SubType>Form</SubType>
@@ -260,10 +266,10 @@
     <Compile Include="Inventario\FrmSelTipoDocumento.Designer.cs">
       <DependentUpon>FrmSelTipoDocumento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\FrmTraslados.cs">
+    <Compile Include="Procesos\FrmTraslados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventario\FrmTraslados.Designer.cs">
+    <Compile Include="Procesos\FrmTraslados.Designer.cs">
       <DependentUpon>FrmTraslados.cs</DependentUpon>
     </Compile>
     <Compile Include="Procesos\FrmDepreciacion.cs">
@@ -409,7 +415,10 @@
     <EmbeddedResource Include="Inventario\FrmSelTipoDocumento.resx">
       <DependentUpon>FrmSelTipoDocumento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmTraslados.resx">
+    <EmbeddedResource Include="Procesos\FrmTransaccion.resx">
+      <DependentUpon>FrmTransaccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\FrmTraslados.resx">
       <DependentUpon>FrmTraslados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmGrupos.resx">

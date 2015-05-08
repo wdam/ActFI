@@ -55,14 +55,7 @@ namespace Aplicacion.Inventario
             this.Show();            
         }
 
-        private void lblTraslados_Click(object sender, EventArgs e)
-        {                      
-            this.Hide();
-            FrmTraslados frm = new FrmTraslados();
-            frm.ShowDialog();
-            this.Show();            
-        }
-
+       
         private void lblSaldos_Click(object sender, EventArgs e)
         {
             this.menuPrincipal.Visible = false;

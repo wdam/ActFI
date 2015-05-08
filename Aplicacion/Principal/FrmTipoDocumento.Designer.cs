@@ -130,6 +130,8 @@
             this.lblNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblNuevo, "Nuevo Registro");
             this.lblNuevo.Click += new System.EventHandler(this.lblNuevo_Click);
+            this.lblNuevo.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblNuevo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblGuardar
             // 
@@ -149,6 +151,8 @@
             this.lblGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblGuardar, "Guardar Registro");
             this.lblGuardar.Click += new System.EventHandler(this.lblGuardar_Click);
+            this.lblGuardar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblCancelar
             // 
@@ -168,6 +172,8 @@
             this.lblCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblCancelar, "Cancelar Operacion");
             this.lblCancelar.Click += new System.EventHandler(this.lblCancelar_Click);
+            this.lblCancelar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblCancelar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblEditar
             // 
@@ -187,6 +193,8 @@
             this.lblEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblEditar, "Editar Registro");
             this.lblEditar.Click += new System.EventHandler(this.lblEditar_Click);
+            this.lblEditar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblEditar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblBuscar
             // 
@@ -206,6 +214,8 @@
             this.lblBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblBuscar, "Buscar Registro");
             this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
+            this.lblBuscar.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblBuscar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblSalir
             // 
@@ -224,6 +234,8 @@
             this.lblSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblSalir, "Salir");
             this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
+            this.lblSalir.MouseLeave += new System.EventHandler(this.QuitarColorFondo);
+            this.lblSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColocarColorFondo);
             // 
             // lblOperacion
             // 

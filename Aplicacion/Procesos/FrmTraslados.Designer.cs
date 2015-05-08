@@ -1,4 +1,4 @@
-﻿namespace Aplicacion.Inventario
+﻿namespace Aplicacion.Procesos
 {
     partial class FrmTraslados
     {
@@ -47,6 +47,8 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.lblArea = new System.Windows.Forms.Label();
+            this.lblResponsable = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtArea = new System.Windows.Forms.TextBox();
@@ -60,8 +62,6 @@
             this.lblMargenTop = new System.Windows.Forms.Label();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.lblMargenInf = new System.Windows.Forms.Label();
-            this.lblResponsable = new System.Windows.Forms.Label();
-            this.lblArea = new System.Windows.Forms.Label();
             this.gbObser = new System.Windows.Forms.GroupBox();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.smsError)).BeginInit();
@@ -171,6 +171,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(125, 35);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(156, 29);
@@ -187,7 +188,7 @@
             // 
             // FlowLayoutPanel1
             // 
-            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
+            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(94)))), ((int)(((byte)(117)))));
             this.FlowLayoutPanel1.Controls.Add(this.lblNuevo);
             this.FlowLayoutPanel1.Controls.Add(this.lblGuardar);
             this.FlowLayoutPanel1.Controls.Add(this.lblCancelar);
@@ -218,8 +219,8 @@
             this.gbTraslado.Controls.Add(this.Label3);
             this.gbTraslado.Controls.Add(this.Label6);
             this.gbTraslado.Enabled = false;
-            this.gbTraslado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTraslado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.gbTraslado.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTraslado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
             this.gbTraslado.Location = new System.Drawing.Point(13, 255);
             this.gbTraslado.Name = "gbTraslado";
             this.gbTraslado.Size = new System.Drawing.Size(488, 116);
@@ -229,7 +230,8 @@
             // 
             // txtNitResp
             // 
-            this.txtNitResp.Location = new System.Drawing.Point(113, 73);
+            this.txtNitResp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNitResp.Location = new System.Drawing.Point(118, 73);
             this.txtNitResp.Name = "txtNitResp";
             this.txtNitResp.Size = new System.Drawing.Size(100, 29);
             this.txtNitResp.TabIndex = 5;
@@ -238,8 +240,9 @@
             // 
             // cboArea
             // 
+            this.cboArea.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboArea.FormattingEnabled = true;
-            this.cboArea.Location = new System.Drawing.Point(83, 36);
+            this.cboArea.Location = new System.Drawing.Point(120, 33);
             this.cboArea.Name = "cboArea";
             this.cboArea.Size = new System.Drawing.Size(310, 29);
             this.cboArea.TabIndex = 4;
@@ -248,7 +251,8 @@
             // 
             this.txtNuevoRespon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.txtNuevoRespon.Enabled = false;
-            this.txtNuevoRespon.Location = new System.Drawing.Point(216, 73);
+            this.txtNuevoRespon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNuevoRespon.Location = new System.Drawing.Point(221, 73);
             this.txtNuevoRespon.Name = "txtNuevoRespon";
             this.txtNuevoRespon.Size = new System.Drawing.Size(260, 29);
             this.txtNuevoRespon.TabIndex = 3;
@@ -256,22 +260,22 @@
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label3.ForeColor = System.Drawing.Color.Black;
-            this.Label3.Location = new System.Drawing.Point(12, 77);
+            this.Label3.Location = new System.Drawing.Point(11, 76);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(98, 21);
+            this.Label3.Size = new System.Drawing.Size(107, 22);
             this.Label3.TabIndex = 0;
             this.Label3.Text = "Responsable";
             // 
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label6.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label6.ForeColor = System.Drawing.Color.Black;
-            this.Label6.Location = new System.Drawing.Point(12, 40);
+            this.Label6.Location = new System.Drawing.Point(11, 36);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(42, 21);
+            this.Label6.Size = new System.Drawing.Size(45, 22);
             this.Label6.TabIndex = 0;
             this.Label6.Text = "Area";
             // 
@@ -289,8 +293,8 @@
             this.gbDatos.Controls.Add(this.Label4);
             this.gbDatos.Controls.Add(this.Label1);
             this.gbDatos.Enabled = false;
-            this.gbDatos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDatos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.gbDatos.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDatos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
             this.gbDatos.Location = new System.Drawing.Point(13, 47);
             this.gbDatos.Name = "gbDatos";
             this.gbDatos.Size = new System.Drawing.Size(488, 208);
@@ -298,8 +302,29 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Actuales";
             // 
+            // lblArea
+            // 
+            this.lblArea.AutoSize = true;
+            this.lblArea.Location = new System.Drawing.Point(13, 116);
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size(44, 22);
+            this.lblArea.TabIndex = 15;
+            this.lblArea.Text = "area";
+            this.lblArea.Visible = false;
+            // 
+            // lblResponsable
+            // 
+            this.lblResponsable.AutoSize = true;
+            this.lblResponsable.Location = new System.Drawing.Point(13, 67);
+            this.lblResponsable.Name = "lblResponsable";
+            this.lblResponsable.Size = new System.Drawing.Size(104, 22);
+            this.lblResponsable.TabIndex = 14;
+            this.lblResponsable.Text = "responsable";
+            this.lblResponsable.Visible = false;
+            // 
             // dtFecha
             // 
+            this.dtFecha.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFecha.Location = new System.Drawing.Point(293, 35);
             this.dtFecha.Name = "dtFecha";
@@ -310,6 +335,7 @@
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.txtDescripcion.Enabled = false;
+            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(125, 69);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -320,6 +346,7 @@
             // 
             this.txtArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.txtArea.Enabled = false;
+            this.txtArea.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtArea.Location = new System.Drawing.Point(125, 140);
             this.txtArea.Name = "txtArea";
             this.txtArea.ReadOnly = true;
@@ -330,6 +357,7 @@
             // 
             this.txtResponsable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.txtResponsable.Enabled = false;
+            this.txtResponsable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResponsable.Location = new System.Drawing.Point(125, 175);
             this.txtResponsable.Name = "txtResponsable";
             this.txtResponsable.ReadOnly = true;
@@ -339,44 +367,44 @@
             // Label10
             // 
             this.Label10.AutoSize = true;
-            this.Label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label10.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label10.ForeColor = System.Drawing.Color.Black;
-            this.Label10.Location = new System.Drawing.Point(12, 91);
+            this.Label10.Location = new System.Drawing.Point(13, 91);
             this.Label10.Name = "Label10";
-            this.Label10.Size = new System.Drawing.Size(91, 21);
+            this.Label10.Size = new System.Drawing.Size(100, 22);
             this.Label10.TabIndex = 0;
             this.Label10.Text = "Descripcion";
             // 
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.ForeColor = System.Drawing.Color.Black;
-            this.Label5.Location = new System.Drawing.Point(12, 178);
+            this.Label5.Location = new System.Drawing.Point(13, 178);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(98, 21);
+            this.Label5.Size = new System.Drawing.Size(107, 22);
             this.Label5.TabIndex = 0;
             this.Label5.Text = "Responsable";
             // 
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.Black;
-            this.Label4.Location = new System.Drawing.Point(12, 144);
+            this.Label4.Location = new System.Drawing.Point(13, 143);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(42, 21);
+            this.Label4.Size = new System.Drawing.Size(45, 22);
             this.Label4.TabIndex = 0;
             this.Label4.Text = "Area";
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.Black;
-            this.Label1.Location = new System.Drawing.Point(12, 39);
+            this.Label1.Location = new System.Drawing.Point(13, 38);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(107, 21);
+            this.Label1.Size = new System.Drawing.Size(113, 22);
             this.Label1.TabIndex = 0;
             this.Label1.Text = "Código Activo";
             // 
@@ -412,7 +440,7 @@
             this.lblTituloPrinc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.lblTituloPrinc.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTituloPrinc.Font = new System.Drawing.Font("Open Sans", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
+            this.lblTituloPrinc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(94)))), ((int)(((byte)(117)))));
             this.lblTituloPrinc.Location = new System.Drawing.Point(2, 2);
             this.lblTituloPrinc.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.lblTituloPrinc.Name = "lblTituloPrinc";
@@ -433,32 +461,12 @@
             this.lblMargenInf.Size = new System.Drawing.Size(510, 2);
             this.lblMargenInf.TabIndex = 206;
             // 
-            // lblResponsable
-            // 
-            this.lblResponsable.AutoSize = true;
-            this.lblResponsable.Location = new System.Drawing.Point(12, 67);
-            this.lblResponsable.Name = "lblResponsable";
-            this.lblResponsable.Size = new System.Drawing.Size(94, 21);
-            this.lblResponsable.TabIndex = 14;
-            this.lblResponsable.Text = "responsable";
-            this.lblResponsable.Visible = false;
-            // 
-            // lblArea
-            // 
-            this.lblArea.AutoSize = true;
-            this.lblArea.Location = new System.Drawing.Point(16, 116);
-            this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(40, 21);
-            this.lblArea.TabIndex = 15;
-            this.lblArea.Text = "area";
-            this.lblArea.Visible = false;
-            // 
             // gbObser
             // 
             this.gbObser.Controls.Add(this.txtObservacion);
             this.gbObser.Enabled = false;
-            this.gbObser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbObser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.gbObser.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbObser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(49)))), ((int)(((byte)(64)))));
             this.gbObser.Location = new System.Drawing.Point(13, 372);
             this.gbObser.Name = "gbObser";
             this.gbObser.Size = new System.Drawing.Size(488, 93);

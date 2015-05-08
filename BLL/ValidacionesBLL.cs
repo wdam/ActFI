@@ -47,7 +47,7 @@ namespace BLL
 
         public bool esCodigoAreaValida(string codigo)
         {           
-            return codigo.Trim().Length == 3;
+            return codigo.Trim().Length == 4;
         }
 
         public bool esValorValido(string valor) { 

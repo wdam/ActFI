@@ -23,6 +23,20 @@ namespace Aplicacion.Principal
             InitializeComponent();
         }
 
+        #region Cambiar Colores de Fondo de los label
+        private void ColocarColorFondo(object sender, MouseEventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(24, 34, 45);
+        }
+
+        private void QuitarColorFondo(object sender, EventArgs e)
+        {
+            Label lbl = (Label)sender;
+            lbl.BackColor = Color.FromArgb(7, 94, 117);
+        }
+        #endregion  
+
         #region Proceso para mover formulario
 
         private bool mover;
@@ -99,7 +113,7 @@ namespace Aplicacion.Principal
             cboGrupo.ValueMember = "sigla";
             cboGrupo.DataSource = lstTipos;
             lblPerActual.Text = BLL.Inicializar.periodo;            
-            deshabilitar();
+            deshabilitar();            
         }
 
         private void cboGrupo_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,10 +122,11 @@ namespace Aplicacion.Principal
         }
 
         private void lblNuevo_Click(object sender, EventArgs e)
-        {
+        {            
             habilitar();
             limpiar();
             lblOperacion.Text = "Nuevo";
+            cboGrupo_SelectedIndexChanged(null, null);
         }
 
         private void lblCancelar_Click(object sender, EventArgs e)

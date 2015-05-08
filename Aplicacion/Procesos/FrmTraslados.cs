@@ -11,7 +11,7 @@ using Aplicacion.Interfaces;
 using Entidades;
 
 
-namespace Aplicacion.Inventario
+namespace Aplicacion.Procesos
 {
     public partial class FrmTraslados : Form, ISeleccionar
     {
@@ -105,7 +105,7 @@ namespace Aplicacion.Inventario
         private void QuitarColorFondo(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            lbl.BackColor = Color.FromArgb(192, 49, 64);
+            lbl.BackColor = Color.FromArgb(7, 94, 117);
         }
         #endregion  
 
@@ -215,14 +215,14 @@ namespace Aplicacion.Inventario
         private void txtCodigo_DoubleClick(object sender, EventArgs e)
         {
             texto = (TextBox)sender;
-            FrmSelActivos frm = new FrmSelActivos();
+            Aplicacion.Inventario.FrmSelActivos frm = new Aplicacion.Inventario.FrmSelActivos();
             frm.ShowDialog(this);
         }
 
         private void txtNitResp_DoubleClick(object sender, EventArgs e)
         {
             texto = (TextBox)sender;
-            FrmSelTercero frm = new FrmSelTercero();
+            Aplicacion.Inventario.FrmSelTercero frm = new Aplicacion.Inventario.FrmSelTercero();
             frm.ShowDialog(this);
         }
 

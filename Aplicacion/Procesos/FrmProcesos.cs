@@ -20,13 +20,7 @@ namespace Aplicacion.Procesos
         private void lblCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose(true);
-        }
-
-        private void lblParametros_Click(object sender, EventArgs e)
-        {
-            FrmVentas frm = new FrmVentas();
-            frm.ShowDialog();
-        }
+        }       
 
         private void lblDepreciacion_Click(object sender, EventArgs e)
         {
@@ -45,6 +39,22 @@ namespace Aplicacion.Procesos
         private void FrmProcesos_Activated(object sender, EventArgs e)
         {
             this.Opacity = 1D;
+        }
+
+        private void lblVenta_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmVentas frm = new FrmVentas();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void lblTraslados_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmTraslados frmT = new FrmTraslados();
+            frmT.ShowDialog();
+            this.Show();
         }
     }
 }

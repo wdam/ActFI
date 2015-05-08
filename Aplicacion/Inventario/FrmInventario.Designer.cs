@@ -37,7 +37,6 @@
             this.lblParametros = new System.Windows.Forms.Label();
             this.lblGrupos = new System.Windows.Forms.Label();
             this.lblTerceros = new System.Windows.Forms.Label();
-            this.lblTraslados = new System.Windows.Forms.Label();
             this.lblTituloPrinc = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuPrincipal.SuspendLayout();
@@ -59,8 +58,7 @@
             this.menuPrincipal.Controls.Add(this.lblDocumentos, 2, 0);
             this.menuPrincipal.Controls.Add(this.lblParametros, 0, 1);
             this.menuPrincipal.Controls.Add(this.lblGrupos, 1, 1);
-            this.menuPrincipal.Controls.Add(this.lblTerceros, 0, 2);
-            this.menuPrincipal.Controls.Add(this.lblTraslados, 2, 1);
+            this.menuPrincipal.Controls.Add(this.lblTerceros, 2, 1);
             this.menuPrincipal.Location = new System.Drawing.Point(57, 88);
             this.menuPrincipal.Name = "menuPrincipal";
             this.menuPrincipal.RowCount = 3;
@@ -200,7 +198,7 @@
             this.lblTerceros.ForeColor = System.Drawing.Color.White;
             this.lblTerceros.Image = global::Aplicacion.Properties.Resources.terceros;
             this.lblTerceros.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTerceros.Location = new System.Drawing.Point(8, 242);
+            this.lblTerceros.Location = new System.Drawing.Point(472, 125);
             this.lblTerceros.Margin = new System.Windows.Forms.Padding(8);
             this.lblTerceros.Name = "lblTerceros";
             this.lblTerceros.Size = new System.Drawing.Size(216, 100);
@@ -209,26 +207,6 @@
             this.lblTerceros.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolTip1.SetToolTip(this.lblTerceros, "Gestion de Terceros");
             this.lblTerceros.Click += new System.EventHandler(this.lblTerceros_Click);
-            // 
-            // lblTraslados
-            // 
-            this.lblTraslados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTraslados.BackColor = System.Drawing.Color.Transparent;
-            this.lblTraslados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTraslados.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTraslados.ForeColor = System.Drawing.Color.White;
-            this.lblTraslados.Image = global::Aplicacion.Properties.Resources.traslados;
-            this.lblTraslados.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblTraslados.Location = new System.Drawing.Point(472, 125);
-            this.lblTraslados.Margin = new System.Windows.Forms.Padding(8);
-            this.lblTraslados.Name = "lblTraslados";
-            this.lblTraslados.Size = new System.Drawing.Size(216, 100);
-            this.lblTraslados.TabIndex = 132;
-            this.lblTraslados.Text = "Traslados";
-            this.lblTraslados.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.lblTraslados, "Traslados");
-            this.lblTraslados.Click += new System.EventHandler(this.lblTraslados_Click);
             // 
             // lblTituloPrinc
             // 
@@ -266,7 +244,6 @@
         private System.Windows.Forms.Label lblDocumentos;
         private System.Windows.Forms.TableLayoutPanel menuPrincipal;
         private System.Windows.Forms.Label lblTerceros;
-        private System.Windows.Forms.Label lblTraslados;
         private System.Windows.Forms.Label lblAreas;
         private System.Windows.Forms.Label lblParametros;
         private System.Windows.Forms.Label lblCerrar;
